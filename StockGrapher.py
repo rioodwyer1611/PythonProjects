@@ -1,4 +1,4 @@
-a# Install required packages
+# Install required packages
 # Uncomment the lines below if you need to install the packages
 # !pip install yfinance
 # !pip install bs4
