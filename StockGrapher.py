@@ -20,8 +20,8 @@ def make_graph(stock_data, revenue_data, stock):
     """
     Create a graph showing stock price and revenue over time
     """
-    stock_data_specific = stock_data[stock_data.Date <= '2021-06-14']
-    revenue_data_specific = revenue_data[revenue_data.Date <= '2021-04-30']
+    stock_data_specific = stock_data[stock_data.Date <= '2026-01-28']
+    revenue_data_specific = revenue_data[revenue_data.Date <= '2026-01-28']
 
     fig, axes = plt.subplots(2, 1, figsize=(12, 8), sharex=True)
 
