@@ -10,9 +10,17 @@ Created to learn how to use:
   - YFinance
 
 Completed as part of an IBM Python Project for Data Science Course.
-\
-\
-\
+
 
 ## Optimal Coffee Shop Location Finder:
-####
+#### A more interesting application which displays all 81 libraries in Chicago, as given by a provided IBM resource, and creates a learning model which identifies the best places to open a certain amount of cafes, as to best fit in the surrounding area of the libraries.
+Created to learn:
+  - Requests
+  - Folium
+  - GeoPy
+  - Webbrowser
+  - OS
+  - DocPlex & CPlex (Not used in final model but available to view in code)
+  - OrTools
+
+Completed as a part of an IBM What is Data Science? Course.
