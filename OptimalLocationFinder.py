@@ -1,5 +1,7 @@
 #!pip install geopy
-#pip install docplex
+#!pip install requests
+#!pip install folium
+#!pip install ortools
 
 
 ###################################
@@ -8,14 +10,14 @@
 import sys
 import docplex.mp
 import geopy.distance
+import ortools
 from geopy.distance import great_circle
 import requests
 import json
 import folium
 import webbrowser
 import os
-from docplex.mp.environment import Environment
-from docplex.mp.model import Model
+from ortools.sat.python import cp_model
 
 
 ###################################
@@ -98,17 +100,18 @@ for library in libraries:
 
 
 ###################################
-# Open in a web browser.
+# Save for use in a web browser.
 ###################################
 
 # Define the file path and save the map as an HTML file
 filepath = 'folium_map.html'
 map_osm.save(filepath)
 
-# Open the HTML file in the default web browser
-# The 'file://' prefix is needed for cross-platform compatibility
-webbrowser.open('file://' + os.path.realpath(filepath))
 
+
+# This code was written with the IMB Data Science Professional Certificate in mind, which is able to use CPLEX.
+# This version/storage of the project cannot.
+"""
 
 ###################################
 # Prescriptive Model Setup.
@@ -179,49 +182,109 @@ print("# coffee shops           = %d" % nb_shops)
 
 assert mdl.solve(), "!!! Solve of the model fails"
 
-###################################
-# Investigate Solution.
-###################################
-
-total_distance = mdl.objective_value
-open_coffeeshops = [c_loc for c_loc in coffeeshop_locations if coffeeshop_vars[c_loc].solution_value == 1]
-not_coffeeshops = [c_loc for c_loc in coffeeshop_locations if c_loc not in open_coffeeshops]
-edges = [(c_loc, b) for b in libraries for c_loc in coffeeshop_locations if int(link_vars[c_loc, b]) == 1]
-
-print("Total distance = %g" % total_distance)
-print("# coffee shops  = {0}".format(len(open_coffeeshops)))
-for c in open_coffeeshops:
-    print("new coffee shop: {0!s}".format(c))
+"""
+# Below is an OR TOOLS rewrite of the CPLEX solition.
 
 ###################################
-# Display Solution on Map.
+# Precompute Distances
+###################################
+
+dist = {}
+for i, c in enumerate(libraries):
+    for j, b in enumerate(libraries):
+        dist[i, j] = int(1000 * get_distance(c, b))
+
+###################################
+# OR-Tools Model
+###################################
+
+model = cp_model.CpModel()
+
+N = len(libraries)
+
+# Decision variables
+open_shop = [model.NewBoolVar(f"open_{i}") for i in range(N)]
+assign = {}
+for i in range(N):
+    for j in range(N):
+        assign[i, j] = model.NewBoolVar(f"assign_{i}_{j}")
+
+###################################
+# Constraints
+###################################
+
+# Each library assigned to exactly one coffee shop
+for j in range(N):
+    model.Add(sum(assign[i, j] for i in range(N)) == 1)
+
+# Assignment only if coffee shop is open
+for i in range(N):
+    for j in range(N):
+        model.Add(assign[i, j] <= open_shop[i])
+
+# Exactly nb_shops coffee shops open
+model.Add(sum(open_shop[i] for i in range(N)) == nb_shops)
+
+###################################
+# Objective: minimize total distance
+###################################
+
+model.Minimize(
+    sum(assign[i, j] * dist[i, j] for i in range(N) for j in range(N))
+)
+
+###################################
+# Solve
+###################################
+
+solver = cp_model.CpSolver()
+solver.parameters.max_time_in_seconds = 30
+solver.parameters.num_search_workers = 8
+
+status = solver.Solve(model)
+
+assert status in (cp_model.OPTIMAL, cp_model.FEASIBLE)
+
+###################################
+# Extract Solution
+###################################
+
+open_shops = [libraries[i] for i in range(N) if solver.Value(open_shop[i]) == 1]
+edges = []
+
+for j in range(N):
+    for i in range(N):
+        if solver.Value(assign[i, j]) == 1:
+            edges.append((libraries[i], libraries[j]))
+
+print(f"Total distance = {solver.ObjectiveValue() / 1000:.2f} miles")
+print(f"# coffee shops = {len(open_shops)}")
+
+for s in open_shops:
+    print(f"New coffee shop: {s}")
+
+###################################
+# Visualization
 ###################################
 
 map_osm = folium.Map(location=[41.878, -87.629], zoom_start=11)
-for coffeeshop in open_coffeeshops:
-    lt = coffeeshop.y
-    lg = coffeeshop.x
-    folium.Marker([lt, lg], icon=folium.Icon(color='red',icon='info-sign')).add_to(map_osm)
-    
+
+# Coffee shops in red
+for s in open_shops:
+    folium.Marker([s.y, s.x],
+                  icon=folium.Icon(color="red", icon="info-sign")).add_to(map_osm)
+
+# Libraries in blue
 for b in libraries:
-    if b not in open_coffeeshops:
-        lt = b.y
-        lg = b.x
-        folium.Marker([lt, lg]).add_to(map_osm)
-    
+    if b not in open_shops:
+        folium.Marker([b.y, b.x]).add_to(map_osm)
 
-for (c, b) in edges:
-    coordinates = [[c.y, c.x], [b.y, b.x]]
-    map_osm.add_child(folium.PolyLine(coordinates, color='#FF0000', weight=5))
+# Assignment edges
+for c, b in edges:
+    folium.PolyLine([[c.y, c.x], [b.y, b.x]],
+                    color="red",
+                    weight=3).add_to(map_osm)
 
-###################################
-# Open in a web browser.
-###################################
-
-# Define the file path and save the map as an HTML file
-filepath = 'folium_map.html'
+filepath = "folium_map.html"
 map_osm.save(filepath)
-
-# Open the HTML file in the default web browser
-# The 'file://' prefix is needed for cross-platform compatibility
-webbrowser.open('file://' + os.path.realpath(filepath))
+webbrowser.open("file://" + os.path.realpath(filepath))

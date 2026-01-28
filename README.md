@@ -8,3 +8,11 @@ Created to learn how to use:
   - BeautifulSoup
   - Requests
   - YFinance
+
+Completed as part of an IBM Python Project for Data Science Course.
+\
+\
+\
+
+## Optimal Coffee Shop Location Finder:
+####
