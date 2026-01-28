@@ -85,8 +85,23 @@ libraries = build_libraries_from_url(url, 10, 17)
 print("There are %d public libraries in Chicago" % (len(libraries)))
 
 
-nb_shops = 5
-print("We would like to open %d coffee shops" % nb_shops)
+###################################
+# Query User for 
+# Number of Coffee Shops.
+###################################
+
+while True:
+    try:
+        nb_shops = int(input("How many coffee shops would you like to open? "))
+        if 1 <= nb_shops <= len(libraries):
+            break
+        else:
+            print(f"Please enter a number between 1 and {len(libraries)}.")
+    except ValueError:
+        print("Please enter a valid integer.")
+
+print(f"We would like to open {nb_shops} coffee shops")
+
 
 ###################################
 # Create Folium Map.
