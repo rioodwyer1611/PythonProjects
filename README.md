@@ -1,6 +1,6 @@
 # PythonProjects
 A storage space for simple python projects I have completed in my search to master Data Science.
-Site Ran through a Jekyll implementation.
+Site Ran through a Jekyll implementation and Netlify.
 
 ## [Stock Grapher:](https://github.com/rioodwyer1611/PythonProjects/tree/e2a6c42257536f6eae0d85c8b20f1f196d7cbc6a/Stock_Grapher)
 #### A really simple program which takes the current share values of two stocks (Tesla and Gamestop) and graphs their stock data and revenue output.
