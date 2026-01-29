@@ -12,7 +12,7 @@ A passionate data science enthusiast on a journey to master Python and data anal
 - Interests: Data Science, Machine Learning, Python Development
 - Currently Studying: Bachelor of Computer Science/Master of Data Science (University of Queensland)
 - Other Studies: IBM Data Science Professional Certificate
-- GitHub: [rioodwyer1611](https://github.com/rioodwyer1611)
+- GitHub: rioodwyer1611 (https://github.com/rioodwyer1611)
 
 ## [Stock Grapher:](https://github.com/rioodwyer1611/PythonProjects/tree/main/Stock_Grapher)
 #### A program which retrieves current share values of Tesla and GameStop stocks and visualizes their stock data alongside revenue output through interactive graphs.
