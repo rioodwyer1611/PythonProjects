@@ -1,10 +1,17 @@
-#!pip install pandas
+#!pip install pandas matplotlib seaborn numpy 
 #Import and configure the required modules.
 # Define required imports
 import pandas as pd
 import numpy as np
 import sys
 import re
+import seaborn as sns
+from pandas import DataFrame as df
+from matplotlib import pyplot as plt
+
+# =============================================================================
+# Part 1: Data Cleaning
+# =============================================================================
 
 ##########################
 # Set up display
@@ -172,3 +179,35 @@ hourly_data_renamed = hourly_data.rename(columns=columns_name_map)
 print(hourly_data_renamed.info())
 print()
 hourly_data_renamed.head()
+
+hourly_data_renamed['DATE'] = pd.to_datetime(hourly_data_renamed['DATE'])
+hourly_data_renamed.set_index('DATE', inplace=True)
+
+##########################
+# Explore General Info
+##########################
+
+print('# of megabytes held by dataframe: ' + str(round(sys.getsizeof(hourly_data_renamed) / 1000000,2)))
+print('# of features: ' + str(hourly_data_renamed.shape[1])) 
+print('# of observations: ' + str(hourly_data_renamed.shape[0]))
+print('Start date: ' + str(hourly_data_renamed.index[0]))
+print('End date: ' + str(hourly_data_renamed.index[-1]))
+print('# of days: ' + str((hourly_data_renamed.index[-1] - hourly_data_renamed.index[0]).days))
+print('# of months: ' + str(round((hourly_data_renamed.index[-1] - hourly_data_renamed.index[0]).days/30,2)))
+print('# of years: ' + str(round((hourly_data_renamed.index[-1] - hourly_data_renamed.index[0]).days/365,2)))
+
+##########################
+# Save Cleaned Data
+##########################
+
+hourly_data_renamed.to_csv("jfk_weather_cleaned.csv", float_format='%g')
+
+print(hourly_data_renamed)
+
+
+# =============================================================================
+# Part 2: Exploratory Data Analysis
+# =============================================================================
+
+plt.rcParams['figure.dpi'] = 160
+data = pd.read_csv("jfk_weather_cleaned.csv")
