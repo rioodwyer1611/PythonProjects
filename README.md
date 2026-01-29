@@ -1,9 +1,23 @@
 # PythonProjects
-A storage space for simple python projects I have completed in my search to master Data Science.
-Site Ran through a Jekyll implementation and Netlify.
+A collection of data science projects completed during my journey to master Python and Data Science.
 
-## [Stock Grapher:](https://github.com/rioodwyer1611/PythonProjects/tree/e2a6c42257536f6eae0d85c8b20f1f196d7cbc6a/Stock_Grapher)
-#### A really simple program which takes the current share values of two stocks (Tesla and Gamestop) and graphs their stock data and revenue output.
+## About Me
+#### Name: Rio O'Dwyer
+
+![Profile Photo](images/profile-placeholder.jpg)
+
+A passionate data science enthusiast on a journey to master Python and data analysis techniques.
+
+- Location: Ireland
+- Interests: Data Science, Machine Learning, Python Development
+- Currently Learning: Advanced Data Analytics and Machine Learning
+- GitHub: rioodwyer1611
+
+## [Stock Grapher:](https://github.com/rioodwyer1611/PythonProjects/tree/main/Stock_Grapher)
+#### A program which retrieves current share values of Tesla and GameStop stocks and visualizes their stock data alongside revenue output through interactive graphs.
+
+![Stock Grapher Preview](images/stock-grapher-placeholder.jpg)
+
 Created to learn how to use:
   - Pandas
   - BeautifulSoup
@@ -13,8 +27,11 @@ Created to learn how to use:
 Completed as part of an IBM Python Project for Data Science Course.
 
 
-## [Optimal Coffee Shop Location Finder:](https://github.com/rioodwyer1611/PythonProjects/tree/e2a6c42257536f6eae0d85c8b20f1f196d7cbc6a/Optimal_Coffee_Shop_Location_Finder)
-#### A more interesting application which displays all 81 libraries in Chicago, as given by a provided IBM resource, and creates a machine learning model which identifies the best places to open a certain amount of cafes, as to best fit in the surrounding area of the libraries.
+## [Optimal Coffee Shop Location Finder:](https://github.com/rioodwyer1611/PythonProjects/tree/main/Optimal_Coffee_Shop_Location_Finder)
+#### An application that displays all 81 libraries in Chicago and uses optimization algorithms to identify the best locations for opening coffee shops near these libraries.
+
+![Coffee Shop Finder Preview](images/coffee-shop-placeholder.jpg)
+
 Created to learn:
   - Requests
   - Folium
@@ -26,11 +43,15 @@ Created to learn:
 
 Completed as a part of an IBM What is Data Science? Course.
 
-## [Weather Data Analyser:](https://github.com/rioodwyer1611/PythonProjects/tree/e2a6c42257536f6eae0d85c8b20f1f196d7cbc6a/Optimal_Coffee_Shop_Location_Finder)
-#### A pretty interesting data cleaning, analyser and graphing operation taken from the IBM Tools for Data Science Course. Useful for learning the basics of said operations. I did not build this, this is just a storage space for the code model after finishing the course. I did work to change the code in a couple ways for it to work with my machine outside of the IBM notebook environment.
+## [Weather Data Analyser:](https://github.com/rioodwyer1611/PythonProjects/tree/main/Weather_Data_Analyser)
+#### A data cleaning, analysis and graphing project that demonstrates the basics of data preprocessing and visualization techniques using weather datasets.
+
+![Weather Data Analyser Preview](images/weather-data-placeholder.jpg)
+
 Created to learn:
   - Pandas
-  - MatPlot
+  - MatPlotLib
   - SeaBorn
   - NumPy
+
 Completed as a part of an IBM Tools for Data Science Course.
