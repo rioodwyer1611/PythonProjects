@@ -1,4 +1,6 @@
 #!pip install pandas matplotlib seaborn numpy 
+#!pip install scikit-learn
+#!pip install statsmodels
 #Import and configure the required modules.
 # Define required imports
 import pandas as pd
@@ -7,6 +9,9 @@ import sys
 import re
 import seaborn as sns
 from pandas import DataFrame as df
+from matplotlib import pyplot as plt
+from sklearn.metrics import mean_squared_error
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 from matplotlib import pyplot as plt
 
 # =============================================================================
@@ -122,9 +127,9 @@ hourly_data.reset_index(inplace=True)
 
 print(hourly_data.columns)
 
-hourly_data['HOURLYPressureTendency'] = hourly_data['HOURLYPressureTendency'].fillna(method='ffill') # fill with last valid observation
-hourly_data = hourly_data.interpolate(method='linear') # interpolate missing values
-hourly_data.drop(hourly_data.index[0], inplace=True) # drop first row
+hourly_data['HOURLYPressureTendency'] = hourly_data['HOURLYPressureTendency'].ffill()
+hourly_data = hourly_data.interpolate(method='linear')
+hourly_data.drop(hourly_data.index[0], inplace=True)
 
 print(hourly_data.info())
 print(hourly_data.head())
@@ -210,4 +215,111 @@ print(hourly_data_renamed)
 # =============================================================================
 
 plt.rcParams['figure.dpi'] = 160
-data = pd.read_csv("jfk_weather_cleaned.csv")
+data = pd.read_csv("jfk_weather_cleaned.csv", parse_dates=['DATE'])
+# Set date index
+data = data.set_index(pd.DatetimeIndex(data['DATE']))
+data.drop(['DATE'], axis=1, inplace=True)
+data.head()
+
+##########################
+# Visualise Data
+##########################
+
+# Columns to visualize
+plot_cols = ['dry_bulb_temp_f', 'relative_humidity', 'wind_speed', 'station_pressure', 'precip']
+
+# Quick overview of columns
+plt.figure(figsize=(30, 12))
+i = 1
+for col in plot_cols:
+    plt.subplot(len(plot_cols), 1, i)
+    plt.plot(data[col].values)
+    plt.title(col)
+    i += 1
+plt.subplots_adjust(hspace=0.5)
+plt.show()
+
+# Plot correlation matrix
+f, ax = plt.subplots(figsize=(7, 7))
+corr = data[plot_cols].corr()
+sns.heatmap(corr, mask=np.zeros_like(corr, dtype=np.bool), cmap=sns.diverging_palette(220, 10, as_cmap=True), square=True, ax=ax)
+
+# Plot pairplots
+sns.pairplot(data[plot_cols])
+
+plt.figure(figsize=(15,7))
+
+##########################
+# Analyse Trends in Data
+##########################
+
+TEMP_COL = 'dry_bulb_temp_f'
+# Plot temperature data converted to a monthly frequency 
+plt.subplot(1, 2, 1)
+#data = data[~data.index.duplicated(keep='first')]
+data[TEMP_COL].asfreq('ME').plot()  
+plt.title('Monthly Temperature')
+plt.ylabel('Temperature (F)')
+
+# Zoom in on a year and plot temperature data converted to a daily frequency 
+plt.subplot(1, 2, 2)
+data.loc['2017', TEMP_COL].asfreq('D').plot()
+plt.title('Daily Temperature in 2017')
+plt.ylabel('Temperature (F)')
+
+plt.tight_layout()
+plt.show()
+
+plt.figure(figsize=(15,7))
+
+# Plot percent change of daily temperature in 2017
+plt.subplot(1, 2, 1)
+data.loc['2017', TEMP_COL].asfreq('D').div(
+    data.loc['2017', TEMP_COL].asfreq('D').shift()
+).plot()
+plt.title('% Change in Daily Temperature in 2017')
+plt.ylabel('% Change')
+
+# Plot absolute change of temperature in 2017 with daily frequency
+plt.subplot(1, 2, 2)
+
+data.loc['2017', TEMP_COL].asfreq('D').diff().plot()
+
+plt.title('Absolute Change in Daily Temperature in 2017')
+plt.ylabel('Temperature (F)')
+
+plt.tight_layout()
+plt.show()
+
+plt.figure(figsize=(15, 7))
+
+# Plot rolling mean of temperature 
+plt.subplot(1, 2, 1)
+data.loc['2017', TEMP_COL].rolling('5D').mean().plot(zorder=2)  # 5-day rolling mean
+data.loc['2017', TEMP_COL].plot(zorder=1)
+plt.legend(['Rolling', 'Temp'])
+plt.title('Rolling Avg in Hourly Temperature in 2017')
+plt.ylabel('Temperature (F)')
+
+# Plot rolling mean of temperature for Jan–Mar 2017
+plt.subplot(1, 2, 2)
+data.loc['2017-01':'2017-03', TEMP_COL].rolling('2D').mean().plot(zorder=2)  # 2-day rolling mean
+data.loc['2017-01':'2017-03', TEMP_COL].plot(zorder=1)
+plt.legend(['Rolling', 'Temp'])
+plt.title('Rolling Avg in Hourly Temperature in Winter 2017')
+plt.ylabel('Temperature (F)')
+
+plt.tight_layout()
+plt.show()
+
+# =============================================================================
+# Part 3: Time Series Forecasting
+# =============================================================================
+
+data.reset_index(inplace=True)
+data['DATE'] = pd.to_datetime(data['DATE'])
+
+data.set_index('DATE', inplace=True)
+
+sample = data['2016-01-01':'2018-01-01']
+sample.info()
