@@ -369,8 +369,8 @@ n_features = len(features)
 baseline = sample[[Y_COL]].loc[:]
 baseline['{} (t-1)'.format(Y_COL)] = baseline[Y_COL].shift(1)
 baseline['{} (t-2)'.format(Y_COL)] = baseline[Y_COL].shift(2)
-baseline['{} (6hr rollavg)'.format(Y_COL)] = baseline[Y_COL].rolling('6H').mean()
-baseline['{} (12hr rollavg)'.format(Y_COL)] = baseline[Y_COL].rolling('12H').mean()
+baseline[f'{Y_COL} (6hr rollavg)']  = baseline[Y_COL].rolling('6h').mean()
+baseline[f'{Y_COL} (12hr rollavg)'] = baseline[Y_COL].rolling('12h').mean()
 baseline.dropna(inplace=True)
 baseline.head(10)
 
