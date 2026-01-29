@@ -25,3 +25,9 @@ Created to learn:
   - OrTools
 
 Completed as a part of an IBM What is Data Science? Course.
+
+## [Data Cleaning:](https://github.com/rioodwyer1611/PythonProjects/tree/e2a6c42257536f6eae0d85c8b20f1f196d7cbc6a/Optimal_Coffee_Shop_Location_Finder)
+#### A pretty interesting data cleaning operation taken from the IBM Tools for Data Science Course. Useful for learning the basics of said operations. I did not build this, this is just a storage space for the code model after finishing the course. I did work to change the code in a couple ways for it to work with my machine outside of the IBM notebook environment.
+Created to learn:
+  - Pandas
+Completed as a part of an IBM Tools for Data Science Course.
