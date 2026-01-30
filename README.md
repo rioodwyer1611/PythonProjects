@@ -4,7 +4,7 @@ A collection of data science projects completed during my journey to master Pyth
 ## About Me
 #### Name: Rio O'Dwyer
 
-![Profile Photo](images/profile-placeholder.jpg)
+![Profile Photo](images/example-profile.svg)
 
 A passionate data science enthusiast on a journey to master Python and data analysis techniques.
 
