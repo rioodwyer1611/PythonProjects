@@ -1,27 +1,10 @@
 # PythonProjects
 A collection of data science projects completed during my journey to master Python and Data Science.
 
-## Site Navigation
-
-This site features a sidebar navigation that allows easy access to different pages. The navigation is fixed on desktop screens and slides in from the left on mobile devices.
-
 ### Current Pages
 - **Home** (`index.html`) - Main landing page with project overview
 - **Projects** (`projects.html`) - Dedicated page showcasing all projects
 - **About Me** (`about.html`) - Personal information and skills
-
-### Adding a New Page
-
-1. **Create the HTML file**: Copy an existing page (e.g., `about.html`) and rename it to your new page name (e.g., `contact.html`).
-
-2. **Update the page content**: Modify the `<title>`, hero section, and main content to match your new page.
-
-3. **Update the active navigation link**: In your new page, find the `nav-link` for your page and add the `active` class, while removing it from other links.
-
-4. **Add the navigation link to all pages**: Add a new `<li>` item to the `<ul class="nav-links">` section in every HTML file:
-
-
-5. **Choose an icon**: You can find free SVG icons at [Feather Icons](https://feathericons.com/) or similar icon libraries.
 
 ## About Me
 #### Name: Rio O'Dwyer
