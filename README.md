@@ -20,14 +20,6 @@ This site features a sidebar navigation that allows easy access to different pag
 
 4. **Add the navigation link to all pages**: Add a new `<li>` item to the `<ul class="nav-links">` section in every HTML file:
 
-```html
-<li><a href="your-page.html" class="nav-link">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Add your icon SVG path here -->
-    </svg>
-    Your Page Name
-</a></li>
-```
 
 5. **Choose an icon**: You can find free SVG icons at [Feather Icons](https://feathericons.com/) or similar icon libraries.
 
