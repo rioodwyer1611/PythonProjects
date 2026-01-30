@@ -1,12 +1,12 @@
-# PythonProjects
-A collection of data science projects completed during my journey to master Python and Data Science.
+# Project Portfolio
+A collection of data science projects completed during my journey to master Python and Data Science. Here lies documentation of all my efforts to be the best CS student that any company has ever seen.
 
 ### Current Pages
 - **Home** (`index.html`) - Main landing page with project overview
 - **Projects** (`projects.html`) - Dedicated page showcasing all projects
 - **About Me** (`about.html`) - Personal information and skills
 
-## About Me
+## Home
 #### Name: Rio O'Dwyer
 
 ![Profile Photo](https://res.cloudinary.com/dspzbx0yl/image/upload/v1769738496/IMG_2722_aemnyi.heic)
@@ -71,3 +71,6 @@ Created to learn:
   - Jupyter
 
 Completed as a part of IBM Tools for Data Science Course.
+
+
+## About Me
