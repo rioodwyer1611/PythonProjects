@@ -55,4 +55,14 @@ Created to learn:
   - SeaBorn
   - NumPy
 
-Completed as a part of an IBM Tools for Data Science Course.
+Taken from IBM Tools for Data Science Course, altered to fit current pandas formats.
+
+## [Basic Jupyter Notebook:](https://github.com/rioodwyer1611/PythonProjects/tree/main/Weather_Data_Analyser)
+#### A super basic Jupyter notebook created to learn how to properly use the development tool.
+
+![Weather Data Analyser Preview](images/weather-data-placeholder.jpg)
+
+Created to learn:
+  - Jupyter
+
+Completed as a part of IBM Tools for Data Science Course.
