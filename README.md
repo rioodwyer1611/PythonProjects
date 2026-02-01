@@ -1,3 +1,5 @@
+![My GitHub Game](game.gif)
+
 # Project Portfolio
 A collection of data science projects completed during my journey to master Python and Data Science. Here lies documentation of all my efforts to be the best CS student that any company has ever seen.
 
