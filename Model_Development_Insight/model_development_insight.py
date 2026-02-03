@@ -110,7 +110,7 @@ lm4 = LinearRegression()
 # Equation given by Yhat = a + b1X1 + b2X2 + b3X3
 
 # Develop model using these variables as predictor variables
-Z2 = df[['normalised-losses','highway-mpg']]
+Z2 = df[['normalized-losses','highway-mpg']]
 
 # Fit linear model using above variables
 lm4.fit(Z2, df['price'])
@@ -128,3 +128,16 @@ print(lm4.coef_)
 ###############################
 # Regression Plot
 ###############################
+
+# Plot of Highway MPG
+width = 12
+height = 10
+plt.figure(figsize=(width, height))
+sns.regplot(x="highway-mpg", y="price", data=df)
+plt.ylim(0,)
+
+
+# Plot of Peak RPM
+plt.figure(figsize=(width, height))
+sns.regplot(x="peak-rpm", y="price", data=df)
+plt.ylim(0,)
