@@ -129,6 +129,12 @@ print(lm4.coef_)
 # Regression Plot
 ###############################
 
+#This plot will show a combination of a scattered data points (a scatterplot), 
+# as well as the fitted linear regression line going through the data. This 
+# will give us a reasonable estimate of the relationship between the two variables, 
+# the strength of the correlation, as well as the direction 
+# (positive or negative correlation).
+
 # Plot of Highway MPG
 width = 12
 height = 10
@@ -141,3 +147,89 @@ plt.ylim(0,)
 plt.figure(figsize=(width, height))
 sns.regplot(x="peak-rpm", y="price", data=df)
 plt.ylim(0,)
+
+plt.show()
+
+# The variable "highway-mpg" has a stronger correlation with "price", it is approximate -0.704692  compared to "peak-rpm" which is approximate -0.101616. You can verify it using the following command:
+df[["peak-rpm","highway-mpg","price"]].corr()
+
+###############################
+# Residual Plot
+###############################
+
+# Residual:
+# The difference between the observed value (y) and the predicted value (Yhat) 
+# is called the residual (e). When we look at a regression plot, the residual 
+# is the distance from the data point to the fitted regression line.
+
+# Residual Plot:
+# A residual plot is a graph that shows the residuals on the vertical y-axis and 
+# the independent variable on the horizontal x-axis.
+# If the points in a residual plot are randomly spread out around the x-axis, 
+# then a linear model is appropriate for the data.
+
+width = 12
+height = 10
+plt.figure(figsize=(width, height))
+sns.residplot(x=df['highway-mpg'], y=df['price'])
+plt.show()
+
+###############################
+# Multiple Linear 
+# Regression Plot
+###############################
+
+# Can't use a regression or residual plot to visualise MLR.
+# Can use a distribution plot.
+
+Y_hat = lm.predict(Z)
+plt.figure(figsize=(width, height))
+
+
+ax1 = sns.kdeplot(df['price'], hist=False, color="r", label="Actual Value")
+sns.kdeplot(Y_hat, hist=False, color="b", label="Fitted Values" , ax=ax1)
+
+
+plt.title('Actual vs Fitted Values for Price')
+plt.xlabel('Price (in dollars)')
+plt.ylabel('Proportion of Cars')
+
+plt.show()
+plt.close()
+
+###############################
+# Polynomial Regressions
+###############################
+
+def PlotPolly(model, independent_variable, dependent_variabble, Name):
+    x_new = np.linspace(15, 55, 100)
+    y_new = model(x_new)
+
+    plt.plot(independent_variable, dependent_variabble, '.', x_new, y_new, '-')
+    plt.title('Polynomial Fit with Matplotlib for Price ~ Length')
+    ax = plt.gca()
+    ax.set_facecolor((0.898, 0.898, 0.898))
+    fig = plt.gcf()
+    plt.xlabel(Name)
+    plt.ylabel('Price of Cars')
+
+    plt.show()
+    plt.close()
+
+x = df['highway-mpg']
+y = df['price']
+
+# Here we use a polynomial of the 3rd order (cubic) 
+f = np.polyfit(x, y, 3)
+p = np.poly1d(f)
+print(p)
+
+PlotPolly(p, x, y, 'highway-mpg')
+
+np.polyfit(x, y, 3)
+
+# 11 Order Polynomial 
+f1 = np.polyfit(x, y, 11)
+p1 = np.poly1d(f1)
+print(p1)
+PlotPolly(p1,x,y, 'Highway MPG')
