@@ -73,3 +73,15 @@ Created to learn:
   - Jupyter
 
 Completed as a part of IBM Tools for Data Science Course.
+
+## [Model Development Insight:](https://github.com/rioodwyer1611/PythonProjects/tree/main/Weather_Data_Analyser)
+#### A general guide for developing models using Python with a car-based dataset. Good to refer back to in future.
+
+![Weather Data Analyser Preview](images/weather-data-placeholder.jpg)
+
+Created to learn:
+  - Seaborn
+  - MatPlotLib
+  - NumPy
+
+Completed as a part of IBM Data Analysis with Python Course.
