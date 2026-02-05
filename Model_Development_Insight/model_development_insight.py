@@ -182,12 +182,12 @@ plt.show()
 # Can't use a regression or residual plot to visualise MLR.
 # Can use a distribution plot.
 
-Y_hat = lm.predict(Z)
+Y_hat = lm3.predict(Z)
 plt.figure(figsize=(width, height))
 
 
-ax1 = sns.kdeplot(df['price'], hist=False, color="r", label="Actual Value")
-sns.kdeplot(Y_hat, hist=False, color="b", label="Fitted Values" , ax=ax1)
+ax1 = sns.kdeplot(df['price'], color="r", label="Actual Value")
+sns.kdeplot(Y_hat, color="b", label="Fitted Values" , ax=ax1)
 
 
 plt.title('Actual vs Fitted Values for Price')
@@ -233,3 +233,142 @@ f1 = np.polyfit(x, y, 11)
 p1 = np.poly1d(f1)
 print(p1)
 PlotPolly(p1,x,y, 'Highway MPG')
+
+###############################
+# Polynomial Transformations
+###############################
+
+from sklearn.preprocessing import PolynomialFeatures
+
+pr=PolynomialFeatures(degree=2)
+print(pr)
+
+Z_pr=pr.fit_transform(Z)
+
+# In the original data, there are 201 samples and 4 features.
+print(Z.shape)
+
+# After the transformation, there are 201 samples and 15 features.
+print(Z_pr.shape)
+
+###############################
+# Pipeline
+###############################
+
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+# Create a pipeline with a list of tuples with the model name and function.
+Input=[('scale',StandardScaler()), ('polynomial', PolynomialFeatures(include_bias=False)), ('model',LinearRegression())]
+
+pipe=Pipeline(Input)
+print(pipe)
+
+# Convert to float to avoid conversion warnings due to Standard Scaler only taking floats.
+Z.astype(float)
+
+# Can normalise data, perform a transformation, and fit model simulateously.
+pipe.fit(Z,y)
+
+# Can normalise data, perform a transformation, and create a prediction.
+ypipe=pipe.predict(Z)
+print(ypipe[0:4])
+
+# Pipeline that standardizes the data, then produce a prediction using a linear regression model using the features Z and target y.
+Input2 = [('scale', StandardScaler()), ('model', LinearRegression())]
+
+pipe2 = Pipeline(Input2)
+print(pipe2)
+
+pipe2.fit(Z,y)
+
+ypipe2 = pipe2.predict(Z)
+print(ypipe2[0:10])
+
+#####################################################
+# Measures for In-Sample Evaluation
+#####################################################
+
+# Two types:
+# - R-squared
+# - Mean Square Error (MSE)
+
+###############################
+# Model 1: SLR
+###############################
+
+# Highway_mpg_fit
+lm.fit(X, Y)
+# Find the R^2
+print('The R-square is: ', lm.score(X, Y))
+
+# Finding the MSE
+
+from sklearn.metrics import mean_squared_error
+
+Yhat=lm.predict(X)
+print('The output of the first four predicted value is: ', Yhat[0:4])
+
+mse = mean_squared_error(df['price'], Yhat)
+print('The mean square error of price and predicted value is: ', mse)
+
+###############################
+# Model 2: MLR
+###############################
+
+# fit the model 
+lm.fit(Z, df['price'])
+# Find the R^2
+print('The R-square is: ', lm.score(Z, df['price']))
+
+# Finding the MSE
+Y_predict_multifit = lm.predict(Z)
+
+print('The mean square error of price and predicted value using multifit is: ', \
+      mean_squared_error(df['price'], Y_predict_multifit))
+
+###############################
+# Model 3: Polynomial Fit
+###############################
+
+from sklearn.metrics import r2_score
+
+r_squared = r2_score(y, p(x))
+print('The R-square value is: ', r_squared)
+
+# Calculate MSE
+
+print(mean_squared_error(df['price'], p(x)))
+
+#####################################################
+# Prediction and Decision Making
+#####################################################
+
+###############################
+# Prediction
+###############################
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create new input
+new_input=np.arange(1, 100, 1).reshape(-1, 1)
+
+# Fit model
+lm.fit(X,Y)
+print(lm)
+
+# Produce Prediction
+yhat=lm.predict(new_input)
+print(yhat[0:5])
+
+# Plot Data
+plt.plot(new_input, yhat)
+plt.show()
+
+#####################################################
+# What makes a good model?
+#####################################################
+
+# Closer to 1 R^2 value.
+# Lower MSE value.
