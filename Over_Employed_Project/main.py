@@ -81,7 +81,7 @@ with st.sidebar:
     st.divider()
 
     # Filter: Job type
-    # 🔧 Add/remove types to match your data
+    # Add/remove types
     all_types = ["All"] + sorted(df["type"].unique().tolist())
     selected_type = st.selectbox("Job Type", all_types)
 
@@ -90,7 +90,7 @@ with st.sidebar:
     location_search = st.text_input("Location contains", placeholder="e.g. Remote, New York")
 
     # Filter: Status
-    # 🔧 Add more status options to match your workflow (e.g. Accepted, Rejected)
+    # Add more status options to match your workflow (e.g. Accepted, Rejected)
     all_statuses = ["All"] + sorted(df["status"].unique().tolist())
     selected_status = st.selectbox("Status", all_statuses)
 
@@ -197,7 +197,7 @@ with col_reject:
 #   job['title'], job['company'], job['location'], job['salary'], job['description']
 
 if accept_clicked:
-    # ✅ ACCEPT EVENT
+    # ACCEPT EVENT
     # ─────────────────────────────────────────────────────────────────────────
     # This code runs when the user clicks Accept.
     # Some ideas for what to do here:
@@ -212,7 +212,7 @@ if accept_clicked:
 
 
 if reject_clicked:
-    # ❌ REJECT EVENT
+    # REJECT EVENT
     # ─────────────────────────────────────────────────────────────────────────
     # This code runs when the user clicks Reject.
     # Some ideas for what to do here:
