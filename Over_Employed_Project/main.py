@@ -232,7 +232,7 @@ st.divider()
 st.markdown('<p class="section-header">All Filtered Listings</p>', unsafe_allow_html=True)
 
 with st.expander("Show full list", expanded=False):
-    # 🔧 Change the column list here to show/hide fields in the table
+    # Change the column list here to show/hide fields in the table
     st.dataframe(
         filtered_df[["title", "company", "location", "salary", "type", "status"]],
         use_container_width=True,
