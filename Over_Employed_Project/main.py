@@ -52,26 +52,29 @@ st.markdown("""
 # ── Sample Data ────────────────────────────────────────────────────────────────
 # 🔧 REPLACE THIS with a real data source:
 #    e.g. pd.read_csv("jobs.csv")  /  API call  /  database query
-SAMPLE_JOBS = [
-    {"title": "Senior Python Developer",    "company": "Acme Corp",        "location": "Remote",       "salary": "$120k-$150k", "type": "Full-time",  "status": "New",      "description": "Build backend services using FastAPI and PostgreSQL. Lead a small team of engineers."},
-    {"title": "Data Engineer",              "company": "DataFlow Inc",     "location": "New York, NY", "salary": "$110k-$135k", "type": "Full-time",  "status": "New",      "description": "Design and maintain ETL pipelines. Strong SQL and Spark experience required."},
-    {"title": "ML Engineer",               "company": "Neura AI",          "location": "Remote",       "salary": "$140k-$170k", "type": "Full-time",  "status": "New",      "description": "Deploy and monitor ML models in production. Experience with MLflow and AWS SageMaker preferred."},
-    {"title": "Frontend Developer",         "company": "Pixel Studio",     "location": "Austin, TX",   "salary": "$90k-$115k",  "type": "Full-time",  "status": "Reviewed", "description": "Build beautiful React applications. Strong TypeScript and CSS skills."},
-    {"title": "DevOps Engineer",            "company": "CloudBase",        "location": "Remote",       "salary": "$125k-$145k", "type": "Contract",   "status": "New",      "description": "Manage Kubernetes clusters and CI/CD pipelines. Terraform experience a must."},
-    {"title": "Product Manager",            "company": "LaunchPad",        "location": "San Francisco","salary": "$130k-$160k", "type": "Full-time",  "status": "New",      "description": "Drive product strategy for a B2B SaaS platform. 5+ years PM experience required."},
-    {"title": "Backend Engineer (Go)",      "company": "Rapid Systems",    "location": "Remote",       "salary": "$115k-$140k", "type": "Full-time",  "status": "New",      "description": "Build high-performance microservices in Go. Experience with gRPC and Kafka."},
-    {"title": "iOS Developer",              "company": "AppVenture",       "location": "Chicago, IL",  "salary": "$100k-$125k", "type": "Full-time",  "status": "Reviewed", "description": "Develop and maintain Swift apps for the App Store. SwiftUI experience preferred."},
-    {"title": "Security Engineer",          "company": "ShieldNet",        "location": "Remote",       "salary": "$130k-$155k", "type": "Full-time",  "status": "New",      "description": "Conduct penetration testing and harden cloud infrastructure. OSCP certification a plus."},
-    {"title": "Part-time Data Analyst",     "company": "Insight Co",       "location": "Remote",       "salary": "$45-$65/hr",  "type": "Part-time",  "status": "New",      "description": "Analyse sales data and produce weekly reports. SQL and Tableau skills required."},
-    {"title": "Freelance React Developer",  "company": "Self / Client",    "location": "Remote",       "salary": "$80-$100/hr", "type": "Freelance",  "status": "New",      "description": "Build landing pages and dashboards for multiple clients. Flexible hours."},
-    {"title": "Cloud Architect",            "company": "NimbusTech",       "location": "Seattle, WA",  "salary": "$155k-$185k", "type": "Full-time",  "status": "New",      "description": "Design enterprise AWS/GCP architectures. AWS Solutions Architect certification preferred."},
-    {"title": "QA Automation Engineer",     "company": "TestRight",        "location": "Remote",       "salary": "$85k-$105k",  "type": "Full-time",  "status": "New",      "description": "Write Selenium and Playwright tests. Experience with CI/CD integration required."},
-    {"title": "Embedded Systems Engineer",  "company": "ChipWorks",        "location": "Boston, MA",   "salary": "$105k-$130k", "type": "Full-time",  "status": "New",      "description": "Develop firmware for IoT devices. C/C++ and RTOS experience required."},
-    {"title": "Technical Writer",           "company": "DocsFirst",        "location": "Remote",       "salary": "$70k-$90k",   "type": "Part-time",  "status": "New",      "description": "Write API documentation and user guides for developer products."},
+# Define required columns for the app
+required_columns = [
+    "title",
+    "company",
+    "location",
+    "salary",
+    "type",
+    "status",
+    "description",
 ]
 
-# Convert to DataFrame for easy filtering
-df = pd.DataFrame(SAMPLE_JOBS)
+starter_jobs = []
+
+# Create DataFrame
+df = pd.DataFrame(starter_jobs)
+
+# Failsafe: ensure all required columns exist even if empty
+if df.empty:
+    df = pd.DataFrame(columns=required_columns)
+else:
+    for col in required_columns:
+        if col not in df.columns:
+            df[col] = ""
 
 
 # ── Sidebar Filters ────────────────────────────────────────────────────────────
@@ -141,7 +144,7 @@ dropdown_labels = [
 
 st.markdown('<p class="section-header">Select a Job to Review</p>', unsafe_allow_html=True)
 
-# 🔧 This is the main dropdown. Selecting an item here updates the detail card below.
+# This is the main dropdown. Selecting an item here updates the detail card below.
 selected_label = st.selectbox(
     label="Job listing",
     options=dropdown_labels,
