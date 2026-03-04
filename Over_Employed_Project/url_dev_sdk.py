@@ -142,11 +142,7 @@ async def run_workflow(workflow_input: WorkflowInput):
       "output_parsed": indeed_url_creation_result_temp.final_output.model_dump()
     }
     end_result = {
-      "indeed_url_list": {
-
-      },
-      "seek_url_list": {
-
-      }
+    "seek_url_list": list(seek_url_creation_result["output_parsed"]["seek_url_list"].values()),
+    "indeed_url_list": list(indeed_url_creation_result["output_parsed"]["indeed_url_list"].values()),
     }
     return end_result
