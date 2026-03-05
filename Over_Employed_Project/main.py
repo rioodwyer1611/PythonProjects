@@ -10,9 +10,9 @@ from the dropdown, then Accept or Reject it.
 
 import streamlit as st
 import pandas as pd
-from playwright_stealth import Stealth
 
 from agent_implementation import run_url_agent
+
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Job Search",
@@ -55,12 +55,14 @@ h1, h2, h3 { font-family: 'Syne', sans-serif; }
     border: 1px solid #1e2235;
     border-left: 3px solid #3d5afe;
     border-radius: 2px;
-    padding: 20px 24px;
-    margin-bottom: 10px;
+    padding: 20px 24px 14px;
+    margin-bottom: 4px;
     transition: border-color 0.15s;
 }
 
 .result-card:hover { border-left-color: #7c8eff; }
+.result-card.accepted { border-left-color: #2e8b57 !important; background: #0a120d; }
+.result-card.rejected { border-left-color: #8b2e2e !important; background: #120a0a; opacity: 0.5; }
 
 .card-title {
     font-family: 'Syne', sans-serif;
@@ -138,10 +140,10 @@ div[data-testid="stVerticalBlock"] > div:first-child { padding-top: 2rem; }
     border: 1px solid #2a3060;
     color: #7c8eff;
     font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
     border-radius: 2px;
-    padding: 10px 28px;
+    padding: 6px 16px;
     transition: all 0.15s;
 }
 .stButton > button:hover {
@@ -166,12 +168,17 @@ div[data-testid="stVerticalBlock"] > div:first-child { padding-top: 2rem; }
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SESSION STATE
-# Holds scraped results between Streamlit reruns.
 # ══════════════════════════════════════════════════════════════════════════════
-if "results" not in st.session_state:
-    st.session_state.results = []    # list of job dicts
-if "searched" not in st.session_state:
-    st.session_state.searched = False
+if "results"   not in st.session_state: st.session_state.results   = []
+if "searched"  not in st.session_state: st.session_state.searched  = False
+if "decisions" not in st.session_state: st.session_state.decisions = {}  # job_id -> "accepted" | "rejected"
+if "accepted"  not in st.session_state: st.session_state.accepted  = []  # list of accepted job dicts
+if "rejected"  not in st.session_state: st.session_state.rejected  = []  # list of rejected job dicts
+
+
+def job_id(job: dict) -> str:
+    """Stable unique key for a job — url if present, else title|company."""
+    return job.get("url") or f"{job.get('title', '')}|{job.get('company', '')}"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -183,7 +190,6 @@ st.markdown('<p style="color:#3d4060; font-size:0.75rem; letter-spacing:0.1em; t
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SEARCH FORM
-# All input fields live here. Values are read when the Search button is clicked.
 # ══════════════════════════════════════════════════════════════════════════════
 with st.container():
     st.markdown('<div class="search-panel">', unsafe_allow_html=True)
@@ -194,39 +200,18 @@ with st.container():
 
     with col1:
         st.markdown('<p class="field-label">Job Title / Keywords</p>', unsafe_allow_html=True)
-        # ── AGENT HOOK: job_title ──────────────────────────────────────────────
-        # Pass this value as the `q` param in your SEEK / Indeed URL.
-        # SEEK:   https://www.seek.com.au/{job_title}-jobs/in-brisbane
-        #         (replace spaces with dashes, e.g. "gym receptionist" -> "gym-receptionist-jobs")
-        # Indeed: https://au.indeed.com/jobs?q={job_title}&l=Brisbane+QLD
         job_title = st.text_input("", placeholder="e.g. gym receptionist, sales assistant", key="job_title", label_visibility="collapsed")
 
     with col2:
         st.markdown('<p class="field-label">Industry / Field</p>', unsafe_allow_html=True)
-        # ── AGENT HOOK: field ─────────────────────────────────────────────────
-        # Used to narrow the SEEK classification.
-        # SEEK URL param: &classification=<id>  (lookup classification IDs at seek.com.au)
-        # For free-text: append to the job_title search query, e.g. "gym receptionist fitness"
-        # Example classification IDs: Sport & Recreation = 6162, Retail = 6246
         field = st.text_input("", placeholder="e.g. fitness, retail, hospitality", key="field", label_visibility="collapsed")
 
     with col3:
         st.markdown('<p class="field-label">Example Companies</p>', unsafe_allow_html=True)
-        # ── AGENT HOOK: companies ─────────────────────────────────────────────
-        # Not directly usable in SEEK/Indeed URL params.
-        # Use post-scrape filtering: filter results where job['company'] contains
-        # any of these company names (case-insensitive partial match).
-        # Example: [j for j in results if any(c.lower() in j['company'].lower() for c in companies)]
         companies_raw = st.text_input("", placeholder="e.g. Fitness Cartel, Goodlife", key="companies", label_visibility="collapsed")
 
     with col4:
         st.markdown('<p class="field-label">Work Type</p>', unsafe_allow_html=True)
-        # ── AGENT HOOK: work_types ────────────────────────────────────────────
-        # SEEK URL param: &worktype=<id>
-        #   Full time = 242, Part time = 243, Casual/Vacation = 244, Contract = 245
-        # Indeed URL param: &jt=<type>
-        #   fulltime, parttime, contract, temporary, internship
-        # Use post-scrape filtering as fallback if multi-select is used.
         work_types = st.multiselect(
             "",
             options=["Full time", "Part time", "Casual", "Contract"],
@@ -235,98 +220,32 @@ with st.container():
         )
         final_types = ", ".join(work_types)
 
-
-
     with col5:
         st.markdown('<p class="field-label">Pay Range (AUD/hr or salary)</p>', unsafe_allow_html=True)
-        # ── AGENT HOOK: pay_range ─────────────────────────────────────────────
-        # SEEK URL param: &salaryrange=<min>-<max>&salarytype=annual  (or hourly)
-        # Example: &salaryrange=50000-80000&salarytype=annual
-        # For hourly: &salaryrange=20-35&salarytype=hourly
-        # Post-scrape: filter results where job['salary'] exists and is in range.
-        # Note: many listings don't show salary, so URL filtering is incomplete.
         pay_range = st.text_input("", placeholder="e.g. $25-$35/hr  or  $55k-$70k", key="pay_range", label_visibility="collapsed")
 
     with col6:
         st.markdown('<p class="field-label">Location</p>', unsafe_allow_html=True)
-        # ── AGENT HOOK: location ──────────────────────────────────────────────
-        # Pass directly into the SEEK and Indeed location fields.
-        # SEEK:   append "in-{location}" to URL path, e.g. /gym-jobs/in-brisbane
-        #         For suburb-level: use &where={suburb} param
-        # Indeed: &l={location} param, e.g. &l=Moorooka+QLD
-        # Drive-time filtering is not available via URL — post-scrape only.
-        # To filter by drive time you would need the Google Maps Distance Matrix API:
-        #   for each job, geocode the location then call the API with origin=Moorooka.
         location = st.text_input("", placeholder="e.g. within 20 min of Moorooka", key="location", label_visibility="collapsed")
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-    # ── Search button ──────────────────────────────────────────────────────────
     _, btn_col, _ = st.columns([4, 1, 4])
     with btn_col:
         search_clicked = st.button("SEARCH", use_container_width=True)
-    
-    st.session_state.results = []
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 # AGENT WORKFLOW — triggered when Search is clicked
 # ══════════════════════════════════════════════════════════════════════════════
 if search_clicked:
-    st.session_state.searched = True
+    st.session_state.searched  = True
+    st.session_state.decisions = {}   # clear decisions on new search
+    st.session_state.accepted  = []
+    st.session_state.rejected  = []
     st.session_state.agent_input = job_title + " " + field + " " + companies_raw + " " + final_types + " " + pay_range + " " + location
     print(st.session_state.agent_input)
     st.session_state.results = run_url_agent(st.session_state.agent_input)
-
-    # ── STEP 1: Build URLs ─────────────────────────────────────────────────────
-    # Construct SEEK and Indeed search URLs from the form inputs above.
-    #
-    # SEEK URL format:
-    #   https://www.seek.com.au/{slug}-jobs/in-{location}?worktype={wt}&salaryrange={pay}
-    #
-    # SEEK slug = job_title with spaces replaced by dashes, lowercased
-    # Example: "gym receptionist" -> "https://www.seek.com.au/gym-receptionist-jobs/in-brisbane"
-    #
-    # TODO: Build SEEK URL here
-    #   seek_url = f"https://www.seek.com.au/{job_title.replace(' ', '-').lower()}-jobs/in-brisbane"
-    #
-    # TODO: Build Indeed URL here
-    #   indeed_url = f"https://au.indeed.com/jobs?q={job_title.replace(' ', '+')}&l={location.replace(' ', '+')}"
-    #
-    # ── STEP 2: Scrape ────────────────────────────────────────────────────────
-    # Call your scraper functions with the URLs built above.
-    # Both return a list of dicts with keys: title, url, company, location,
-    # job_type, description, salary (Indeed only), bullet_points (SEEK only), etc.
-    #
-    # from seek_scraper import get_seek_listings
-    # from indeed_scraper import get_indeed_listings
-    #
-    # TODO: Call scrapers and tag each result with its source
-    #   seek_results   = [dict(source="SEEK",   **j) for j in get_seek_listings(seek_url)]
-    #   indeed_results = [dict(source="Indeed", **j) for j in get_indeed_listings(indeed_url)]
-    #   raw_results    = seek_results + indeed_results
-    #
-    # ── STEP 3: Post-scrape filtering ─────────────────────────────────────────
-    # Apply filters that can't be done via URL params.
-    #
-    # Company filter (if companies_raw is filled in):
-    #   companies = [c.strip() for c in companies_raw.split(",") if c.strip()]
-    #   if companies:
-    #       raw_results = [j for j in raw_results
-    #                      if any(c.lower() in j.get("company","").lower() for c in companies)]
-    #
-    # Work type filter:
-    #   if work_types:
-    #       raw_results = [j for j in raw_results
-    #                      if any(wt.lower() in (j.get("job_type") or "").lower() for wt in work_types)]
-    #
-    # ── STEP 4: Store results ─────────────────────────────────────────────────
-    # Save to session state so results persist across Streamlit reruns.
-    #
-    #   st.session_state.results = raw_results
-    #
-    # ── PLACEHOLDER (remove once scrapers are wired in) ───────────────────────
-    # replace with raw_results above
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -334,23 +253,33 @@ if search_clicked:
 # ══════════════════════════════════════════════════════════════════════════════
 if st.session_state.searched:
     results = st.session_state.results
+    rejected_ids = {job_id(j) for j in st.session_state.rejected}
+    visible_results = [j for j in results if job_id(j) not in rejected_ids]
+
+    n_accepted = sum(1 for v in st.session_state.decisions.values() if v == "accepted")
+    n_rejected = sum(1 for v in st.session_state.decisions.values() if v == "rejected")
+    n_pending  = len(results) - n_accepted - n_rejected
 
     st.markdown(
-        f'<p class="result-count">{len(results)} results found</p>',
+        f'<p class="result-count">'
+        f'{len(results)} results &nbsp;&nbsp; {n_accepted} accepted &nbsp;&nbsp; {n_rejected} rejected &nbsp;&nbsp; {n_pending} pending'
+        f'</p>',
         unsafe_allow_html=True
     )
 
-    if not results:
+    if not visible_results:
         st.markdown(
             '<p style="color:#3d4060; font-size:0.85rem;">No results yet. Wire up the scrapers in the AGENT WORKFLOW section above.</p>',
             unsafe_allow_html=True
         )
     else:
-        for job in results:
+        for i, job in enumerate(visible_results):
+            jid         = job_id(job)
+            decision    = st.session_state.decisions.get(jid)
             source      = job.get("source", "")
             title       = job.get("title", "Untitled")
             company     = job.get("company", "")
-            location    = job.get("location", "")
+            loc         = job.get("location", "")
             job_type    = job.get("job_type", "")
             salary      = job.get("salary", "")
             description = job.get("description", "")
@@ -359,27 +288,59 @@ if st.session_state.searched:
             bullets     = job.get("bullet_points") or []
             perks       = job.get("perks") or []
 
-            # Source badge HTML
+            # Source badge
             badge_class = "source-seek" if source == "SEEK" else "source-indeed"
             source_html = f'<span class="source-badge {badge_class}">{source}</span>' if source else ""
 
             # Tags row
             tags_html = ""
-            if salary:
-                tags_html += f'<span class="tag tag-salary">{salary}</span>'
-            if job_type:
-                tags_html += f'<span class="tag tag-type">{job_type}</span>'
-            for perk in (perks[:3] if perks else []):
-                tags_html += f'<span class="tag">{perk}</span>'
-            for b in (bullets[:2] if bullets else []):
-                tags_html += f'<span class="tag">{b[:60]}</span>'
+            if salary:   tags_html += f'<span class="tag tag-salary">{salary}</span>'
+            if job_type: tags_html += f'<span class="tag tag-type">{job_type}</span>'
+            for perk in (perks[:3] if perks else []):   tags_html += f'<span class="tag">{perk}</span>'
+            for b in (bullets[:2] if bullets else []):  tags_html += f'<span class="tag">{b[:60]}</span>'
 
+            # Card style changes based on decision
+            card_class = {
+                "accepted": "result-card accepted",
+                "rejected": "result-card rejected",
+            }.get(decision, "result-card")
+
+            # ── Job card HTML ──────────────────────────────────────────────────
             st.markdown(f"""
-<div class="result-card">
+<div class="{card_class}">
     <div class="card-title">{title}{source_html}</div>
-    <div class="card-meta">{company} &nbsp;/&nbsp; {location} &nbsp;/&nbsp; {date_posted}</div>
+    <div class="card-meta">{company} &nbsp;/&nbsp; {loc} &nbsp;/&nbsp; {date_posted}</div>
     <div style="margin-bottom:10px">{tags_html}</div>
     <div class="card-desc">{description}</div>
     <a class="job-link" href="{url}" target="_blank">VIEW LISTING &rarr;</a>
 </div>
 """, unsafe_allow_html=True)
+
+            # ── Accept / Reject buttons ────────────────────────────────────────
+            btn_accept_col, btn_reject_col, _ = st.columns([1, 1, 8])
+
+            with btn_accept_col:
+                accept_label = "✓ ACCEPTED" if decision == "accepted" else "ACCEPT"
+                if st.button(accept_label, key=f"accept_{i}", use_container_width=True):
+                    # ── ACCEPT EVENT ──────────────────────────────────────────
+                    # `job` dict is available here with all fields.
+                    # TODO: add side-effects, e.g.:
+                    #   pd.DataFrame([job]).to_csv("accepted_jobs.csv", mode="a", header=False, index=False)
+                    st.session_state.decisions[jid] = "accepted"
+                    if job not in st.session_state.accepted:
+                        st.session_state.accepted.append(job)
+                    st.rerun()
+
+            with btn_reject_col:
+                reject_label = "✗ REJECTED" if decision == "rejected" else "REJECT"
+                if st.button(reject_label, key=f"reject_{i}", use_container_width=True):
+                    # ── REJECT EVENT ──────────────────────────────────────────
+                    # `job` dict is available here with all fields.
+                    # TODO: add side-effects, e.g.:
+                    #   pd.DataFrame([job]).to_csv("rejected_jobs.csv", mode="a", header=False, index=False)
+                    st.session_state.decisions[jid] = "rejected"
+                    if job not in st.session_state.rejected:
+                        st.session_state.rejected.append(job)
+                    st.rerun()
+
+            st.markdown("<div style='margin-bottom:16px'></div>", unsafe_allow_html=True)
