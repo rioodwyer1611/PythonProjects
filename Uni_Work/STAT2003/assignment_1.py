@@ -52,3 +52,16 @@ lowest_r = find_lowest_r(n)
 
 print(str(lowest_r) + " is the minimal value of r. The value of P(B) at this r is " + str(probability_of_b(n, lowest_r)))
 print("To check, the value previous is " + str(probability_of_b(n, lowest_r-1)))
+
+# Question 5 c)
+from math import comb
+
+def pmf(x):
+    return comb(20,x) * (1/4)**x * (3/4)**(20-x)
+
+probability = 0
+
+for i in range(0, 21):
+    probability += pmf(i)
+
+print(probability)
