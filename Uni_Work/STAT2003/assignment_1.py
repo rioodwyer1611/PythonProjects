@@ -50,8 +50,8 @@ def find_lowest_r(n):
 
 lowest_r = find_lowest_r(n)
 
-print(str(lowest_r) + " is the minimal value of r. The value of P(B) at this r is " + str(probability_of_b(n, lowest_r)))
-print("To check, the value previous is " + str(probability_of_b(n, lowest_r-1)))
+#print(str(lowest_r) + " is the minimal value of r. The value of P(B) at this r is " + str(probability_of_b(n, lowest_r)))
+#print("To check, the value previous is " + str(probability_of_b(n, lowest_r-1)))
 
 # Question 5 c)
 from math import comb
@@ -60,8 +60,35 @@ def pmf(x):
     return comb(20,x) * (1/4)**x * (3/4)**(20-x)
 
 probability = 0
+probability2 = 0
 
-for i in range(0, 21):
-    probability += pmf(i)
+for x in range (10, 21):
+    probability += pmf(x)
 
-print(probability)
+for x in range (0, 10):
+    probability2 += pmf(x)
+
+#print(probability)
+#print(probability2)
+#print(probability + probability2)
+
+# Question 6 e)
+from scipy.stats import bernoulli
+import numpy as np
+
+def geom(p):
+    count = 0
+    while True:
+        count += 1
+        if bernoulli.rvs(p) == 1:
+            return count
+        
+N = 10**6
+p = 1/6
+
+values = [geom(p) for _ in range(N)]
+mean = np.mean(values)
+variance = np.var(values)
+
+print("Sample Mean:" + str(mean) + "Sample Variance:" + str(variance))
+print("Theoretical Mean:" + str(1/p) + "Theoretical Variance:" + str((1-p)/p**2))
