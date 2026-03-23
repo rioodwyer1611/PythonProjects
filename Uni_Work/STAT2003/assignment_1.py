@@ -136,5 +136,26 @@ K = 12
 n = 8
 x = 4
 
-print(f"The probability of 4 out of 8 members being women is {hypergeom(N, K, n, x):.6f}")
+#print(f"The probability of 4 out of 8 members being women is {hypergeom(N, K, n, x):.6f}")
 
+
+
+# Question 7 e)
+from math import comb
+
+def hypergeom(N, K, n, x):
+    return (comb(K, x) * comb(N-K, n-x)) / comb(N, n)
+
+def binom(x, p, n):
+    return comb(n, x) * p**x * (1-p)**(n-x)
+
+n = 8
+N = 30
+p = 0.4
+x = 4
+K = 12
+
+hyper_results = hypergeom(N, K, n, x)
+binom_results = binom(x, p, n)
+
+print(f"Hypergeometric: {hyper_results:.6f} Binomial: {binom_results:.6f}")
