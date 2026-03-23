@@ -62,11 +62,14 @@ def pmf(x):
 probability = 0
 probability2 = 0
 
+"""
 for x in range (10, 21):
     probability += pmf(x)
 
 for x in range (0, 10):
     probability2 += pmf(x)
+
+"""
 
 #print(probability)
 #print(probability2)
@@ -86,9 +89,52 @@ def geom(p):
 N = 10**6
 p = 1/6
 
+"""
 values = [geom(p) for _ in range(N)]
 mean = np.mean(values)
 variance = np.var(values)
+"""
 
-print("Sample Mean:" + str(mean) + "Sample Variance:" + str(variance))
-print("Theoretical Mean:" + str(1/p) + "Theoretical Variance:" + str((1-p)/p**2))
+#print("Sample Mean: " + str(mean) + " Sample Variance: " + str(variance))
+#print("Theoretical Mean: " + str(1/p) + " Theoretical Variance: " + str((1-p)/p**2))
+
+# Question 6 f)
+from scipy.stats import bernoulli
+import numpy as np
+
+def negbin(p, r):
+    count = 0
+    success = 0
+    while success < r:
+        count += 1
+        if bernoulli.rvs(p) == 1:
+            success += 1
+            print(r)
+    return count
+
+r = 3
+N = 10**6
+p = 1/6
+type(p)
+"""
+results = [negbin(p, r) for i in range(N)]
+mean = np.mean(results)
+variance = np.var(results)
+
+print("Sample Mean: " + str(mean) + " Sample Variance: " + str(variance))
+print("Theoretical Mean: " + str(r/p) + " Theoretical Variance: " + str((r*(1-p))/p**2))
+"""
+
+# Question 7 b)
+from math import comb
+
+def hypergeom(N, K, n, x):
+    return (comb(K, x) * comb(N-K, n-x)) / comb(N, n)
+
+N = 30
+K = 12
+n = 8
+x = 4
+
+print(f"The probability of 4 out of 8 members being women is {hypergeom(N, K, n, x):.6f}")
+
