@@ -16,7 +16,6 @@ var_est = ((N-1)*(N+2))/18
 print(f"Theoretical Mean: {mean_est:.3f}")
 print(f"Theoretical Variance: {var_est:.3f}")
 
-
 # Q1 E)
 import numpy as np
 import matplotlib.pyplot as plt
@@ -111,7 +110,7 @@ for i in range(trials):
 probability = successes/trials
 
 print(f"The gambler succeeded in reaching their goal fortune with a probability of P(reach N | X_0 = 2) = {probability}.")
-"""
+
 
 # Q5 d)
 from scipy.optimize import brentq
@@ -128,3 +127,28 @@ for i in range(100):
         high = middle
 
 print(f"The median is {middle:.3f}.")
+"""
+
+# Question 8 d)
+import numpy as np
+import matplotlib.pyplot as plt
+
+lamb = 2
+num = 10000
+
+U = np.random.uniform(0,1,num)
+Y = -1/lamb*np.log(U)
+
+plt.hist(Y,bins=50,density=True,alpha=0.6,label="Simulated Samples")
+
+y = np.linspace(0, 5, 1000)
+pdf = lamb * np.exp(-lamb * y)
+plt.plot(y, pdf, 'r-', linewidth=2, label=r'Theoretical PDF: $\lambda e^{-\lambda y}$')
+
+
+plt.xlabel("y")
+plt.ylabel("Density")
+plt.title(f"Hisogram of {Y} plotted against Exponential PDF, where lambda = 2")
+plt.legend()
+plt.tight_layout()
+plt.show()
