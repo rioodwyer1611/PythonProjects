@@ -1,0 +1,14 @@
+# PyTorch dataset cache (re-download on first run)
+data/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Debug / generated artifacts
+debug*.html
+report_*.html
+!Neurotech_Club_Work/report_*.html
+
+# Model weights at repo root
+/model.pth
