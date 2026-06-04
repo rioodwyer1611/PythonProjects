@@ -47,11 +47,11 @@ Godot_Platformer/
 │   ├── coin.gd
 │   └── main.gd
 └── scenes/
-    ├── main.tscn
-    ├── player.tscn
-    ├── npc.tscn
-    ├── coin.tscn
-    └── dialogue_ui.tscn
+	├── main.tscn
+	├── player.tscn
+	├── npc.tscn
+	├── coin.tscn
+	└── dialogue_ui.tscn
 ```
 
 ## Physics layers
