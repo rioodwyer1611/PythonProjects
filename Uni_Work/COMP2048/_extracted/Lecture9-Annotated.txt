@@ -1,0 +1,766 @@
+COMP2048: Theory of Computing
+Dr. Kasra Khosoussi
+
+Week 9
+30/4/2026
+
+1 / 28
+16
+
+The Class P
+Previous lecture:
+P=
+
+[
+
+TIME(nk )
+
+k
+
+P is the class of languages decidable in polynomial time (poly
+time) by a deterministic TM
+It captures decision problems that are efficiently solvable1
+Many important/useful decision problems are in P
+i.e., we have found poly-time algorithms2 for solving them
+Example: given a graph G, is there a path from node s to t?
+
+directed
+
+PATH = {hG,s,ti | G is a graph with a path from s to t}.
+1
+2
+
+Although, in theory, the exponent/constant can be very large . . .
+Deterministic TMs
+2
+1 / 28
+16
+
+PATH
+V
+2
+
+v
+1
+S
+
+nr
+t
+
+ldots
+
+3
+v
+
+rightarrow
+
+L
+
+Graph
+
+Gpoly
+time
+
+Mark
+
+algorithm
+
+S
+
+for every edge incident to a marke
+the other end point of edge
+
+if
+
+t
+
+else
+
+is
+
+vertexmark
+marked
+accept
+
+3
+1 / 28
+16
+
+Many decision problems can be phrased as:
+Is there an object satisfying a given property?
+Example: Is there a path from s to t in graph G?
+These problems often have a natural brute-force algorithm:
+list all candidate solutions
+test each candidate one by one to see if it’s a genuine solution
+
+Example:
+list all sequences of vertices of length |V(G)|
+for each sequence, check if first vertex is s, last vertex is t, and
+there’s an edge between consecutive vertices in the sequence
+
+Number of candidates is often exponential in the input size
+) brute-force algorithm usually takes exponential time
+
+Decision problems in P have a more clever algorithm that avoids
+searching through all candidates
+4
+1 / 28
+16
+
+Brute force for
+
+all sequences of
+
+write
+of
+
+PATH
+n
+
+vertices
+
+at most n
+
+many sequence
+
+of vertices
+matrix
+begin
+ldots
+end
+2
+u
+k1
+
+check
+if
+
+if
+if
+
+5
+u
+1
+
+u
+kt
+
+is
+
+right
+left
+u1i
+
+an
+
+edge in
+
+GBut
+we
+
+a
+
+know
+
+that
+
+there
+
+clever algorithm that
+
+poly time
+
+runs
+
+is
+in
+1 / 16
+
+Many important decision problems have an extra property:
+a genuine candidate solution can be checked in poly time
+Examples:
+1
+
+PATH
+{hG,s,ti | G is a directed graph with a path from s to t}
+
+2
+
+3
+
+SAT
+
+{ h'i | ' is a satisfiable Boolean formula }
+
+CLIQUE
+
+{hG, ki | G is an undirected graph with a k-clique}
+4
+
+HAMPATH
+{hG, s, ti | G is a directed graph w/ a Hamiltonian path from s to t}
+
+This is the idea behind class NP . . .
+5
+1 / 28
+16
+
+CLIQUE
+clique
+size
+
+2clique
+size
+
+3clique
+size
+4does
+a
+
+it
+
+have
+
+size
+
+k clique
+
+Graph G
+6
+1 / 28
+16
+
+SAT
+A Boolean formula is built from variables (x1 , x2 , · · · ) and
+connectives (AND, OR, and NOT):
+^, _ , ¬
+Each variable is either TRUE or FALSE
+A formula is satisfiable if some truth assignment makes it TRUE
+
+Definition
+SAT = { h'i | ' is a satisfiable Boolean formula }
+Example:
+(x1 _ ¬x2 ) ^ (x2 _ x3 )
+is satisfiable (e.g., x1 = TRUE, x2 = TRUE, x3 = TRUE)
+Example:
+x ^ ¬x
+is not satisfiable
+7
+1 / 28
+16
+
+HAMPATH
+
+G
+
+Does
+
+to
+
+t
+
+have
+sit
+
+every vertex
+
+a
+
+path
+
+from
+
+the
+
+path
+
+visits
+
+exactly
+
+s
+
+once
+
+8
+1 / 28
+16
+
+NP: Nondeterministic Polynomial Time
+
+There are two equivalent ways to define NP:
+1
+2
+
+Via polynomial-time verifiers
+Via nondeterministic Turing machines
+
+Either definition can be taken as primary; one can prove they
+define the same class of languages
+
+9
+1 / 28
+16
+
+Polynomial-Time Verifiers
+A verifier for a language L is deterministic TM V such that
+L = { w | 9c 2 ⌃⇤ : V accepts hw,ci }
+w 2 L , there exists a string c such that V accepts hw,ci
+c is called a certificate or proof (of membership in L)
+A poly-time verifier for L is a verifier such that:
+|c| 6 p(|w|) for some polynomial p
+V runs in poly time in |w|
+
+Definition
+NP is the class of languages that have a poly-time verifier.
+101 / 28
+16
+
+Examples of languages in NP
+PATH
+
+SAT
+
+SAT
+
+test 9
+
+input: graph G and vertices s and t
+certificate: a path from s to t
+if
+
+SATC
+
+p
+
+FALSE
+
+TRUE
+input: Boolean formula
+2
+certificate: a truth assignment that satisfies
+
+CLIQUE
+input: graph G and integer k
+certificate: k vertices that form a clique
+
+an
+
+FALSE
+
+HAMPATH
+input: graph G and vertices s and t
+certificate: a Hamiltonian path from s to t
+
+In each case:
+certificate length is polynomial in size of input
+verification is polynomial-time in size of input
+111 / 28
+16
+
+Nondeterministic Turing machines (NTM)
+
+A nondeterministic TM (NTM) may have several possible moves
+from one configuration
+A computation can branch into many possible paths
+The machine accepts if some branch accepts
+
+initial
+configurationreject
+
+The machine rejects if all branches reject
+An NTM is a decider if all branches halt
+
+accept
+
+121 / 28
+16
+
+Time for nondeterministic machines
+
+Definition
+Let M be an NTM decider. Its running time on inputs of length n is the
+maximum number of steps used on any branch, over all inputs of
+length n.
+
+Definition
+NTIME(f (n)) = { L | some NTM decides L in time O(f (n)) }
+This is the nondeterministic analogue of TIME(f (n))
+
+131 / 28
+16
+
+vdots
+
+non
+
+deterministicruntime
+
+vdots
+
+accept
+
+reject
+
+acceptDeterministic
+
+TMaccep
+backslash
+
+Ivreject
+
+1 / 16
+
+Second definition of the class NP
+
+Definition
+NP is the class of languages decidable in (nondeterministic)
+polynomial time by a nondeterministic Turing machine.
+NP =
+
+[
+
+NTIME(nk )
+
+k
+
+NP stands for Nondeterministic Polynomial time
+This is equivalent to the verification definition of NP
+
+141 / 28
+16
+
+Example: SAT
+nondeterministically
+enumerate write onto tape
+all possible true false
+assignments variables
+
+0
+x1
+
+0
+2
+x
+
+check each assignment
+if finds a truth assignment
+accept
+that satisfies
+else
+
+x1
+
+n
+x
+2
+x1 2
+
+p
+n
+est
+
+2
+x1
+
+vdots
+
+ldots
+
+q
+h
+e
+ckv
+
+reject.poly
+
+n
+
+step
+
+151 / 28
+16
+
+P and NP
+P: languages where membership can be decided (tested) efficiently
+NP: languages where membership can be verified efficiently
+L 2 NP does not mean L is “hard” (not solvable in poly-time)
+In fact, P ✓ NP
+
+(why?)
+
+i.e., all efficiently decidable languages are in NP
+We don’t know if P = NP or P , NP
+No poly-time algorithm is known for many problems in NP
+(e.g., HAMPATH, SAT, etc)
+We are unable prove existence of language in NP that is not in P
+161 / 28
+16
+
+Why P ✓ NP
+
+From the verification definition of NP:
+Suppose L 2 P
+
+Then there is a deterministic polynomial-time decider for L
+A verifier can simply:
+ignore the certificate c, and
+run the polynomial-time decider on the input
+
+Therefore,
+From the NTM definition of NP:
+
+P ✓ NP
+
+Suppose L 2 P
+
+Then there is a deterministic polynomial-time TM decider for L
+Any deterministic TM is an NTM (that simply doesn’t use
+branching/nondeterminism)
+Therefore,
+P ✓ NP
+171 / 28
+16
+
+Two Possible Worlds
+
+P = NP
+
+NP
+P
+
+P , NP
+
+P = NP
+
+most computer scientists believe P , NP
+
+181 / 28
+16
+
+Polynomial-time many-one reduction
+Definition
+We say language A is poly-time reducible to language B
+A 6p B
+if there exists a polynomial-time computable functiona f such that
+x 2 A () f (x) 2 B
+for every input x.
+a
+
+see Definition 7.28 in Sipser for a formal definition
+
+One instance of A (i.e., testing if x 2 A) is transformed
+(“translated”) into one instance of B (i.e., testing if f (x) 2 B)
+This reduction (i.e., evaluating f ) must be doable in poly-time
+Then we call the decider for B on f (x)
+If f (x) 2 B, then x 2 A, and otherwise if f (x) < B, then x < A
+
+191 / 28
+16
+
+How a reduction works
+
+Leftrightarrow
+right
+left
+in
+A
+B
+xf
+x
+
+A
+y
+
+f
+
+right
+left
+xf
+
+f
+
+right
+left
+B
+yf
+
+solving
+cannot
+
+A harderthan
+β
+be
+
+acceptpolytimedecider
+x
+
+right
+left
+xf
+
+for
+
+B
+
+rejectdecider
+for A
+201 / 28
+16
+
+Key theorems about reductions
+
+In the next Applied Class or Assignment 3, you’ll prove:
+
+Theorem
+If A 6p B and B 2 P, then A 2 P.
+
+Theorem
+If A 6p B and B 6p C, then A 6p C.
+
+211 / 28
+16
+
+The Cook–Levin Theorem
+Theorem (Cook–Levin)
+L 6p SAT
+
+8L 2 NP
+
+We already showed that SAT 2 NP
+Cook–Levin says that every language in NP can be reduced in
+polynomial time (by a deterministic TM) to SAT
+SAT is at least as “hard” as any other problem in NP
+If one can find an algorithm for solving SAT in polynomial time,
+we can solve every problem in NP in polynomial time (why?)
+221 / 28
+16
+
+In
+
+SAT
+
+PATHNP
+
+1 / 16
+
+NP-hard and NP-complete
+Definition
+A language B is NP-hard if for every language A 2 NP,
+A 6p B
+
+Definition
+A language B is NP-complete if:
+B 2 NP, and
+
+B is NP-hard
+NP-complete problems are the “hardest” problems in NP
+If any NP-complete problem is in P, then
+P = NP
+If some NP-complete problem is proved not to be in P, then
+P , NP
+231 / 28
+16
+
+NP-hard
+
+NP-hard
+
+NP-complete
+P = NP ' NP-complete
+
+P
+
+P , NP
+
+Complexity
+
+NP
+
+P = NP
+
+241 / 28
+16
+
+How to prove a problem is NP-complete
+From Cook–Levin, we know SAT is NP-complete
+We now know thousands of NP-complete problems
+SAT, HAMPATH, CLIQUE, . . .
+To prove that a language B is NP-complete:
+1
+2
+3
+
+show that B 2 NP
+choose a known NP-complete problem A (e.g., SAT, HAMPATH)
+prove
+A 6p B
+
+Direction of 6p matters! You’ll make a mistake at least once
+
+NP
+language
+
+any Np
+rightarrow
+languageany
+B
+p
+leq
+p SAT leq
+
+leq
+p
+
+cook Levin
+
+show
+
+B
+251 / 28
+16
+
+EXPTIME
+
+Definition
+EXPTIME =
+
+[
+
+k
+
+TIME(2n )
+
+k>1
+
+Class of languages decidable in deterministic exponential time
+NP ✓ EXPTIME (proof idea: try all poly-size certificates!)
+
+We know there are problems in EXPTIME that are not in NP
+
+261 / 28
+16
+
+Time Complexity Big Picture
+
+EXPTIMENPNPCpdecidable
+languages
+
+P ✓ NP ( EXPTIME
+271 / 28
+16
+
+Common pitfalls
+
+NP does not mean “not polynomial.”
+NP does not mean “known to be hard.”
+A 6p B means: an efficient algorithm for B gives one for A.
+To prove B is NP-complete, reduce a known NP-complete
+problem to B.
+
+281 / 28
+16
+
+1 / 16
+
+

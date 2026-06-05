@@ -1,0 +1,687 @@
+COMP2048: Theory of Computation
+Dr. Kasra Khosoussi
+
+Week 5
+26/3/2026
+
+1 / 24
+16
+
+Recap
+So far, we have studied several models of computation:
+Finite Automata (DFAs/NFAs)
+Pushdown Automata (PDAs)
+These models can recognize many languages, but:
+DFAs recognize only regular languages
+PDAs recognize context-free languages
+There are still many problems they cannot solve.
+L1 = {1n 0n | n > 0}
+L2 = {an bn cn | n > 0}
+
+(not regular, but context-free)
+(not context-free)
+
+2
+1 / 24
+16
+
+Our Big Picture Revisited
+
+context-free
+(Pushdown Automata or CFG)
+
+regular
+(Finite Automata or regex)
+
+Rectangle: set of all decision problems (or, languages) over ⌃
+3
+1 / 24
+16
+
+What is missing?
+Previous models have severe limitations:
+Finite Automata:
+No memory beyond the state
+
+Pushdown Automata:
+Only an unbounded stack
+Can only access the top of the stack
+
+Unbounded memory
+Ability to read & write anywhere (i.e., go back and forth)
+
+4
+1 / 24
+16
+
+Turing Machines
+
+5
+1 / 24
+16
+
+A New Model of Computation
+A finite state machine (a.k.a. finite control)
+An infinite tape (i.e., unbounded memory)
+A read/write head
+Ability to move left and right on the tape
+Ability to modify the tape
+
+y
+
+finite control
+ED
+
+T
+
+0
+
+1
+
+first Tape
+
+0
+
+1
+
+head
+1
+
+unbounded
+
+0
+
+···
+
+BYank
+
+cells
+
+6
+1 / 24
+16
+
+The Tape and Head
+
+One-sided infinite (to the right) tape divided into cells
+(i.e., as much memory as needed)
+Each cell contains a symbol from the tape alphabet
+(e.g., = ⌃ [ {t})
+
+blank
+
+Head reads the symbol written on the current cell.
+
+Head will move left (L) or right (R) after reading a symbol.
+Initially:
+Input string is placed on the tape.
+The rest of the tape is blank (i.e., t).
+Head starts on the leftmost symbol of the input.
+
+7
+1 / 24
+16
+
+Execution: Read-Write-State Transition-Head Move
+1
+
+Read the current symbol under head.
+
+2
+
+Apply transition function :
+Write a (possibly new) symbol (from ) on the tape.
+Move to a new state.
+Move the head left or right.
+
+3
+
+Repeat 1 and 2 until:
+The machine enters qaccept (immediately halt and accept).
+The machine enters qreject (immediately halt and reject).
+The machine never halts (infinite loop – also called “reject by
+looping”).
+
+Unlike previous models, TMs can accept/reject the input
+by entering the accept/reject states at any time
+(i.e., not exactly after reading the last symbol)
+8
+1 / 24
+16
+
+Example
+
+https://turingmachine.io
+
+9
+1 / 24
+16
+
+Components of a Turing Machine
+A Turing Machine M is formally a 7-tuple:
+
+A B
+
+M = (Q, ⌃, , , q0 , qaccept , qreject ),
+where:
+
+A
+
+B
+
+sett
+
+Q: finite set of states.
+⌃: input alphabet (does not include the blank symbol).
+: tape alphabet
+(includes ⌃ and the blank symbol t and possibly more).
+: Q \ {qaccept ,qreject } ⇥
+
+q0 2 Q: start state.
+
+qaccept 2 Q: accept state.
+
+! Q ⇥ ⇥ {L, R}: transition function.
+eg
+
+S q a
+
+gbR
+
+qreject 2 Q: reject state (qreject , qaccept ).
+101 / 24
+16
+
+Example: Even-length Palindromes
+reversed
+
+Examples:
+
+L = {wwR | w 2 {0,1}? }
+
+1001 2 L
+1000 < L
+
+10100101 2 L
+
+111 / 24
+16
+
+121 / 24
+16
+
+input
+
+W
+
+100
+
+blank
+
+ghead
+
+1 P O W WW
+ow
+
+at 94
+
+o
+
+www
+
+at 94
+
+woo
+
+www
+
+at94
+
+ow
+
+u
+
+w
+
+at
+
+q
+
+woo
+
+v o
+
+U
+
+k
+
+92 93
+
+94 95 96
+
+www
+
+95
+
+www
+
+Freja
+131 / 24
+16
+
+Configurations
+A configuration of a TM is a snapshot of the machine at any point
+Specifies:
+1
+2
+3
+
+Current tape contents.
+Current head position.
+Current state q 2 Q.
+
+Initial configuration:
+input on the tape followed by blanks
+head at the start of input
+machine in the initial state q0
+
+Useful notation for configuration:
+
+headation
+
+10101q001 t . . .
+
+cyt.tt
+Te
+
+content
+141 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+
+001
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+Otherwise, it is a 0. Mark it (e.g., replace with X).
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+Otherwise, it is a 0. Mark it (e.g., replace with X).
+
+2
+
+From there, scan right to find the rightmost unmarked symbol.
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+Otherwise, it is a 0. Mark it (e.g., replace with X).
+
+2
+
+From there, scan right to find the rightmost unmarked symbol.
+If it is a 0, reject (we needed a 1).
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+Otherwise, it is a 0. Mark it (e.g., replace with X).
+
+2
+
+From there, scan right to find the rightmost unmarked symbol.
+If it is a 0, reject (we needed a 1).
+If no unmarked 1 is found, reject.
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+Otherwise, it is a 0. Mark it (e.g., replace with X).
+
+2
+
+From there, scan right to find the rightmost unmarked symbol.
+If it is a 0, reject (we needed a 1).
+If no unmarked 1 is found, reject.
+Otherwise, mark the 1 (e.g., replace with Y).
+
+151 / 24
+16
+
+Design a TM to check if w 2 {0n 1n | n > 0}
+Idea: Pair each leftmost unmarked symbol with the rightmost
+unmarked symbol and mark them.
+1
+
+Locate the leftmost unmarked symbol.
+If none found (all are marked), accept.
+If it is a 1, reject.
+Otherwise, it is a 0. Mark it (e.g., replace with X).
+
+2
+
+From there, scan right to find the rightmost unmarked symbol.
+If it is a 0, reject (we needed a 1).
+If no unmarked 1 is found, reject.
+Otherwise, mark the 1 (e.g., replace with Y).
+
+3
+
+Repeat from Step 1 until all symbols are matched or a mismatch is
+discovered.
+151 / 24
+16
+
+Courtesy of Sean Szumlanski
+
+161 / 24
+16
+
+Common TM Design Patterns
+
+1
+
+Marking symbols (e.g., replace with X/Y)
+Scanning left/right
+Returning to the start
+Matching pairs
+Erasing / rewriting
+Use subroutines (i.e., a group of states performing a task)
+Remarks:
+You can overwrite each matched 0 or 1 with a blank to “erase” it.
+Make sure your TM doesn’t confuse these newly written blanks
+with the originally empty cells beyond the input.
+Can always add additional symbols to the tape alphabet to
+avoid confusion (e.g, boundary markers, special symbols for
+“erased 0”, “erased 1”, etc)
+Usually it’s a good idea to initially verify if the input is in a valid
+form (e.g., by checking a regex – no need to write on the tape)
+171 / 24
+16
+
+Zoo of TM Variants
+
+Two-way Infinite Tape TM
+Multi-tape TM:
+Multiple (finitely many) tapes, each with its own head.
+Non-deterministic TM:
+Transition function can branch to multiple possibilities.
+Accept if at least one branch accepts (similar to NFA)
+
+many more . . .
+All equivalent in power to the standard single-tape deterministic TM!
+
+181 / 24
+16
+
+Multi-tape TM
+
+tape 1
+
+100W
+
+finite
+
+control
+
+example
+
+no
+
+I
+
+www
+
+tapez
+
+WU
+
+10
+
+ow
+
+tapes
+
+scq.itass cq nEf
+
+currentstate
+
+d
+
+next
+
+state
+191 / 24
+16
+
+Definitions
+CFL
+
+We say a language L ✓ ⌃? is:
+
+T recognhizable
+
+regular lang
+Turing-Recognizable:
+T decidable
+If there exists a TM that halts and accepts for w 2 L and either
+rejects or loops if w < L.
+Regular C CFL C T decidable C T recognizable
+
+Turing-Decidable:
+If there exists a TM that:
+1
+2
+
+10 9
+
+s
+
+stet
+of
+
+halts on all inputs
+accepts all w 2 L and rejects all w < L.
+
+201 / 24
+16
+
+Universal Turing Machine (UTM)
+
+Recall that we can encode virtually everything as strings:
+e.g., images [JPG], audio [MP3], text [e.g., ASCII or Unicode], etc
+We can even encode (blueprint of) Turing Machines!
+(no fundamental distinction between code and data)
+Encode Turing machine M as hMi
+
+EE
+
+RFP
+M
+
+as 100101
+description
+
+mof
+
+Intuitively, you can think of it as the “source code” (instructions,
+blueprint, etc) of the TM M
+
+211 / 24
+16
+
+Universal Turing Machine Cont’d.
+There exists a TM (called the Universal TM) U that takes as input:
+1
+2
+
+(encoding of) any TM M, and
+any input string w 2 ⌃?
+
+221 / 24
+16
+
+Universal Turing Machine Cont’d.
+There exists a TM (called the Universal TM) U that takes as input:
+1
+2
+
+(encoding of) any TM M, and
+any input string w 2 ⌃?
+
+and simulates M on w
+
+221 / 24
+16
+
+Universal Turing Machine Cont’d.
+There exists a TM (called the Universal TM) U that takes as input:
+1
+2
+
+(encoding of) any TM M, and
+any input string w 2 ⌃?
+
+and simulates M on w
+
+if M accepts w ) U will accept hM,wi
+if M rejects w ) U will reject hM,wi
+if M loops on w ) U will loop on hM,wi
+
+Treats hMi as a “program” and simulates M step by step on w.
+This concept underpins the idea of stored-program computers.
+Invention of general-purpose computer!
+
+221 / 24
+16
+
+History
+1900 Hilbert’s Program
+David Hilbert proposes 23 problems
+Goal: Formalize all of mathematics (complete, consistent,
+decidable)
+
+1928 Entscheidungsproblem
+Hilbert & Ackermann pose the decision problem
+Is there an “algorithm” to decide truth of any statement?
+
+1931 Gödel
+Incompleteness Theorems
+Any consistent formal system strong enough for arithmetic is
+incomplete
+
+1936 Church & Turing
+Church: Undecidability via lambda calculus
+Turing: Turing machines & Halting Problem
+They essentially defined what an “algorithm” is (e.g., a TM)
+Result: Entscheidungsproblem is unsolvable
+231 / 24
+16
+
+Church-Turing Thesis
+Church-Turing Thesis
+Any function that can be computed by an “algorithm” can be
+computed by a Turing Machine.
+Not a formal theorem, but a widely accepted belief.
+No counterexamples so far.
+Equivalences:
+-Calculus
+Other models of computation (e.g., by Post, etc)
+
+All major programming languages are Turing-complete
+
+241 / 24
+16
+
+251 / 24
+16
+
+1 / 16
+
+1 / 16
+
+

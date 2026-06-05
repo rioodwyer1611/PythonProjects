@@ -1,0 +1,1388 @@
+COMP2048: Theory of Computation
+Dr. Kasra Khosoussi
+
+Week 6
+2/4/2026
+
+1 / 28
+16
+
+Recap: T-Decidable vs. T-Recognizable
+Turing-Decidable Languages:
+A language L is Turing-decidable if there exists a TM M such that
+for any string w 2 ⌃? :
+M(w) =
+
+accept if w 2 L,
+reject if w < L.
+
+M halts on all inputs (i.e., M is called a decider)
+
+2
+1 / 28
+16
+
+Recap: T-Decidable vs. T-Recognizable
+Turing-Decidable Languages:
+A language L is Turing-decidable if there exists a TM M such that
+for any string w 2 ⌃? :
+M(w) =
+
+accept if w 2 L,
+reject if w < L.
+
+M halts on all inputs (i.e., M is called a decider)
+Turing-Recognizable Languages:
+A language L is Turing-recognizable if there exists a TM M such
+that for any string w 2 ⌃?
+M(w) =
+
+accept
+if w 2 L,
+loop forever or reject if w < L.
+
+M only needs to halt on strings in L.
+
+2
+1 / 28
+16
+
+Recap: T-Decidable vs. T-Recognizable
+Turing-Decidable Languages:
+A language L is Turing-decidable if there exists a TM M such that
+for any string w 2 ⌃? :
+M(w) =
+
+accept if w 2 L,
+reject if w < L.
+
+M halts on all inputs (i.e., M is called a decider)
+Turing-Recognizable Languages:
+A language L is Turing-recognizable if there exists a TM M such
+that for any string w 2 ⌃?
+M(w) =
+
+accept
+if w 2 L,
+loop forever or reject if w < L.
+
+M only needs to halt on strings in L.
+Any decidable language is also recognizable (why?)
+
+2
+1 / 28
+16
+
+Big Picture
+T decidable
+
+of
+
+every
+Ab nyo
+arb
+
+CFL
+Regular
+
+n o
+
+TODAY
+
+TODAY
+T
+
+recognizable
+
+set
+
+all languages
+OR decision problems
+
+of
+
+3
+1 / 28
+16
+
+Limits of Computation
+
+4
+1 / 28
+16
+
+Today’s Plan
+
+1
+
+Counting Argument (proof of existence of unsolvable problems)
+
+2
+
+Undecidability of Acceptance and Halting Problems
+(multiple proofs)
+
+3
+
+Reducibility
+
+4
+
+Big picture
+
+5
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+The set of all Turing machines is countable (similar to N, Z, etc)
+
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+The set of all Turing machines is countable (similar to N, Z, etc)
+The set of all decision problems is uncountable (similar to R)1
+
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+The set of all Turing machines is countable (similar to N, Z, etc)
+The set of all decision problems is uncountable (similar to R)1
+
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+The set of all Turing machines is countable (similar to N, Z, etc)
+The set of all decision problems is uncountable (similar to R)1
+# of Turing machines ⌧ # of decision problems
+
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+The set of all Turing machines is countable (similar to N, Z, etc)
+The set of all decision problems is uncountable (similar to R)1
+# of Turing machines ⌧ # of decision problems
+We simply don’t have enough TMs to solve (recognize/decide) all
+decision problems (i.e., languages).
+
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Limits of Computation: Counting Argument
+There are infinitely many TMs and decision problems but . . .
+The set of all Turing machines is countable (similar to N, Z, etc)
+The set of all decision problems is uncountable (similar to R)1
+# of Turing machines ⌧ # of decision problems
+We simply don’t have enough TMs to solve (recognize/decide) all
+decision problems (i.e., languages).
+Therefore, there exist (many!!) decision problems (languages) that
+cannot be solved (recognized/decided) by any TM!
+1
+
+Further reading if you’re interested: see the formal definition of countable and
+uncountable sets and Cantor’s diagonal argument. Note that ⌃? is countable, but its
+power set P(⌃? ) (set of all languages/decision problems) is uncountable.
+6
+1 / 28
+16
+
+Big Picture
+
+decidable
+
+refit
+
+T
+
+set
+
+TMS
+
+recognizable
+
+ON EMPTY
+
+set of all
+
+languages
+
+derisionproble
+7
+1 / 28
+16
+
+Acceptance and Halting Problems
+
+8
+1 / 28
+16
+
+The Acceptance Problem ATM
+1005 no
+
+W 100
+
+111
+
+I
+
+lRiziT
+
+8
+
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Set of all (encoded) TM-input pairs such that TM accepts the input
+Equivalently (yes/no question):
+given any TM M and any input string w, does M accept w?
+
+M is a TM
+M is a string
+w
+is
+MW
+
+a
+
+string
+
+MY
+delimiter
+d
+
+It
+W
+
+E
+
+It
+9
+1 / 28
+16
+
+The Acceptance Problem is Recognizable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Theorem
+ATM is recognizable.
+Proof:
+
+2
+
+Note that when M loops, R will also automatically loop because it’s simulating M.
+
+101 / 28
+16
+
+The Acceptance Problem is Recognizable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Theorem
+ATM is recognizable.
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+
+2
+
+Note that when M loops, R will also automatically loop because it’s simulating M.
+
+101 / 28
+16
+
+The Acceptance Problem is Recognizable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Theorem
+ATM is recognizable.
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+If M ever accepts, then R accepts.
+
+2
+
+Note that when M loops, R will also automatically loop because it’s simulating M.
+
+101 / 28
+16
+
+The Acceptance Problem is Recognizable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Theorem
+ATM is recognizable.
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+
+If M ever accepts, then R accepts.
+If M never accepts (by rejecting or looping), then R will loop.2
+
+2
+
+Note that when M loops, R will also automatically loop because it’s simulating M.
+
+101 / 28
+16
+
+The Acceptance Problem is Recognizable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Theorem
+ATM is recognizable.
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+
+If M ever accepts, then R accepts.
+If M never accepts (by rejecting or looping), then R will loop.2
+
+By simulating M on w, if w 2 L(M) (i.e., if M accepts w), it will halt
+and accept it in finite time. Therefore, we can detect pairs
+hM, wi 2 ATM and accept them in finite time.
+2
+
+Note that when M loops, R will also automatically loop because it’s simulating M.
+
+101 / 28
+16
+
+The Acceptance Problem is Recognizable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+
+Theorem
+ATM is recognizable.
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+
+If M ever accepts, then R accepts.
+If M never accepts (by rejecting or looping), then R will loop.2
+
+By simulating M on w, if w 2 L(M) (i.e., if M accepts w), it will halt
+and accept it in finite time. Therefore, we can detect pairs
+hM, wi 2 ATM and accept them in finite time.
+We could use the Universal TM to recognize ATM
+2
+
+Note that when M loops, R will also automatically loop because it’s simulating M.
+
+101 / 28
+16
+
+The Acceptance Problem is Undecidable (Proof Sketch)
+Suppose ATM were decidable . . .
+
+Decider
+
+M
+def H(M_code, w):
+# returns True if M accepts w, and False otherwise
+...
+
+on
+
+am
+
+def D(M_code):
+if H(M_code, M_code):
+reject()
+else:
+accept()
+D(D_code)
+
+If H(D code, D code) is True ! D rejects
+
+If H(D code, D code) is False ! D accepts
+
+Contradiction. Therefore ATM is undecidable.
+
+111 / 28
+16
+
+The Acceptance Problem is Undecidable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+Proof: (proof by contradiction)
+Suppose ATM was decidable. Then there exists a decider3 TM H such that:
+H(hM, wi) =
+
+3
+4
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+
+A TM that halts on all inputs hM,wi.
+We are asking if M accepts its own encoding w = hMi.
+
+121 / 28
+16
+
+The Acceptance Problem is Undecidable
+ATM = {hM, wi | M is a TM and M accepts input w}.
+Proof: (proof by contradiction)
+Suppose ATM was decidable. Then there exists a decider3 TM H such that:
+H(hM, wi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+
+Now let’s build another TM that takes as input hMi, runs H on hM,hMii,4 and
+negates the output. Note that this is well-defined because H was a decider
+(i.e., always halts in a finite time). Therefore, the new TM D:
+D(hMi) =
+
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Note that D is clearly a decider (because H was a decider).
+3
+
+A TM that halts on all inputs hM,wi.
+4
+We are asking if M accepts its own encoding w = hMi.
+
+machine
+D
+121 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+D accepts hDi:
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+D accepts hDi:
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+D accepts hDi:
+This happens if H rejects hD, hDii,
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+D accepts hDi:
+This happens if H rejects hD, hDii, which from the definition of H
+happens when D rejects hDi
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+D accepts hDi:
+This happens if H rejects hD, hDii, which from the definition of H
+happens when D rejects hDi
+D rejects hDi:
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+D accepts hDi:
+This happens if H rejects hD, hDii, which from the definition of H
+happens when D rejects hDi
+D rejects hDi:
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+D accepts hDi:
+This happens if H rejects hD, hDii, which from the definition of H
+happens when D rejects hDi
+D rejects hDi:
+This happens if H accepts hD, hDii,
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+D accepts hDi:
+This happens if H rejects hD, hDii, which from the definition of H
+happens when D rejects hDi
+
+D rejects hDi:
+This happens if H accepts hD, hDii, which from the definition of H
+happens when D accepts hDi
+
+131 / 28
+16
+
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!).
+Two possible outcomes (since it’s a decider):
+
+D accepts hDi:
+This happens if H rejects hD, hDii, which from the definition of H
+happens when D rejects hDi
+
+D rejects hDi:
+This happens if H accepts hD, hDii, which from the definition of H
+happens when D accepts hDi
+Contradiction! Therefore H cannot exist and thus ATM is undecidable!
+131 / 28
+16
+
+Visualizing the proof
+H(hM, wi) =
+D(hMi) =
+
+accept if M accepts w,
+reject otherwise (if M rejects or loops on w).
+accept if H rejects hM,hMii,
+reject if H accepts hM, hMii.
+
+contradiction
+
+is LD
+W
+
+M
+
+141 / 28
+16
+
+600 BC
+
+1 / 16
+
+The Halting Problem HALTTM
+
+HALTTM = {hM, wi | M halts on input w}.
+Set of all (encoded) TM-input pairs such that TM halt on the input
+Equivalently (yes/no question):
+given any TM M and any input string w, does M halt on w?
+
+151 / 28
+16
+
+The Halting Problem is Recognizable
+
+HALTTM = {hM, wi | M is a TM and M halts on input w}.
+
+Theorem
+HALTTM is recognizable.
+
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+
+161 / 28
+16
+
+The Halting Problem is Recognizable
+
+HALTTM = {hM, wi | M is a TM and M halts on input w}.
+
+Theorem
+HALTTM is recognizable.
+
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+If M halts (accept or reject), then R accepts.
+
+161 / 28
+16
+
+The Halting Problem is Recognizable
+
+HALTTM = {hM, wi | M is a TM and M halts on input w}.
+
+Theorem
+HALTTM is recognizable.
+
+Proof:
+Given hM, wi, we build another TM R that simulate M on w:
+If M halts (accept or reject), then R accepts.
+(otherwise, the R also loops since it’s simulating M)
+
+161 / 28
+16
+
+The Halting Problem is Undecidable (Proof Sketch)
+Suppose HALTTM were decidable . . .
+def HALT(M_code, w):
+# hypothetical decider
+# returns True iff M halts on input w, otherwise returns False
+...
+def D(M_code):
+if HALT(M_code, M_code):
+while True:
+pass
+# loop forever
+else:
+accept()
+# halt immediately
+
+171 / 28
+16
+
+The Halting Problem is Undecidable (Proof Sketch)
+Suppose HALTTM were decidable . . .
+def HALT(M_code, w):
+# hypothetical decider
+# returns True iff M halts on input w, otherwise returns False
+...
+def D(M_code):
+if HALT(M_code, M_code):
+while True:
+pass
+# loop forever
+else:
+accept()
+# halt immediately
+
+Now consider running:
+D(D_code)
+
+171 / 28
+16
+
+The Halting Problem is Undecidable (Proof Sketch)
+Suppose HALTTM were decidable . . .
+def HALT(M_code, w):
+# hypothetical decider
+# returns True iff M halts on input w, otherwise returns False
+...
+def D(M_code):
+if HALT(M_code, M_code):
+while True:
+pass
+# loop forever
+else:
+accept()
+# halt immediately
+
+Now consider running:
+D(D_code)
+
+If HALT(D code, D code) is True ! D loops forever
+If HALT(D code, D code) is False ! D halts
+171 / 28
+16
+
+The Halting Problem is Undecidable (Proof Sketch)
+Suppose HALTTM were decidable . . .
+def HALT(M_code, w):
+# hypothetical decider
+# returns True iff M halts on input w, otherwise returns False
+...
+def D(M_code):
+if HALT(M_code, M_code):
+while True:
+pass
+# loop forever
+else:
+accept()
+# halt immediately
+
+Now consider running:
+D(D_code)
+
+If HALT(D code, D code) is True ! D loops forever
+If HALT(D code, D code) is False ! D halts
+
+Contradiction. Therefore HALTTM is undecidable.
+
+171 / 28
+16
+
+The Halting Problem is Undecidable
+HALTTM = {hM, wi | M halts on input w}.
+Proof #1: (direct proof using a self-referential argument)
+Suppose HALTTM is decidable. Then there exists a decider TM H that:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+Now let’s build another TM that takes as input hMi, runs H on
+hM,hMii, and does the following:
+D(hMi) =
+
+halt (accept or reject)
+loop
+
+if H rejects hM,hMii,
+if H accepts hM, hMii.
+
+Now let’s see what happens if we run D on hDi (i.e., on its encoding!):
+If H says D halts on hDi then, by construction, D must loop!
+If H says D loops on hDi then, by construction, D must halt!
+Contradiction! Therefore the decider H cannot exist!
+
+181 / 28
+16
+
+Visualizing the proof
+H(hM, wi) =
+D(hMi) =
+
+accept if M halts on w,
+reject otherwise if M loops on w.
+halt
+loop
+
+if H rejects hM,hMii,
+if H accepts hM, hMii.
+
+machine
+
+CMS
+
+5m
+
+it
+
+reject
+
+D
+
+me
+haltfanepterrefest
+
+milter
+
+contradiction
+
+191 / 28
+16
+
+Second Proof of Undecidability of the
+Halting Problem using Reducibility
+
+201 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+211 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+Proof #2: (using reduction)
+Sketch:
+
+211 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+Proof #2: (using reduction)
+Sketch:
+1
+
+Suppose HALTTM is decidable (to show contradiction).
+
+211 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+Proof #2: (using reduction)
+Sketch:
+1
+
+Suppose HALTTM is decidable (to show contradiction).
+
+2
+
+Therefore HALTTM has a decider (i.e., a TM that decides it and
+never loops).
+
+211 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+Proof #2: (using reduction)
+Sketch:
+1
+
+Suppose HALTTM is decidable (to show contradiction).
+
+2
+
+Therefore HALTTM has a decider (i.e., a TM that decides it and
+never loops).
+
+3
+
+We show that using the Halting decider (assuming it exists), one
+could build a decider for the Acceptance Problem ATM .
+
+211 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+Proof #2: (using reduction)
+Sketch:
+1
+
+Suppose HALTTM is decidable (to show contradiction).
+
+2
+
+Therefore HALTTM has a decider (i.e., a TM that decides it and
+never loops).
+
+3
+
+We show that using the Halting decider (assuming it exists), one
+could build a decider for the Acceptance Problem ATM .
+
+4
+
+But we have already proved ATM is undecidable ) contradiction!
+
+211 / 28
+16
+
+Second Proof of Undecidability of the Halting Problem
+Idea: Use a known undecidable problem to show ours is undecidable!
+
+Proof #2: (using reduction)
+Sketch:
+1
+
+Suppose HALTTM is decidable (to show contradiction).
+
+2
+
+Therefore HALTTM has a decider (i.e., a TM that decides it and
+never loops).
+
+3
+
+We show that using the Halting decider (assuming it exists), one
+could build a decider for the Acceptance Problem ATM .
+
+4
+
+But we have already proved ATM is undecidable ) contradiction!
+
+5
+
+Therefore, HALTTM cannot have a decider and is undecidable.
+
+211 / 28
+16
+
+The Halting Problem is Undecidable (Proof #2 Sketch)
+Suppose HALTTM were decidable . . .
+def HALT(M_code, w):
+# hypothetical decider
+# returns True iff M halts on w
+...
+def DECIDE_ATM(M_code, w):
+if not HALT(M_code, w):
+reject()
+else:
+result = simulate(M_code, w)
+if result == "accept":
+accept()
+else:
+reject()
+
+221 / 28
+16
+
+The Halting Problem is Undecidable (Proof #2 Sketch)
+Suppose HALTTM were decidable . . .
+def HALT(M_code, w):
+# hypothetical decider
+# returns True iff M halts on w
+...
+def DECIDE_ATM(M_code, w):
+if not HALT(M_code, w):
+reject()
+else:
+result = simulate(M_code, w)
+if result == "accept":
+accept()
+else:
+reject()
+
+This would decide ATM ) contradiction.
+221 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+On input hM,wi:
+
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+On input hM,wi:
+D first calls H(hM,wi)
+
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+On input hM,wi:
+D first calls H(hM,wi)
+
+If H(hM,wi) = rejects5 ) D rejects.
+
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+On input hM,wi:
+D first calls H(hM,wi)
+
+If H(hM,wi) = rejects5 ) D rejects.
+
+Else if H(hM,wi) = accept6 ) D simulates M on input w, and
+accept/reject accordingly.7
+
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+On input hM,wi:
+D first calls H(hM,wi)
+
+If H(hM,wi) = rejects5 ) D rejects.
+
+Else if H(hM,wi) = accept6 ) D simulates M on input w, and
+accept/reject accordingly.7
+
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+Proof #2: (using reduction)
+Suppose HALTTM is decidable. Let H be its decider TM. Therefore:
+H(hM, wi) =
+
+accept if M halts on w,
+reject if M loops on w.
+
+We use H (as a subroutine) to build a decider D for ATM .
+On input hM,wi:
+D first calls H(hM,wi)
+
+If H(hM,wi) = rejects5 ) D rejects.
+
+Else if H(hM,wi) = accept6 ) D simulates M on input w, and
+accept/reject accordingly.7
+D is a decider8 for ATM ) Contradiction, because ATM is undecidable!
+Therefore the decider H cannot exist and thus HALTTM is undecidable.
+5
+
+That is: M loops on w.
+That is: M halts on w. After this point, we know M does NOT loop on w.
+7
+That is: accept if M accepts w, and reject if M rejects w.
+8
+That is: it accepts/rejects correctly and never loops!
+6
+
+231 / 28
+16
+
+M loops onw
+
+M
+H
+w
+
+reject
+
+reject
+simulate
+
+adept M on w
+
+I
+
+V9
+
+Mhalt
+on
+
+w
+
+reject
+accept
+
+reject
+adept
+
+atThispoint
+
+simulation
+
+cannot loop
+
+because H
+said M halts
+on w
+
+241 / 28
+16
+
+Reductions and Reducibility
+
+Problem A is reducible to Problem B:
+An algorithm for solving Problem B can be used as a subroutine in
+an algorithm for solving Problem A.
+) Informally, Problem A cannot be “harder” than Problem B.
+Problem A “6” Problem B
+
+Therefore, if Problem A is “very hard”, then so is Problem B.
+In the second proof, we showed that ATM is reducible to HALTTM .
+
+251 / 28
+16
+
+Unrecognizable Problems!
+
+261 / 28
+16
+
+Examples of Unrecognizable Languages
+
+Complement of language L ✓ ⌃? is the set of all strings from ⌃?
+that are not in L, i.e.,
+L = {w 2 ⌃? | w < L}
+
+Theorem (You’ll prove this in A2!)
+L is decidable if and only if both L and its complement are recognizable.
+In A2 you will also prove:
+ATM and HALTTM (i.e., complements of the Acceptance and Halting
+problems) are unrecognizable!
+
+271 / 28
+16
+
+Big Picture – One Last Time!
+
+every
+
+T decidable
+
+of
+
+arb nyo
+
+CFL
+
+abc
+
+Regular
+
+n o
+
+HALTTM
+
+HALIM
+T
+
+recognizable
+
+281 / 28
+16
+
+Pale
+
+Blue
+
+Dot
+
+Carl Sagan
+
+1 / 16
+
+

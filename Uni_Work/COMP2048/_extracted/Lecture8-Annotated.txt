@@ -1,0 +1,473 @@
+COMP2048: Theory of Computing
+Dr. Kasra Khosoussi
+
+Week 8
+24/4/2026
+
+1 / 19
+16
+
+Recap: Computability
+
+Computability Theory
+Is language L decidable?
+Is there an “algorithm” that solves the corresponding decision problem?
+
+2
+1 / 19
+16
+
+Computability Big Picture
+
+Rectangle: set of all languages (or decision problems) over ⌃
+
+3
+1 / 19
+16
+
+Computability Big Picture
+
+Decidable
+
+Rectangle: set of all languages (or decision problems) over ⌃
+
+3
+1 / 19
+16
+
+Decidable , Practical
+
+A problem may be decidable but still hopelessly slow to solve
+Suppose a decider uses 2n steps on inputs of length n
+For n = 100:
+
+2100 steps
+
+At 109 steps/second ! far longer than Sun’s remaining lifetime!
+
+decidable does not mean practical
+
+4
+1 / 19
+16
+
+Today’s and Next Week’s Plan
+
+Complexity Theory
+Can the problem be solved “efficiently”?
+Classify decidable problems based on the resources they require
+What problems can be solved with limited resources?
+(time, space, etc)
+we focus on one basic resource: time
+
+5
+1 / 19
+16
+
+Timeline
+
+1930s
+
+ENIAC
+
+Transistor
+
+PC
+
+1940s
+
+1950s
+
+1970s
+
+computability
+theory
+
+Today
+
+computational complexity
+theory
+
+6
+1 / 19
+16
+
+Complexity Theory Questions
+
+How should we measure the running time of a Turing machine?
+How should we classify languages by their running time?
+What does it mean for an algorithm to be efficient?
+Which problems can be solved efficiently?
+
+7
+1 / 19
+16
+
+How to measure running time? Time Complexity
+Measure running time by
+counting the number of TM steps in the worst case
+as a function input length cap
+
+Worst-Case Analysis:
+
+w
+
+TMIw
+
+yes
+0
+n
+
+Let M be a deterministic 1-tape TM (decider)
+For input w, let t(w) be number of steps that M takes on input w
+For inputs of length n, define the worst-case running time
+
+right
+left
+zf
+
+0
+11
+
+f (n) = max { t(w) | |w| = n }
+
+f (n) is max number of steps M may take on any input of length n
+
+8
+1 / 19
+16
+
+Asymptotic Time Complexity
+Exact step counts are usually hard to calculate
+Exact # of steps depends on the model, implementation details, . . .
+We care about how time grows as input size grows for large inputs
+Rate of growth as a function of input size
+Big-O notation
+We write f (n) = O(g(n)) if there exist constants c > 0 and n0 such that
+
+Examples:
+3n + 7 = O(n)
+
+f (n) 6 c · g(n)
+
+for all n > n0 .
+
+right
+left
+g
+n
+
+5n2 + 2n + 1 = O(n2 )
+3n3 = O(n3 )
+n log n + n = O(n log n)
+2n is not O(nk ) for any fixed k
+
+Ignore:
+lower order terms
+constant factors
+
+right
+left
+O
+2
+n
+
+9
+1 / 19
+16
+
+Example: estimating TM running time
+W
+
+Consider the language
+L = { 0k 1k | k > 0 }
+
+first check the input has the form 0⇤ 1⇤
+mark the leftmost unmarked 0
+scan right and mark the matching unmarked 1
+return left and repeat
+
+O(n) steps for the initial check
+Each round takes O(n) steps
+There are at most n/2 rounds
+Total running time: n/2 ⇥ O(n) + O(n) = O(n2 )
+
+overline
+right
+left
+O
+2
+n
+
+10
+1 / 19
+16
+
+Efficient (Time Complexity) , Polynomial Time
+Cobham-Edmonds thesis: polynomial time , efficient computation
+Polynomial functions
+n, n2 , n3 , . . . , nk
+grow much more slowly than exponential functions like 2n
+Polynomial-time computations compose well:
+polynomial time + polynomial time = polynomial time
+polynomially many repetitions of polynomial time work
+is still polynomial
+
+111 / 19
+16
+
+1
+
+·104
+n (Polynomial)
+n2 (Polynomial)
+
+0.8
+
+n3 (Polynomial)
+
+Steps
+
+2n (Exponential)
+
+0.6
+0.4
+0.2
+0
+
+2
+
+4
+
+6
+
+8
+10 12 14
+n (Input Size)
+
+16
+
+18
+
+20
+
+At n = 100, n3 = 1,000,000 while 2100 ⇡ 1030
+121 / 19
+16
+
+Which runtimes count as “efficient”?
+
+n2 - 3n + 1010000
+
+right
+left
+O
+2
+n
+
+n log n
+10
+
+n10
+nn
+n!
+
+right
+left
+O
+2
+n
+k
+
+2n
+1.0000001n
+10500
+
+131 / 19
+16
+
+Time Complexity Class TIME(f (n))
+Definition
+For a function f : N ! N,
+TIME(f (n)) = { L | deterministic TM decides L in time O(f (n)) }.
+Input length is n
+Running time means worst-case running time
+
+TIME
+
+²
+M
+
+The machine must halt on every input
+Example: we just showed that
+{0k 1k | k > 0} 2 TIME(n2 )
+
+ETIME
+
+kg
+40
+n
+
+100
+
+141 / 19
+16
+
+TIME
+
+TIMEN
+
+n2
+E
+TIME
+
+decidable
+TIME
+
+right
+left
+0
+n1
+
+C
+
+TIME
+
+2n
+
+1 / 16
+
+Sensitivity of TIME(f (n)) to Model of Computation
+Unfortunately TIME(f (n)) depends on the model of computation
+Example: for L = {0k 1k : k > 0},
+
+with one-tape TMs L 2 TIME(n2 )
+with two-tape TMs L 2 TIME(n)
+
+But this dependence is at most polynomial:
+e.g., any t(n)-time multi-tape TM (when t(n) > n) can
+be simulated by a one-tape TM in time O(t(n)2 )
+We may only get polynomial slowdowns/speedups by switching
+between reasonable deterministic models of computations
+
+151 / 19
+16
+
+The Class P
+Definition
+P is the class of languages decidable by a deterministic Turing machine
+in polynomial time, i.e.,
+TIME mNS
+[
+P=
+TIME(nk ).
+TIME
+k>0
+
+L 2 P if some deterministic TM decides L in time O(nk ) for some
+constant k
+Unlike TIME(f (n)), the class P does not depend on a particular
+deterministic model of computation
+Intuitively, P is class of “efficiently” solvable decision problems
+
+161 / 19
+16
+
+TIME n
+
+TIME
+
+A
+
+TIME m
+
+language L
+1 / 16
+
+Examples in P
+
+R
+
+GETIME
+{ 0k 1k | k > 0 } 2 PAll
+P
+
+{wwR | w 2 {0,1}⇤ } 2 P
+
+All regular languages are in P (why?)
+
+regularlanguages
+
+are
+
+in
+
+TIME
+
+n
+
+171 / 19
+16
+
+A New Big Picture
+
+TIME TIME
+u2
+
+RegTIME TIMEA
+n
+
+m
+
+supset
+
+right
+left
+O
+2
+n
+k
+
+all
+
+right
+2
+n
+TIMEleft
+
+decidable languages
+181 / 19
+16
+
+Reg TIME TIME
+
+n
+
+decidable
+pall
+
+TIME B
+
+TIME
+
+2n
+
+languages
+1 / 16
+
+When checking a solution is easy . . .
+
+Sometimes finding a solution may be difficult
+But if someone hands us a candidate solution, we can check it
+quickly
+This leads to the idea of verification
+That idea is captured by the class NP
+P: easy to solve
+NP: easy to verify
+
+We will make this formal next lecture
+
+191 / 19
+16
+
+

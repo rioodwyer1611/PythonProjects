@@ -1,0 +1,928 @@
+COMP2048: Theory of Computing
+Dr. Kasra Khosoussi
+
+Week 1
+26/2/2026
+
+1 / 46
+16
+
+Welcome to COMP2048: Theory of Computing
+
+What we’ll do today before the technical topics:
+Big picture + why it matters
+Course aims & learning outcomes
+How the course runs + assessments + expectations
+
+2
+1 / 46
+16
+
+Fundamental Questions We Study in COMP2048
+
+How to define computation?
+How do we formalize and prove claims about computation?
+What are the essential elements of computing?
+What problems cannot be solved by any algorithm?
+What problems are solvable efficiently with limited resources?
+(e.g., memory, time)
+What’s all the fuss about quantum computing?
+
+3
+1 / 46
+16
+
+Why This Course Matters
+
+Foundations of Computer Science
+Solid and rigorous foundation for your Algorithms courses
+Understanding what computers cannot do
+Understanding efficiency limits (complexity, P vs NP)
+Broader view of computation (e.g., quantum models)
+Skill you’ll take anywhere: precise thinking & reasoning
+
+4
+1 / 46
+16
+
+Learning Outcomes
+After successfully completing this course you should be able to:
+Define core concepts: computation, algorithms, decision
+problems, formal languages
+Study models of computation:
+Finite Automata, Pushdown Aut. , Turing Machines, Cellular Aut.
+Analyze expressive power + limitations of computational models
+Apply proof techniques for correctness, equivalence, and
+impossibility results
+Determine decidability/undecidability using appropriate tools
+Explain complexity in terms of time/space resources
+Classify problems in basic complexity classes (incl. P and NP)
+Describe principles of quantum computation
+
+5
+1 / 46
+16
+
+Prerequisites & Assumed Background
+
+(MATH1061 or MATH1081) and (CSSE1001 or ENGG1001)
+Assumed background:
+Basic Python coding
+Discrete math basics: sets, functions/relations, graphs, Boolean ops
+Be comfortable with reading and/or writing mathematical
+arguments & proofs
+
+6
+1 / 46
+16
+
+Teaching Team
+
+Course Coordinator (and lecturers):
+Dr. Kasra Khosoussi & Dr. Josh Arnold
+Guest lectures by Dr. Riddhi Gupta
+Excellent team of tutors!
+(too many to list – you will meet most of them soon)
+
+7
+1 / 46
+16
+
+How the Course Runs
+Lectures: Weeks 1-13
+Applied classes: Weeks 2-13
+Practical classes: Weeks 10-13
+What to expect:
+Lectures: main material, core concepts
+Applied classes:
+Problems from topics covered in previous week’s lecture
+Guided problem solving
+Q&A and assignment support
+
+Practical classes: support for Assignment 3
+
+8
+1 / 46
+16
+
+Lectures Outline
+
+Basics, Finite Aut. and Regular Languages
+
+W1-3
+W4 (Josh)
+
+Pushdown Aut. & Context-free Grammars/Languages
+Turing Machines and Decidability
+
+W5-6
+W7 (Josh)
+W8-9
+
+Cellular Automata
+
+Intro to Computational Complexity Theory (e.g., P vs. NP)
+
+W10-12 (Riddhi)
+W13 (Josh)
+
+Quantum Computing
+Other models of computation
+
+Plan: Applied class on week n will cover the topics presented in
+week n - 1’s lecture
+
+9
+1 / 46
+16
+
+Assessment at a Glance
+Assignment 1 (from topics covered in Weeks 1–3)
+problem set
+
+20%
+
+Assignment 2 (from topics covered in Weeks 4–7)
+problem set
+
+20%
+
+Assignment 3 (from topics covered in Weeks 8–12)
+problem set + some coding
+
+20%
+
+Final Exam (written, in-person, closed-book)
+
+40%
+
+All assessments (A1-A3 & Final Exam) are subject to hurdles
+Must satisfy minimum requirements to earn certain grades/pass
+
+see course profile for details
+
+101 / 46
+16
+
+Key Dates (Current Schedule)
+Assignment 1:
+will be posted in Week 2 – due on Fri 27 Mar 2026, 4:00pm
+Assignment 2:
+will be posted in Week 5 – due on Fri 1 May 2026, 4:00pm
+Assignment 3:
+will be posted in Week 9 – due on Fri 29 May 2026, 4:00pm
+Submission: online by due date/time (via Blackboard/Gradescope)
+Late penalty: please see the course profile.
+Extensions:
+Apply via the official process (see the course profile)
+Maximum extension typically 3 days
+
+Start early! Some problems may take longer than you think.
+Submit 1 hour before the deadline to be safe!
+
+see course profile for details
+111 / 46
+16
+
+Academic Integrity + Generative AI
+You are responsible for the work you submit.
+If you use generative AI:
+You must acknowledge/reference that use (e.g., prompts you used)
+You must be able to explain and defend your submission
+Sta↵ may conduct random interviews to verify understanding
+
+Advice: Use these tools to support your learning, not to replace
+your thinking. Attempt all assignment problems on your own
+first. After you have written your solutions, use AI to explore
+further, check your understanding, or deepen your insights.
+The assignments are meant to prepare you for the final exam
+(secured, closed-book).
+
+see course profile for details
+121 / 46
+16
+
+Learning Resources
+
+131 / 46
+16
+
+How to Succeed
+The final exam questions will be similar in level of difficulty
+(though not identical) to problems from your assignments and
+applied classes.
+The assignments and applied class problem sets are designed to
+prepare you for the final exam.
+Use AI responsibly (see the slide on AI).
+Ask for help early.
+Attendance is not mandatory or formally recorded. However,
+regularly attending lectures (or, at least, watching the recordings)
+and actively participating in applied classes (and Ed) will
+significantly support your understanding and preparation for the
+assessments.
+Review the hurdle requirements on the course profile.
+
+141 / 46
+16
+
+Friendly Requests :)
+Please ask questions!
+(e.g., could you repeat X? I don’t understand Y? etc)
+Please bring your ideas and join the discussion! Don’t be shy :)
+Please be respectful and collegial (I know you will be!) and help
+each other learn (e.g., on Ed, study groups, etc).
+We are creating new content and restructuring the course this
+semester — thank you in advance for your patience.
+Our teaching team is working really hard to provide you with a
+great learning experience. Mistakes may/will happen, but we will
+fix them. Please let us know if you spot one.
+151 / 46
+16
+
+Where to Find Stu↵
+
+Course Profile: due dates, hurdles, policies, etc
+Blackboard: announcements, weekly materials, recordings,
+assignments, submission (via Gradescope), applied class
+worksheet, grades, etc
+Ed Discussion: Q&A, announcements, etc
+Please regularly check:
+Email (announcements/notifications/etc)
+Blackboard
+Ed Discussion – we may have already answered your question :)
+
+161 / 46
+16
+
+Today’s Plan
+
+Brief overview of (recent) history of computers and computing
+Working definition of computing
+Computational problems
+Overview of models of computation
+Deterministic Finite Automata (DFA, a.k.a. Finite State Machines)
+
+171 / 46
+16
+
+Historical Context
+
+Analytical Engine (1800s)
+ENIAC (1940s) – vacuum tubes
+Transistor era (1950s–60s) led to smaller, faster machines
+Personal Computers (1970s)
+Today: 1
+
+computerhistory.org/timeline/computers/
+
+181 / 46
+16
+
+First mention of “computer” in the New York Times
+
+191 / 46
+16
+
+Timeline
+
+1930s
+
+ENIAC
+
+Transistor
+
+PC
+
+1940s
+
+1950s
+
+1970s
+
+computability
+theory
+
+Today
+
+computational complexity
+theory
+
+201 / 46
+16
+
+What is Computing?
+
+Computing is the process of taking inputs and applying a
+well-defined procedure (algorithm) to produce outputs.
+“Algorithm” derived from Al-Khwarizmi (c. 800 AD).
+Central to many scientific fields, e.g.,
+Nobel prizes in Physics and Chemistry this year!
+Biology (drug discovery, etc)
+
+211 / 46
+16
+
+What is Computing?
+
+Computing is the process of taking inputs and applying a
+well-defined procedure (algorithm) to produce outputs.
+“Algorithm” derived from Al-Khwarizmi (c. 800 AD).
+Central to many scientific fields, e.g.,
+Nobel prizes in Physics and Chemistry this year!
+Biology (drug discovery, etc)
+
+last
+
+211 / 46
+16
+
+Computational Problem
+
+It
+set
+
+of inputs
+
+set of outputs
+221 / 46
+16
+
+Decision Problems
+
+O
+A computing problem can be framed as a function from inputs to
+outputs.
+Decision problem: output is simply Yes or No (or 1 or 0; accept or
+reject).
+Image classification example: dog or cat? (or, cat or not-cat).
+
+231 / 46
+16
+
+Decision Problems (Example)
+
+241 / 46
+16
+
+Models of Computing
+
+Ysion problems
+
+Ñems
+solved
+DFAS
+by
+
+DE
+
+251 / 46
+16
+
+Symbols, Strings, and Alphabets
+
+Degister
+
+0
+Inputs often modeled as strings over an alphabet ⌃.
+Alphabet ⌃ is a finite (non-empty) set of symbols.
+Example:
+
+D
+
+⌃ = {0,1} (binary)
+
+Ening
+
+⌃ = {a,b,c, . . . ,z} (lower-case English letters)
+
+abzde
+
+26
+1 / 46
+16
+
+Strings and Kleene Star
+
+A string x is a finite sequence of symbols.
+String length |x| = number of symbols.
+
+Input
+
+output
+
+Empty string ✏ has length 0.
+Can encode text, images, numbers as binary strings (though
+encodings vary).
+Kleene star ⌃⇤ : set of all (finite) strings from alphabet ⌃.
+⌃ = {0,1} ) ⌃⇤ = {✏,0,1,00,01,10,11,000,001, . . .}
+
+271 / 46
+16
+
+Languages and Decision Problems
+string
+Decision problem: Does input x satisfy property P?
+
+O
+If x 2 L , answer = yes (accept)
+
+Model as a language L ✓ ⌃⇤ :
+
+If x < L , answer = no (reject)
+
+Examples:
+
+L
+E 0,00000
+101
+
+All binary strings with an even number of 1s.
+All strings that start with 1 and end with 0.
+Strings matching the pattern: (ab)n for some n > 0.
+
+10,100 11000
+
+Each decision problem corresponds to the set of strings that are
+accepted (the “yes/accept” set).
+
+281 / 46
+16
+
+Languages $ Decision Problems
+
+1001
+yes
+no
+
+Therefore:
+solving a decision prob. , recognizing the corresponding language1
+1
+
+i.e., given an input w 2 ⌃⇤ , decide whether w 2 L or w < L
+
+291 / 46
+16
+
+Deterministic Finite Automata
+
+301 / 46
+16
+
+State Machines (Informal)
+
+Example: automatic door
+
+sensor=1
+
+sensor=0
+
+Finite number of states
+State transition rules
+State changes each time based on:
+current state
+current input symbol
+(e.g., a sensor reading)
+
+sensor=1
+
+open
+
+close
+sensor=0
+
+At every step:
+(current state, input symbol) ! next state
+
+311 / 46
+16
+
+From Doors to DFA
+
+string
+100
+
+Input: A string over an alphabet ⌃
+The machine reads symbols left to right, one at a time
+After reading the last symbol, the machine must decide:
+Accept or Reject the string?
+
+321 / 46
+16
+
+First DFA Example
+0
+
+Alphabet ⌃ = {0,1}
+States: q0 and q1
+
+q0
+
+Initial state: q0
+Accept state(s): q1
+Tracing input strings:
+w = 100:
+
+1
+
+1
+q1
+
+0
+
+1
+
+0
+
+0
+
+q0 ! q1 ! q0 ! q0
+
+ends in q0 which is not an accepting state ) w = 100 is rejected!
+w = 11:
+1
+
+1
+
+q0 ! q1 ! q1
+
+ends in q1 which is an accepting state ) w = 11 is accepted!
+w = ":
+q0
+ends in q0 which is an accepting state ) w = " is rejected!
+
+331 / 46
+16
+
+How DFA Process Input Strings
+
+Start in the initial state.
+For each symbol a in the input string:
+current state
+
+(current state, a)
+
+After reading the entire string:
+If the current state is in F (i.e., set of accepting states) ! accept
+Otherwise ! reject
+
+341 / 46
+16
+
+Deterministic Finite Automata (DFA)
+A DFA consists of:
+A finite set of states
+An input alphabet ⌃
+A start state
+A set of accepting states
+A transition rule:
+(current state, input symbol) ! next state
+
+Deterministic
+For every state and every input symbol, there is exactly one next state.
+
+351 / 46
+16
+
+Deterministic Finite Automata (DFA)
+A DFA consists of:
+A finite set of states
+An input alphabet ⌃
+A start state
+A set of accepting states
+A transition rule:
+(current state, input symbol) ! next state
+
+Deterministic
+For every state and every input symbol, there is exactly one next state.
+
+351 / 46
+16
+
+Formal Definition of a DFA
+
+A DFA is a 5-tuple (Q,⌃, ,q0 ,F) where:
+Q is a finite set of states.
+⌃ is a finite input alphabet.
+: Q ⇥ ⌃ ! Q is the transition function.
+
+q0 2 Q is the start state.
+
+F ✓ Q is the set of accepting states.
+
+361 / 46
+16
+
+Understanding the Transition Function
+
+:Q⇥⌃!Q
+Input: a pair (state, symbol)
+Output: a state
+Example:
+
+(q,0) = q 0
+
+means:
+If we are in state q
+and read symbol 0
+then we move to state q 0 .
+
+371 / 46
+16
+
+Example: Even Number of 1’s
+Egos
+Language: strings over ⌃ = {0,1} with an even number of 1’s.
+Start state: qE
+
+8
+10011
+
+GP
+
+1
+
+qE
+
+Accepting states: F = {qE }
+(qE ,1) = qO ,
+
+0
+
+0
+
+Q = {qE ,qO }
+
+qO
+
+1
+
+(qO ,1) = qE
+
+Ge
+
+8 90,0
+
+qtqpqsqtq.bg
+
+go
+
+rejected
+381 / 46
+16
+
+(A Quick Note on Notation)
+f : A ! B means f is a function that maps elements of set A to set B
+e.g., sin : R ! [-1, + 1]
+
+Suppose C and D are two sets.
+Then C ⇥ D 2 is the set of all tuples (pairs) of the form (c,d) where
+c is an element from set C and d is an element from set D
+Example:
+C = {1,2}
+D = {x,y,z}
+C ⇥ D = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}
+Therefore : Q ⇥ ⌃ ! Q simply is a function that maps
+o
+(state,symbol) pairs to states
+i.e., if you are in state q and read symbol x transition to state q 0
+2
+
+Cartesian product of C and D
+
+391 / 46
+16
+
+DFA Representations
+Example: strings over ⌃ = {0,1} with an even number of 1’s
+set of states Q = {qE ,qO }
+1
+
+State transition function
+(qE ,0) = qE ,
+
+2
+
+start state qE
+
+: Q ⇥ ⌃ ! Q:
+
+(qE ,1) = qO ,
+
+(qO ,0) = qO ,
+
+(qO ,1) = qE .
+
+State transition table:
+
+qE
+0
+qO
+
+states
+3
+
+set of accept states F = {qE }.
+
+0 1
+qE qO
+qO qE
+
+Diagram:
+0
+
+1
+
+qE
+
+0
+qO
+
+1
+401 / 46
+16
+
+Using DFA to Solve (Some) Decision Problems
+solving a decision prob. , recognizing the corresponding language L 3
+Input: A string over an alphabet ⌃
+The machine reads symbols left to right, one at a time
+After reading the last symbol, the machine must decide:
+Accept or Reject the string?
+
+Therefore our goal is to:
+design a DFA that accepts input string w if and only if w 2 L
+(rejects it otherwise if w < L).
+
+3
+
+i.e., given an input w 2 ⌃⇤ , decide whether w 2 L or w < L
+
+411 / 46
+16
+
+Designing DFAs: General Strategy
+
+DFA has no memory other than its current state.
+When designing a DFA, ask yourself:
+“What is the minimal amount of information I need to remember about
+the string read so far to accept/reject the string at the end?”
+Each state corresponds to a specific piece of remembered
+information.
+You must define a transition for every state and every symbol in ⌃.
+
+421 / 46
+16
+
+Example 1: Strings Ending in ’1’
+Build a DFA for the language of strings over ⌃ = {0,1} that end with a 1
+
+What do we need to remember?
+We only care about the last symbol we saw.
+
+State q0 : The last symbol was 0 (or we haven’t read anything yet).
+State q1 : The last symbol was 1 (this is our accept state!)
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+431 / 46
+16
+
+Example 1: Strings Ending in ’1’
+Build a DFA for the language of strings over ⌃ = {0,1} that end with a 1
+
+What do we need to remember?
+We only care about the last symbol we saw.
+
+State q0 : The last symbol was 0 (or we haven’t read anything yet).
+State q1 : The last symbol was 1 (this is our accept state!)
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+431 / 46
+16
+
+Example 2: The ”Trap” State
+Build a DFA for strings over ⌃ = {a,b} that start with the letter ’a’.
+What do we need to remember?
+We only care about the very first symbol.
+State q0 : Start state (haven’t read anything).
+State qa : The first symbol was a (Accept! We stay here forever).
+State qtrap : The first symbol was b (Reject! The string is ruined,
+and no future input can fix it).
+qa
+
+a,b
+
+a
+q0
+b
+
+qtrap
+
+a,b
+441 / 46
+16
+
+Example 2: The ”Trap” State
+Build a DFA for strings over ⌃ = {a,b} that start with the letter ’a’.
+What do we need to remember?
+We only care about the very first symbol.
+State q0 : Start state (haven’t read anything).
+State qa : The first symbol was a (Accept! We stay here forever).
+State qtrap : The first symbol was b (Reject! The string is ruined,
+and no future input can fix it).
+qa
+
+a,b
+
+a
+q0
+b
+
+qtrap
+
+a,b
+441 / 46
+16
+
+Example 3: Containing a Substring
+Build a DFA for strings over ⌃ = {0,1} that contain the substring ”00”.
+What do we need to remember?
+How far along are we in seeing the pattern ”00”?
+State q0 : Haven’t seen a 0 recently.
+State q1 : Saw one 0 (if we see a 1 now, our progress resets to q0 ).
+State q2 : Saw ”00”! (Accept! We stay here forever, because the
+string now contains ”00”).
+1
+
+0,1
+
+0
+
+q0
+
+q1
+
+0
+
+q2
+
+1
+
+451 / 46
+16
+
+Example 3: Containing a Substring
+Build a DFA for strings over ⌃ = {0,1} that contain the substring ”00”.
+What do we need to remember?
+How far along are we in seeing the pattern ”00”?
+State q0 : Haven’t seen a 0 recently.
+State q1 : Saw one 0 (if we see a 1 now, our progress resets to q0 ).
+State q2 : Saw ”00”! (Accept! We stay here forever, because the
+string now contains ”00”).
+1
+
+0,1
+
+0
+
+q0
+
+q1
+
+0
+
+q2
+
+1
+
+451 / 46
+16
+
+Remarks
+
+Each state represents where you are in processing the input.
+
+A DFA must specify exactly one transition for each symbol in ⌃
+from each state.
+
+If no valid transition is specified, or transitions are incomplete, the
+machine isnt a proper DFA.
+
+461 / 46
+16
+
+

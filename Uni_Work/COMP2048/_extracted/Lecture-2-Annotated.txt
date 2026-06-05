@@ -1,0 +1,832 @@
+COMP2048: Theory of Computing
+Dr. Kasra Khosoussi
+
+Week 2
+5/3/2026
+
+1 / 40
+16
+
+Assignment 1 on Blackboard
+
+2
+1 / 40
+16
+
+Almost half of class has not visited Ed yet.
+
+3
+1 / 40
+16
+
+About Ed Discussion Board
+Important announcements and useful student questions are
+posted on Ed.
+Please check Ed, Blackboard, and your email regularly.
+You can post questions privately on Ed – only the teaching sta↵
+will see them.
+Assignment Questions: Please make your question private if
+your Ed post might reveal your solution to an assignment
+problem (or if you’re unsure).
+If appropriate (and you have no objection), we can make a
+question public (anonymously) so the whole class can benefit.
+4
+1 / 40
+16
+
+Contact Us :)
+
+If you have any specific/personal concerns that you’d like to
+privately discuss with Josh or myself, please feel free to reach out
+to schedule a meeting.
+comp2048@eecs.uq.edu.au
+
+Please ask all other general questions (about lectures,
+assignments, admin, etc) on Ed (publicly/privately/anonymously)
+or during applied classes.
+
+5
+1 / 40
+16
+
+Today’s Plan
+
+Continue with DFA
+Regular Languages
+Closure Properties of Regular Languages
+Regular Expressions
+Non-deterministic Finite Automata (NFA)
+
+6
+1 / 40
+16
+
+Recap
+Example
+
+Alphabet
+Set of all strings
+
+E oil
+
+soil
+or
+
+410
+
+Decision Problem
+
+Intent
+
+0
+
+1
+
+ᵗ
+
+yes.no
+
+yes no
+encoding
+
+iastrings
+Languages
+Languages
+
+subsets of
+
+4417111109
+Language
+
+Decision
+Problems
+2 to 2
+
+correspondence
+
+Languageing
+
+set
+
+output
+7
+1 / 40
+16
+
+Recap
+
+ÉE
+
+FEE
+8
+1 / 40
+16
+
+Recap: Deterministic Finite Automata (DFA)
+
+A DFA is a 5-tuple (Q, ⌃, , q0 , F) where:
+Q is a finite set of states
+⌃ is the input alphabet
+: Q ⇥ ⌃ ! Q is the transition function
+
+q0 2 Q is the start state
+
+F ✓ Q is the set of accept states
+
+9
+1 / 40
+16
+
+Designing DFAs: General Strategy
+
+DFA has no memory other than its current state.
+When designing a DFA, ask yourself:
+“What is the minimal amount of information I need to remember about
+the string read so far to accept/reject the string at the end?”
+Each state corresponds to a specific piece of remembered
+information.
+You must define a transition for every state and every symbol in ⌃.
+
+101 / 40
+16
+
+Example 1: Strings Ending in ’1’
+Build a DFA for the language of strings over ⌃ = {0,1} that end with a 1
+
+What do we need to remember?
+We only care about the last symbol we saw.
+
+State q0 : The last symbol was 0 (or we haven’t read anything yet).
+State q1 : The last symbol was 1 (this is our accept state!)
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+111 / 40
+16
+
+Example 1: Strings Ending in ’1’
+Build a DFA for the language of strings over ⌃ = {0,1} that end with a 1
+
+What do we need to remember?
+We only care about the last symbol we saw.
+
+State q0 : The last symbol was 0 (or we haven’t read anything yet).
+State q1 : The last symbol was 1 (this is our accept state!)
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+111 / 40
+16
+
+Example 2: The “Trap” State
+Build a DFA for strings over ⌃ = {a,b} that start with the letter ‘a’.
+What do we need to remember?
+We only care about the very first symbol.
+State q0 : Start state (haven’t read anything).
+State qa : The first symbol was a (Accept! We stay here forever).
+State qtrap : The first symbol was b (Reject! The string is ruined,
+and no future input can fix it).
+qa
+
+a,b
+
+a
+q0
+b
+
+qtrap
+
+a,b
+121 / 40
+16
+
+Example 2: The “Trap” State
+Build a DFA for strings over ⌃ = {a,b} that start with the letter ‘a’.
+What do we need to remember?
+We only care about the very first symbol.
+State q0 : Start state (haven’t read anything).
+State qa : The first symbol was a (Accept! We stay here forever).
+State qtrap : The first symbol was b (Reject! The string is ruined,
+and no future input can fix it).
+qa
+
+a,b
+
+a
+q0
+b
+
+qtrap
+
+a,b
+121 / 40
+16
+
+Example 3: Containing a Substring
+Build a DFA for strings over ⌃ = {0,1} that contain the substring “00”.
+What do we need to remember?
+How far along are we in seeing the pattern ”00”?
+State q0 : Haven’t seen a 0 recently.
+State q1 : Saw one 0 (if we see a 1 now, our progress resets to q0 ).
+State q2 : Saw ”00”! (Accept! We stay here forever, because the
+string now contains ”00”).
+1
+
+0,1
+
+0
+
+q0
+
+q1
+
+0
+
+q2
+
+1
+
+131 / 40
+16
+
+Example 3: Containing a Substring
+Build a DFA for strings over ⌃ = {0,1} that contain the substring “00”.
+What do we need to remember?
+How far along are we in seeing the pattern ”00”?
+State q0 : Haven’t seen a 0 recently.
+State q1 : Saw one 0 (if we see a 1 now, our progress resets to q0 ).
+State q2 : Saw ”00”! (Accept! We stay here forever, because the
+string now contains ”00”).
+1
+
+0,1
+
+0
+
+q0
+
+q1
+
+0
+
+q2
+
+1
+
+131 / 40
+16
+
+The Language of a DFA
+Let M = (Q,⌃, ,q0 ,F) be a DFA.
+
+ñ
+
+A string w 2 ⌃⇤ is accepted if the machine, processes m and finishes in
+a state in F (i.e., one of the Accepting states).
+
+Language recognized by M
+L(M) = { w 2 ⌃⇤ | M accepts w }
+We say:
+L(M) is recognized by DFA M
+L(M) is the language of DFA M
+
+141 / 40
+16
+
+Example
+
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+L = {w 2 {0,1}⇤ | w ends with 1} is recognized by this DFA
+Language of this DFA is L
+
+151 / 40
+16
+
+Regular Languages
+
+Definition
+Language L ✓ ⌃⇤ is regular if there exists a DFA M such that L = L(M)
+(i.e., L is regular if & only if there exists a DFA that recognizes L)
+Examples:
+
+01 1 no
+
+regular
+
+binary strings with an even number of 1’s
+binary strings that contain substring 00
+
+0
+
+1ft
+
+binary strings ending in 1
+
+161 / 40
+16
+
+Our Big Picture Revisited
+
+as
+
+Rectangle: set of all decision problems over ⌃
+171 / 40
+16
+
+Closure Properties
+Theorem: If L and L 0 are regular languages then the following
+languages are also regular:
+Complement: L , ⌃⇤ - L
+Union: L [ L 0
+
+Intersection: L \ L 0
+
+Concatenation: L L 0 (or LL 0 ) defined as
+LL 0 , w 2 ⌃⇤ | w = w1 w2 such that w1 2 L, w2 2 L 0
+Star: L⇤ defined as1
+L⇤ , {"} [ {w1 . . . wn | n > 1, wi 2 L for i = 1, . . . ,n}
+1
+
+Similar to Kleene star that we apllied to alphabets . . . the set of all strings obtained
+by concatentating a finite number of (zero or more) strings from L.
+
+181 / 40
+16
+
+Why is this useful?
+We can build complex regular languages from simpler ones
+We can build complex DFA from simpler ones
+
+regular
+
+reg
+
+2t
+191 / 40
+16
+
+Proof Sketch: Closure Under Complement
+Prove if L is regular, then L is regular
+Since L is regular, there exists a DFA M that recognizes L.
+We must show there exists a DFA M 0 that recognizes L.
+Let M = (Q, ⌃, , q0 , F)
+How to construct M 0 from M?
+M 0 = (Q, ⌃, , q0 , Q - F), i.e., flipping Accepting and Reject states
+can you explain why M 0 recognizes L?
+
+201 / 40
+16
+
+Proof Sketch: Closure Under Complement
+Prove if L is regular, then L is regular
+Since L is regular, there exists a DFA M that recognizes L.
+We must show there exists a DFA M 0 that recognizes L.
+Let M = (Q, ⌃, , q0 , F)
+How to construct M 0 from M?
+M 0 = (Q, ⌃, , q0 , Q - F), i.e., flipping Accepting and Reject states
+can you explain why M 0 recognizes L?
+
+201 / 40
+16
+
+Example: DFA for L
+
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+
+211 / 40
+16
+
+DFA for L
+
+0
+
+1
+
+q0
+
+1
+q1
+
+0
+
+221 / 40
+16
+
+Proof Sketch: Closure Under Union & Intersection
+Prove if L and L 0 are regular, then L [ L 0 and L \ L 0 are regular
+L and L 0 are regular
+, 92 DFAs M and M 0 that recognize L and L 0 , respectively:
+M = (Q, ⌃, , q0 , F)
+M 0 = (Q 0 , ⌃,
+
+0
+
+, q00 , F 0 )
+
+Our plan
+use these DFAs to construct DFAs recognizing union & intersection
+
+2
+
+There exists . . .
+231 / 40
+16
+
+Proof Sketch: Closure Under Union & Intersection
+
+Idea: On any given input string:
+- Run M and M 0
+- Accept the input when:
+Union: M or M 0 (or both) finish in an Accepting state
+Intersection: M and M 0 finish in an Accepting state
+
+How to do this with DFAs?
+
+241 / 40
+16
+
+Proof Sketch: Closure Under Union & Intersection
+
+Idea: On any given input string:
+- Run M and M 0
+- Accept the input when:
+Union: M or M 0 (or both) finish in an Accepting state
+Intersection: M and M 0 finish in an Accepting state
+
+How to do this with DFAs?
+
+241 / 40
+16
+
+Proof Sketch: Closure Under Union
+M = (Q, ⌃, , q0 , F) recognizes L
+M 0 = (Q 0 , ⌃, 0 , q00 , F 0 ) recognizes L 0
+Construct DFA Munion for L [ L 0 :
+
+States: Q⇥ = Q ⇥ Q 0
+Start state: (q0 , q00 )
+Transition function:
+8 symbol a 2 ⌃ and (q, q 0 ) 2 Q⇥
+⇥
+
+(q, q 0 ), a = ( (q, a),
+
+0
+
+(q 0 , a))
+
+Accepting states:
+Funion = {(q, q 0 ) | q 2 F or q 0 2 F 0 }
+Munion accepts strings either M or M 0 accept (or both)
+Munion , Q⇥ , ⌃, ⇥ , (q0 , q00 ), Funion
+251 / 40
+16
+
+Proof Sketch: Closure Under Intersection
+
+Same idea except for the Accepting states:
+Finter = {(q, q 0 ) | q 2 F and q 0 2 F 0 }
+Minter accepts string accepted by both M and M 0
+Minter , Q⇥ , ⌃, ⇥ , (q0 , q00 ), Finter
+
+261 / 40
+16
+
+Example of the Product Construction
+
+P2
+
+LCN
+
+Éi
+
+201
+
+9
+
+gene
+
+LCN U L M
+
+M
+
+CP.it
+
+a
+
+addthis.tn
+
+Qx
+PoTD
+
+13
+
+60
+
+R
+271 / 40
+16
+
+Regular Expressions
+
+281 / 40
+16
+
+Regular Expressions
+Regular expressions (regex) are another way to describe regular
+languages (we may prove this).
+Base expressions:
+;
+"
+
+Single symbol from the alphabet (e.g., a for a 2 ⌃)
+Regular Operations: If R and S are regex:
+R [ S (union, “or”)
+RS (concatenation)
+
+R⇤ (“zero or more of”)
+Order of operations:
+(i) parentheses, (ii) star, (iii) concatenation, (iv) union
+291 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Regex Examples
+
+Over ⌃ = {0,1}:
+(0 [ 1)⇤ : all binary strings
+
+1(0 [ 1)⇤ : strings starting with 1
+
+(0 [ 1)⇤ 00(0 [ 1)⇤ : strings containing 00
+0⇤ (10⇤ 10⇤ )⇤ 0⇤ : think about this one!
+
+301 / 40
+16
+
+Non-deterministic Finite Automata
+
+311 / 40
+16
+
+Non-determinism
+In DFA:
+From each state and for each symbol there is exactly one transition
+Each transition consumes a symbol
+What if we allow:
+zero, one, or more possible next states in each transition
+transitions without consuming input
+
+E
+
+transitions
+
+) can be in multiple states after reading kth symbol from input
+does non-determinism make our model more powerful?
+
+a
+
+321 / 40
+16
+
+Our Big Picture Revisited
+
+Rectangle: set of all decision problems over ⌃
+331 / 40
+16
+
+Review: Deterministic Finite Automata (DFA)
+on
+
+A DFA is a 5-tuple (Q, ⌃, , q0 , F) where:
+Q is a finite set of states
+⌃ is the input alphabet
+: Q ⇥ ⌃ ! Q is the transition function
+
+istite
+
+input n
+Pfirginal
+2ⁿᵈ
+3rd
+
+q0 2 Q is the start state
+
+F ✓ Q is the set of accept states
+
+lastsymbol
+accept or reject
+
+341 / 40
+16
+
+Non-deterministic Finite Automata (NFA)
+A Non-deterministic Finite Automaton (NFA) is like a DFA but:
+: Q ⇥ ⌃[ {✏} ! 2Q
+
+(may go to zero or more states upon reading a symbol)3
+Can have "-transitions (transitions without consuming input)
+Acceptance Rule: Accepts a string if any branch (that consumes
+the entire input string from start to end) leads to an accept state
+Example:
+(q2 ,a) = ;
+
+(q3 ,b) = {q1 , q5 }
+(q4 ,") = {q1 , q4 , q5 }
+
+put
+
+a
+
+I
+
+3
+
+We can have 0, 1, . . . outgoing edges from state q upon reading symbol a. 2Q or
+P(Q) is called the power set and denotes the set of all subsets of Q; i.e.,
+2Q = {R | R ✓ Q} = {;, {q0 }, {q1 }, . . . , {qn }, {q0 ,q1 }, . . . , {q0 ,q1 , . . . ,qn }} .
+
+351 / 40
+16
+
+S
+
+q 1
+
+5
+
+92 0
+
+8
+
+9
+
+e
+
+Go
+
+92
+
+9
+
+Tonsume
+symbol
+
+1 / 16
+
+Acceptance in an NFA
+
+An NFA accepts a string w if
+there exists a computation path4
+that leads from the start state to an accepting state
+Equivalently:
+if at least one possible state after reading w is in F ) Accept
+otherwise ) Reject
+
+4
+
+i.e., sequence of valid transitions, starting from the initial state
+361 / 40
+16
+
+Example NFA
+
+R
+
+01101
+
+90
+
+iii
+
+I
+
+bi
+371 / 40
+16
+
+NFA for Union
+
+381 / 40
+16
+
+NFA for Concatenation
+
+391 / 40
+16
+
+NFA for Star
+
+401 / 40
+16
+
+

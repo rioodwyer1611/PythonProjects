@@ -1,0 +1,635 @@
+COMP2048: Theory of Computing
+Dr. Kasra Khosoussi
+
+Week 3
+12/3/2026
+
+1 / 23
+16
+
+Recap
+
+Regular languages
+Closure properties of regular languages
+Product construction (closure under union & intersection)
+Regular expressions
+Non-deterministic Finite Automata (NFA)
+
+2
+1 / 23
+16
+
+Today’s Plan
+
+Non-deterministic Finite Automata (NFA)
+Revisit closure properties
+Converting NFA to DFA (Subset Construction)
+Converting regex to NFA
+Pumping Lemma for Regular Languages
+
+3
+1 / 23
+16
+
+Non-determinism
+In DFA:
+From each state and for each symbol there is exactly one transition
+Each transition consumes a symbol
+What if we allow:
+zero, one, or more possible next states in each transition
+transitions without consuming input
+) can be in multiple states after reading kth symbol from input
+does non-determinism make our model more powerful?
+
+4
+1 / 23
+16
+
+does non-determinism make our model more powerful?a
+a
+
+i.e., can we recognize a language we couldn’t recognize before with DFAs?
+
+Theorem.
+set of languages recognized by DFAs
+=
+set of languages recognized by NFAs
+=
+set of languages described by regex
+=
+Regular Languages
+Proof idea: Proof by construction; i.e., for any DFA/NFA/regex, we can
+algorithmically construct a DFA/NFA/regex that recognizes the same
+language
+) L is regular , 9 a DFA/NFA/regex that recognizes L
+
+5
+1 / 23
+16
+
+Our Big Picture Revisited
+
+regrguagey
+
+Feet
+
+Rectangle: set of all decision problems (or, languages) over ⌃
+6
+1 / 23
+16
+
+DFA vs. NFA
+Usually it is more natural to design an NFA
+An NFA can be exponentially smaller than an equivalent DFA
+In the worst case, converting an n-state NFA to a DFA may
+produce up to 2n states (via the subset construction)
+Intuition: NFA can be in multiple states at the same time
+It is easier to convert regex to NFA
+In practice, NFAs are often used as a theoretical tool/convenient
+design model and then converted to an equivalent DFA for
+execution
+e.g., regex ! NFA ! DFA (for implementation)
+7
+1 / 23
+16
+
+Converting NFA1 to DFA via Subset Construction
+Given an NFA N, construct a DFA M such that L(M) = L(N)
+N = (Q, ⌃, , q0 , F) M = (Q 0 , ⌃,
+
+0
+
+, q00 , F 0 )
+
+Idea:
+
+1
+
+Assuming there are no " transitions — see Sipser’s book for the general case.
+
+8
+1 / 23
+16
+
+Converting NFA1 to DFA via Subset Construction
+Given an NFA N, construct a DFA M such that L(M) = L(N)
+N = (Q, ⌃, , q0 , F) M = (Q 0 , ⌃,
+
+0
+
+, q00 , F 0 )
+
+Idea:
+Each state of DFA M corresponds to a subset of NFA states
+Q 0 = P(Q) , {R | R ✓ Q}
+
+(power set)
+
+22
+
+defined
+
+1
+
+Assuming there are no " transitions — see Sipser’s book for the general case.
+
+8
+1 / 23
+16
+
+Converting NFA1 to DFA via Subset Construction
+Given an NFA N, construct a DFA M such that L(M) = L(N)
+N = (Q, ⌃, , q0 , F) M = (Q 0 , ⌃,
+
+0
+
+, q00 , F 0 )
+
+Idea:
+Each state of DFA M corresponds to a subset of NFA states
+Q 0 = P(Q) , {R | R ✓ Q}
+
+(power set)
+
+Consider all possible transitions; i.e., for any R 2 Q 0 and a 2 ⌃:
+[
+0
+(R, a) =
+(r, a)
+r2R
+
+1
+
+union
+
+Assuming there are no " transitions — see Sipser’s book for the general case.
+
+8
+1 / 23
+16
+
+Converting NFA1 to DFA via Subset Construction
+Given an NFA N, construct a DFA M such that L(M) = L(N)
+N = (Q, ⌃, , q0 , F) M = (Q 0 , ⌃,
+
+0
+
+, q00 , F 0 )
+
+Idea:
+Each state of DFA M corresponds to a subset of NFA states
+Q 0 = P(Q) , {R | R ✓ Q}
+
+(power set)
+
+Consider all possible transitions; i.e., for any R 2 Q 0 and a 2 ⌃:
+[
+0
+(R, a) =
+(r, a)
+r2R
+
+Start state q00 :
+
+1
+
+q00 = {q0 }
+
+Assuming there are no " transitions — see Sipser’s book for the general case.
+
+8
+1 / 23
+16
+
+Converting NFA1 to DFA via Subset Construction
+Given an NFA N, construct a DFA M such that L(M) = L(N)
+N = (Q, ⌃, , q0 , F) M = (Q 0 , ⌃,
+
+0
+
+, q00 , F 0 )
+
+Idea:
+Each state of DFA M corresponds to a subset of NFA states
+Q 0 = P(Q) , {R | R ✓ Q}
+
+(power set)
+
+Consider all possible transitions; i.e., for any R 2 Q 0 and a 2 ⌃:
+[
+0
+(R, a) =
+(r, a)
+r2R
+
+Start state q00 :
+
+q00 = {q0 }
+
+Accepting states:
+F 0 = R 2 Q 0 | R contains an accept state of N
+1
+
+Assuming there are no " transitions — see Sipser’s book for the general case.
+
+8
+1 / 23
+16
+
+112,3
+
+Q
+
+Example
+
+ftp
+
+EP 1
+
+10
+
+s
+
+a sz si
+
+b
+
+132
+
+ystart
+13
+a
+51424
+
+a
+
+123
+
+33
+
+b
+
+433
+
+2,3
+
+42133
+
+9
+1 / 23
+16
+
+NFA for Union of Regular Languages
+Finite automata (DFA/NFA) N1 and N2 recognizing L1 and L2
+N1
+
+N
+
+Eω
+
+N2
+
+ω
+
+E
+
+Why it works
+On input w, the new NFA non-deterministically chooses to simulate
+either N1 or N2 . Therefore it accepts exactly when w 2 L1 [ L2 .
+101 / 23
+16
+
+Example
+⌃ = {0}
+0
+0
+
+"
+
+"
+0
+
+0
+
+0
+
+11
+1 / 23
+16
+
+Example
+⌃ = {a,b}
+a
+q1
+
+b
+
+q3
+
+b
+
+"
+q0
+a
+"
+q2
+a
+
+121 / 23
+16
+
+NFA for Concatenation
+Concatenating two regular languages produces a regular language
+L1 L2 , {w 2 ⌃⇤ | w = xy such that x 2 L1 , y 2 L2 }
+But we didn’t prove it (i.e., we didn’t construct a DFA for L1 L2 )
+How should we do this?
+
+AEI
+
+131 / 23
+16
+
+NFA for Concatenation
+Concatenating two regular languages produces a regular language
+L1 L2 , {w 2 ⌃⇤ | w = xy such that x 2 L1 , y 2 L2 }
+But we didn’t prove it (i.e., we didn’t construct a DFA for L1 L2 )
+How should we do this?
+Idea #1: Put the two DFAs in series? Not exactly
+Challenge: we a priori don’t know where to split the input w into
+w = xy such that x 2 L1 and y 2 L2 . For example, the automaton
+for L1 may enter an accept state at some point during processing
+of w, but leave it for other states and come back to an accept state
+again before switching to the automaton for L2 !
+
+131 / 23
+16
+
+NFA for Concatenation
+N1
+
+N2
+
+N
+
+Eω
+ω
+ω
+
+141 / 23
+16
+
+NFA for Star2
+
+L⇤ , {"} [ L [ L2 [ L3 [ . . .
+N
+
+ω
+
+N1
+ω
+ω
+
+2 k
+
+L , L L . . . L (k times) — i.e., k times concatenation of L
+
+151 / 23
+16
+
+Converting Regular Expression to NFA
+For each form of regular expression we construct an equivalent NFA.
+Base cases:
+;
+"
+
+a2⌃
+
+Recursive cases:
+R[S
+RS
+R⇤
+
+161 / 23
+16
+
+NFA for Base Cases
+Regular expression: a
+a
+
+L = {a}
+Regular expression: "
+
+L = {"}
+Regular expression: ;
+
+L=;
+
+171 / 23
+16
+
+NFA for Recursive Cases
+N1
+
+Regular Operations
+
+concert
+N2
+
+N1
+
+N
+ω
+
+N
+
+ω
+ω
+
+ω
+
+N2
+
+ω
+
+N
+
+ω
+
+N1
+ω
+ω
+
+union
+star
+use constructions for union, concatenation, and star
+
+181 / 23
+16
+
+Example
+Convert (ab [ a)⇤ to an NFA
+
+b
+
+030
+030
+
+090
+
+E
+
+ab
+
+a
+
+aba
+abab
+
+0300
+Dsb
+
+abva
+
+0
+
+Cabua
+See Sipser’s Example 1.58 for another example
+
+P
+191 / 23
+16
+
+Beyond Regular Languages
+
+L = {1n0n | n > 0}
+We know how to show a language is regular
+construct a DFA (or NFA/regex) that recognizes it
+But how to prove a language is not regular?
+i.e., show that there is no DFA that recognizes the language
+Maybe L is regular but the DFA that recognizes it has 1M states!
+201 / 23
+16
+
+Pumping Lemma for Regular Languages
+Theorem (Pumping Lemma):
+If L is a regular language, then there exists a constant p > 1 (the
+pumping length) such that:
+For every string w 2 L with |w| > p,
+there exist strings x, y, z such that:
+w = xyz
+
+pple
+
+|y| > 1
+|xy| 6 p
+For all i > 0, the string xyi z 2 L
+Idea: In a long enough string, a finite automaton must repeat states –
+this creates a loop that can be pumped.
+211 / 23
+16
+
+Using the Pumping Lemma to Prove Non-Regularity
+1
+2
+3
+
+Assume, for contradiction, that L is regular
+Then Pumping Lemma applies: there exists a pumping length p
+Choose a string w 2 L such that3
+|w| > p
+
+4
+
+Consider all possible decompositions4
+w = xyz
+such that
+
+5
+
+|xy| 6 p
+
+|y| > 1
+
+Show that for some i > 0,
+xyi z < L
+contradicts Pumping Lemma ) L is not regular
+
+3
+
+Need to be clever about the string we pick so that it leads to contradiction down
+the line! Not all choices lead to contradiction!
+4
+Note that the lemma states that there exist a decomposition w = xyz — so we need
+to show all such decompositions lead to contradiction
+
+221 / 23
+16
+
+Prove L = {1n 0n | n > 0} is not a regular language
+
+sup
+w
+
+w
+
+L is regular
+
+IPOP
+
+Its
+
+wet
+
+PYE
+
+applies
+
+11 1
+
+o
+
+n
+
+Pymeping
+
+w
+
+lay
+
+pumping Lemma
+
+nyz
+
+p
+
+p
+
+1
+
+19171
+
+all valid decompositions
+my only contains
+
+1 s
+
+all valid decompositions
+contain at least a single
+must
+I
+
+in
+
+myiz
+
+99 95 with
+
+more
+
+1
+
+2 s than o's
+231 / 23
+16
+
+

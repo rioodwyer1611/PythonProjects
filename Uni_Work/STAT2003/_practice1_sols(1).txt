@@ -1,0 +1,554 @@
+
+--- Page 1 ---
+Solutions for Practice Examination 1
+Mathematical Probability (STAT2003/STAT7003)
+Created during Semester 1, 2026
+Page 1 of 12
+--- Page 2 ---
+Question 1. [10 marks]
+Let X have PDF f (x) = c x3(1 − x) for 0 ≤ x ≤ 1 (and f (x) = 0 otherwise), where c is a normalising
+constant.
+(a) Find the value of c.
+[2 marks]
+(b) Identify this as a Beta distribution and state the parameters α and β. Confirm your value of c using
+the Beta function.
+[2 marks]
+(c) Suppose U1, U2, U3, U4, U5 are i.i.d. U(0, 1) random variables and U(1) ≤ U(2) ≤ · · · ≤ U(5) are the
+order statistics. Which order statistic has the same distribution as X? Justify your answer using the
+fact that U(k) ∼ Beta(k, n − k + 1) for a sample of size n.
+[3 marks]
+(d) Find the CDF F(x) and set up the equation for the median.
+[3 marks]
+Solution:
+(a)
+Z 1
+0
+c x3(1 − x) dx = c
+h x4
+4 − x5
+5
+i1
+0
+= c
+1
+4 − 1
+5
+
+= c · 1
+20 = 1.
+Therefore c = 20.
+(b) f (x) = 20 x3(1 − x) = 20 x4−1(1 − x)2−1. This is Beta(α, β) with α = 4, β = 2.
+Confirmation: B(4, 2) = Γ(4)Γ(2)/Γ(6) = 6 · 1/120 = 1/20, so c = 1/B(4, 2) = 20. ✓
+(c) For a sample of size n = 5, the k-th order statistic has distribution Beta(k, 5 −k+1) = Beta(k, 6 −k).
+We need α = k = 4 and β = 6 − k = 2. So X has the same distribution as U(4), the fourth order
+statistic from a sample of 5 uniform random variables.
+(d) F(x) =
+Z x
+0
+20 t3(1 − t) dt = 20
+ht4
+4 − t5
+5
+ix
+0
+= 5x4 − 4x5, 0 ≤ x ≤ 1.
+Median m: solve 5m4 − 4m5 = 1/2. Numerically, m ≈ 0.6862.
+Page 2 of 12
+--- Page 3 ---
+Question 2. [10 marks]
+Consider the following Python code that simulates a sequence of random variables:
+x = 0
+n = 0
+while x != 3:
+u = random()
+if x == 0:
+if u < 0.5:
+x = 0
+elif u < 0.8:
+x = 1
+else:
+x = 2
+elif x == 1:
+if u < 0.6:
+x = 1
+else:
+x = 3
+else:
+if u < 0.4:
+x = 1
+elif u < 0.7:
+x = 2
+else:
+x = 3
+n += 1
+print(n)
+(a) Write down the transition matrix P for this Markov chain on the state space {0, 1, 2, 3}, with rows
+and columns in that order. Identify any states that, once entered, the chain never leaves.
+[3 marks]
+(b) If the chain starts in state 0 at time n = 0, what is the probability that it is in state 3 at time n = 2?
+[2 marks]
+(c) Suppose the code is modified so that the initial value is x = 1 instead of x = 0. Let N be the
+random variable representing the value of n printed. What is the distribution of N? Compute E[N]
+and P(N > 4).
+[5 marks]
+Note about Python: random() generates a U(0, 1) random variable.
+Solution:
+Page 3 of 12
+--- Page 4 ---
+(a)
+P =
+
+0.5 0.3 0.2 0
+0 0.6 0 0.4
+0 0.4 0.3 0.3
+0 0 0 1
+
+Once the chain enters state 3 it stays there (P33 = 1). The code runs until the chain reaches state 3,
+so n counts the number of transitions until that happens.
+(b) To reach state 3 in exactly 2 steps from state 0, the chain must be in a state that can transition to 3
+at step 1 (i.e. state 1 or 2), and then go to 3 at step 2. Note: state 0 cannot go directly to state 3.
+P(X2 = 3 | X0 = 0) = (P2)0,3.
+= P00 P03 + P01 P13 + P02 P23 + P03 P33
+= 0.5(0) + 0.3(0.4) + 0.2(0.3) + 0(1) = 0 + 0.12 + 0.06 = 0.18.
+(c) Starting from state 1, at each step the chain either goes to state 3 (with probability 0.4) or stays
+at state 1 (with probability 0.6). These are the only two transitions from state 1. Each step is an
+independent trial with success probability p = 0.4, so N ∼ Geom(0.4).
+E[N] = 1/0.4 = 5/2 = 2.5.
+P(N > 4) = (1 − 0.4)4 = 0.64 = 0.1296.
+Page 4 of 12
+--- Page 5 ---
+Question 3. [10 marks]
+Let X be a non-negative random variable with E[X] = 12 and Var(X) = 9.
+(a) Prove Markov’s inequality from first principles: for any non-negative random variable Y and a > 0,
+show that P(Y ≥ a) ≤ E[Y]/a. Then apply it to X to bound P(X ≥ 21).
+[3 marks]
+(b) For a general random variable W with mean µ and variance σ2, derive the Chebyshev inequality
+P(|W − µ| ≥ k) ≤ σ2/k2 from Markov’s inequality. Then apply it to bound P(|X − 12| ≥ 6).
+[2 marks]
+(c) Now suppose X ∼ N(12, 9). Compute the exact value of P(|X − 12| ≥ 6) and compare to the bound
+from (b).
+[5 marks]
+Solution:
+(a) Proof: Since Y ≥ 0, we have Y ≥ a · 1Y≥a (the indicator equals 1 when Y ≥ a, and in that case
+Y ≥ a; when the indicator is 0, a · 0 = 0 ≤ Y). Taking expectations: E[Y] ≥ a E[1Y≥a] = a P(Y ≥ a).
+Dividing by a > 0 gives P(Y ≥ a) ≤ E[Y]/a. □
+Application: P(X ≥ 21) ≤ E[X]
+21 = 12
+21 = 4
+7 ≈ 0.571.
+(b) Let Y = (W − µ)2 ≥ 0. Then {|W − µ| ≥ k} = {(W − µ)2 ≥ k2}. Applying Markov: P(|W − µ| ≥ k) =
+P(Y ≥ k2) ≤ E[Y]
+k2 = Var(W)
+k2 .
+Application: P(|X − 12| ≥ 6) ≤ 9
+36 = 1
+4.
+(c) Let Z = (X − 12)/3 ∼ N(0, 1).
+P(|X − 12| ≥ 6) = P(|Z| ≥ 2) = 2(1 − Φ(2)) ≈ 2 × 0.0228 = 0.0456.
+The Chebyshev bound of 1/4 = 0.25 is much more conservative than the exact value of 0.0456.
+Page 5 of 12
+--- Page 6 ---
+Question 4. [10 marks]
+A continuous random variable X has PDF f (x) = cx3 for 0 ≤ x ≤ 2, and f (x) = 0 otherwise.
+(a) Find the normalizing constant c and compute the moment generating function MX(t) = E[etX] as an
+integral (you may leave it in integral form for general t, but evaluate MX(0) to verify your answer).
+[3 marks]
+(b) Find the CDF F(x) and use it to compute P(1 < X < 1.5).
+[2 marks]
+(c) Compute E[X] and Var(X).
+[2 marks]
+(d) Let W = X2. Find E[W] and determine the PDF of W, stating its support clearly.
+[3 marks]
+Solution:
+(a)
+Z 2
+0
+cx3 dx = c · x4
+4
+
+2
+0
+= c · 16
+4 = 4c = 1, so c = 1/4.
+MX(t) = E[etX] =
+Z 2
+0
+etx · x3
+4 dx = 1
+4
+Z 2
+0
+x3etx dx.
+Verification: MX(0) = 1
+4
+R 2
+0 x3 dx = 1
+4 · 4 = 1. ✓
+(b) For 0 ≤ x ≤ 2: F(x) =
+Z x
+0
+t3
+4 dt = x4
+16.
+F(x) = 0 for x < 0, and F(x) = 1 for x > 2.
+P(1 < X < 1.5) = F(1.5) − F(1) = 1.54
+16 − 1
+16 = 5.0625 − 1
+16 = 4.0625
+16 = 65
+256 ≈ 0.2539.
+(c) E[X] =
+Z 2
+0
+x · x3
+4 dx = 1
+4 · x5
+5
+
+2
+0
+= 1
+4 · 32
+5 = 8
+5 = 1.6.
+E[X2] =
+Z 2
+0
+x2 · x3
+4 dx = 1
+4 · x6
+6
+
+2
+0
+= 1
+4 · 64
+6 = 8
+3.
+Var(X) = 8
+3 −
+ 8
+5
+!2
+= 8
+3 − 64
+25 = 200 − 192
+75 = 8
+75 ≈ 0.1067.
+(d) E[W] = E[X2] = 8
+3 (computed above).
+To find the PDF of W = X2: since X ∈ [0, 2] and g(x) = x2 is strictly increasing on [0, 2], we use
+the transformation formula. Let w = x2, so x = √w and dx
+dw = 1
+2 √w.
+fW(w) = fX( √w) ·
+ dx
+dw
+ = ( √w)3
+4 · 1
+2 √w = w3/2
+4 · 1
+2 √w = w
+8
+for 0 ≤ w ≤ 4, and fW(w) = 0 otherwise.
+Page 6 of 12
+--- Page 7 ---
+Verification:
+Z 4
+0
+w
+8 dw = 1
+8 · w2
+2
+
+4
+0
+= 16
+16 = 1. ✓
+Double-check: E[W] =
+Z 4
+0
+w · w
+8 dw = 1
+8 · w3
+3
+
+4
+0
+= 64
+24 = 8
+3. ✓
+Page 7 of 12
+--- Page 8 ---
+Question 5. [10 marks]
+Consider the following Python program:
+def simulate():
+u1 = random()
+if u1 < 0.4:
+u2 = random()
+if u2 < 0.5:
+return 0
+else:
+return 1
+else:
+u2 = random()
+count = 0
+while u2 >= 0.3 and count < 3:
+count += 1
+u2 = random()
+return count
+Let X be the value returned by simulate().
+(a) Carefully determine the PMF of X. (Hint: consider cases A and B separately, noting that case B
+generates a truncated geometric-like count.)
+[3 marks]
+(b) Compute E[X] and Var(X).
+[3 marks]
+(c) Find the probability generating function GX(s) = E[sX] of X, and confirm that G′
+X(1) = E[X].
+[4 marks]
+Note about Python: random() generates a U(0, 1) random variable.
+Solution:
+(a) Case A (probability 0.4): returns 0 with probability 0.5, returns 1 with probability 0.5.
+Case B (probability 0.6): The variable count starts at 0 and increases by 1 each iteration of the
+while loop. The loop continues while u2 ≥ 0.3 and count < 3. Each new u2 is drawn inde-
+pendently, so at each iteration, the loop exits with probability 0.3 or continues with probability
+0.7.
+• P(return 0 | B): first u2 < 0.3, probability = 0.3.
+• P(return 1 | B): first u2 ≥ 0.3, then new u2 < 0.3, probability = 0.7 × 0.3 = 0.21.
+• P(return 2 | B): two continues then exit, probability = 0.72 × 0.3 = 0.147.
+• P(return 3 | B): three continues (loop exits since count = 3), probability = 0.73 = 0.343.
+Page 8 of 12
+--- Page 9 ---
+Combining via the law of total probability:
+P(X = 0) = 0.4(0.5) + 0.6(0.3) = 0.20 + 0.18 = 0.38,
+P(X = 1) = 0.4(0.5) + 0.6(0.21) = 0.20 + 0.126 = 0.326,
+P(X = 2) = 0.6(0.147) = 0.0882,
+P(X = 3) = 0.6(0.343) = 0.2058.
+Check: 0.38 + 0.326 + 0.0882 + 0.2058 = 1. ✓
+(b) E[X] = 0(0.38) + 1(0.326) + 2(0.0882) + 3(0.2058) = 0 + 0.326 + 0.1764 + 0.6174 = 1.1198.
+E[X2] = 0(0.38) + 1(0.326) + 4(0.0882) + 9(0.2058) = 0 + 0.326 + 0.3528 + 1.8522 = 2.5310.
+Var(X) = 2.5310 − 1.11982 = 2.5310 − 1.2540 = 1.2770.
+(c) GX(s) = 0.38 + 0.326 s + 0.0882 s2 + 0.2058 s3.
+G′
+X(s) = 0.326 + 0.1764 s + 0.6174 s2.
+G′
+X(1) = 0.326 + 0.1764 + 0.6174 = 1.1198 = E[X]. ✓
+Page 9 of 12
+--- Page 10 ---
+Question 6. [10 marks]
+Let X ∼ Exp(1) and Y ∼ Exp(3) be independent.
+(a) Write the PDFs fX(x) and fY(y), and compute E[X + Y] and Var(X + Y) using properties of expec-
+tation and variance.
+[2 marks]
+(b) Using the convolution formula, derive the PDF of Z = X + Y for z > 0.
+[2 marks]
+(c) Find the MGF MZ(t) of Z and use it to compute E[Z]. Confirm it matches (a).
+[2 marks]
+(d) Find the CDF FZ(z) and use it to compute E[Z] via
+Z ∞
+0
+(1 − FZ(z)) dz. Confirm it matches (a)
+and (c).
+[2 marks]
+(e) Define W = X − Y. Using the transformation (X, Y) → (Z, W) where Z = X + Y, find the joint PDF
+fZ,W(z, w) and state its support. Are Z and W independent? Find the conditional PDF fW | Z(w | z).
+[2 marks]
+Solution:
+(a) fX(x) = e−x, x ≥ 0. fY(y) = 3e−3y, y ≥ 0.
+E[X + Y] = E[X] + E[Y] = 1 + 1
+3 = 4
+3 .
+Var(X + Y) = Var(X) + Var(Y) = 1 + 1
+9 = 10
+9 .
+(b) fZ(z) =
+Z z
+0
+fX(x) fY(z − x) dx =
+Z z
+0
+e−x · 3e−3(z−x) dx
+= 3e−3z
+Z z
+0
+e−x+3x dx = 3e−3z
+Z z
+0
+e2x dx = 3e−3z · e2z − 1
+2
+= 3
+2
+
+e−z − e−3z
+, z > 0.
+(c) Since X and Y are independent: MZ(t) = MX(t) MY(t) = 1
+1 − t · 3
+3 − t = 3
+(1 − t)(3 − t).
+By the quotient rule with numerator u = 3 and denominator v = (1 − t)(3 − t) = 3 − 4t + t2:
+v′ = −4 + 2t, so M′
+Z(t) = 0 · v − 3 · (−4 + 2t)
+v2 = 3(4 − 2t)
+((1 − t)(3 − t))2 .
+E[Z] = M′
+Z(0) = 3 · 4
+(1 · 3)2 = 12
+9 = 4
+3. ✓
+Page 10 of 12
+--- Page 11 ---
+(d) The CDF of Z: for z > 0,
+FZ(z) =
+Z z
+0
+3
+2(e−t − e−3t) dt = 3
+2
+"
+−e−t + e−3t
+3
+#z
+0
+= 3
+2
+ 1 − e−z − 1
+2
+
+1 − e−3z
+= 1 − 3
+2e−z + 1
+2e−3z.
+Then 1 − FZ(z) = 3
+2e−z − 1
+2e−3z, and
+E[Z] =
+Z ∞
+0
+(1 − FZ(z)) dz = 3
+2
+Z ∞
+0
+e−z dz − 1
+2
+Z ∞
+0
+e−3z dz = 3
+2 − 1
+6 = 4
+3. ✓
+(e) Inverse transformation: X = (Z + W)/2, Y = (Z − W)/2. The Jacobian matrix is
+∂(X, Y)
+∂(Z, W) =
+ ∂X/∂Z ∂X/∂W
+∂Y/∂Z ∂Y/∂W
+!
+=
+ 1/2 1/2
+1/2 −1/2
+!
+.
+Determinant: (1/2)(−1/2) − (1/2)(1/2) = −1/2, so |J| = 1/2.
+Joint PDF: fZ,W(z, w) = fX
+ z+w
+2
+
+fY
+ z−w
+2
+
+· |J|
+= e−(z+w)/2 · 3e−3(z−w)/2 · 1
+2 = 3
+2 e−(z+w)/2−3(z−w)/2 = 3
+2 e−2z+w
+for z > 0 and −z < w < z (from X = (z + w)/2 ≥ 0 and Y = (z − w)/2 ≥ 0).
+Z and W are not independent: the joint PDF does not factor as g(z)·h(w) over a rectangular support
+(the support {−z < w < z} depends on z).
+Conditional: fW | Z(w | z) = fZ,W(z, w)
+fZ(z) = (3/2) e−2z+w
+(3/2)(e−z − e−3z) = ew
+ez − e−z , −z < w < z.
+Page 11 of 12
+--- Page 12 ---
+Table of Distributions
+Discrete Distributions (q = 1 − p)
+Distribution PMF p(x) Support EX Var(X) PGF GX(z)
+DU({1, . . . , N}) 1
+N {1, . . . , N} N+1
+2
+N2−1
+12
+z(1−zN )
+N(1−z)
+Ber(p) pxq1−x {0, 1} p pq q + pz
+Bin(n, p)
+n
+x
+
+pxqn−x {0, . . . , n} np npq (q + pz)n
+Geom(p) p qx−1 {1, 2, . . .} 1
+p
+q
+p2
+pz
+1−qz
+NegBin(r, p)
+x−1
+r−1
+
+prqx−r {r, r+1, . . .} r
+p
+rq
+p2
+ pz
+1−qz
+r
+Poi(λ) e−λλx
+x! {0, 1, 2, . . .} λ λ eλ(z−1)
+Hyp(N, K, n) (K
+x)(N−K
+n−x )
+(N
+n) {max(0, n+K−N), nK
+N
+nK(N−K)(N−n)
+N2(N−1) —
+. . . , min(n, K)}
+Continuous Distributions
+Distribution PDF f (x) Support EX Var(X) MGF MX(t)
+U(a, b) 1
+b−a [a, b] a+b
+2
+(b−a)2
+12
+etb−eta
+t(b−a)
+Exp(λ) λe−λx [0, ∞) 1
+λ
+1
+λ2
+λ
+λ−t
+N(µ, σ2) 1
+σ
+√
+2π e−(x−µ)2/(2σ2) R µ σ2 eµt+σ2t2/2
+Gamma(α, λ) λα
+Γ(α) xα−1e−λx (0, ∞) α
+λ
+α
+λ2
+ λ
+λ−t
+α
+χ2(n) xn/2−1e−x/2
+2n/2Γ(n/2) (0, ∞) n 2n (1−2t)−n/2
+Beta(α, β) Γ(α+β)
+Γ(α)Γ(β) xα−1(1−x)β−1 (0, 1) α
+α+β
+αβ
+(α+β)2(α+β+1) —
+Pareto(α) α x−(α+1) [1, ∞) α
+α−1 (α>1) α
+(α−1)2(α−2) (α>2) —
+Page 12 of 12

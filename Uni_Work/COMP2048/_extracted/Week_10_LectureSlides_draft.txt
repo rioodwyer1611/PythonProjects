@@ -1,0 +1,567 @@
+Brief Tour of Quantum
+Computing
+
+Next three lectures…
+Lecture 1
+• Section 1: Turing machines, complexity classes
+• Section 2: Quantum postulates *
+Lecture 2
+• Section 2: Quantum postulates (review)
+• Section 4: Phase kickback effect
+Lecture 3
+• Section 4: Phase kickback effect (review)
+• Section 4: Deutsch’s algorithm
+• Future of quantum computation
+
+* Complex numbers, vectors, matrices, inner & outer products, tensors. Section 3: skip
+
+2
+
+The promise of
+quantum computing
+
+Classical vs. quantum computability
+The Turing machine is a sufficiently general model for computation to capture entirely that which can
+reasonably be thought of as mathematically computable.
+Definition (Church-Turing Thesis CTT)
+Any function that can be computed by an algorithm can be computed by a Turing Machine.
+Definition (A quantum computer)
+A quantum computer is a device that uses the principles of quantum mechanics to perform computation.
+Are quantum computers Turing machines?
+• Pauli Benioff (1980) and David Deutsch (1985) argued that any quantum computing device is still
+describable as a Turing machine. They established a correspondence between the time evolution of a
+quantum system and a Universal Turing Machine.
+• These papers established an equivalence of computability between classical Turing machines and
+quantum computing, upholding the Church-Turing thesis
+4
+
+From classical to quantum Turing machines
+A deterministic TM
+
+Exactly one possible action at
+each step
+The entire history of the machine’s
+computation is a single, linear
+sequence of configurations
+
+From classical to quantum Turing machines
+Non-deterministic TMs
+
+Probabilistic TMs
+
+Quantum TMs
+β!
+𝛼!
+𝛼#
+
+𝛼"
+
+β"
+β#
+β$
+β%
+
+A set of possible actions at
+each step
+
+A set of possible actions at each step,
+with some probability
+
+A set of possible actions at each
+step, associated with a complex
+number
+
+If the height of the tree is bounded by
+a polynomial in the length of the input
+string, then the language is in NP.
+
+BPP is the set of languages, L, for
+which there is a probabilistic TM
+running in polynomial time with:
+𝑃𝑟𝑜𝑏 𝑀 accepts 𝑤 ≥ 2/3,
+𝑤 ∈ 𝐿
+𝑃𝑟𝑜𝑏 𝑀 accepts 𝑤 ≤ 1/3,
+𝑤 ∉ 𝐿
+
+BQP is the set of languages, L, for
+which there is a quantum TM running
+in polynomial time with:
+𝑃𝑟𝑜𝑏 𝑀 accepts 𝑤 ≥ 2/3,
+𝑤 ∈ 𝐿
+𝑃𝑟𝑜𝑏 𝑀 accepts 𝑤 ≤ 1/3,
+𝑤 ∉ 𝐿
+6
+
+Challenging the ECTT
+The ECTT:
+Any algorithmic process can be simulated efficiently using a Probabilistic Turing Machine
+
+ECTT challenged by oracle problems comparing number of queries for classical vs. quantum 𝑓
+Query: a single evaluation of 𝑓 on input 𝑥
+
+Input
+𝑥
+
+Oracle
+𝑓
+
+Output
+
+7
+
+Recall: what is a promise problem?
+Query: a single evaluation of 𝑓 on input 𝑥
+
+Input
+𝑥
+
+Oracle
+𝑓
+
+Output
+𝑓 𝑥
+
+8
+
+Example of a promise problem **
+Query: a single evaluation of 𝑓 on input 𝑥
+Promise: 𝑓 is constant or balanced
+
+Input
+𝑥
+
+Oracle
+𝑓
+
+Output
+𝑓 𝑥
+
+Example: Constant vs. Balanced functions
+Consider a function 𝑓: {0,1}& → {0,1} and a task whereby an algorithm
+must output if 𝑓 is constant or balanced.
+A function is constant if it returns the same value 𝑓 𝑥 ∀𝑥. It is balanced
+if it returns 0 for half the possible values of 𝑥, and returns 1 for the rest.
+9
+
+Challenging the ECTT
+Algorithm
+
+Speed-up
+
+*Deutsch algorithm
+
+Factor of 2
+
+Deutsch–Jozsa problem
+
+Exponential
+
+Factoring (Shor), DLP, period finding
+
+Superpolynomial
+
+Grover search
+
+Classical
+
+Quantum
+
+2
+
+1
+
+𝑂(2𝑥 )
+
+𝑂(1)
+
+1994
+
+O(e polylog(log(x)))
+
+𝑂(𝑝𝑜𝑙𝑦(log(𝑥)))
+
+x is integer to be factorized
+
+Quadratic
+
+1996
+
+𝑂(𝑥)
+
+𝑂(√𝑥)
+
+x is size of function domain
+
+Bernstein-Vazirani
+
+Linear
+
+1997
+
+𝑂(𝑥)
+
+𝑂(1)
+
+x is size of function domain
+
+Amplitude amplification and estimation
+
+Quadratic
+
+2000
+
+Θ(𝑥)
+
+Θ (√𝑥)
+
+x is success probability for algorithm
+
+Quantum random walks in 1D
+
+Quadratic
+
+2001
+
+Θ(𝑥)
+
+Θ(√𝑥)
+
+x is mixing rate
+
+Harrow–Hassidim–Lloyd algorithm
+
+Exponential
+
+2008
+
+𝑂(𝑥)
+
+𝑂(log(𝑥))
+
+x relates to variables in linear system
+
+2023
+
+𝑥
+
+Θ (𝑝𝑜𝑙𝑦(𝑥))
+
+x relates to number of oscillators
+
+Simulating Coupled Classical Oscillators
+
+Lower bound: Ω(𝑔(𝑥))
+
+Output size 𝑓(𝑥)
+
+Upper bound: 𝑂(𝑔 𝑥 )
+
+Exponential
+
+Dates
+1985
+1992,1998
+
+Θ(2 )
+
+x = single bit
+x is number of bits
+
+Both: Θ(𝑔(𝑥))
+
+Quantity being compared changes
+
+Input size 𝑥
+10
+
+Classical complexity
+•
+
+Each complexity class is linked by a containment ⊆ going upwards.
+
+•
+
+The class of problems that can be decided in polynomial-time on a
+Turing machine is denoted 𝑃
+
+•
+
+𝐵𝑃𝑃 is often considered the class of problems efficiently solvable on a
+classical computer
+P ⊆ BPP ⊆ PP ⊆ PSPACE
+
+•
+
+Recall that we do not know if containments are strict i.e. we don’t
+know if 𝑃 ≠ NP or 𝑃 ≠ 𝑃𝑆𝑃𝐴𝐶𝐸
+
+Credit: Watrous (see lecture notes for full reference list)
+
+11
+
+Are quantum computers
+provably more powerful?
+•
+
+Each complexity class is linked by a containment ⊆ going upwards.
+
+•
+
+BQP (bounded error quantum polynomial time) are the class of
+problems efficiently solvable on a quantum computer
+P ⊆ BPP ⊆ BQP ⊆ PP ⊆ PSPACE
+
+•
+
+Proving that 𝐵𝑃𝑃 ≠ 𝐵𝑄𝑃 implies that 𝑃 ≠ 𝑃𝑆𝑃𝐴𝐶𝐸 which is as hard
+as proving 𝑃 ≠ 𝑁𝑃.
+
+•
+
+We don’t know if containments are strict. For example, we know
+factoring is in 𝐵𝑄𝑃 and that 𝐵𝑃𝑃 ⊆ 𝐵𝑄𝑃. But we hope that factoring is
+not in 𝐵𝑃𝑃.
+
+•
+
+We do not know how 𝐵𝑄𝑃 sits relative to 𝑁𝑃.
+
+Credit: Watrous (see lecture notes for full reference list)
+
+12
+
+Review of complexity classes
+
+npj Quantum Information (2016) 2, 15023
+Credit: Watrous (see lecture notes for full reference list)
+
+13
+
+Classical vs. quantum computing
+Classical computer
+
+𝑥=
+
+𝑥!
+𝑥"
+
+𝑓
+
+Quantum computer
+
+𝑓(𝑥)
+
+𝑥=
+
+𝑥!
+𝑥"
+
+𝑓
+
+𝑥! , 𝑥" ∈ {0,1}
+
+𝑥! , 𝑥" ∈ {0,1}
+
+Deterministic outcome 𝑓(𝑥)
+
+00, 𝑝''
+01, 𝑝'!
+10, 𝑝!'
+11, 𝑝!!
+
+Random outcomes 𝑖 with prob 𝑝(
+
+Quantum Algorithms: Probability of finding (optimal) solutions maximized (near 1)
+14
+
+The physicality of
+computing
+
+Computers are
+physical objects, and
+computations are
+physical processes.
+What computers can
+or cannot compute is
+determined by the
+laws of physics
+alone, and not by
+pure mathematics.
+David Deutsch
+
+Image credits: Ben McCarty
+
+16
+
+How did we make a computer from electricity?
+1752: Benjamin Franklin
+We see things in nature
+
+1861: Maxwell Equations
+We describe things via mathematics
+
+1943: First electronic computer
+We build the hardware
+
+Source: https://en.wikipedia.org/wiki/Computer#/media/File:Colossus.jpg
+Source: https://www.reuters.com/news/picture/idUSRTR24K3J/undefined
+
+It took us 200 years to control electricity to
+make computers
+
+17
+
+Apple M2: 40-134 billion transistors (2023)
+
+“Power Wall” that
+has limited practical processor
+frequency to around 4 GHz since
+2006
+
+18
+
+Scaling made computation cheaper – until now
+
+Source: Qualcomm
+(https://erisummit.darpa.mil/docs/Mollenkopf_Steve_Qualcomm_Final.pdf)
+
+Source: IBS
+(https://semiengineering.com/big-trouble-at-3nm/)
+19
+
+Chip size of less than 10nm has quantum effects
+MOSFET scaling
+
+Human egg: 130,000 nm
+
+100000
+
+“big” ~ more classical
+
+Skin cell: 30,000 nm
+
+Chip Size (nanometers)
+
+10000
+
+Red blood cell: 8,000 nm
+
+1000
+100
+
+y = 1E+135e-0.153x
+R² = 0.9783
+
+HIV / Flu: 130 nm
+
+“small” ~ more quantum
+Antibodies: 12 nm
+
+10
+
+TRNA: 7 nm
+Apple M2: 5nm
+
+1
+1960
+0.1
+
+1980
+
+2000
+
+2020
+
+2040
+
+2060
+
+Quantum tunneling leads to leakage current
+and energy loss < 10nm
+
+Year
+Frank, D. J. et al. Device scaling limits of Si MOSFETs and their application dependencies. Proc. IEEE 89, 259–288 (2001).20
+
+How will we make a computer from quantum rules?
+1920s: Quantum mechanics
+confirmed in experiments
+
+1970s – 1990s
+Quantum algorithms proposed
+
+2010 - 2016
+Quantum computers
+
+https://en.wikipedia.org/wiki/Double-slit_experiment#/media/File:Doubleslit.svg
+
+https://www.nature.com/articles/414883a
+
+We see strange things in nature when
+things become very small
+
+We describe quantum computing via
+mathematics
+
+We build the hardware
+21
+
+Today’s quantum computer
+Very, very small
+Very, very cold
+
+Credit: IBM
+
+22
+
+Today’s quantum computer
+
+Credit: IBM
+
+23
+
+How will we make a computer from quantum rules?
+1920s: Quantum mechanics
+confirmed in experiments
+
+1970s – 1990s
+Quantum algorithms proposed
+
+2010 - 2016
+Quantum computers
+
+https://en.wikipedia.org/wiki/Double-slit_experiment#/media/File:Doubleslit.svg
+
+https://www.nature.com/articles/414883a
+
+We see strange things in nature when
+things become very small
+
+We describe quantum computing via
+mathematics
+
+We build the hardware
+24
+
+Quantum postulates
+1.
+
+All knowledge of a system is contained in an abstract quantum state, Ψ .
+
+2.
+
+We cannot directly observe this Ψ , or how Ψ evolves in time i.e. the time evolution of a system is
+distinct from observing a system in quantum physics
+
+3.
+
+Observations are inherently random and perfect measurements collapse Ψ to take a known value
+
+4.
+
+Uncertainty ‘protects’ quantum mechanical behavior of a system.
+
+Quantum mechanics give us a manner to allocate probabilities to observations using information in Ψ .
+
+26
+
+

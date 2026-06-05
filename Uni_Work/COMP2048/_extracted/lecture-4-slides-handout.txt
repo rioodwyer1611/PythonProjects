@@ -1,0 +1,971 @@
+COMP2048: Theory of Computing
+Dr. Josh Arnold
+Week 4
+
+19/3/2026
+
+1/1
+
+Recap: Regular Languages
+In the last few lectures we explored regular languages:
+▶ Described by DFAs, NFAs, and regular expressions
+▶ All three are equivalent: they describe the same class of
+languages
+▶ Closed under complement, union, intersection, concatenation,
+star
+▶ Pumping Lemma: a tool for proving languages are not
+regular
+Two kinds of formalism:
+▶ Recognisers (machines): DFA / NFA read a string, accept or
+reject
+▶ Descriptors: Regular expressions describe a pattern
+
+2/1
+
+Recap: The DFA
+A DFA is a 5-tuple (Q, Σ, δ, q0 , F ).
+What are the five parts?
+▶ Q: finite set of states
+▶ Σ: input alphabet
+▶ δ : Q × Σ → Q: transition function
+▶ q0 ∈ Q: start state
+▶ F ⊆ Q: accepting states
+Key properties:
+▶ Deterministic: exactly one transition per state per symbol
+▶ DFA = NFA in power (but NFAs can be exponentially smaller)
+▶ NFA acceptance: ∃ at least one accepting path
+
+3/1
+
+The Limits of Regular Languages
+
+Finite automata are a very weak model of computation:
+▶ A DFA has a fixed, finite number of states
+▶ It has no memory other than which state it is in
+▶ It cannot count, and cannot remember an unbounded amount
+of information
+Example: D = {0n 1n | n ≥ 0} is not regular.
+A DFA would need to count the 0s and remember that count when
+checking the 1s, but it only has finitely many states.
+
+4/1
+
+What’s Next?
+
+Question: What if we gave a finite automaton some form of
+memory?
+What kind of languages could it recognise?
+Today we will explore two new (equivalent) models:
+▶ Context-Free Grammars (CFGs): a way to generate
+languages
+▶ Pushdown Automata (PDAs): a way to recognise languages
+
+5/1
+
+Our Big Picture Revisited
+
+Every regular language is context-free, but not vice versa.
+
+6/1
+
+Today’s Plan
+
+1. Context-Free Grammars (CFGs): definition & examples
+2. Parse trees & ambiguity
+3. Pushdown Automata (PDAs): definition & examples
+4. The equivalence: CFG = PDA = Context-Free Languages
+5. Converting CFGs to PDAs
+
+7/1
+
+Why Context-Free Grammars?
+
+So far we have described languages using machines (DFAs, NFAs).
+Now we take a different approach: instead of recognising strings,
+we generate them.
+Context-free grammars appear everywhere:
+▶ Programming languages: syntax of Python, Java, C
+▶ Compilers: parsing source code into syntax trees
+▶ Natural language: sentence structure (noun phrases, verb
+phrases)
+
+8/1
+
+Example: Grammar G1
+A context-free grammar is a set of substitution rules.
+Here is a grammar G1 :
+S → 0S1 | R
+R→ε
+The “|” means “or”:
+
+S → 0S1 | R
+
+is shorthand for two rules:
+
+S → 0S1
+
+S →R
+
+So G1 has three rules in total:
+
+S → 0S1, S → R, R → ε
+
+9/1
+
+Anatomy of a Grammar
+
+S → 0S1 | R
+R→ε
+What are the different kinds of symbols here?
+▶ Variables (non-terminals): S, R
+
+– appear on the left-hand side,
+
+can be replaced
+
+▶ Terminals: 0, 1 – the output symbols, they stay in the final
+string
+
+▶ Start variable: S
+
+– where generation begins
+
+The variables are internal working symbols. The terminals form the
+alphabet of the generated language.
+10/1
+
+How Does G1 Generate Strings?
+Start with the start variable. Apply rules to replace
+variables, one at a time.
+Derivation of 0011:
+
+G1 :
+S → 0S1 | R
+R →ε
+
+S ⇒ 0S1
+⇒ 00S11
+⇒ 00R11
+⇒ 00ε11 = 0011
+Keep substituting until only terminals remain. The
+result is a generated string.
+
+11/1
+
+Parse Tree for 0011
+The same derivation as a parse tree:
+
+G1 :
+S → 0S1 | R
+R →ε
+
+S
+0
+
+S
+
+1
+
+0
+
+S
+
+1
+
+R
+ε
+▶ Root = start variable
+▶ Internal nodes = variables
+▶ Leaves (left to right) = the generated string
+12/1
+
+What Language Does G1 Generate?
+Some strings we can derive:
+▶ S ⇒R⇒ε
+
+(n = 0)
+
+▶ S ⇒ 0S1 ⇒ 0R1 ⇒ 01
+
+(n = 1)
+
+G1 :
+S → 0S1 | R
+R →ε
+
+▶ S ⇒ 0S1 ⇒ 00S11 ⇒ 00R11 ⇒ 0011 (n = 2)
+Can anyone see the pattern?
+L(G1 ) = {0n 1n | n ≥ 0}
+
+This is the language we proved is not regular!
+A simple grammar with three rules can generate it.
+
+13/1
+
+Formal Definition
+
+A context-free grammar is a 4-tuple G = (V , Σ, R, S).
+Compare with a DFA: (Q, Σ, δ, q0 , F ).
+a CFG correspond to?
+
+What do the four parts of
+
+▶ V : finite set of variables (non-terminals)
+▶ Σ: finite set of terminals (alphabet), with V ∩ Σ = ∅
+▶ R: finite set of rules, each of the form A → w
+where A ∈ V and w ∈ (V ∪ Σ)∗
+▶ S ∈ V : the start variable
+
+14/1
+
+Derivation Notation
+▶ u⇒v
+
+(“u yields v ”)
+
+u can become v by one substitution step
+
+▶ u ⇒∗ v
+
+(“u derives v ”)
+
+u can become v in zero or more steps
+
+▶ A sequence u ⇒ w1 ⇒ w2 ⇒ · · · ⇒ v is called a derivation
+of v from u
+Language of G :
+L(G ) = {w ∈ Σ∗ | S ⇒∗ w }
+All strings of terminals that can be derived from the start variable.
+
+15/1
+
+Context-Free Languages
+Definition: A language A is context-free if there exists a CFG G
+such that A = L(G ).
+Why “context-free”?
+Every rule has a single variable on the left-hand side:
+
+A→w
+
+You can replace A regardless of what surrounds it.
+It doesn’t matter what’s to the left or right of A.
+In contrast, a context-sensitive
+grammar allows rules like
+αAβ → αw β,
+where the replacement depends on the
+surrounding symbols α, β.
+
+Not context-free:
+B1 → 1B
+B can only be replaced
+when followed by 1
+
+16/1
+
+Check-in: Which are Valid CFGs?
+C1 :
+
+C2 :
+
+B → 0B1 | ε
+B1 → 1B
+0B → 0B
+
+S → 0S | S1
+R → RR
+
+C1 :
+
+Not a valid CFG.
+
+B → 0B1 | ε is fine, but B1 → 1B and 0B → 0B have more than
+a single variable on the left. ← context-sensitive rules
+C2 :
+
+Valid CFG. Every rule has a single variable on the left.
+
+But what is L(C2 )?
+L(C2 ) = ∅! Every rule for S keeps S in the string (0S, S1),
+so you can never eliminate all variables. Still a valid CFG!
+
+17/1
+
+Grammar G2 : Arithmetic Expressions
+A grammar for arithmetic expressions over Σ = {a, +, ×, (, )}:
+
+E →E +T |T
+T →T ×F |F
+F → (E ) | a
+How many rules? What are the variables, terminals, start variable?
+6 rules (each “|” hides a second rule).
+▶ Variables: E , T , F
+▶ Terminals: a, +, ×, (, )
+▶ Start variable: E
+
+18/1
+
+Derivation of “a + a × a”
+Start with E . Always substitute the leftmost
+variable first.
+E ⇒E +T
+
+G2 :
+E → E +T | T
+T → T ×F | F
+F → (E ) | a
+
+⇒T +T
+⇒F +T
+⇒a+T
+⇒a+T ×F
+⇒a+F ×F
+⇒a+a×F
+⇒a+a×a
+
+19/1
+
+Parse Tree for “a + a × a”
+G2 :
+E
+E
+
++
+
+T
+
+T
+
+T
+
+×
+
+F
+
+F
+
+a
+
+a
+
+E → E +T | T
+T → T ×F | F
+F → (E ) | a
+F
+a
+
+Key: × appears deeper than + in the tree.
+The grammar encodes operator precedence!
+This is exactly what a compiler uses to determine
+the meaning of an expression.
+20/1
+
+Grammar G3 : Even-Length Palindromes
+Grammar over Σ = {0, 1}:
+S → 0S0 | 1S1 | ε
+Derivation of 011110:
+S ⇒ 0S0 ⇒ 01S10 ⇒ 011S110 ⇒ 011ε110 = 011110
+
+L(G3 ) = {ww R | w ∈ {0, 1}∗ }
+Context-free but not regular. We will build a PDA for this later!
+Aside: How would you extend G3 to also generate odd-length
+palindromes?
+Add S → 0 | 1 (a single middle character, no matching needed).
+21/1
+
+Ambiguity in Natural Language
+Consider the English sentence:
+
+“The boy saw the girl with the mirror.”
+How many different meanings can you find?
+1. The boy used the mirror to see the girl (instrument)
+2. The boy saw the girl who had the mirror (possession)
+In natural language, ambiguity is common and resolved by context.
+In programming languages, ambiguity is undesirable: code should
+have exactly one meaning.
+
+22/1
+
+An Ambiguous Grammar (G4 )
+Consider a simpler grammar for arithmetic:
+G4 :
+
+E → E + E | E × E | (E ) | a
+
+G4 has one variable instead of three. But
+it generates the same language as G2 :
+L(G4 ) = L(G2 )
+
+G2 :
+E → E +T | T
+T → T ×F | F
+F → (E ) | a
+
+Looks simpler. So what’s the problem?
+Try deriving a + a × a in G4 . Can you find two different parse
+trees?
+
+23/1
+
+Two Parse Trees for “a + a × a” in G4
+
+Tree 1: a + (a × a)
+
+Tree 2: (a + a) × a
+
+E
+
+E
+
+E
+
++
+
+E
+
+a
+
+E
+
+×
+
+a
+
+E
+
+E
+
+a
+
+a
+
+E
+
+×
+
+E
+
++
+
+E
+
+a
+
+a
+
+Same string, same grammar, two different parse trees.
+Different trees ⇒ different meanings ⇒ the grammar is
+ambiguous.
+
+24/1
+
+Ambiguity: Definition and Resolution
+Definition: A grammar is ambiguous if some string has two or
+more different parse trees (equivalently, two or more leftmost
+derivations).
+▶ G4 (E → E + E | E × E | (E ) | a) is ambiguous
+▶ G2 (E → E + T | T , T → T × F | F , F → (E ) | a) is
+unambiguous
+▶ Same language, different grammars!
+How did G2 avoid ambiguity?
+Multiple variables (E , T , F ) force a unique grouping that encodes
+operator precedence. This is a standard compiler design technique.
+
+Inherently ambiguous: A CFL is inherently ambiguous if every
+grammar for it is ambiguous. These exist, but are rare.
+25/1
+
+Break
+Back in 10 minutes
+
+From DFA to PDA
+DFAs can’t recognise {0n 1n }: they have no memory beyond the
+current state.
+Idea: Take a finite automaton and give it access to a stack.
+
+States
+Input
+Memory
+Determinism
+Recognises
+
+DFA
+finite set
+read left to right
+current state only
+deterministic
+regular languages
+
+PDA
+finite set
+read left to right
+current state + stack
+non-deterministic
+context-free languages
+
+27/1
+
+PDA: Schematic View
+
+Schematic for a finite automaton: state control reads input via a
+
+head.
+Pushdown automaton: same thing, plus a stack.
+28/1
+
+The Stack
+
+A stack is a last-in, first-out (LIFO) data structure:
+▶ Push: add a symbol to the top
+▶ Pop: remove and read the top symbol
+▶ Can only access the top (not deeper elements)
+▶ Unbounded: can grow as large as needed
+Practical trick: Push a special bottom-of-stack marker ($) at
+the start. If you ever see $ on top, the stack is effectively empty.
+(The formal definition doesn’t include “test if empty” as a primitive, but
+$ gives you the same effect.)
+
+29/1
+
+PDA for {0n 1n | n ≥ 0}
+Strategy: Read 0s and push each onto the stack. When you see a
+1, pop a 0 for each 1. Accept if the stack is empty at the end.
+Trace on input 0011:
+Step
+
+Read
+
+Action
+
+Stack (top →)
+
+1
+2
+3
+4
+
+0
+0
+1
+1
+end
+
+push 0
+push 0
+pop 0, match
+pop 0, match
+stack empty → accept
+
+0
+00
+0
+(empty)
+
+This PDA is deterministic: no guessing needed.
+
+30/1
+
+PDA for {ww R | w ∈ {0, 1}∗ }: The Idea
+Remember G3 generated {ww R }. Now let’s build a
+machine for the same language.
+Problem: The machine reads left to right. It
+doesn’t know how long the input is, so it can’t
+know where the middle is.
+
+G3 :
+S → 0S0
+S → 1S1
+S →ε
+
+Strategy (using non-determinism):
+1. Read symbols, push each onto the stack
+2. At each step, non-deterministically guess: am I
+at the midpoint?
+3. If yes: switch to popping, matching each
+popped symbol against the input
+4. Accept if the stack is empty at the end
+Many branches guess wrong and fail. Only the
+correct guess leads to acceptance.
+31/1
+
+PDA for {ww R }: Trace on 011110
+Step
+
+Read
+
+1
+2
+3
+
+0
+1
+1
+
+4
+5
+6
+
+1
+1
+0
+end
+
+Action
+
+Stack (top →)
+
+push 0
+push 1
+push 1
+guess: midpoint!
+pop 1, match ✓
+pop 1, match ✓
+pop 0, match ✓
+stack empty → accept
+
+0
+10
+110
+110
+10
+0
+(empty)
+
+Other branches (guessing midpoint at step 1 or 2) would hit
+mismatches and reject.
+Same string we derived from grammar G3 earlier!
+
+32/1
+
+Non-determinism in PDAs
+When a PDA forks non-deterministically, the entire machine
+replicates:
+▶ Current state, head position, and the full stack are all copied
+▶ Each branch proceeds independently
+▶ The machine accepts if any branch reaches an accept state
+Key difference from finite automata:
+DFA vs NFA
+DPDA vs NPDA
+
+Same power (DFA = NFA)
+Different power (DPDA ⊊ NPDA)
+
+{ww R } requires non-determinism: the machine must guess the
+midpoint.
+A deterministic PDA cannot recognise this language.
+
+33/1
+
+PDA: Formal Definition
+A pushdown automaton is a 6-tuple (Q, Σ, Γ, δ, q0 , F ).
+Compare with a DFA: (Q, Σ, δ, q0 , F ).
+
+What’s new?
+
+▶ Q: finite set of states
+▶ Σ: input alphabet
+▶ Γ: stack alphabet (can differ from Σ)
+▶ δ : Q × Σε × Γε → P(Q × Γε ): transition function
+▶ q0 ∈ Q: start state
+▶ F ⊆ Q: accepting states
+Where Σε = Σ ∪ {ε} and Γε = Γ ∪ {ε}.
+P(·) = power set ⇒ non-determinism (multiple possible moves).
+
+34/1
+
+Reading the Transition Function
+
+δ(q, a, c) = {(r1 , d), (r2 , e)}
+In state q, reading input a, popping c from the stack:
+▶ Move to r1 and push d, or
+▶ Move to r2 and push e
+Shorthand for transitions:
+Read a from input
+Pop b from stack
+Push c onto stack
+
+a, b → c
+
+(a = ε: don’t read)
+(b = ε: don’t pop)
+(c = ε: don’t push)
+
+35/1
+
+PDA Acceptance
+A PDA accepts string w if there exists some sequence of
+transitions that:
+1. Starts in q0 with an empty stack
+2. Reads all of w
+3. Ends in a state in F
+Just like NFAs: at least one accepting path is enough.
+The language of a PDA P:
+L(P) = {w ∈ Σ∗ | P accepts w }
+
+36/1
+
+Formal PDA for {0n 1n | n ≥ 0}
+
+Q = {q1 , q2 , q3 , q4 }, F = {q4 }
+Σ = {0, 1}, Γ = {0, $}
+
+Reading the transitions:
+▶ q1 → q2 : push $ marker
+▶ q2 loop: push 0 for each 0
+read
+
+0, ε → 0
+
+q1
+
+ε, ε → $
+
+q2
+
+1, 0 → ε
+
+1, 0 → ε
+
+q3
+
+ε, $ → ε
+
+▶ q2 → q3 : first 1 pops a 0
+q4
+
+▶ q3 loop: pop 0 for each 1
+▶ q3 → q4 : see $, accept
+
+Deterministic: every configuration has at most one possible
+move.
+
+37/1
+
+Transition Function for {0n 1n } PDA
+
+Blank entries signify ∅ (no valid transition). Each non-empty entry
+gives the set of possible (state, push symbol) pairs.
+
+38/1
+
+Formal PDA for {ww R | w ∈ {0, 1}∗ }
+Q = {q1 , q2 , q3 , q4 }, F = {q4 }
+Σ = {0, 1}, Γ = {0, 1, $}
+
+Reading the transitions:
+▶ q1 → q2 : push $ marker
+▶ q2 loop: push each input
+symbol
+
+0, ε → 0
+1, ε → 1
+
+q1
+
+ε, ε → $
+
+q2
+
+0, 0 → ε
+1, 1 → ε
+
+ε, ε → ε
+
+q3
+
+ε, $ → ε
+
+▶ q2 → q3 : guess
+midpoint!
+q4
+
+(ε, ε → ε: no read, no pop, no
+push)
+
+▶ q3 loop: pop and match
+▶ q3 → q4 : see $, accept
+
+Non-deterministic: the q2 → q3 transition (ε, ε → ε) can be
+taken at any time.
+
+39/1
+
+The Key Theorem: CFG = PDA
+Theorem: A language is context-free if and only if some
+pushdown automaton recognises it.
+Two directions:
+▶ CFG → PDA: Given a CFG, build a PDA for the same
+language.
+We will prove this direction.
+▶ PDA → CFG: Given a PDA, build a CFG for the same
+language.
+True, but the construction is more involved. (Sipser Ch. 2.2;
+know the fact, not the proof.)
+
+Together: A is a CFL ⇐⇒ ∃ CFG G with A = L(G ) ⇐⇒ ∃
+PDA P with A = L(P).
+
+40/1
+
+CFG → PDA Construction
+Given a CFG G , build a PDA that simulates a leftmost derivation
+on the stack.
+Key insight: Only substitute variables when they are at the top of
+the stack. When a terminal appears on top, pop it and match it
+against the input immediately.
+Algorithm:
+1. Push the start variable onto the stack
+2. If top is a variable: replace it with a right-hand side
+(non-deterministically choose which rule to apply)
+3. If top is a terminal: pop it and match against the next input
+symbol
+(reject this branch if they disagree)
+4. If the stack is empty: accept
+41/1
+
+Trace: “a + a × a” with G2
+Stack (top first)
+E
+E + T
+T + T
+F + T
+a + T
++T
+T
+T × F
+F × F
+a × F
+×F
+F
+a
+(empty)
+
+Action
+push start variable
+substitute E → E +T
+substitute E → T
+substitute T → F
+substitute F → a
+match a ✓
+match + ✓
+substitute T → T ×F
+substitute T → F
+substitute F → a
+match a ✓
+match × ✓
+substitute F → a
+match a ✓ → accept
+
+Input read
+
+G2 :
+E → E +T | T
+T → T ×F | F
+F → (E ) | a
+
+a
+a+
+a+
+a+
+a+
+a+a
+a + a×
+a + a×
+a+a×a
+
+The non-determinism handles the choice of which rule to apply.
+Only the correct choices lead to acceptance.
+
+42/1
+
+Completing the Picture
+PDA → CFG: Also true, but more involved. (Sipser Ch. 2.2; know
+the fact, not the proof.)
+
+Is every regular language also context-free?
+Yes! A DFA is just a PDA that never uses its stack. Since PDAs
+recognise exactly the CFLs, every regular language is context-free.
+Regular ⊊ Context-Free
+(Strict: {0n 1n } is context-free but not regular.)
+
+Regular
+Context-free
+
+Recogniser
+DFA / NFA
+PDA
+
+Generator
+Regular expressions
+CFG
+
+43/1
+
+Today’s Journey
+▶ Regular languages are limited: a DFA has no memory beyond
+its current state
+▶ Question: What if we give a finite automaton some memory?
+▶ Two answers, two perspectives:
+▶ CFGs: generate strings via substitution rules, derivations,
+parse trees
+▶ PDAs: recognise strings using a DFA + stack
+
+▶ The big result: CFGs and PDAs are equivalent. They
+describe exactly the same class of languages: the
+context-free languages.
+▶ Every regular language is context-free, but not vice versa.
+
+44/1
+
+The Examples That Tied It Together
+
+▶ {0n 1n }: proved not regular (pumping lemma) → grammar
+G1 generates it → deterministic PDA recognises it
+▶ {ww R }: grammar G3 generates it → PDA recognises it, but
+must guess the midpoint (non-deterministic)
+▶ Arithmetic expressions (a + a × a):
+▶ G2 (3 variables): unambiguous, encodes operator precedence
+▶ G4 (1 variable): ambiguous, two parse trees for the same string
+
+▶ CFG → PDA construction: traced a + a × a through the
+stack, simulating the derivation from G2
+
+45/1
+
+Comparing the Two Levels
+
+Machine
+Descriptive
+Memory
+Det = Non-det?
+
+Regular
+DFA / NFA
+Regex
+None (finite states)
+Yes (DFA = NFA)
+
+Context-Free
+PDA
+CFG
+Stack (unbounded)
+No (DPDA ⊊ NPDA)
+
+Same pattern at both levels: a machine model and a descriptive
+model, proved equivalent. But context-free languages lose some
+nice closure properties.
+
+46/1
+
+Looking Ahead
+
+▶ {an b n c n | n ≥ 0} is not context-free.
+A stack can match two things (a’s against b’s), but not three.
+▶ Turing machines: What if we replace the stack with
+random-access memory?
+That’s the next (and most general) computational model.
+Textbook reading: Sipser, Introduction to the Theory of Computation
+Ch. 2.1 (CFGs), Ch. 2.2 (PDAs & equivalence), Ch. 2.3 (non-CFLs)
+
+47/1
+
+
