@@ -1,0 +1,536 @@
+Week 8 Worksheet (Solutions)
+COMP2048
+
+Semester 1, 2026
+
+For teaching staff use only. Please do not distribute to students.
+
+Task 1. Wolfram Numbering
+(a) The majority rule sets the next state of a cell to 1 if and only if at least two of the three
+cells in its neighbourhood (left, centre, right) are currently 1. Write out the complete
+rule table and compute the Wolfram number.
+(b) Reconstruct the rule table for the ECA with Wolfram number 150. Can you express
+this rule as a single Boolean operation on the three inputs?
+(c) The complement of an ECA rule f is the rule f¯ defined by f¯(l, c, r) = 1−f (1−l, 1−c, 1−r).
+Compute the Wolfram number of the complement of Rule 110.
+
+Solution.
+(a) At least two of three cells are 1 in the neighbourhoods {111, 110, 101, 011}.
+Neighbourhood
+
+111
+
+110
+
+101
+
+100
+
+011
+
+010
+
+001
+
+000
+
+Output
+
+1
+
+1
+
+1
+
+0
+
+1
+
+0
+
+0
+
+0
+
+Wolfram number = 111010002 = 128 + 64 + 32 + 8 = 232.
+(b) 150 = 100101102 , so b7 b6 · · · b0 = 1, 0, 0, 1, 0, 1, 1, 0:
+Neighbourhood
+
+111
+
+110
+
+101
+
+100
+
+011
+
+010
+
+001
+
+000
+
+Output
+
+1
+
+0
+
+0
+
+1
+
+0
+
+1
+
+1
+
+0
+
+The output is 1 exactly when an odd number of the three inputs are 1. This is the
+three-input XOR (parity): δ(l, c, r) = l ⊕ c ⊕ r.
+
+1
+
+(c) To compute f¯, we swap 0 ↔ 1 in both input and output. The neighbourhood (l, c, r)
+with index j maps to (1−l, 1−c, 1−r) with index 7 − j. So the complement’s output
+for index j is 1 − b7−j , where bi are Rule 110’s bits.
+Rule 110 = 011011102 :
+Index j
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+0
+
+bj (Rule 110)
+b7−j
+1 − b7−j
+
+0
+0
+1
+
+1
+1
+0
+
+1
+1
+0
+
+0
+1
+0
+
+1
+0
+1
+
+1
+1
+0
+
+1
+1
+0
+
+0
+0
+1
+
+Complement = 100010012 = 128 + 8 + 1 = 137.
+
+Task 2. Evolution on a Finite Ring
+Consider Rule 90, whose local rule is δ(l, c, r) = l ⊕ r.
+(a) Evolve Rule 90 on a ring of 6 cells from (0, 1, 0, 0, 0, 0) up to t = 6.
+(b) At what time step does a previously seen configuration first reappear? What is the
+period of the resulting cycle?
+(c) Prove that every ECA on a ring of n cells must eventually enter a repeating cycle. What
+is the maximum number of distinct configurations that can appear before a repeat is
+guaranteed?
+
+Solution.
+(a) On a ring of 6, cell i’s next value is c(i−1) mod 6 ⊕ c(i+1) mod 6 .
+
+t=0
+t=1
+t=2
+t=3
+t=4
+t=5
+t=6
+
+c0
+
+c1
+
+c2
+
+c3
+
+c4
+
+c5
+
+0
+1
+0
+1
+0
+1
+0
+
+1
+0
+0
+0
+0
+0
+0
+
+0
+1
+0
+1
+0
+1
+0
+
+0
+0
+1
+0
+1
+0
+1
+
+0
+0
+0
+0
+0
+0
+0
+
+0
+0
+1
+0
+1
+0
+1
+
+(b) The configuration at t = 3 equals the configuration at t = 1. The first repeat is at t = 3,
+and the cycle has period 2 (alternating between (1, 0, 1, 0, 0, 0) and (0, 0, 0, 1, 0, 1)).
+The initial configuration (0, 1, 0, 0, 0, 0) is a transient that does not recur.
+
+2
+
+(c) A ring of n binary cells has 2n possible configurations. The global rule ∆ is a deterministic function, so the sequence c(0) , c(1) = ∆(c(0) ), c(2) = ∆(c(1) ), . . . is fully determined
+by c(0) .
+By the pigeonhole principle, among the first 2n + 1 configurations in the sequence,
+at least two must be identical. Once a configuration repeats, the entire subsequent
+sequence repeats (since ∆ is deterministic), so the system has entered a cycle.
+The maximum number of distinct configurations before a repeat is guaranteed is 2n .
+
+3
+
+Task 3. Fixed Points
+Find all fixed-point configurations of Rule 30 on a ring of 4 cells, and determine which
+ECA rules have the all-zeros configuration as a fixed point.
+
+Solution.
+(a) Rule 30: δ(l, c, r) = l ⊕ (c ∨ r). On a ring of 4, a fixed point (c0 , c1 , c2 , c3 ) satisfies:
+δ(c3 , c0 , c1 ) = c0
+δ(c0 , c1 , c2 ) = c1
+δ(c1 , c2 , c3 ) = c2
+δ(c2 , c3 , c0 ) = c3
+With only 24 = 16 configurations, systematic checking is feasible. We verify the three
+fixed points:
+(0, 0, 0, 0): Every neighbourhood is (0, 0, 0), so δ = 0 ⊕ (0 ∨ 0) = 0. Each cell maps to
+itself. ✓
+(0, 1, 0, 1):
+ δ(c3 , c0 , c1 ) = δ(1, 0, 1) = 1 ⊕ (0 ∨ 1) = 0 = c0 ✓
+ δ(c0 , c1 , c2 ) = δ(0, 1, 0) = 0 ⊕ (1 ∨ 0) = 1 = c1 ✓
+ δ(c1 , c2 , c3 ) = δ(1, 0, 1) = 0 = c2 ✓
+ δ(c2 , c3 , c0 ) = δ(0, 1, 0) = 1 = c3 ✓
+
+(1, 0, 1, 0): By symmetry with (0, 1, 0, 1) (both are alternating patterns, and the equations have the same cyclic structure):
+ δ(0, 1, 0) = 1 = c0 ✓
+ δ(1, 0, 1) = 0 = c1 ✓
+ δ(0, 1, 0) = 1 = c2 ✓
+ δ(1, 0, 1) = 0 = c3 ✓
+
+All other configurations fail at least one equation. For example, (1, 1, 1, 1): δ(1, 1, 1) =
+1 ⊕ (1 ∨ 1) = 0 ̸= 1.
+The complete set of fixed points is: {(0, 0, 0, 0), (0, 1, 0, 1), (1, 0, 1, 0)}.
+(b) On the all-zeros configuration, every cell’s neighbourhood is (0, 0, 0). The fixed-point
+condition requires δ(0, 0, 0) = 0, which means b0 = 0.
+Since b0 is the least significant bit of the Wolfram number, the condition is that the
+Wolfram number is even.
+This accounts for exactly 128 of the 256 ECA rules.
+
+4
+
+Task 4. The Global Map and Gardens of Eden
+Compute ∆ for Rule 90 on a ring of 4 cells. Identify Gardens of Eden and find the
+structural property shared by all image configurations.
+
+Solution.
+(a) Rule 90 on a ring of 4: ∆(c)i = c(i−1) mod 4 ⊕ c(i+1) mod 4 .
+c
+
+(decimal)
+
+∆(c)
+
+(decimal)
+
+0000
+0001
+0010
+0011
+0100
+0101
+0110
+0111
+1000
+1001
+1010
+1011
+1100
+1101
+1110
+1111
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+0000
+1010
+0101
+1111
+1010
+0000
+1111
+0101
+0101
+1111
+0000
+1010
+1111
+0101
+1010
+0000
+
+0
+10
+5
+15
+10
+0
+15
+5
+5
+15
+0
+10
+15
+5
+10
+0
+
+(b) The image of ∆ is {0000, 0101, 1010, 1111}, which has only 4 elements. The remaining 12
+configurations are Gardens of Eden: every configuration not of the form (a, b, a, b).
+(c) In every output configuration, position 0 equals position 2, and position 1 equals position 3.
+This is because ∆(c)0 = c3 ⊕ c1 and ∆(c)2 = c1 ⊕ c3 , which are identical. Similarly,
+∆(c)1 = c0 ⊕ c2 = ∆(c)3 .
+So the image is restricted to configurations of the form (a, b, a, b). There are only 22 = 4
+such configurations, which is why 12 out of 16 are Gardens of Eden.
+
+5
+
+Task 5. Life-like Rules and Neighbourhoods
+(a) Compute the next generation of the L-tromino under B3/S23 (Moore) and verify the
+result is a still life.
+(b) What happens to the blinker under B3/S23 with the von Neumann neighbourhood?
+(c) Classify the blinker under B5/S12, B3/S23, and B4/S3.
+
+Solution.
+(a) The L-tromino has live cells at positions (1, 1), (1, 2), (2, 1) in a 4×4 region (row, column
+from 0).
+Moore neighbour counts for each cell:
+col 0
+
+col 1
+
+col 2
+
+col 3
+
+1
+2
+2
+1
+
+2
+2*
+2*
+1
+
+2
+2*
+3
+1
+
+1
+1
+1
+0
+
+row 0
+row 1
+row 2
+row 3
+Cells marked * are currently alive.
+
+Under B3/S23: live cells with 2 neighbours survive (S includes 2). Dead cell (2, 2)
+has exactly 3 live neighbours, so it is born (B includes 3). No other dead cell has 3
+neighbours.
+The next generation is the 2 × 2 block: live at (1, 1), (1, 2), (2, 1), (2, 2).
+Verification that the block is a still life: every live cell in the block has exactly 3 live
+neighbours → survives (S includes 3). The dead cells adjacent to the block have 1 or 2
+live neighbours → no births (B requires 3). So the block is unchanged. ✓
+(b) The blinker has live cells at (1, 1), (1, 2), (1, 3).
+Von Neumann neighbour counts (4 adjacent cells only):
+ (1, 1) live: vN neighbours at (0, 1), (1, 0), (1, 2), (2, 1). Live: (1, 2). Count = 1.
+ (1, 2) live: vN neighbours at (0, 2), (1, 1), (1, 3), (2, 2). Live: (1, 1), (1, 3). Count
+= 2.
+ (1, 3) live: vN neighbours at (0, 3), (1, 2), (1, 4), (2, 3). Live: (1, 2). Count = 1.
+
+Under B3/S23: S = {2, 3}. The end cells have 1 neighbour (not in S), so they die. The
+middle cell has 2 neighbours (in S), so it survives.
+Dead cells: the maximum vN count for any dead cell is 2 (for cells (0, 2) and (2, 2)),
+which is not in B = {3}. No births occur.
+
+6
+
+Result: the blinker collapses to a single live cell at (1, 2), which then dies at t = 2 (it
+has 0 vN neighbours). The blinker dies out under von Neumann.
+Why the neighbourhood matters: under Moore, the end cells each have 2 neighbours (the
+middle cell plus one diagonal cell from the opposite end), which is in S, so they survive.
+Under von Neumann, diagonal neighbours are excluded, reducing each end cell’s count
+to 1, which is not in S.
+(c) Moore neighbour counts for the blinker (live cells at (1, 1), (1, 2), (1, 3)):
+Live cells: (1, 1): Moore neighbours include (1, 2) as the only live cell. Count = 1.
+(1, 2): live neighbours (1, 1) and (1, 3). Count = 2. (1, 3): by symmetry with (1, 1).
+Count = 1.
+Dead cells (non-zero counts only):
+Count 1:
+Count 2:
+Count 3:
+
+(0, 0), (0, 4), (1, 0), (1, 4), (2, 0), (2, 4)
+(0, 1), (0, 3), (2, 1), (2, 3)
+(0, 2), (2, 2)
+
+The maximum dead-cell count is 3 (at positions directly above and below the middle
+cell).
+(i) B5/S12. S = {1, 2}: end cells (count 1) survive, middle (count 2) survives.
+B = {5}: no dead cell has 5 neighbours. No births. ⇒ Still life.
+(ii) B3/S23. S = {2, 3}: end cells (count 1) die. Middle (count 2) survives. B = {3}:
+dead cells (0, 2) and (2, 2) (count 3) come alive. The pattern becomes a vertical
+bar at column 2, rows 0–2. This is the blinker rotated 90◦ , which will rotate back
+on the next step. ⇒ Oscillator (period 2).
+(iii) B4/S3. S = {3}: end cells (count 1) die, middle (count 2) dies. B = {4}: no dead
+cell has 4 neighbours. ⇒ Dies out in one step.
+
+Task 6. From 1D to 2D
+Write the formal 4-tuple for the Game of Life, count the number of possible 2-state Mooreneighbourhood CAs, and explain why exhaustive classification is infeasible.
+
+Solution.
+(a)
+
+ L = Z2 (the infinite integer lattice).
+ Σ = {0, 1} (dead, alive).
+
+ N = (−1, −1), (−1, 0), (−1, 1), (0, −1), (0, 0), (0, 1), (1, −1), (1, 0), (1, 1) .
+This is the Moore neighbourhood plus the cell itself : |N | = 9.
+ δ : {0, 1}9 → {0, 1}, defined by: let s be the sum of the 8 neighbours (excluding the
+centre value c). Then δ(. . .) = 1 iff (c = 0 and s = 3) or (c = 1 and s ∈ {2, 3}).
+
+7
+
+(b) The neighbourhood N has 9 entries (8 neighbours plus the cell itself), and each entry
+is in Σ = {0, 1}. So the number of distinct input patterns to δ is |Σ||N | = 29 = 512.
+A rule is a function that assigns an output (0 or 1) to each of these 512 input patterns. There are 2 choices per pattern, so the total number of distinct 2-state Mooreneighbourhood CAs is 2512 ≈ 1.3 × 10154 .
+Compare with ECAs: an ECA neighbourhood has |N | = 3, giving 23 = 8 input patterns
+and 28 = 256 rules. The jump from 8 input patterns to 512 makes the rule space explode
+from 28 to 2512 .
+(c) Wolfram classified all 256 ECA rules by running each one on many initial conditions and
+observing the long-term behaviour. This was feasible because 256 is a small number.
+For 2D Moore-neighbourhood CAs, there are 2512 possible rules. To put this in perspective: 2512 ≈ 10154 , which exceeds the number of atoms in the observable universe
+(≈ 1080 ) by roughly 74 orders of magnitude. You cannot enumerate them, let alone
+simulate and classify each one.
+Even restricting to Life-like CAs (where the rule depends only on the neighbour count
+and current state, as in B/S notation) gives 29 × 29 = 218 = 262,144 rules per neighbourhood type. This is tractable in principle but still vastly larger than 256.
+
+8
+
+Task 7. Decidability and Cellular Automata
+Determine whether CELLt is decidable, and discuss whether a program could classify
+arbitrary CAs into Wolfram classes.
+
+Solution.
+(a) Yes, CELLt is Turing-decidable.
+Decider D: “On input ⟨R, c, i, t⟩:
+1. Simulate ECA rule R on configuration c for exactly t steps.
+2. Check whether cell i is in state 1 at time t.
+3. If yes, accept. Otherwise, reject.”
+Each simulation step updates every cell in constant time per cell, and there are exactly
+t steps. The simulation always terminates, so D is a decider.
+This parallels HALT2048 from the Week 7 worksheet: both are decidable because a
+bounded simulation always terminates.
+(b) No, such a program cannot exist for arbitrary CAs.
+The fundamental difficulty is distinguishing Class III (chaotic) from Class IV (complex). A Class IV rule supports persistent interacting structures (“particles”) that can
+implement computation. To determine whether a CA is Class IV, you would need to determine whether it supports universal computation, which requires answering a question
+equivalent to the halting problem.
+More precisely: if you could identify Class IV rules, you could identify Turing-complete
+CAs, and hence determine which CAs have undecidable reachability problems. But this
+is itself undecidable (by Rice’s theorem applied to the class of Turing-complete systems).
+Classes I and II are easier to detect (fixed points and short cycles appear quickly), and
+Class III can often be identified by statistical properties. The boundary between III
+and IV is where decidability breaks down.
+
+9
+
+

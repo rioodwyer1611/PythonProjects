@@ -1,0 +1,344 @@
+Week 6 Applied Class Worksheet (Solutions)
+COMP2048
+Dr. Kasra Khosoussi
+Semester 1, 2026
+
+Task 1.
+
+Example 3.7 from Sipser
+n
+
+Consider the following Turing machine that decides L = {02 | n → 0}.
+0↑L
+x↑L
+
+R
+
+↓
+↑
+
+↓
+
+L
+
+x↑R
+
+↑
+
+q5
+
+q1
+
+↓↑R
+x↑R
+qreject
+
+0 ↑ ↓, R
+
+q2
+
+0 ↑ x, R
+
+↓↑R
+qaccept
+
+x↑R
+q3
+
+0 ↑ x, R
+
+0↑R
+
+q4
+
+x↑R
+
+↓↑R
+In this Turing machine, ! = {0} and ” = {0, x, ↓}. Some transitions in the diagram are
+labeled using the shorthand notation (e.g., 0 ↑ R) for cases those transitions where the head
+reads and writes the same symbol (or, equivalently, doesn’t alter that tape cell). For example,
+0 ↑ R means the head upon reading a 0 just moves to the right.
+
+1
+
+(a) Give the sequence of configurations that this machine enters when started on each of
+the following input strings. Use the notation we saw in the lecture for configurations.
+ω
+0
+00
+000
+0000
+(b) Determine which inputs are accepted or rejected, and verify your answer assuming this
+machine is deciding L.
+(c) Explain the algorithm that this machine is implementing for deciding L.
+
+Solution.
+We write configurations by inserting the current state immediately before the tape symbol
+being scanned.
+(a) Configuration sequences: See handwritten pages at the end.
+(b) Accepted/rejected inputs.
+Input Outcome
+ω
+reject
+0
+accept
+00
+accept
+000
+reject
+0000
+accept
+This matches the language
+n
+
+L = {02 | n → 0} = {0, 00, 0000, 00000000, . . . }.
+Indeed, among the given strings, the accepted ones are exactly those of lengths
+1 = 20 ,
+
+2 = 21 ,
+
+4 = 22 .
+
+(c) Algorithm.
+The machine checks whether the number of 0’s is a power of 2.
+It works as follows (from Sipser, Example 3.7):
+M2 = “On input string w:
+(i) Sweep left to right across the tape, crossing o# every other 0.
+(ii) If in stage 1 the tape contained a single 0, accept.
+(iii) If in stage 1 the tape contained more than a single 0 and the number of 0s was
+odd, reject.
+
+2
+
+(iv) Return the head to the left-hand end of the tape.
+(v) Go to stage 1.”
+At the beginning, the first 0 is replaced with a blank to mark the leftmost cell of the
+tape for our future right-to-left sweeps. Each iteration of stage 1 cuts the number of 0s
+in half. As the machine sweeps across the tape in stage 1, it keeps track of whether the
+number of 0s seen is even or odd. If that number is odd and greater than 1, the original
+number of 0s in the input could not have been a power of 2. Therefore, the machine
+rejects in this instance. However, if the number of 0s seen is 1, the original number must
+have been a power of 2. So in this case, the machine accepts.
+So the machine is repeatedly halving the number of surviving 0’s. It accepts exactly
+when this repeated halving ends at 1, which happens exactly when the original length
+is a power of 2.
+
+Task 2.
+
+Turing Machine Design
+
+Design a Turing machine for deciding L = {0n 12n | n → 0}. Explain the algorithm behind
+your design.
+Hint: Adapt the machine we saw in the lecture for deciding {0n 1n | n → 0}.
+Solution.
+See handwritten pages at the end. The algorithm is very similar to what we had in the
+class. Instead of marking one 0 from the beginning, and one 1 from the end (in this case
+marking is done by writing blank), we mark one 0 and mark two 1s from the end. We could
+have introduced another symbol for marking 0s and 1s.
+
+Task 3.
+
+Turing-recognizable vs. Turing-decidable
+
+Explain why every Turing-decidable language is Turing-recognizable.
+
+Solution.
+A language is Turing-decidable if there exists a Turing machine that halts on every input
+and accepts exactly the strings in the language.
+A language is Turing-recognizable if there exists a Turing machine that accepts exactly the
+strings in the language; on strings not in the language, it may either reject or loop forever.
+Now suppose L is Turing-decidable. This means that there is a machine M such that:
+• if w ↔ L, then M accepts w;
+
+recog
+F
+But this already satisfies the definition of Turing-recognizable, because a recognizer is only
+
+• if w ↔
+/ L, then M rejects w.
+
+required to accept members of the language, and it is allowed to do anything at all (i.e., reject
+or looping) on nonmembers. M does even better: it always halts and rejects nonmembers.
+
+3
+
+Therefore every Turing-decidable language is Turing-recognizable.
+
+Task 4.
+
+Turing Machines and Regular Languages
+
+Let M = (Q, !, ε, q0 , F ) be a DFA.
+(a) Construct a Turing machine that decides L(M ) (i.e., accepts an input string w if
+w ↔ L(M ), and rejects it otherwise). Use the formal notation (i.e., 7-tuple) in your
+construction).
+(b) Explain why this construction proves that the set of regular languages is a subset of the
+set of Turing-decidable languages.
+
+Solution.
+(a) Construction.
+Let the DFA be
+M = (Q, !, ε, q0 , F ).
+We construct a Turing machine
+T = (Q→ , !, ”, ε → , q0 , qacc , qrej )
+that simulates M on the input from left to right.
+Define:
+Q→ = Q ↗ {qacc , qrej },
+
+” = ! ↗ {↓}.
+
+Intuitively, whenever the TM is in state q ↔ Q and scans a symbol a ↔ !, it behaves
+like the DFA transition to ε(q, a) and moves right.
+Formally:
+• For each q ↔ Q and a ↔ !,
+ε → (q, a) = (ε(q, a), a, R).
+• When the TM reaches the first blank after the input, it decides according to whether
+the current simulated DFA state is accepting:
+!
+(qacc , ↓, R), if q ↔ F,
+→
+ε (q, ↓) =
+(qrej , ↓, R), if q ↔
+/ F.
+This machine never changes the tape contents; it just reads the input once from left to
+right and keeps the simulated DFA state in its finite control.
+
+4
+
+Why it works. After reading any prefix x of the input, the TM is in exactly the DFA
+state that M would be in after processing x. Therefore, when it reaches the blank after
+the whole input, it accepts exactly when the DFA would accept.
+(b) A language is regular i# some DFA recognizes it. Given any DFA for a regular language,
+the construction above produces a Turing machine that halts on every input and accepts
+exactly the same language.
+So for every regular language L, there exists a Turing machine that decides L. Hence
+{regular languages} ↘ {Turing-decidable languages}.
+In other words, every regular language is Turing-decidable.
+
+5
+
+E
+
+gooow
+49200W
+
+9,4W
+Grejectuw
+g
+
+930W
+U
+
+ow
+
+uxowfrej.ec't
+
+WGU
+
+Fcctptv
+00
+
+9,0000W
+920004
+
+9300W
+0
+940W
+
+W
+
+920W
+
+X O X
+
+GW
+
+95kW
+
+954
+
+0000
+
+W
+
+9,00W
+X
+
+9W
+
+0
+
+uqxw
+92W
+
+wxuaaclep.tt
+
+Uxo
+
+9,4
+ggyw
+
+Lxqgxw
+
+W9gxoxW
+9gwxoxW
+ug2xoxW
+
+Wigoxu
+LxiqgxW
+UxxxqgW
+Wxx 95 4
+
+wxgx
+
+w
+
+w9gxxxW
+qguxxxw
+
+uqxxxw
+
+Uxg2xxv
+Uxxq2xw
+
+Wxxx 92W
+
+water
+
+or 2
+
+ⁿ
+
+2 L
+Now
+wir
+
+Pr
+
+Keseck
+
+2
+
+W
+
+L
+
+I D
+
+R
+
+web
+
+R
+
+Yecept
+
+0
+
+1 In
+
+Er
+
+1ns 0
+
+

@@ -1,0 +1,60 @@
+Week 10 Applied Class Worksheet Solutions
+COMP2048
+Dr. Kasra Khosoussi
+Semester 1, 2026
+
+Task 1.
+For each of the following statements, indicate whether it is True or False, and justify
+your answer.
+(a) If SAT ≤p A, then every language in NP is polynomial-time reducible to A.
+(b) If one discovers a polynomial-time algorithm for any language in NP, then P = NP.
+(c) There exists a known NP-complete language that is in P.
+(d) It is currently unknown whether PATH ∈ NP.
+(e) It is currently unknown whether every regular language has a polynomial-time verifier.
+(f) If A ≤p PATH and A ∈ NP, then A is NP-complete.
+(g) If PATH ≤p B and B ∈ NP, then B is NP-complete.
+(h) If HAMPATH can be decided in polynomial time, then P = NP.
+(i) SAT ≤p HAMPATH and HAMPATH ≤p SAT.
+(j) PATH ≤p HAMPATH and HAMPATH ≤p PATH.
+(k) If one proves that deciding CLIQUE in polynomial time is impossible, then P ̸= NP.
+
+Solution.
+(a) True. Since SAT is NP-complete, for every language L ∈ NP we have
+L ≤p SAT.
+If SAT ≤p A, then by transitivity of polynomial-time reductions,
+L ≤p A.
+(b) False. Discovering a polynomial-time algorithm for some language in NP only shows
+
+1
+
+that this particular language is in P. To prove P = NP, one would need a polynomialtime algorithm for an NP-complete language.
+(c) False. No NP-complete language is currently known to be in P. If such a language
+were found, then it would imply P = NP.
+(d) False. PATH is decidable in polynomial time. Hence
+PATH ∈ P ⊆ NP.
+(e) False. Every regular language is decidable in linear time. Therefore every regular
+language is in P, and hence in NP. So every regular language has a polynomial-time
+verifier.
+(f) False. If A ≤p PATH and PATH ∈ P, then A ∈ P. This does not imply that A is
+NP-complete. To prove A is NP-complete, we would need every language in NP to
+reduce to A.
+(g) False. The fact that PATH ≤p B only shows that B is at least as hard as PATH. Since
+PATH is already in P, this does not imply that B is NP-hard or NP-complete.
+(h) True. HAMPATH is NP-complete. If HAMPATH could be decided in polynomial
+time, then every language in NP would also be decidable in polynomial time. Therefore
+P = NP.
+(i) True. Both SAT and HAMPATH are NP-complete. Therefore
+SAT ≤p HAMPATH
+and
+HAMPATH ≤p SAT.
+(j) False. Since PATH ∈ P ⊆ NP and HAMPATH is NP-complete, PATH ≤p HAMPATH.
+However, HAMPATH ≤p PATH would imply that HAMPATH ∈ P, since PATH ∈ P.
+This would imply P = NP, which is not currently known. Thus the full statement is
+false (or really unknown).
+(k) True. CLIQUE is NP-complete. If one proves that CLIQUE cannot be decided in
+polynomial time, then at least one language in NP is not in P. Therefore
+P ̸= NP.
+
+2
+
+

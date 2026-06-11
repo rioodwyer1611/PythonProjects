@@ -2,7 +2,7 @@
 
 **Dist table on exam** (`formula_sheet.png`) — pmf/pdf, support, $E[X]$, $\mathrm{Var}$, PGF, MGF. **Not repeated here.**
 
-**Repo:** `Exam_cheat_sheet.md` · [[Workbook_claims]] · [[Assignment_1_code]] · [[Assignment_2_code]] · [[Assignment_3_code]] · `exam_exclusions.pdf`
+**Repo:** `Exam_cheat_sheet.md` · [[Workbook_claims]] · [[Workbook_formulas]] · [[Assignment_1_code]] · [[Assignment_2_code]] · [[Assignment_3_code]] · `exam_exclusions.pdf`
 
 **Omitted here:** anything on `formula_sheet.png` (dist pmf/pdf, support, $E$, $\mathrm{Var}$, PGF/MGF) · `exam_exclusions.pdf` (σ-alg, continuity of prob., Claim 30 general quantile, LCG, skew/kurt, Ch 4.6 except $\pi$, ∞-state MC, Cholesky, char. fn., **t/F**, further inequalities, summations 3.50–52). **Still know:** $\mathrm{Exp}$ quantiles (practice exams).
 

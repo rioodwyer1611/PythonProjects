@@ -1,0 +1,230 @@
+Week 2 Worksheet (Solutions)
+COMP2048
+Dr. Kasra Khosoussi
+Semester 1, 2026
+
+1
+
+Basic Concepts
+Task 1.
+
+Strings and Languages
+
+Let Σ = {a, b} and let
+L = {w ∈ Σ∗ | |w| ≥ 1, and w starts and ends with the same symbol}.
+(a) List five strings in L and five strings not in L.
+(b) Describe L (the complement of L) in plain English.
+
+Solution.
+(a) In L: a, b, aa, bb, aba, bab, abba, baab. (Any non-empty string whose first and last
+characters match.)
+Not in L: ε, ab, ba, aab, bba, abbb.
+(b) L = Σ∗ \ L consists of two kinds of strings:
+• The empty string ε (which is not in L since |w| ≥ 1 is required), and
+• all non-empty strings over {a, b} whose first and last characters are different (i.e.,
+strings that begin with a and end with b, or begin with b and end with a).
+Worth asking students whether ε ∈ L before they describe the complement. They should
+be comfortable with the idea of seeing ε as a string (i.e., ε ∈ Σ∗ ).
+
+Task 2.
+
+Strings and Languages
+
+Let Σ = {a, b}, L1 = {w ∈ Σ∗ | w starts with a}, and L2 = {w ∈ Σ∗ | w ends with b}.
+
+1
+
+(a) List five strings in L1 ∩ L2 .
+(b) List five strings in L1 ∪ L2 .
+
+Solution.
+(a) L1 ∩ L2 contains strings that start with a and end with b.
+Examples: ab, aab, abb, abab, aaabb.
+(b) L1 ∪ L2 contains strings that start with a or end with b (or both).
+Examples: a, ab, bb, aab, bbb.
+Make sure students are comfortable with the idea of seeing languages as sets of strings.
+
+2
+
+Deterministic Finite Automata (DFA)
+Task 3.
+
+Odd number of 1s
+
+Let L = {w ∈ {0, 1}∗ | the number of 1s in w is odd}.
+(a) Construct a DFA over Σ = {0, 1} accepting exactly L.
+(b) Trace on 0110, 111, 1101, and ε.
+
+Solution.
+(a) The DFA has two states tracking the parity of the 1-count: qe (even, including zero)
+and qo (odd). The start state is qe and the sole accept state is qo .
+0
+
+0
+1
+qe
+
+qo
+1
+
+(b) Traces:
+0
+
+1
+
+1
+
+0
+
+• 0110: qe →
+− qe →
+− qo →
+− qe →
+− qe . Reject (two 1s, even). ✓
+1
+
+1
+
+1
+
+• 111: qe →
+− qo →
+− qe →
+− qo . Accept (three 1s, odd). ✓
+1
+
+1
+
+0
+
+1
+
+• 1101: qe →
+− qo →
+− qe →
+− qe →
+− qo . Accept (three 1s, odd). ✓
+• ε: no transitions taken, stays in qe . Reject (zero 1s, even). ✓
+
+2
+
+The ε case is a good discussion point (zero is even, so ε ∈
+/ L). Make sure they understand
+the role of qe and qo in this example.
+
+Task 4.
+
+State Diagrams and State Transition Tables
+
+(i) Transition table for DFA M over Σ = {a, b}, start state q0 , accept state q2 .
+
+q0
+q1
+q2
+
+a
+q1
+q1
+q1
+
+b
+q0
+q2
+q0
+
+(a) Draw the state diagram for M .
+(b) Trace M on ab, aab, and ba.
+(c) Describe L(M ) (i.e., the language accepted by M ) in plain English.
+(ii) State diagram for DFA N over Σ = {0, 1}.
+0, 1
+
+0
+1
+
+1
+
+q0
+
+q1
+0
+
+(a) Write the transition table for N .
+(b) Describe L(N ) in plain English.
+
+Solution.
+Part (i)
+(a) State diagram for M :
+
+3
+
+q2
+
+b
+
+a
+b
+
+a
+q0
+
+q1
+
+q2
+a
+
+b
+
+(b) Traces:
+b
+
+a
+
+− q2 . Final state q2 ∈ F (where F is the set of accepting states; here
+→ q1 →
+• ab: q0 −
+it only contains q2 ). Accept.
+a
+
+a
+
+b
+
+• aab: q0 −
+→ q1 −
+→ q1 →
+− q2 . Final state q2 ∈ F . Accept.
+b
+
+a
+
+• ba: q0 →
+− q0 −
+→ q1 . Final state q1 ∈
+/ F . Reject.
+(c) L(M ) is the language of strings over {a, b} that end with ab.
+Part (ii)
+(a) Transition table for N :
+0
+q0
+q0
+q2
+
+q0
+q1
+q2
+
+1
+q1
+q2
+q2
+
+(b) L(N ) is the set of binary strings ending in 1 without having any two consecutive 1s.
+The machine accepts after reading the first 1 (state q1 ); a second 1 sends it to the dead
+state q2 from which acceptance is impossible.
+Ask students: “What does q2 represent? Why are there no transitions out of it that
+lead back to q1 (i.e., our accepting state)?” This reinforces the idea of a dead/trap state
+in DFA.
+
+4
+
+

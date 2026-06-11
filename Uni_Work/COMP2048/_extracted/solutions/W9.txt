@@ -1,0 +1,132 @@
+Week 9 Applied Class Worksheet Solutions
+COMP2048
+Dr. Kasra Khosoussi
+Semester 1, 2026
+
+Task 1.
+
+Big-O Practice
+
+For each of the following statements, determine whether it is true or false. Briefly justify
+your answer.
+(a) 7n2 + 3n + 100 = O(n2 ).
+(b) n2 = O(n log n).
+(c) n log n = O(n2 ).
+(d) 2n = O(n100 ).
+(e) n100 = O(1.0001n ).
+
+Solution.
+(a) True. Highest order term is n2 .
+(b) False. n grows faster than log n.
+(c) True. n grows faster than log n.
+(d) False. Exponential functions grow faster than polynomial functions.
+(e) True. Any exponential function an with a > 1 eventually dominates any polynomial.
+
+Task 2.
+
+Time Complexity Classes
+
+For each of the following statements, determine whether it is true or false. Briefly justify
+your answer.
+(a) If L ∈ TIME(n2 ), then L ∈ TIME(n3 ).
+(b) If L ∈ TIME(n3 ), then L ∈ TIME(n2 ).
+(c) If L ∈ TIME(2n ), then L ∈ P.
+
+1
+
+(d) If L ∈ TIME(2n ), then L ∈
+/ P.
+6
+
+(e) If L ∈ TIME(n10 ), then L ∈ P.
+(f) If L ∈ P, then there exists some constant k such that L ∈ TIME(nk ).
+(g) Some problems in P are undecidable.
+(h) HALTTM ∈ TIME(2n ).
+
+Solution.
+(a) True. If L ∈ TIME(n2 ), then there is a deterministic Turing machine deciding L in time
+O(n2 ). Since n2 = O(n3 ), the same machine also runs in time O(n3 ). Hence
+L ∈ TIME(n3 ).
+(b) False. Knowing that a language has an O(n3 )-time decider does not imply that it has
+an O(n2 )-time decider.
+(c) False. A language being decidable in exponential time does not necessarily mean it is
+decidable in polynomial time.
+(d) False. Some languages in TIME(2n ) are also in P .
+6
+
+(e) True. The function n10 is still a polynomial, since 106 is a constant. Therefore, if
+6
+
+L ∈ TIME(n10 ),
+then L is decidable in polynomial time, so L ∈ P .
+(f) True. This is exactly the definition of P :
+[
+P =
+TIME(nk ).
+k
+
+So if L ∈ P , then there exists some constant k such that
+L ∈ TIME(nk ).
+(g) False. Every language in P is decidable by definition. A language in P has a deterministic Turing machine that decides it in polynomial time, so it cannot be undecidable.
+(h) False. The language HALTTM is undecidable. Every language in TIME(2n ) is decidable,
+since it is decided by a Turing machine that halts on every input within O(2n ) steps.
+Therefore,
+HALTTM ∈
+/ TIME(2n ).
+
+2
+
+Task 3.
+
+A Linear-Time Two-Tape Decider
+
+Let
+L = {0k 1k | k ≥ 0}.
+(a) Construct a deterministic two-tape Turing machine that decides L in O(n) time. You
+may describe the machine at a high level.
+(b) Explain why this does not contradict the fact that the usual one-tape marking algorithm
+we saw in the lecture for L takes O(n2 ) time.
+
+Solution.
+(a) We describe a deterministic two-tape Turing machine deciding
+L = {0k 1k | k ≥ 0}.
+On input w, the machine works as follows.
+First, it scans the initial block of 0’s on Tape 1. For each 0 it sees, it writes one 0 on
+Tape 2. Thus Tape 2 stores the number of 0’s seen.
+Once the machine reaches the first 1 on Tape 1, it begins matching the 1’s against the
+copied 0’s on Tape 2. For each 1 read on Tape 1, the machine moves left by one copied
+0 on Tape 2.
+If the machine ever sees a 0 after it has started reading 1’s, it rejects. It also rejects if
+the number of copied 0’s and the number of 1’s do not match. Otherwise, it accepts.
+The machine decides L because an input is accepted exactly when it consists of some
+number of 0’s followed by the same number of 1’s.
+The running time is O(n). The machine scans Tape 1 once from left to right. Tape 2
+moves right while copying the 0’s and then moves left while matching them with the
+1’s. Thus the total number of steps is at most a constant times the input length n.
+Therefore L is decidable by a deterministic two-tape Turing machine in O(n) time.
+(b) This does not contradict the O(n2 ) one-tape algorithm from lecture. On a one-tape
+Turing machine, the head repeatedly scans back and forth across the input to match
+each 0 with a 1, giving O(n2 ) time.
+On a two-tape Turing machine, the second tape stores the number of 0’s, so the machine
+avoids these repeated scans. This shows that exact running times such as O(n) and
+O(n2 ) can depend on the machine model. However, both bounds are polynomial, so
+both algorithms show that
+L ∈ P.
+
+3
+
+Task 4.
+
+Regular Languages Are in P
+
+Prove that every regular language is in P.
+
+Solution.
+We have already shown that Turing machines can simulate DFA by scanning the input
+from left to right and making a decision after reading the last symbol. On an input of length
+n, the Turing machine will make a decision after O(n) steps. Therefore, all regular languages
+are in TIME(n) ⊂ P.
+
+4
+
+

@@ -1,0 +1,327 @@
+Sample Questions: Solutions
+
+June 1, 2026
+
+Problem 1.
+
+DFA Design
+
+Design a DFA over the alphabet Σ = {0, 1} that recognizes the language
+L = {w ∈ {0, 1}∗ | w does not contain 101 as a substring}.
+
+Solution.
+We construct a DFA that keeps track of how much of the forbidden substring 101 has been
+seen as a suffix of the input so far.
+Let
+M = (Q, Σ, δ, q0 , F ),
+where
+Q = {q0 , q1 , q2 , qdead },
+
+Σ = {0, 1},
+
+and
+F = {q0 , q1 , q2 }.
+The states have the following meanings:
+• q0 : we have not just seen any useful prefix of 101,
+• q1 : the current suffix is 1,
+• q2 : the current suffix is 10,
+• qdead : we have seen 101 as a substring.
+The transition function is given by the following diagram.
+
+1
+
+0
+
+1
+1
+
+0
+
+q0
+
+start
+
+q1
+
+q2
+
+0
+1
+qdead
+
+0, 1
+The only rejecting state is qdead , which is entered exactly when the substring 101 has
+appeared. Once this happens, the machine remains in qdead forever (trap state).
+
+Problem 2.
+
+Pumping Lemma
+
+Prove that the following language is not regular:
+L = { 0i 1j | i ≤ j, i, j ≥ 0 }.
+
+Solution.
+Assume, for contradiction, that L is regular. Let p be the pumping length given by the
+pumping lemma.
+Choose the string s = 0p 1p . We have s ∈ L since p ≤ p, and |s| = 2p ≥ p.
+By the pumping lemma, s = xyz with:
+• |xy| ≤ p,
+• |y| ≥ 1,
+• xy k z ∈ L for all k ≥ 0.
+Since |xy| ≤ p and s begins with p zeros, the substring y lies entirely within the prefix of
+0’s. So y = 0m for some m ≥ 1.
+Pump up: consider xy 2 z = 0p+m 1p . For this to belong to L, we would need p + m ≤ p,
+i.e., m ≤ 0, contradicting m ≥ 1.
+Therefore xy 2 z ∈
+/ L, contradicting the pumping lemma. Hence L is not regular.
+
+Problem 3.
+
+CFG and Ambiguity
+
+Consider the CFG G of Boolean expressions over Σ = {∨, ∧, (, ), p, q, r, s} with rules
+E → E ∨ E | E ∧ E | (E) | p | q | r | s.
+Convention: just as ∗ binds tighter than + in arithmetic, ∧ binds tighter than ∨ in Boolean
+
+2
+
+logic. So p ∨ q ∧ r is read as p ∨ (q ∧ r) by default.
+(a) Give a leftmost derivation of p ∨ q ∧ r ∨ s in G.
+(b) Show that G is ambiguous by drawing two distinct parse trees for p ∨ q ∧ r ∨ s.
+(c) Operational significance: with p = true, q = true, r = false, s = false, what Boolean
+value does each parse tree evaluate to?
+(d) Give an unambiguous CFG G′ with L(G′ ) = L(G) that encodes the convention that ∧
+binds tighter than ∨.
+
+Solution.
+(a) A leftmost derivation matching the standard-convention parse ((p ∨ (q ∧ r)) ∨ s):
+E ⇒
+⇒
+⇒
+⇒
+⇒
+⇒
+⇒
+
+E∨E
+(E ∨ E) ∨ E
+p∨E∨E
+p ∨ (E ∧ E) ∨ E
+p∨q∧E∨E
+p∨q∧r∨E
+p∨q∧r∨s
+
+(The parentheses are shown only to clarify the structure being derived; they are not in the
+string.)
+(b) Two distinct parse trees, written in bracketed form:
+• Standard parse ( ∧ tighter, ∨ left-associative ):
+((p ∨ (q ∧ r)) ∨ s)
+Root is ∨ with children (p ∨ (q ∧ r)) and s.
+• Alternative parse ( ∨ tighter ):
+((p ∨ q) ∧ (r ∨ s))
+Root is ∧ with children (p ∨ q) and (r ∨ s).
+Two different root operators on the same string demonstrates that G is ambiguous.
+(c) With p = true, q = true, r = false, s = false:
+• Standard parse: ((p ∨ (q ∧ r)) ∨ s) = ((T ∨ (T ∧ F )) ∨ F ) = ((T ∨ F ) ∨ F ) = T .
+• Alternative parse: ((p ∨ q) ∧ (r ∨ s)) = ((T ∨ T ) ∧ (F ∨ F )) = (T ∧ F ) = F .
+So the two parse trees yield different Boolean values: the choice of grammar literally changes
+the meaning of the program.
+(d) An unambiguous grammar G′ enforcing ∧ tighter than ∨:
+E → E∨T |T
+T → T ∧F |F
+F → (E) | p | q | r | s
+
+3
+
+Why this works. The three-variable hierarchy E, T, F forces a fixed grouping in every parse
+tree:
+• E generates ∨-expressions whose operands are T ’s.
+• T generates ∧-expressions whose operands are F ’s.
+• F generates atoms or parenthesised expressions.
+Because ∧ appears one level deeper in the grammar than ∨, every ∧ in a parse tree must occur
+strictly below any ∨ that contains it. So ∧ groups its operands before ∨ does. The convention
+is now baked into the structure of the grammar, not into a reading convention applied after
+parsing.
+
+Problem 4.
+
+PDA Design
+
+Design a pushdown automaton P that recognises the language of marked even-length
+palindromes over {a, b}:
+L = { w c wR | w ∈ {a, b}∗ }
+where Σ = {a, b, c} and stack alphabet Γ = {a, b, $}.
+(a) Describe your strategy. What role does the separator c play?
+(b) Give the transitions of P .
+(c) Trace P on abcba and abcb.
+
+Solution.
+(a) Strategy. The PDA operates in two modes: a push mode (state q0 ) where it pushes
+each input symbol of w onto the stack, and a pop mode (state q1 ) where it pops each symbol
+and matches it against the next input symbol. The separator c is the trigger to switch modes.
+Without it, the PDA would have to guess nondeterministically where the middle of the string
+is; with c as a marker, the PDA is deterministic and just transitions on reading c. At the
+start we push $ as a bottom-of-stack marker so we can detect when the matched portion is
+fully popped.
+(b) Transitions. States: {qinit , q0 , q1 , qaccept }, start state qinit , accept state qaccept . We
+use the notation x, y → z (read x, pop y, push z; ε means none):
+ε, ε→$
+
+qinit −−−−→ q0
+a, ε→a
+q0 −−−−→ q0
+b, ε→b
+
+q0 −−−−→ q0
+c, ε→ε
+q0 −−−−→ q1
+a, a→ε
+q1 −−−−→ q1
+q1
+
+b, b→ε
+
+−−−−→ q1
+ε, $→ε
+
+(initialise stack)
+(push a)
+(push b)
+(switch modes on c)
+(match a)
+(match b)
+
+q1 −−−−→ qaccept
+
+(accept when stack empty and input done)
+
+(c) Trace. We write configurations as (state, remaining input, stack with top on the left).
+
+4
+
+On abcba:
+(qinit , abcba, ε)
+
+ε,ε→$
+
+−−−−→
+a,ε→a
+−−−−→
+b,ε→b
+
+−−−→
+c,ε→ε
+−−−→
+
+(q0 , abcba, $)
+(q0 , bcba, a$)
+(q0 , cba, ba$)
+(q1 , ba, ba$)
+
+b,b→ε
+
+−−−→ (q1 , a, a$)
+a,a→ε
+−−−−→ (q1 , ε, $)
+ε,$→ε
+
+−−−−→
+
+(qaccept , ε, ε)
+
+Input is fully consumed and we end in qaccept : accept.
+On abcb:
+(qinit , abcb, ε)
+
+ε,ε→$
+
+−−−−→
+a,ε→a
+−−−−→
+b,ε→b
+
+−−−→
+c,ε→ε
+−−−→
+b,b→ε
+
+−−−→
+
+(q0 , abcb, $)
+(q0 , bcb, a$)
+(q0 , cb, ba$)
+(q1 , b, ba$)
+(q1 , ε, a$)
+
+Input is consumed but the stack still has a on top of $. The only ε-transition out of q1 requires
+$ on top, which is blocked by the unmatched a. Reject.
+
+Problem 5.
+
+Decidability
+
+Prove that the complement of every Turing-decidable language is Turing-recognizable.
+
+Solution.
+Let L be a Turing-decidable language. By definition, there exists a Turing machine M
+that decides L. That means that for every input w, the machine M halts and:
+w ∈ L =⇒ M accepts w,
+and
+w∈
+/ L =⇒ M rejects w.
+We construct a Turing machine N that recognizes L, the complement of L.
+On input w, the machine N does the following:
+1. Run M on input w.
+2. If M accepts w, then reject.
+3. If M rejects w, then accept.
+Since M is a decider, it halts on every input. Therefore, N also halts on every input.
+Now consider any input w.
+
+5
+
+If w ∈ L, then w ∈
+/ L. Since M decides L, M rejects w. Therefore, N accepts w.
+If w ∈
+/ L, then w ∈ L. Since M decides L, M accepts w. Therefore, N rejects w.
+Thus N accepts exactly the strings in L. Hence L is Turing-recognizable.
+Therefore, the complement of every Turing-decidable language is Turing-recognizable (also
+Turing-decidable).
+
+Problem 6.
+
+Complexity Theory
+
+For each statement below, say whether it is TRUE or FALSE. Briefly justify your answer.
+(a) If A and B are two NP-complete languages, then A ≤p B and B ≤p A.
+(b) If A is an NP-hard language, then A ∈
+/ NP.
+(c) The set of NP-complete languages would change if one measures time complexity
+using multi-tape deterministic TMs instead of single-tape deterministic TMs.
+(d) If P = NP, then there exists a deterministic TM that decides the Halting Problem in
+polynomial time.
+
+Solution.
+(a) TRUE.
+Since A and B are NP-complete, both are in NP and both are NP-hard. Because B is
+NP-hard, every language in NP polynomial-time reduces to B. Since A ∈ NP, we have
+A ≤p B.
+Similarly, since A is NP-hard and B ∈ NP, we have
+B ≤p A.
+(b) FALSE.
+An NP-hard language is not necessarily outside of NP. For example, SAT is NPcomplete, so it is NP-hard, but SAT ∈ NP. Thus an NP-hard language may or may
+not be in NP.
+(c) FALSE.
+The set of NP-complete languages would not change. Single-tape and multi-tape deterministic Turing machines can simulate each other with only polynomial overhead.
+Therefore, the class of polynomial-time computable reductions is the same under either
+model, so the notion of NP-completeness does not change.
+(d) FALSE.
+
+6
+
+Even if P = NP, this only concerns languages that are decidable and in NP. The
+Halting Problem is undecidable, so no deterministic Turing machine decides it at all,
+let alone in polynomial time.
+
+7
+
+

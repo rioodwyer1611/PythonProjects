@@ -1,0 +1,187 @@
+Week 12 Solutions
+A promise problem: Consider a function f : {0, 1} → {0, 1} and a task
+whereby an algorithm must output if f is constant or balanced.(A function
+is ‘constant’ if it returns the same value f (x) for all x. It is ‘balanced’ if it
+returns 0 for half the possible values of x, and returns 1 for the rest.)
+(a) Given an oracle Uf (|x⟩|y⟩) = |x⟩|y ⊕ f (x)⟩ and the query | + −⟩,
+show that oracle Uf returns,
+(
+±| + −⟩, if f is constant,
+(1)
+Uf | + −⟩ =
+±| − −⟩, else if f is balanced.
+(a) Answer :
+Substitute the identity for | + −⟩ and expand using linearity,
+Uf
+(|00⟩ − |01⟩ + |10⟩ − |11⟩) ,
+2
+1
+= (Uf |00⟩ − Uf |01⟩ + Uf |10⟩ − Uf |11⟩) .
+2
+
+Uf | + −⟩ =
+
+(2)
+(3)
+
+By definition of the oracle Uf , this gives
+Uf |00⟩ = |0⟩|0 ⊕ f (0)⟩ = |0⟩|f (0)⟩
+
+(4)
+
+Uf |10⟩ = |1⟩|0 ⊕ f (1)⟩ = |1⟩|f (1)⟩
+
+(5)
+
+Uf |01⟩ = |0⟩|1 ⊕ f (0)⟩ = |0⟩|¬f (0)⟩
+
+(6)
+
+Uf |11⟩ = |1⟩|1 ⊕ f (1)⟩ = |1⟩|¬f (1)⟩
+
+(7)
+
+First consider only the constant case f (x) = 0,
+into the oracle expressions gives,
+
+∀x. Substituting this
+
+Uf |00⟩ = |0⟩|0⟩ = |00⟩
+
+(8)
+
+Uf |10⟩ = |1⟩|0⟩ = |10⟩
+
+(9)
+
+Uf |01⟩ = |0⟩|¬0⟩ = |01⟩
+
+(10)
+
+Uf |11⟩ = |1⟩|¬0⟩ = |11⟩
+
+(11)
+
+=⇒ Uf | + −⟩ = | + −⟩,
+
+if f (x) = 0,
+
+Now consider the constant function f (x) = 1,
+
+1
+
+∀x.
+
+(12)
+
+∀x and substitute f (0) =
+
+f (1) = 1 into the oracle.
+Uf |00⟩ = |0⟩|1⟩ = |01⟩
+
+(13)
+
+Uf |10⟩ = |1⟩|1⟩ = |11⟩
+
+(14)
+
+Uf |01⟩ = |0⟩|¬1⟩ = |00⟩
+
+(15)
+
+Uf |11⟩ = |1⟩|¬1⟩ = |10⟩
+1
+=⇒ Uf | + −⟩ = (|01⟩ − |00⟩ + |11⟩ − |10⟩) ,
+2
+−1
+(|00⟩ − |01⟩ + |10⟩ − |11⟩) ,
+=
+2
+= −| + −⟩,
+if f (x) = 0, ∀x.
+
+(16)
+(17)
+(18)
+(19)
+
+In the second last line, we are re-arranging terms, and the last line follows
+from the definition of |+−⟩. Notice that this constant function is a negation
+of the first constant function, and it gives us a −1 overall but the quantum
+state doesn’t change under Uf .
+Next consider the balanced function f (0) = 0, f (1) = 1. Substituting
+this into the oracle expressions gives,
+Uf |00⟩ = |0⟩|0⟩ = |00⟩
+
+(20)
+
+Uf |10⟩ = |1⟩|1⟩ = |11⟩
+
+(21)
+
+Uf |01⟩ = |0⟩|¬0⟩ = |01⟩
+
+(22)
+
+Uf |11⟩ = |1⟩|¬1⟩ = |10⟩
+1
+=⇒ Uf | + −⟩ = (|00⟩ − |01⟩ + |11⟩ − |10⟩)
+2
+1
+= (|00⟩ − |01⟩ − |10⟩ + |11⟩)
+2
+= | − −⟩, if f (0) = 0, f (1) = 1.
+
+(23)
+(24)
+(25)
+(26)
+
+Again, in the second last line, we are re-arranging terms, and the last line
+follows from the definition of | − −⟩.
+The last balanced function, f (0) = 1, f (1) = 0, is the negation of the first
+balanced function (above) and this will only give us a over sign difference.
+We can deduce that Uf | + −⟩ = −| − −⟩, if f (0) = 1, f (1) = 0.
+Putting it all together, we have shown,
+(
+±| + −⟩, if f is constant,
+Uf | + −⟩ =
+(27)
+±| − −⟩, else if f is balanced.
+2
+
+(b) Using the oracle Uf in (a), an algorithm outputs |D⟩,
+|D⟩ := (H ⊗ H) Uf | + −⟩.
+
+(28)
+
+Show that
+(
+±|01⟩,
+|D⟩ =
+±|11⟩,
+
+if f is constant,
+else if f is balanced.
+
+(29)
+
+(b) Answer :
+Substitute the oracle from (a) and use the identities provided,
+(
+(H ⊗ H) Uf | + −⟩ = ± (H ⊗ H) | + −⟩ = ±H|+⟩ ⊗ H|−⟩ = ±|01⟩,
+|D⟩ =
+(H ⊗ H) Uf | + −⟩ = ± (H ⊗ H) | − −⟩ = ±H|−⟩ ⊗ H|−⟩ = ±|11⟩,
+(30)
+(c) How many queries does (b) need to solve this problem. Explain
+why.
+(c) Answer: We can read from the question (b) itself that it will take only
+1 query. The signs ± do not matter since the probability of measuring an
+outcome only depend on squared values |±|2 = 1 (Born rule). If the function
+is constant, we measure 0 on the first qubit with 100% Born probability. If
+the function is balanced, we measure 1 on the first qubit with 100% Born
+probability.
+
+3
+
+

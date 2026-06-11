@@ -1,7 +1,7 @@
 # STAT2003 — Workbook Claims (examinable, compact)
 
 **Source:** `main(1).pdf` · **Table:** `formula_sheet.png` · **Exclusions:** `exam_exclusions.pdf`  
-→ [[Exam_cheat_sheet]] · [[Uni Work STAT2003]] · **54 claims** (omit 3, 13, 14, 30 — see bottom) · † = proof not examinable
+→ [[Exam_cheat_sheet]] · [[Workbook_formulas]] · [[Uni Work STAT2003]] · **54 claims** (omit 3, 13, 14, 30 — see bottom) · † = proof not examinable
 
 ---
 

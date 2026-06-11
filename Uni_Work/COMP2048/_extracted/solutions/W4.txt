@@ -1,0 +1,370 @@
+12 01
+
+TaskI
+
+3 a
+
+a
+
+1
+
+Input well
+
+i
+
+no transition
+
+9
+Tv
+
+9
+
+tore
+ll
+
+w
+
+acetate
+
+is accepted
+
+of NFA States
+after processing w
+
+set
+
+Input w
+
+ll
+
+01
+
+Go
+1
+
+q
+
+no transitions
+
+for
+
+This set
+doesn't
+
+set
+
+of
+
+NFA states
+
+after processing w
+
+contain an accept state
+
+w
+
+ol
+
+is
+
+1
+01
+
+I
+
+9019192
+
+QNFA
+
+P ANFA
+
+DFA
+
+powerset
+
+D
+
+923
+
+93,59
+
+9,9 3,999 2
+
+1
+
+90,9
+
+919,1 3
+
+start
+v
+
+19.3
+
+oils
+9 9
+1
+
+7
+
+9,32
+
+I
+
+1
+
+L
+
+9,3
+
+LL
+9,91
+
+59,93
+
+9,99
+
+well
+
+9
+W
+
+90,9
+
+9,9
+
+HIT
+
+01
+
+39,310
+
+rejected
+
+accept
+
+Task
+ab
+
+a
+
+bab
+
+a
+
+Ubab
+
+bbb
+
+U
+
+b
+
+040
+
+oh 040
+ab
+a
+
+ybgg.by
+
+psosa aUbab
+bab
+
+o
+
+4040
+030908
+
+accepte
+
+abt
+
+aubab
+
+0109040
+
+0
+
+w
+
+sho
+
+ab
+
+aubab
+
+ab
+
+04010
+bbb
+
+07
+
+n
+
+robots
+we could
+
+03030300 foralso make this
+using concat
+construction
+
+aubab Jbbb
+
+ab
+
+Feb
+
+05nd
+
+so
+
+book
+
+Task
+WE
+
+WW
+
+pick string
+
+is
+
+P
+
+4P
+
+According to
+s
+
+Lemma
+
+OPIP OPIP
+
+s
+
+p
+
+Is
+
+pumping appli
+
+L is regular
+
+suppose
+
+where
+
+0,13
+
+the
+
+EL
+
+pumping length
+
+it's
+
+a
+
+valid
+
+choice for
+pumping Lemma
+
+Pumping Lemma
+
+nyzs.t.INly EPayizeL
+1
+
+t.ro
+
+s
+
+Iny
+
+P
+
+2
+
+only contain
+
+can
+
+ay
+
+zeros
+
+ly
+
+y contains
+
+7,1
+
+110
+
+y
+
+ok
+
+my'z
+
+xyiz
+for i
+
+for
+
+o
+
+one
+
+one
+
+more
+
+s
+
+some
+
+P
+
+K
+
+I
+
+P P2P
+
+nz
+
+L
+
+because
+
+if you
+
+try to
+divide
+OP
+
+KIP PIP
+
+in
+
+two
+
+ww
+parts
+the first
+part ends
+with o second
+
+part ends with
+I
+
+contradiction
+L is not
+
+regular
+
+

@@ -1,0 +1,158 @@
+Week 11 Worksheet Solutions
+Riddhi Gupta
+COMP2048 S1 2026
+
+A promise problem: Consider a task where f : {0, 1}n → {0, 1} is a
+boolean function. An algorithm queries f (x), x ∈ {0, 1}n and must decide
+if f is constant or balanced. We are promised that f is either constant or
+balanced.
+(a) For n = 1, write the truth table for all the four possible functions
+f (x), x ∈ {0, 1}. Show that two functions are constant, and two of
+these functions are balanced.
+(a) Answer: The truth table for constant function is given by f1 and f2
+and the balanced functions is f3 and f4 :
+x
+0
+1
+
+f1
+0
+0
+
+f2
+1
+1
+
+f3
+0
+1
+
+f4
+1
+0
+
+(b) For n = 1, how many queries does a deterministic, non-quantum
+algorithm needs to solve this problem?
+(b) Answer: 2 queries, since it has to check x = 0 and x = 1 case.
+(c) For n = 1, would a random non-quantum algorithm perform better
+in this case? Why or why not?
+(c) Answer: No. A random quantum algorithm will use the first query
+as a reference bit. If the function is constant, then we will be right. If the
+function is balanced, there is a 50% chance we will be wrong on the second
+
+1
+
+query. To reduce this error probability, we need more queries but then it’s
+better to just use a deterministic algorithm.
+(d) For n = 2, write the truth table for two constant functions and
+six possible balanced functions f (x), x ∈ {0, 1}2 = {00, 01, 10, 11}.
+(d) Answer :
+x1
+0
+0
+1
+1
+
+x2
+0
+1
+0
+1
+
+c1 (x)
+0
+0
+0
+0
+
+c2 (x)
+1
+1
+1
+1
+
+b1 (x)
+0
+0
+1
+1
+
+b2 (x)
+1
+1
+0
+0
+
+b3 (x)
+0
+1
+0
+1
+
+b4 (x)
+1
+0
+1
+0
+
+b5 (x)
+0
+1
+1
+0
+
+b6 (x)
+1
+0
+0
+1
+
+Table 1: For x = [x1 , x2 ], the functions c1 (x), c2 (x) are constant functions,
+b1 (x), . . . , b6 (x) are balanced functions.
+
+(e) For n = 2, are there functions which are neither constant nor
+balanced? Give an example.
+(e) Answer: Yes, for n > 1, functions can be neither balanced or constant. Let f ′ be a function that is neither balanced nor constant. A valid
+example of f ′ is any function that yields 4 single-bit outputs with more than
+one unique value and that doesn’t have an equal number of zeros or ones
+over the full input space is a valid answer, e.g. 0, 0, 0, 1 or 1, 0, 1, 1. The
+example 0, 0, 0, 1 is stated formally below,
+
+
+0, x = [0, 0],
+
+
+
+0, x = [0, 1],
+f ′ (x) =
+(1)
+
+0, x = [1, 0],
+
+
+
+1, x = [1, 1].
+(f) For n > 1, how many queries does a deterministic non-quantum
+algorithm needs to solve this problem? Explain why.
+(f) Answer: We have to check half the input space 2n /2 = 2n−1 . In the
+worst case, the function will be the same value for all of these inputs. We
+have to check one other input to see if the value is the same or different. If
+2
+
+same, f is constant else balanced. Total queries are 2n−1 + 1.
+
+(g) Will using a random non-quantum algorithm help? Explain why.
+(g) Answer: Yes, randomness helps for n > 1. Query one random input.
+This is your reference. The probability the next query will give the same
+output as the reference is 1/2. The probability that next query will be the
+same as the second query is also 1/2. The probability that all 3 queries give
+the same output as the reference bit is (1/2)(1/2). After seeing k − 1 queries
+with the same output as the reference bit, I state that function is constant.
+However if I see a different value in the next query, then the function is
+k
+balanced and I would be wrong. The probability that I am wrong is 12 .
+This error probability decays rapidly with k, e.g. 0.510 = 0.00098.
+
+3
+
+
