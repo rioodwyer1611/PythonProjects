@@ -1,0 +1,399 @@
+Semester 2 Examinations, 2025
+
+MATH1061
+
+This exam paper must not be removed from the venue
+
+Venue
+
+____________________
+
+Seat Number
+
+__________
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+____________________
+
+First Name
+
+____________________
+
+School of Mathematics & Physics
+Semester 2 Examinations, 2025
+MATH1061 Discrete Mathematics
+This paper is for St Lucia Campus students.
+For Examiner Use Only
+
+Examination Duration: 120 minutes
+Planning Time:
+
+Question
+
+10 minutes
+
+Mark
+
+1
+
+Exam Conditions:
+
+2
+
+•Specified written or printed material permitted
+•Casio FX82 series or UQ approved and labelled calculator only
+•During Planning Time - Students are encouraged to review and plan
+responses to the exam questions
+
+3
+4
+5
+
+Materials Permitted in the Exam Venue:
+(Aside from approved calculators, no electronic aids are permitted
+e.g., laptops, phones)
+
+6
+
+One A4 sheet of handwritten notes, double sided, is permitted.
+
+8
+
+Materials to be supplied to Students:
+Additional exam materials (e.g. answer booklets, rough paper) will
+be provided upon request.
+
+9
+
+7
+
+10
+11
+
+Instructions to Students:
+If you believe there is missing or incorrect information impacting
+your ability to answer any question, please state this when writing
+your answer.
+Complete all examination questions in the space provided on this
+examination paper. If more space is required, use the backs of pages.
+The final page is a formula sheet, which you may detach. Nothing written
+on the formula sheet will be marked. Answers will be marked based on
+correctness, quality of expression, depth of understanding
+demonstrated, and clarity of explanation. If you have any queries about
+a particular examination question, or if you make any assumptions about
+the meaning of an examination question, please state this clearly at the
+start of your solution to the examination question.
+
+Page 1 of 17
+
+12
+
+Total _________
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+1. Let p, q, and r be statement variables. Is the following argument valid? Justify your answer.
+p→q
+∼p→r
+∼q→r
+∴q
+(3 marks)
+
+Page 2 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+2. Write the negation of the following statement. Determine whether the original statement or the
+negation is true. Justify your answer.
+∀x ∈ R, if 2x is irrational, then x is irrational.
+
+Page 3 of 17
+
+(4 marks)
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+3. Use the Euclidean algorithm to compute gcd(662, 414).
+
+Page 4 of 17
+
+(3 marks)
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+4. Let {an }n≥0 be the sequence defined by a0 = 0 and
+an+1 = an + 2n + 1,
+
+n ≥ 0.
+
+(a) Write down the values of a1 , a2 , a3 , a4 .
+
+(1 mark)
+
+(b) Based on your answers for Part (a), guess an explicit formula for this sequence.
+(1 mark)
+
+(c) Prove that your guess is correct.
+
+(3 marks)
+
+Page 5 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+5. Let A = {0, 1, 2} and B = {−1, 0}. Write down the following sets by listing their elements and
+using appropriate brackets.
+(4 marks)
+(a) A ∪ B.
+
+(b) A ∩ B.
+
+(c) P(B).
+
+(d) A × B.
+
+Page 6 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+ 2
+x
+6. Consider the function f : R → Z defined by f (x) =
+.
+2
+(a) Determine f (−1), f (0), f (1), f (2).
+
+(2 marks)
+
+(b) Is f one to one? Justify your answer.
+
+(2 marks)
+
+(c) Is f onto? Justify your answer.
+
+(3 marks)
+
+Page 7 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+7. Let N denote the set of positive integers. Define a relation on N × N by
+(a, b) ∼ (c, d) if and only if a + d = b + c.
+Prove that this is an equivalence relation.
+
+Page 8 of 17
+
+(5 marks)
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+8. Solve the equation 3x − 5 = 8 in (Z11 , +, ×).
+Hint: You may use the fact that 3 × 4 ≡ 1 (mod 11).
+
+Page 9 of 17
+
+(3 marks)
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+9. Let E be the set of all even integers.
+(a) Prove that |E| = |Z|.
+
+(5 marks)
+
+Question 9 continues on the next page
+Page 10 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+9.(b) Prove that E is a subgroup of (Z, +).
+
+Page 11 of 17
+
+(4 marks)
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+10. What is the coefficient of x3 in the expansion of (2x − 3)6 ? You should give your answer as a single
+integer, and show your working.
+(2 marks)
+
+Page 12 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+11. (a) How many distinct arrangements are there of the 10 letters in the word
+KOOKABURRA?
+(Note: You do not need to compute an integer answer. You may give a mathematical expression
+that answers the question.)
+(2 marks)
+
+Question 11 continues on the next page
+Page 13 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+11.(b) Suppose an arrangement is chosen randomly from the set of all arrangements in Part (a). What
+is the probability that in the chosen arrangement the two A’s are not next to each other? Give
+the answer in percentage form.
+(3 marks)
+
+Page 14 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+12. Let n be a positive integer. Let Kn be the graph with n vertices such that each vertex is connected
+to every other vertex by a unique edge (but no vertex is connected to itself, i.e. there are no loops).
+(a) Draw K1 , K2 , K3 , K4 , and K5 .
+
+(2 marks)
+
+(b) Write down the adjacency matrix of K4 .
+
+(1 mark)
+
+Question 12 continues on the next page
+Page 15 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+12.(c) How many edges does Kn have? Justify your answer.
+
+(4 marks)
+
+12.(d) For which n does Kn have an Eulerian circuit? Justify your answer.
+
+(3 marks)
+
+End of Examination
+Page 16 of 17
+
+Semester 2 Examinations, 2025
+
+MATH1061
+
+MATH1061/MATH7861 Examination Formula Page
+Logical Equivalences
+Given any statement variables p, q and r, a tautology t and a contradiction c, the following logical
+equivalences hold.
+Commutative laws
+Associative laws
+Distributive laws
+Identity laws
+Negation laws
+Double negative laws
+Idempotent laws
+Universal bound laws
+De Morgan’s laws
+Absorption laws
+Negations of t and c
+
+p∧q ≡q∧p
+(p ∧ q) ∧ r ≡ p ∧ (q ∧ r)
+p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r)
+p∧t≡p
+p∨ ∼ p ≡ t
+∼ (∼ p) ≡ p
+p∧p≡p
+p∨t≡t
+∼ (p ∧ q) ≡∼ p ∨ ∼ q
+p ∨ (p ∧ q) ≡ p
+∼t≡c
+
+p∨q ≡q∨p
+(p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
+p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)
+p∨c≡p
+p∧ ∼ p ≡ c
+p∨p≡p
+p∧c≡c
+∼ (p ∨ q) ≡∼ p ∧ ∼ q
+p ∧ (p ∨ q) ≡ p
+∼c≡t
+
+Set Identities For all sets A, B and C that are subsets of a universal set U :
+(a) A ∪ B = B ∪ A (b) A ∩ B = B ∩ A
+(a) (A ∪ B) ∪ C = A ∪ (B ∪ C)
+(b) (A ∩ B) ∩ C = A ∩ (B ∩ C)
+3. Distributive Laws
+(a) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+(b) A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+4. Identity Laws
+(a) A ∪ ∅ = A (b) A ∩ U = A
+5. Complement Laws
+(a) A ∪ Ac = U (b) A ∩ Ac = ∅
+6. Double Complement Law (Ac )c = A
+7. Idempotent Laws
+(a) A ∪ A = A (b) A ∩ A = A
+8. Universal Bound Laws
+(a) A ∪ U = U (b) A ∩ ∅ = ∅
+9. De Morgan’s Laws
+(a) (A ∪ B)c = Ac ∩ B c (b) (A ∩ B)c = Ac ∪ B c
+10. Absorption Laws
+(a) A ∪ (A ∩ B) = A (b) A ∩ (A ∪ B) = A
+11. Complement of U and ∅ (a) U c = ∅ (b) ∅c = U
+12. Set Difference Law
+A − B = A ∩ Bc
+
+1. Commutative Laws
+2. Associative Laws
+
+The Quotient-Remainder Theorem Given any integer n and any positive integer d, there exist
+unique integers q and r such that n = dq + r and 0 ≤ r < d.
+Unique Factorisation Theorem Given any integer n > 1, there exists a positive integer k,
+distinct prime numbers p1 , p2 , . . . , pk , and positive integers e1 , e2 , . . . , ek such that n = pe11 pe22 · · · pekk ,
+and any other expression for n as a product of prime numbers is identical to this except perhaps
+for the order in which the factors are written.
+Schröder-Bernstein Theorem For all sets A and B, if |A| ≤ |B| and |A| ≥ |B| then |A| = |B|.
+Binomial Theorem Given any real numbers a and b, and any nonnegative integer n,
+n
+
+(a + b) =
+
+n  
+X
+n
+k=0
+
+k
+
+Page 17 of 17
+
+an−k bk .
+
+

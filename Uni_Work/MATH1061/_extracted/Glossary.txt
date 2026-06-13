@@ -1,0 +1,268 @@
+MATH1061/7861 Glossary
+
+Basic Terms
+Integer A number with no fractional part. It includes the counting numbers {1, 2, 3, . . .},
+zero {0}, and the negatives of the counting numbers {−1, −2, −3, . . .}. The set of all integers
+is written as Z.
+Even Number An integer that can be written in the form 2k for some integer k. Every
+integer is either odd or even (but not both). The last digit of an even number must be 0, 2,
+4, 6 or 8. Some examples of even numbers are −12, 0, 2, 8 and 42. Note that 0 is even, as
+0 = 2 × 0. The set of all even integers is sometimes written as Zeven .
+Odd Number An integer that can be written in the form 2k + 1 for some integer k. Every
+integer is either odd or even (but not both). The last digit of an odd number must be 1, 3,
+5, 7 or 9. Some examples of odd numbers are −3, 1, 7 and 35. The set of all odd integers
+is sometimes written as Zodd .
+Rational Number A number that can be expressed in the form ab for some integers a, b
+with b ̸= 0. The set of all rational numbers is written as Q.
+Real Number Any point on the number line, such as 1, 15.82, −0.1, 3/4, π/2, etc. Positive
+or negative, large or small, whole numbers or decimal numbers are all real numbers. The
+set of all real numbers is written as R.
+Irrational Number A real number that cannot be expressed in the form ab for some integers
+a, b with b ̸= 0. Every real number is either rational or irrational (but not both). The set
+of all irrational numbers is often written as R \ Q or Q.
+Prime Number An integer greater than 1 whose only positive divisors are 1 and itself.
+The first few prime numbers are 2, 3, 5, 7, 11 and 13.
+Composite Number An integer n greater than 1 such that n = rs for some positive
+integers r and s with r ̸= 1 and s ̸= 1. A composite number is always the product of 2 or
+more prime numbers. Note that 0 and 1 are neither prime nor composite.
+Factor/Divisor An integer that divides another integer with no remainder. If k is a factor
+of n, then there is some integer a such that ak = n. We write k | n to indicate that k divides
+n.
+P
+Summation The addition of a sequence of numbers, often written using the symbol .
+For example,
+5
+X
+i2 = 32 + 42 + 52 = 50.
+i=3
+
+1
+
+Factorial The factorial of a positive integer n is the product of all the positive integers less
+than or equal to n. It is written as n!. For example 5! = 5 × 4 × 3 × 2 × 1 = 120.
+Coefficient A constant by which a variable is multiplied. For example, the coefficient of
+x2 in 3x3 − 2x2 + 5 is −2. (Refer to Video 40: Binomial Coefficients)
+
+Logical Equivalence
+Statement/Proposition A declarative sentence with a definite meaning, with a truth
+value that’s either true (T) or false (F). It can never be both, neither, or somewhere in
+between. (Refer to Video 1: Logical Form)
+Negation The negation of a statement A is written as ∼ A or ¬A and is often called “not
+A”. If A is true, then its negation is false; if A is false, then its negation is true. (Refer to
+Video 1: Logical Form)
+Conjunction The conjunction of two statements is true if and only if both statements are
+true. The conjunction of two statements P and Q is written as P ∧ Q (whenever you see ∧
+read “and”). (Refer to Video 1: Logical Form)
+Disjunction The disjunction of two statements is true if and only if at least one of the
+statements is true. The disjunction of two statements P and Q is written as P ∨Q (whenever
+you see ∨ read “or”). (Refer to Video 1: Logical Form)
+Logical Equivalence Two statement forms are logically equivalent if they have the same
+truth value for any assignment of truth values to its variables. If two statement forms P
+and Q are logically equivalent, we write P ≡ Q. (Refer to Video 2: Logical Equivalence)
+Tautology A statement form which is always true, regardless of the truth values of its
+variables. (Refer to Video 2: Logical Equivalence)
+Contradiction A statement form which is always false, regardless of the truth values of its
+variables. (Refer to Video 2: Logical Equivalence)
+Conditional statement A statement P → Q, read as “P implies Q” or “if P then Q”. It
+is logically equivalent to ∼ P ∨ Q. The first statement (P in this case) is sometimes called
+the hypothesis, and the second statement (Q in this case) is sometimes called the conclusion.
+(Refer to Video 3: Conditional Statement)
+Biconditional statement A statement P ↔ Q, which is read as “P if and only if Q”. It
+is logically equivalent to (P → Q) ∧ (Q → P ). (Refer to Video 3: Conditional Statement)
+Contrapositive The contrapositive of the conditional statement P → Q is the statement
+∼ Q → ∼ P . It is logically equivalent to the original statement. (Refer to Video 3: Conditional Statement)
+
+2
+
+Valid and Invalid Arguments
+Valid An argument is valid if, whenever all of the premises are true, the conclusion is also
+true. (Refer to Video 4: Valid and invalid arguments)
+Invalid An argument is invalid if it is possible to have a situation in which all of the premises
+are true but the conclusion is false. (Refer to Video 4: Valid and invalid arguments)
+
+Quantified Statements
+Predicate A sentence that contains finitely many variables, and becomes a statement when
+the variables are given specific values. (Refer to Video 6: Quantified statements)
+Truth Set The truth set of a predicate P (x) is the set of all values in the domain that,
+when assigned to x, make P (x) a true statement. (Refer to Video 6: Quantified statements)
+Quantifiers The universal quantifier “for all”, written as ∀, is used to say that a predicate
+is true for every member of a domain. The existential quantifier “there exists”, written as
+∃, is used to say that a predicate is true for at least one member of the domain. (Refer to
+Video 6: Quantified statements)
+
+Divisibility & Modular Arithmetic
+Factorisation A method of writing numbers as the product of their factors.
+Unique Prime Factorisation Theorem The theorem stating that every integer greater
+than 1 either is a prime number or can be represented as a product of prime numbers. This
+representation is unique up to the ordering of the primes. For example, 1200 = 24 × 3 × 52
+(Refer to Video 13: Divisibility)
+Floor Given any x ∈ R, the floor of x, denoted ⌊x⌋, is the greatest integer less than or
+equal to x. For example, ⌊2.3⌋ = 2, ⌊8⌋ = 8 and ⌊−1.5⌋ = −2. (Refer to Video 14: Modular
+Arithmetic)
+Ceiling Given any x ∈ R, the ceiling of x, denoted ⌈x⌉, is the smallest integer greater than
+or equal to x. For example, ⌈2.3⌉ = 3, ⌈8⌉ = 8 and ⌈−1.5⌉ = −1. (Refer to Video 14:
+Modular Arithmetic)
+Remainder The number left over when one integer is divided by another in integer division.
+For example, 16 divided by 3 has a remainder of 1, as 16 = 5 × 3 + 1. If r is the remainder
+of n divided by d, then 0 ≤ r < d. (Refer to Video 14: Modular Arithmetic)
+Modulo Integers a and b are considered equivalent modulo n if n divides a−b. We sometimes
+also say that “a is congruent to b modulo n” and write a ≡ b (mod n). (Refer to Video 14:
+Modular Arithmetic)
+Euclidean Algorithm An algorithm for finding the greatest common divisor of two positive
+integers. (Refer to Video 15: The Euclidean Algorithm)
+
+3
+
+Sequences
+Sequence An ordered list of elements. Each element is called a term. (Refer to Video 16:
+Sequences)
+Explicit formula A formula that provides a way to calculate the nth term of a sequence
+without the previous terms in the sequence needing to be calculated. (Refer to Video 16:
+Sequences)
+Recursive definition A definition given by means of recursion. The definition is composed
+of two parts: the base case, which is an explicit definition of a few terms, and the recursive
+formula, which is the rule used to calculate new terms based on previous terms. (Refer to
+Video 19: Recursive Definitions)
+
+Set Theory
+Set An unordered collection of elements. (Refer to Video 21: Set theory definitions)
+Empty Set The set with no elements, written {} or ∅. (Refer to Video 21: Set Theory
+Definitions)
+Set Equality Two sets are equal if they have the same elements. Note that order and
+duplicates don’t matter, so {1, 2} = {2, 1, 2}. (Refer to Video 21: Set Theory Definitions)
+Subset A set Y is a subset of X (written Y ⊆ X) if every element in Y also occurs in X.
+For example, {1, 2, 3} ⊆ {1, 2, 3, 4, 5}. (Refer to Video 21: Set Theory Definitions)
+Proper subset A set Y is a proper subset of X (written Y ⊂ X or Y ⊊ X) if Y is a subset
+of X, but Y is not equal to X. (Refer to Video 21: Set Theory Definitions)
+Union The union of two sets X and Y (written X ∪ Y ) is the set containing all elements
+of X and all elements of Y . (Refer to Video 21: Set theory definitions)
+Intersection The intersection of two sets X and Y (written X ∩ Y ) is the set containing
+all elements that occur in both X and Y . (Refer to Video 21: Set Theory Definitions)
+Power Set The power set of a set A (written P(A)) is the set of all possible subsets of
+A. For example, P({1, 2}) = {∅, {1}, {2}, {1, 2}}. (Refer to Video 22: More Definitions and
+Examples of Sets)
+Cartesian product For sets A and B, the Cartesian product A × B is the set consisting of all ordered pairs (a, b) where a ∈ A and b ∈ B. For example, {1, 2} × {3, 4} =
+{(1, 3), (1, 4), (2, 3), (2, 4)}. (Refer to Video 22: More Definitions and Examples of Sets)
+
+Functions
+One-to-One/Injective A function f : X → Y is one-to-one if for any a, b ∈ X with a ̸= b
+we have f (a) ̸= f (b). This is equivalent to saying that if f (a) = f (b) for some a, b ∈ X,
+then a = b. (Refer to Video 25: One-one, Onto and Inverse Functions)
+4
+
+Onto A function f : X → Y is onto if for any y ∈ Y there exists some x ∈ X such that
+f (x) = y. A function is onto if and only if the image of the function is equal to its codomain.
+(Refer to Video 25: One-one, Onto and Inverse Functions)
+Inverse An inverse function is a function that undoes the action of the other function. A
+function g is the inverse of an injective function f if whenever y = f (x) then x = g(y). We
+often write f −1 to denote the inverse of f . (Refer to Video 25: One-one, Onto and Inverse
+Functions)
+Bijective A bijective function f : X → Y is a function that is both one-to-one and onto.
+Such a function is called a bijection. (Refer to Video 25: One-one, Onto and Inverse
+Functions)
+Composition For any functions g : A → B and f : B → C, the composition of f and g,
+written f ◦ g, is the function f ◦ g : A → C defined by (f ◦ g)(a) = f (g(a)), for all a ∈ A.
+(Refer to Video 26: Composition of Functions)
+
+Cardinality
+Cardinality A measure of the size of a set. The cardinality of a set A is written as |A|.
+For finite sets, the cardinality is the number of elements in A. For example, |{35, 42}| = 2.
+(Refer to Video 27: Cardinality)
+Countable set A set with the same cardinality as some subset of Z≥0 . A countable set
+can have finite many or infinitely many elements. (Refer to Video 28: Countable and
+Uncountable Sets)
+Uncountable set An infinite set that contains too many elements to be countable. A set
+A is uncountable if there is no bijection from A to Z. (Refer to Video 28: Countable and
+Uncountable Sets)
+
+Set Relations
+Set Relation A binary relation R between two sets A and B is a subset of the Cartesian
+product A × B. If (a, b) ∈ R, we say that a and b are related under R and write aRb. (Refer
+to Video 30: Reflexivity, Symmetry, Transitivity)
+Reflexive A binary relation R over a set A is reflexive if every element of A is related to
+itself. This can be written as ∀a ∈ A, aRa. (Refer to Video 30: Reflexivity, Symmetry,
+Transitivity)
+Symmetric A binary relation R over a set A is symmetric if aRb implies that bRa for all
+a, b ∈ A. (Refer to Video 30: Reflexivity, symmetry, transitivity)
+Transitive A binary relation R over a set A is transitive if, for any a, b, c ∈ A such that
+aRb and bRc, we have aRc. (Refer to Video 30: Reflexivity, Symmetry, Transitivity)
+Antisymmetric A relation R over a set A is called antisymmetric if for any a, b ∈ A, aRb
+and bRa imply that a = b. Note that a relation being antisymmetric is different to the
+relation being not symmetric. (Refer to Video 32: Partial order relations)
+5
+
+Equivalence Relation A binary relation that is reflexive, symmetric, and transitive. (Refer
+to Video 31: Equivalence Relations)
+Partition A partition of a set is a grouping of the set’s elements into non-empty subsets,
+in such a way that every element is included in one and only one of the subsets. The union
+of all the parts of a partition is equivalent to the whole set, and the intersection of any two
+distinct parts of a partition is the empty set. (Refer to Video 31: Equivalence Relations)
+Partial Order Relation A binary relation R that is reflexive, antisymmetric, and transitive. (Refer to Video 32: Partial order relations)
+Total Order Relation A partial order relation R on a set A such that for all a, b ∈ A,
+either aRb or bRa (or both). (Refer to Video 30: Reflexivity, Symmetry, Transitivity)
+
+Groups
+Group A set G of elements together with a binary operation ∗ (called the group operation)
+satisfying four properties: closure, associativity, the identity property, and the inverse property. A group is commonly written as (G, ∗). (Refer to Video 33: Definitions and Examples
+of Groups)
+Subgroup If (G, ∗) and (H, ∗) are groups and H ⊆ G, then (H, ∗) is a subgroup of (G, ∗).
+A subset of G is a group if it is closed, contains the identity and contains inverses. (Refer
+to Video 34: Elementary Properties of Groups)
+Field A field (F, +, ·) is a set F with two binary operations + and · such that (F, +) is an
+abelian group; (F − {0}, ·) is an abelian group where 0 is the identity of (F, +); and for any
+a, b, c ∈ F we have a · (b + c) = a · b + a · c. (Refer to Video 36: Definitions and Examples
+of Fields)
+
+Counting
+Probability A number between 0 (impossible) and 1 (certain) expressing the likelihood
+of an event occurring. For instance, the sun will rise tomorrow has a probability of 1. It
+can be expressed as a fraction, a decimal, or a percentage. The probability of an event X
+occurring is written P(X). (Refer to Video 39: Introduction to probability)
+Pigeonhole Principle The pigeonhole principle states that if n + 1 objects are placed into
+n boxes, then there is at least one box containing two objects. (Refer to Video 42: The
+Pigeonhole Principle)
+
+Graph Theory
+Graph A graph is a pair (V, E) composed of two sets: the set V of vertices, and the set E
+of edges, which consists of unordered pairs of vertices. (Refer to video 43 Introduction to
+Graph Theory)
+6
+
+Simple graph A simple graph is a graph that contains no loops and no multiple edges.
+(Refer to video 43 Introduction to Graph Theory)
+Adjacent Vertices Two vertices u and v of a graph G are adjacent if there is an edge
+between u and v in G. (Refer to Video 44: Walks, trails and circuits)
+Degree The degree of a vertex v (written deg(v)) is the number of edges incident to v.
+Walk A walk is a sequence v0 , e1 , v1 , e2 , v2 , . . . , vn , where each vi is a vertex, and each ei is
+an edge with endpoints vi−1 and vi . (Refer to Video 44: Walks, Trails and Circuits)
+Cycle A walk that starts and ends at the same vertex but otherwise has no repeated vertices.
+(Refer to Video 44: Walks, trails and circuits)
+Non-Trivial Cycle A cycle consisting of more than one vertex (Refer to Video 44: Walks,
+trails and circuits)
+Trail A trail is a walk where all the edges are distinct. (Refer to Video 44: Walks, Trails
+and Circuits)
+Circuit A circuit is a trail that starts and ends at the same vertex. (Refer to Video 44:
+Walks, Trails and Circuits)
+Acyclic A graph that does not contain any non-trivial cycles.
+Connected Graph A graph such that for any pair of vertices, there is a walk between
+them. (Refer to Video 44: Walks, Trails and Circuits)
+Eulerian Trail A trail that uses every edge of the graph exactly once. (Refer to Video 44:
+Walks, Trails and Circuits)
+Eulerian Circuit A circuit that uses every edge of the graph exactly once. (Refer to Video
+44: Walks, Trails and Circuits)
+Regular graph A graph in which all vertices have the same degree. (Refer to Video 44:
+Walks, Trails and Circuits)
+Cycle Graph A graph consisting of n vertices v1 , . . . , vn and n edges given by the set
+{{v1 , v2 }, . . . , {vn−1 , vn }, {vn , v1 }}. It is denoted by Cn . (Refer to Video 44: Walks, Trails
+and Circuits)
+Adjacency Matrix The adjacency matrix for a graph with vertices v1 , v2 , . . . , vn is the
+n × n matrix A = [aij ] where each entry aij is the number of edges with endpoints vi , vj .
+(Refer to Video 45: Matrix Representations of Graphs)
+Incidence Matrix The incidence matrix for a graph with vertices v1 , v2 , . . . , vn and edges
+e1 , e2 , . . . , em is the n × m matrix A = [aij ] where each entry aij is the number of times
+vertex vi is incident with edge ej . (Refer to Video 45: Matrix Representations of Graphs)
+Tree An acyclic, connected, undirected graph. (Refer to Video 46: Trees)
+
+7
+
+

@@ -1,0 +1,390 @@
+Exam information
+MATH1061
+Course code and title
+Discrete Mathematics
+Semester
+
+Semester 1, 2021
+
+Exam type
+
+Online, non-invigilated, final examination
+
+Exam technology
+
+File upload to Blackboard Assignment
+Your examination will begin at the time specified in your personal examination timetable.
+If you commence your examination after this time, the end for your examination does
+NOT change.
+The total time for your examination from the scheduled starting time will be:
+
+Exam date and time
+
+2 hours 10 minutes (including 10 minutes reading time during which you should read the
+exam paper and plan your responses to the questions).
+A 15-minute submission period is available for submitting your examination after the
+allowed time shown above. If your examination is submitted after this period, late
+penalties will be applied unless you can demonstrate that there were problems with the
+system and/or process that were beyond your control.
+
+Exam window
+
+You must commence your exam at the time listed in your personalised timetable. You
+have from the start date/time to the end date/time listed in which you must complete your
+exam.
+
+Permitted materials
+
+This is an open book exam – you may access course materials including your notes, the
+textbook, and any resources on the MATH1061/MATH7861 Blackboard site. You may
+not search the internet for topics related to the exam and you may not seek assistance
+from, nor provide assistance to, other people regarding the exam topics.
+
+Recommended
+materials
+
+Instructions
+
+Ensure the following materials are available during the exam:
+calculator (optional); bilingual dictionary (optional); phone/camera/scanner.
+You will need to download the question paper included within the Blackboard Test. Once
+you have completed the exam, upload the completed exam answers file to the
+Blackboard assignment submission link. You may submit multiple times, but only the last
+uploaded file will be graded.
+You can print the question paper and write on that paper or write your answers on blank
+paper (clearly label each solution so that it is clear which problem it is a solution to) or
+annotate an electronic file on a suitable device.
+Given the nature of this examination, responding to student queries and/or relaying
+corrections to exam content during the exam may not be feasible.
+
+Who to contact
+
+If you have any concerns or queries about a particular question or need to make any
+assumptions to answer the question, state these at the start of your solution to that
+question. You may also include queries you may have made with respect to a particular
+question, should you have been able to ‘raise your hand’ in an examination-type setting.
+
+Page 1 of 15
+
+If you experience any interruptions to your examination, please collect evidence of the
+interruption (e.g. photographs, screenshots or emails).
+If you experience any issues during the examination, contact ONLY the Library AskUs
+service for advice as soon as practicable:
+Chat: support.my.uq.edu.au/app/chat/chat_launch_lib
+Phone: +61 7 3506 2615
+Email: examsupport@library.uq.edu.au
+You should also ask for an email documenting the advice provided so you can provide
+this as evidence for a late submission.
+
+Late or incomplete
+submissions
+
+In the event of a late submission, you will be required to submit evidence that you
+completed the assessment in the time allowed. This will also apply if there is an error in
+your submission (e.g. corrupt file, missing pages, poor quality scan). We strongly
+recommend you use a phone camera to take time-stamped photos (or a video) of every
+page of your paper during the time allowed (even if you submit on time).
+If you submit your paper after the due time, then you should send details to SMP Exams
+(exams.smp@uq.edu.au) as soon as possible after the end of the time allowed. Include
+an explanation of why you submitted late (with any evidence of technical issues) AND
+time-stamped images of every page of your paper (eg screen shot from your phone
+showing both the image and the time at which it was taken).
+Academic integrity is a core value of the UQ community and as such the highest
+standards of academic integrity apply to all examinations, whether undertaken in-person
+or online. This means:
+
+Important exam
+condition
+information
+
+•
+
+You are permitted to refer to the allowed resources for this exam, but you cannot
+cut-and-paste material other than your own work as answers.
+
+•
+
+You are not permitted to consult any other person – whether directly, online, or
+through any other means – about any aspect of this examination during the
+period that it is available.
+
+•
+
+If it is found that you have given or sought outside assistance with this
+examination, then that will be deemed to be cheating.
+
+If you submit your online exam after the end of your specified reading time, duration, and
+15 minutes submission time, the following penalties will be applied to your final
+examination score for late submission:
+•
+
+Less than 5 minutes – 5% penalty
+
+•
+
+From 5 minutes to less than 15 minutes – 20% penalty
+
+•
+
+More than 15 minutes – 100% penalty
+
+These penalties will be applied to all online exams unless there is sufficient evidence
+of problems with the system and/or process that were beyond your control.
+Undertaking this online exam deems your commitment to UQ’s academic integrity
+pledge as summarised in the following declaration:
+“I certify that I have completed this examination in an honest, fair and trustworthy
+manner, that my submitted answers are entirely my own work, and that I have neither
+given nor received any unauthorised assistance on this examination”.
+
+Page 2 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+Answer each question and upload your answers using the link in Blackboard. Each question is worth
+the number of marks indicated on the right and the total number of marks available is 70.
+1. (a) Translate the following argument into symbolic form, using the specified statement variables.
+∗ Let p be “It is hot”
+∗ Let q be “It is cloudy”
+∗ Let r be “It is raining”
+∗ Let s be “It is sunny”.
+Argument: It is hot and not sunny. Being cloudy is necessary for it to be raining. It is
+either raining or sunny, but not both. Therefore, it is cloudy.
+(2 marks)
+
+(b) Determine whether the argument in part (a) is valid or invalid. Justify your answer.
+(4 marks)
+
+Page 3 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+2. (a) Prove the following statement:
+∀m, x ∈ R, if m ∈ Z and x 6∈ Z, then dxe + d2m − xe = 2m + 1.
+(4 marks)
+
+(b) Disprove the following statement:
+∀a, b ∈ Z,
+
+if a 6= 0 and b 6= 0 then gcd(a, b) · lcm(a, b) = ab.
+(2 marks)
+
+Page 4 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+3. Define the sequence {an }n≥0 by
+a0 = 1,
+
+a1 = 3,
+
+and ak = 2ak−1 + 6ak−2 for each integer k ≥ 2.
+
+Use (strong) mathematical induction to prove that an ≥ 3n for each integer n ≥ 0.
+(5 marks)
+
+Page 5 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+4. (a) For each of the following statements, indicate whether the statement is true or false by
+circling the appropriate response.
+(2 marks)
+Z ∈ P(Q) True False
+Z ⊆ P(Q)
+
+True
+
+False
+
+∅ ∈ P(Q)
+
+True
+
+False
+
+∅ ⊆ P(Q)
+
+True
+
+False
+
+(b) Prove the following statement.
+For all sets A, B that are subsets of a universal set U , (A − B) ∪ (A ∩ B) = A.
+(4 marks)
+
+Page 6 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+5. Consider the function f : Z+ × Z+ × Z+ → Z+ where ∀(a, b, c) ∈ Z+ × Z+ × Z+ , f ((a, b, c)) = abc.
+(a) State the image of (4, 6, 1), that is, f ((4, 6, 1)).
+(1 mark)
+
+(b) State the pre-image of 3, that is, f −1 ({3}).
+(1 mark)
+
+(c) Is f one-one? Explain your answer.
+(2 marks)
+
+(d) Is f onto? Explain your answer.
+(2 marks)
+
+Page 7 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+6. Define a function that demonstrates that |Q| ≤ |R+ |. You must explain why it is a function and
+why it shows that |Q| ≤ |R+ |.
+(5 marks)
+
+Page 8 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+7. Define a relation ρ on Z × Z by
+∀(a, b), (c, d) ∈ Z × Z, (a, b)ρ(c, d) if and only if a ≤ c and b ≤ d.
+(a) Prove that ρ is a partial order relation.
+(5 marks)
+
+(b) Prove that ρ is a not a total order relation.
+(1 mark)
+
+Page 9 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+8. Let G = {[1], [5], [7], [11]}, where [a] = {x ∈ Z : x ≡ a (mod 12)}.
+(a) Draw the Cayley table for (G, ·) where · is the operation of multiplication modulo 12.
+(2 marks)
+
+(b) Use your Cayley table to prove that (G, ·) is a group.
+You may assume that the operation · is associative.
+(3 marks)
+
+(c) From class we know that (Z4 , +) and (Z2 × Z2 , +) are two non-isomorphic groups that each
+have four elements. Which one of these groups is isomorphic to (G, ·)? Explain your answer
+briefly.
+(1 mark)
+
+Page 10 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+9. Solve the equation 11x + 10 = 5 in the field (Z19 , +, ·). Hence determine the smallest positive
+integer y such that 11y + 10 ≡ 5 (mod 19).
+(3 marks)
+
+Page 11 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+10. For each part (a), (b) and (c) of Question 10, you do not need to compute an integer answer,
+you may give a mathematical expression that answers the question.
+Let S = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}.
+(a) In how many ways can a set A of five integers be chosen from the set S such that A contains
+exactly two prime numbers?
+(2 marks)
+
+(b) In how many ways can a set B of five integers be chosen from the set S such that B contains
+at most two prime numbers?
+(2 marks)
+
+(c) In how many ways can a set C of five integers be chosen from the set S such that C contains
+exactly two prime numbers or exactly two even numbers? (Note that “or” is inclusive or.)
+(4 marks)
+
+Page 12 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+11. Let S be the set of positive integers from 1 to 100, S = {1, 2, . . . , 100}. Determine, with proof,
+the largest number of integers that can be chosen from S so that no three of the chosen integers
+are equivalent modulo 9.
+(5 marks)
+
+Page 13 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+12. (a) Draw a graph that has the following adjacency matrix.
+
+
+0
+ 1
+
+ 1
+
+ 0
+0
+
+1
+0
+1
+0
+0
+
+1
+1
+0
+1
+1
+
+0
+0
+1
+0
+1
+
+
+0
+0 
+
+1 
+
+1 
+0
+(2 marks)
+
+(b) State an incidence matrix for the following graph.
+
+(2 marks)
+
+Page 14 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+13. Let T be a tree with exactly one vertex of degree 10, exactly two vertices of degree 7, exactly
+two vertices of degree 3, and in which all the remaining vertices are of degree 1. Use one or more
+theorems from the course to determine the number of vertices in T .
+(4 marks)
+
+END OF EXAMINATION
+Page 15 of 15
+
+

@@ -1,0 +1,220 @@
+SOLUTIONS - Exercise - Week 2: MATH1061/7861
+
+1. (5 marks) Let p, q, r be propositional variables, each either True or False.
+Consider the following three statements:
+S1 = p ∨ ∼ q
+S2 = (p ∧ r) ∨ q
+S3 =∼ p ∨ (q ∧ r)
+Task: Using the truth table below find all triples (p, q, r) such that the three statements S1 , S2 , and S3 have the same truth value.
+
+p
+
+q
+
+r
+
+∼p
+
+p∧r
+
+q∧r
+
+p∨ ∼ q
+
+(p ∧ r) ∨ q
+
+∼ p ∨ (q ∧ r)
+
+Equal?
+
+T
+
+T
+
+T
+
+F
+
+T
+
+T
+
+T
+
+T
+
+T
+
+Y
+
+T
+
+T
+
+F
+
+F
+
+F
+
+F
+
+T
+
+T
+
+F
+
+N
+
+T
+
+F
+
+T
+
+F
+
+T
+
+F
+
+T
+
+T
+
+F
+
+N
+
+T
+
+F
+
+F
+
+F
+
+F
+
+F
+
+T
+
+F
+
+F
+
+N
+
+F
+
+T
+
+T
+
+T
+
+F
+
+T
+
+F
+
+T
+
+T
+
+N
+
+F
+
+T
+
+F
+
+T
+
+F
+
+F
+
+F
+
+T
+
+T
+
+N
+
+F
+
+F
+
+T
+
+T
+
+F
+
+F
+
+T
+
+F
+
+T
+
+N
+
+F
+
+F
+
+F
+
+T
+
+F
+
+F
+
+T
+
+F
+
+T
+
+N
+
+The statements are only the same for (T, T, T ).
+MARKING:
+1 mark for a correct concluding statement.
+4 marks for the truth table.
+No half marks.
+
+1
+
+2. (5 marks) For each of the following, either prove that the statements are logically
+equivalent using the laws of logical equivalence, or give values which show that they
+are not equivalent.
+Label the laws of logical equivalence used in each step.
+(a) (p ∨ ∼ q) ∨ (∼ p ∧ ∼ q) ≡ p
+When p and q are both false, the LHS is true while the RHS is false.
+
+(b) ∼ (p ∨ ∼ q) ∨ (∼ p ∧ ∼ q) ≡ ∼ p
+∼ (p ∨ ∼ q) ∨ (∼ p ∧ ∼ q) ≡ (∼ p ∧ q) ∨ (∼ p ∧ ∼ q) by De Morgan’s law
+≡ ∼ p ∧ (q ∨ ∼ q)
+by the distributive law
+≡ ∼p∧t
+by the negation law
+≡∼p
+by the identity law
+MARKING:
+2 marks for part (a).
+3 marks for part (b). Take off 1 mark if they do not name the laws they use.
+No half marks.
+
+2
+
+

@@ -1,0 +1,64 @@
+SOLUTIONS - Exercise - Week 10: MATH1061/7861
+(1) Define a relation ρ on Z≥1 by aρb if
+gcd(a, 144) = gcd(b, 144).
+(a) (3 marks) Prove that ρ is an equivalence relation.
+Reflexive: For any a ∈ Z≥1 , gcd(a, 144) = gcd(a, 144), and so aρa.
+Symmetric: For any a, b ∈ Z≥1 , suppose that aρb. This means that gcd(a, 144) =
+gcd(b, 144), so gcd(b, 144) = gcd(a, 144), which implies that bρa.
+Transitive: For any a, b, c ∈ Z≥1 , suppose that aρb and bρc. This means that
+gcd(a, 144) = gcd(b, 144), so gcd(b, 144) = gcd(c, 144). Together, these two
+imply that gcd(a, 144) = gcd(c, 144), and so aρc.
+MARKING:
+1 mark for a valid proof of reflexivity
+1 mark for a valid proof of symmetry
+1 mark for a valid proof of transitivity
+(b) (2 marks) Determine the equivalence classes. How many equivalence classes
+are there? Justify your answer.
+For each positive divisor d of 144, there is an equivalence class of the form
+[d] = {a ∈ Z≥1 | gcd(a, 144) = d}.
+
+As 144 = 24 × 32 , there are (4 + 1) × (2 + 1) = 15 distinct positive divisors
+of 144. This means that there can be at most 15 equivalence classes.
+Furthermore, for each positive divisor a of 144, gcd(a, 144) = a. So if a and
+b are distinct positive divisors of 144, a̸ ρ b, and so they are in different equivalence classes. Therefore there are at least 15 equivalence classes (and hence
+exactly 15).
+MARKING:
+1 mark for correctly describing the equivalence classes.
+1 mark for identifying that there are 15 equivalence classes with some justification
+Note for this question, stating that there is an equivalence class for each
+positive divisor and that there are (4 + 1) × (2 + 1) = 15 positive divisors of
+144 is sufficient justification.
+
+1
+
+2
+
+(2) (3 marks) Let S be the set of binary strings of length 6. The weight of a binary
+string is the number of ones it contains, for example weight(110110) = 4. Define
+a relation ρ on S by
+sρt
+
+if and only if
+
+weight(s) ≤ weight(t).
+
+Is ρ a partial order? Justify your answer.
+The relation is not antisymmetric. Let s = 100000 and t = 000001. Then
+weight(s) = 1 = weight(t). Thus, sρt and tρs but s ̸= t.
+Since it is not antisymmetric, the relation is not a partial order.
+MARKING:
+1 mark for identifying that it is not a partial order
+2 marks for providing a valid counter-example
+(3) (2 marks) Determine whether Z10 − {0} is a group under multiplication.
+This is not a group. Consider the elements 2 and 5 in Z10 − {0}. Under the
+operation of multiplication,
+2 × 5 ≡ 10 ≡ 0
+
+(mod 10),
+
+which is not in Z10 − {0}. Thus this is not closed, and therefore not a group.
+MARKING:
+1 mark for identifying that it is not a group
+1 marks for providing a valid counter-example
+
+

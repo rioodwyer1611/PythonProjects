@@ -1,0 +1,307 @@
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+Each question is worth the number of marks indicated on the right and the total number of marks
+available is 65.
+1. Let p and q be statement variables. Prove that
+(p ∨ q) → (q ∧ ∼ p) ≡ ∼ p.
+You may use either truth tables or logical equivalences. If you use logical equivalences, you
+should name the laws you use at each step
+(3 marks)
+
+Page 2 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+2. For each of the following statements, determine whether the statement is true or false. Provide
+a proof if the statement is true and provide a counterexample if the statement is false.
+(6 marks)
+(a) For all b, c, d ∈ Z+ , if d - (b − 2c) then d - b or d - c.
+
+(b) For all x, y ∈ Z+ , if x ≡ y (mod 5) then 2x ≡ 2y (mod 5).
+
+Page 3 of 15
+
+Semester Two Final Examinations, 2021
+
+MATH1061 Discrete Mathematics
+
+3. Consider the sequence {an }n≥1 defined recursively as
+a1 = 1, a2 = 3, a3 = 4 and ak = ak−1 + 2ak−3 for each integer k ≥ 4.
+Use strong mathematical induction to prove that an < 3n for each integer n ≥ 1.
+(6 marks)
+
+Page 4 of 16
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+5. (a) Prove that for all sets A, B, and C that are subsets of a universal set,
+A − (B ∪ C) = (A − B) − C.
+(3 marks)
+
+(b) Consider the sets S = {a, b} and T = {a, c, d}. Indicate whether each of the following
+statements is true or false; no reason is needed.
+(2 marks)
+(i) S ⊆ T
+(ii) ∅ ∈ P(S)
+(iii) ∅ ∈ T
+(iv) (a, a, a) ∈ S × T
+
+Page 6 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+6. Consider the function f : Z+ × Z+ → Z+ where ∀(a, b) ∈ Z+ × Z+ , f ((a, b)) = lcm(a, b).
+(a) Is f one-one? Explain your answer.
+(2 marks)
+
+(b) Is f onto? Explain your answer.
+(2 marks)
+
+Page 7 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+7. Recall that [−1, 3] = {x ∈ R : −1 ≤ x ≤ 3} and that (2, 4] = {x ∈ R : 2 < x ≤ 4}. Define a
+function that demonstrates that |[−1, 3]| ≤ |(2, 4]|. You must explain why it is a function and
+why it shows that |[−1, 3]| ≤ |(2, 4]|.
+(5 marks)
+
+Page 8 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+8. Let S be the set of binary strings of length six. The weight of a binary string is the number of
+ones it contains, for example weight(110110) = 4. Define a relation ρ on S by
+∀s, t ∈ S, sρt if and only if weight(s) < weight(t) or s = t.
+(a) Prove that ρ is a partial order relation.
+(5 marks)
+
+(b) Prove that ρ is a not a total order relation.
+(1 mark)
+
+Page 9 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+9. Consider the group (Z4 × Z2 , +).
+(a) Prove that {(0, 0), (0, 1), (2, 0), (2, 1)} is a subgroup of (Z4 × Z2 , +).
+(3 marks)
+
+(b) Determine all the elements x ∈ Z4 × Z2 for which hxi is isomorphic to (Z4 , +) and explain
+your reasoning.
+(3 marks)
+
+Page 10 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+10. (a) Determine the multiplicative inverse of 7 in the field Z11 .
+(2 marks)
+
+(b) Explain why Z12 with addition and multiplication modulo 12 is not a field.
+(2 marks)
+
+Page 11 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+11. For each part (a), (b) and (c) of Question 11, you do not need to compute an integer answer,
+you may give a mathematical expression that answers the question.
+In Queensland, driver licence identification numbers consist of a string of nine digits chosen from
+{0, 1, 2, 3, 4, 5, 6, 7, 8, 9} with repetition allowed. For the purposes of this question, assume that
+no other conditions are placed on the number, so any string of nine digits is possible.
+(a) If a driver licence identification number is chosen at random, what is the probability that
+it will have no repeated digits?
+(2 marks)
+
+(b) How many driver licence identification numbers contain at least two occurrences of the digit
+1?
+(2 marks)
+
+(c) How many driver licence identification numbers contain exactly one even digit or exactly
+one digit that is divisible by 3? (Note that “or” is inclusive or.)
+(4 marks)
+
+Page 12 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+
+7
+2
+2
+12. Determine the coefficient of x in the expansion of 3x −
+, giving your answer as an integer.
+x
+5
+
+(3 marks)
+
+Page 13 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+13. (a) Let G be the graph with the following adjacency matrix. Is G Eulerian? Explain your
+answer.
+(2 marks)
+
+
+0
+ 1
+
+ 0
+
+ 1
+
+ 0
+0
+
+1
+0
+0
+1
+0
+0
+
+0
+0
+0
+0
+1
+1
+
+1
+1
+0
+0
+0
+0
+
+0
+0
+1
+0
+0
+1
+
+
+0
+0 
+
+1 
+
+0 
+
+1 
+0
+
+(b) Let G be a simple, connected, Eulerian graph with eight vertices. Prove that the number
+of edges of G is greater than or equal to 8 but less than or equal to 24.
+(4 marks)
+
+END OF EXAMINATION
+Page 14 of 15
+
+Semester Two Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+MATH1061/MATH7861 Examination Formula Page
+Logical Equivalences
+Given any statement variables p, q and r, a tautology t and a contradiction c, the following logical
+equivalences hold.
+Commutative laws
+p∧q ≡q∧p
+p∨q ≡q∨p
+Associative laws
+(p ∧ q) ∧ r ≡ p ∧ (q ∧ r)
+(p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
+Distributive laws
+p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)
+Identity laws
+p∧t≡p
+p∨c≡p
+Negation laws
+p∨ ∼ p ≡ t
+p∧ ∼ p ≡ c
+Double negative laws ∼ (∼ p) ≡ p
+Idempotent laws
+p∧p≡p
+p∨p≡p
+Universal bound laws p ∨ t ≡ t
+p∧c≡c
+De Morgan’s laws
+∼ (p ∧ q) ≡∼ p ∨ ∼ q
+∼ (p ∨ q) ≡∼ p ∧ ∼ q
+Absorption laws
+p ∨ (p ∧ q) ≡ p
+p ∧ (p ∨ q) ≡ p
+Negations of t and c ∼ t ≡ c
+∼c≡t
+Set Identities For all sets A, B and C that are subsets of a universal set U :
+1. Commutative Laws
+(a) A ∪ B = B ∪ A (b) A ∩ B = B ∩ A
+2. Associative Laws
+(a) (A ∪ B) ∪ C = A ∪ (B ∪ C)
+(b) (A ∩ B) ∩ C = A ∩ (B ∩ C)
+3. Distributive Laws
+(a) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+(b) A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+4. Identity Laws
+(a) A ∪ ∅ = A (b) A ∩ U = A
+5. Complement Laws
+(a) A ∪ Ac = U (b) A ∩ Ac = ∅
+6. Double Complement Law (Ac )c = A
+7. Idempotent Laws
+(a) A ∪ A = A (b) A ∩ A = A
+8. Universal Bound Laws
+(a) A ∪ U = U (b) A ∩ ∅ = ∅
+9. De Morgan’s Laws
+(a) (A ∪ B)c = Ac ∩ B c (b) (A ∩ B)c = Ac ∪ B c
+10. Absorption Laws
+(a) A ∪ (A ∩ B) = A (b) A ∩ (A ∪ B) = A
+11. Complement of U and ∅ (a) U c = ∅ (b) ∅c = U
+12. Set Difference Law
+A − B = A ∩ Bc
+The Quotient-Remainder Theorem Given any integer n and any positive integer d, there exist
+unique integers q and r such that n = dq + r and 0 ≤ r < d.
+Unique Factorisation Theorem Given any integer n > 1, there exists a positive integer k,
+distinct prime numbers p1 , p2 , . . . , pk , and positive integers e1 , e2 , . . . , ek such that n = pe11 pe22 · · · pekk ,
+and any other expression for n as a product of prime numbers is identical to this except perhaps for
+the order in which the factors are written.
+Schröder-Bernstein Theorem For all sets A and B, if |A| ≤ |B| and |A| ≥ |B| then |A| = |B|.
+Binomial Theorem Given any real numbers a and b, and any nonnegative integer n,
+n  
+X
+n n−k k
+(a + b) =
+a b .
+k
+k=0
+n
+
+Page 15 of 15
+
+

@@ -1,0 +1,98 @@
+SOLUTIONS - Exercise - Week 12: MATH1061/7861
+(1) There are 5 females and 4 males on a list. Our goal is to choose one team of 3
+people from this list.
+(a) (1 mark) How many different teams can be chosen from the list?
+Give your answer as an integer.
+There are 9 possible people to choose from, so there are
+ 
+9
+9!
+9·8·7
+=
+=
+= 84
+3
+6! · 3!
+6
+different possibilities.
+MARKING:
+1 mark for providing the correct answer
+(b) (2 marks) If there is to be at least one person of each gender (male or
+female) on the team, how many different teams can be chosen from the list?
+Give your answer as an integer.
+We count the number of teams that do not have at least one male and at
+least one female, i.e. the teams that are either all male or all female. This is
+   
+5
+4
+5·4·3 4·3·2
++
+=
++
+= 10 + 4 = 14.
+3
+3
+6
+6
+Subtracting this from the total found in part (a), there are 84 − 14 = 70
+possible teams with at least one male and at least one female.
+MARKING:
+1 mark for identifying a correct strategy (e.g. subtracting away the number
+of teams that are all male or all female)
+1 mark for providing the correct answer
+(c) (2 marks) What is the probability that a team chosen at random contains
+both a male and a female?
+Express your answer as a rational number ab with gcd(a, b) = 1.
+= 56 .
+Using the answers from (a) and (b), the probability is 70
+84
+MARKING:
+2 marks for providing the correct answer
+(d) (2 marks) What is the probably that a team chosen at random contains
+only males?
+Express your answer as a rational number ab with gcd(a, b) = 1.
+
+4
+1
+There are 43 = 4 teams that contain only males, so the probability is 84
+= 21
+.
+MARKING:
+1 mark for computing the number of teams that only contain males
+1 mark for providing the correct answer
+1
+
+2
+
+(2) (3 marks) What is the coefficient of x3 in the expansion of (2x − 3)6 ?
+From the binomial theorem,
+6  
+6  
+X
+X
+6
+6 k
+6
+k
+6−k
+(2x − 3) =
+(2x) (−3)
+=
+2 (−3)6−k xk .
+k
+k
+k=0
+k=0
+Looking at x3 , we need k = 3, so the coefficient is
+ 
+6 3
+2 (−3)6−3 = 20 × 8 × −27 = −4320.
+3
+MARKING:
+1 mark for stating the binomial theorem (either explicitly, or implicitly by using
+it)
+1 mark for substituting correctly into the binomial theorem
+1 mark for providing the correct answer
+Provide full marks if the students obtain the correct answer by expanding directly.
+
+

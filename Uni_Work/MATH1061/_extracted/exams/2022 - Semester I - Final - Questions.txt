@@ -1,0 +1,249 @@
+Semester One Examinations, 2022
+
+MATH1061
+
+This exam paper must not be removed from the venue
+
+Venue
+
+____________________
+
+Seat Number
+
+__________
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+____________________
+
+First Name
+
+____________________
+
+School of Mathematics & Physics
+Semester One Examinations, 2022
+MATH1061 Discrete Mathematics
+This paper is for St Lucia Campus students.
+For Examiner Use Only
+
+Examination Duration: 120 minutes
+Planning Time:
+
+Question
+
+10 minutes
+
+Exam Conditions:
+•This is a Closed Book examination - no written materials permitted
+•Casio FX82 series or UQ approved or labelled calculator only
+•During Planning Time - Students are encouraged to review and plan
+responses to the exam questions
+•This examination paper will be released to the Library
+Materials Permitted in the Exam Venue:
+(No electronic aids are permitted e.g. laptops, phones)
+None
+Materials to be supplied to Students:
+Additional exam materials (e.g. answer booklets, rough paper) will
+be provided upon request.
+None
+Instructions to Students:
+If you believe there is missing or incorrect information impacting
+your ability to answer any question, please state this when writing
+your answer.
+Answer all questions in the space provided.
+Credit can only be given for work written in this examination script.
+SHOW ALL WORKING.
+Solutions given without justification will not receive full marks.
+Marks will be allocated for clear and logical arguments.
+Use the back of pages if the space provided is insufficient or for rough
+working.
+The number of marks per question is shown on the examination paper.
+
+Page 1 of 13
+
+Mark
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+Total _________
+
+Semester One Examinations, 2022
+
+MATH1061
+
+1. The logical binary operation NAND, denoted |, is defined by
+p | q ≡ ∼ (p ∧ q).
+(a) (2 marks) Write down the truth table for ∼ (p | q). Show all working.
+
+(b) (3 marks) Prove, using truth tables or otherwise, that (p | p) ≡ (∼ p). Show all working.
+
+(c) (3 marks) Prove, using truth tables or otherwise, that ((p | p) | (q | q)) ≡ p ∨ q. Show all
+working.
+
+Page 2 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+2. (a) Consider the statement
+There exists a real number x such that for all real numbers y, xy = 1.
+(i) (2 marks) Write the negation of this statement.
+
+(ii) (2 marks) State which of the original statement or its negation is true. Justify your
+answer, showing all working.
+
+(b) (4 marks) Consider the statement
+For all integers a and b, if (ab)2 is odd then a is odd and b is odd.
+Use either a direct proof, a proof by contraposition or a proof by contradiction to prove
+this statement is true. Show all working.
+
+Page 3 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+3. (a) (2 marks) Let A = {0, 1, 2, 3, 4}, B = {3, 4, 5, 6} and C = {1, 2, 4, 5, 7} and let
+R = ((A − B) ∩ (A − C)) ∪ (B ∩ C ∩ A).
+List the elements of the set R.
+
+(b) (2 marks) Let X = P(∅) and Y = P(P(∅)). List the elements of each of the following
+sets.
+(i) X
+
+(ii) Y
+
+(iii) X ∩ Y
+
+(iv) X ∪ Y
+
+Page 4 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+4. (5 marks) Prove that |Z+ × Z+ | = |Z+ |.
+
+Page 5 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+5. (a) (4 marks) Let a be an integer such that the remainder is 1 when a is divided by 4. Prove
+that when a4 is divided by 16 the remainder is also 1.
+
+(b) (4 marks) Use Euclid’s Algorithm to verify that gcd(2000, 1713) = 1. Clearly show all
+steps in the execution of the algorithm.
+
+Page 6 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+6. (8 marks) Use mathematical induction to prove that the following statement is true.
+For all integers n ≥ 0, 3n < (n + 3)!
+
+Page 7 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+7. Consider the function f : Q ∩ [1, ∞) → Q ∩ [2, ∞) given by
+f (x) = (x − 1)2 + 2 for all x ∈ Q ∩ [1, ∞).
+(a) (4 marks) Prove that the function f is injective.
+
+(b) (3 marks) Prove that the function f is not surjective.
+
+Page 8 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+8. Consider the relation ρ on Z given by
+aρb if and only if (a − b)(a + b) = 4k for some k ∈ Z.
+(a) (6 marks) Prove that ρ is an equivalence relation.
+
+(b) (2 marks) Determine the number of equivalence classes of ρ. Justify your answer.
+
+Page 9 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+9. (a) (1 marks) Determine whether the groups (Z, +) and (R − {0}, ·) are isomorphic. Justify
+your answer.
+
+(b) (3 marks) Determine whether the groups (Z4 , +), (Z5 − {[0]}, ·) are isomorphic. Justify
+your answer.
+
+(c) (4 marks) Find a subset S of Z10 such that (S, ·) is a group of order 4 (where · denotes
+multiplication modulo 10). Justify your answer.
+
+Page 10 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+10. For this question, you may leave your answers as expressions involving factorials.
+(a) (2 marks) How many distinct arrangements can be made of the letters of the word
+WOOLLOONGABBA?
+
+(b) (3 marks) If the letters of the word WOOLLOONGABBA are permuted at random, what
+is the probability that we get the same word back?
+
+(c)
+
+(3 marks) How many distinct arrangements are there of the letters of the word
+WOOLLOONGABBA such that exactly one of the following is true?
+• The two As are not next to each other.
+• The two Bs are not next to each other.
+• The two Ls are not next to each other.
+
+Page 11 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+11. (a) (4 marks) Let T be a tree on p vertices where p ≥ 11, T has precisely six vertices of degree
+1 and precisely four vertices of degree 3. Determine the degree of each of the remaining
+p − 10 vertices of T .
+
+(b) (4 marks) Let d be a positive integer and let T be a tree such that T has a vertex of
+degree d. Prove that T has at least d vertices of degree 1.
+
+Working space next page.
+Page 12 of 13
+
+Semester One Examinations, 2022
+
+MATH1061
+
+Working space only.
+
+END OF EXAMINATION
+Page 13 of 13
+
+

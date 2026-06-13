@@ -1,0 +1,345 @@
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+_____________________
+
+First Name
+
+_____________________
+
+Do not distribute this document
+
+School of Mathematics & Physics
+EXAMINATION
+Semester One Final Examinations, 2020
+
+MATH1061 Discrete Mathematics
+This paper is for St Lucia Campus students.
+Examination Duration: 120 minutes (+ additional 30 mins encompassing reading time, and time
+to scan and upload solutions). You must commence your exam at the time listed in your
+personalised timetable. The exam will remain open only for the duration shown.
+Materials Permitted While Completing the Exam: You may use any online or physical material you
+wish. However, you have to write solutions in your own words (i.e. copying is considered cheating). You
+are NOT allowed to contact another human being directly or indirectly regarding this test. In particular,
+posting questions to chat forums is considered cheating.
+Instructions to Students: Answer all questions. Upload as a SINGLE PDF FILE. You can print
+the exam and write on the exam paper, or write your answers on blank paper, or write
+electronically on a suitable device. Scan or photograph your work if necessary and upload your
+answers to Blackboard as a single pdf file.
+Who to Contact Since students may not all undertake the online exam at the same time, or in
+the same time zone, and that some questions may be randomised, responding to student queries
+and/or relaying corrections to exam content during the exam will not be feasible. Course
+coordinators will not be able to respond to academic queries during the exam.
+If you have any concerns or queries about a particular question, or need to make any
+assumptions to answer the question, state these at the start of your solution to that question. You
+may also include queries you may have made with respect to a particular question, should you
+have been able to ‘raise your hand’ in an examination room.
+If you experience any technical difficulties during the exam, contact the Library AskUs service via
+the Live Chat or Phone for advice (https://web.library.uq.edu.au/contact-us - open 7:00am –
+10:00pm AEST every day during the final exam period). You should ask the library staff for an
+email documenting the advice provided so you can provide this to the course coordinator.
+Certification (must be signed before submission):
+I certify that my submitted answers are entirely my own work and that I have neither given nor
+received any unauthorised assistance on this assessment item.
+
+Signed:_______________________________Date:_____________________
+
+Page 1 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+1. Let the cyclic group {[0], [1], [2], ..., [n − 1]} be denoted by Z/nZ. Consider the following statement: for every positive integer n and every x in Z/nZ, there exists y ∈ Z/nZ such that xy = [1].
+(a) (2 marks) Write the negation of this statement.
+
+Solution: The negation is: There exists a positive integer n and x ∈ Z/nZ such that for all
+y ∈ Z/nZ, xy 6= 1.
+No part mark for this question.
+
+(b) (2 marks) Is the original statement true or false? Justify your answer.
+
+Solution: The negation is the correct statement. For instance, take n = 4 and x = [2]. Then x
+has no multiplicative inverse in Z/4Z.
+No part mark. If they get it right, they get 2. If not they get 0.
+
+Aside for graders
+There may be many correct solutions possible for each of the following questions. As a general
+rule, if an answer is correct, it gets full mark, regardless of the method. The usual notation is
+n for an integer and p for a prime. I have changed most integers n’s to x’s and p’s to q’s so
+that it is not easy to Google. But in the solutions, I have reverted to the common notations.
+Translation should be trivial.
+
+Page 2 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+2. (4 marks) Let x be a fixed positive integer. Is it possible to have a graph G with 4x + 1 vertices
+such that G has a vertex of degree d for all d = 1, 2, ..., 4x + 1? Justify your answer.
+(Note: The graph G does not need to be simple.)
+
+Solution: No. If such a graph existed, then the vertices of degree 1, 3, ..., 4n + 1 are all odd.
+There are 2n + 1 such vertices. Thus, such a graph would have odd number of odd vertices,
+which is a contradiction to the Handshake Theorem.
+2 marks for answering No.
+2 marks for providing correct reasoning.
+
+Page 3 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+3. (4 marks) Let q be an odd prime. Let x be an integer satisfying 1 < x < q. Prove that
+ 
+q
+q|
+.
+x
+
+Solution: Recall that that
+
+ 
+p
+p!
+=
+.
+n
+n!(p − n)!
+
+Clearly p divides the numerator. Thus, it is sufficient to show that p does not divide the denominator. By assumption both n and p − n are strictly between 1 and p. Thus, p does not divide
+any number less than or equal to n or p − n. As p is a prime, it follows that p does not divide
+n! or (p − n)! or their product.
+As there are many possible solutions, no grading scheme is provided. Use your own judgement.
+
+Page 4 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+4. (4 marks) Consider the function f : R − {±1} → R defined by
+f (x) =
+
+1
+x2 − 1
+
+.
+
+Determine the range of f . Justify your answer.
+
+Solution: First observe that 0 is not in the range. Next, if y ∈ R − {0}, then
+y = f (x) =
+
+1
+x2 − 1
+
+=⇒ x2 − 1 =
+
+1
+1
+=⇒ x2 = 1 + .
+y
+y
+
+This has a solution if and only if
+1+
+
+1
+1
+≥ 0 ⇐⇒
+≥ −1 ⇐⇒ y > 0 or y ≤ −1.
+y
+y
+
+Thus, the range is (−∞, −1] ∪ (0, ∞).
+2 marks for getting the answer correct.
+2 marks for correct justification.
+
+Page 5 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+5. (4 marks) Let x be a fixed but arbitrary integer. Do there exist infinitely many integers y such
+that
+y 3 ≡ x12 (mod 2019)?
+Justify your answer.
+
+Solution: We claim that there exists infinitely many m such that 2019 divides n12 − m3 . First
+observe that n4 − m divides n12 − m3 . To see this note that x − y divides x3 − y 3 as x3 − y 3 =
+(x − y)(x2 + xy + y 2 ). Now set x = n4 and y = m. Thus it is sufficient prove that there exists
+infinitely many m such that 2019 | (n4 − m). But this is obvious, since we can take m to be any
+element of the set
+n4 , n4 + 2019, n4 + 2 × 2019, ....
+
+Reformulation of the solution: Set m = n4 + 2019k where k is any integer. Now observe that
+m3 = (n4 + 2019k)3 = n12 + 3n8 (2019k) + 3n4 (2019k)2 + (2019k)3 ≡ n12
+
+mod 2019.
+
+As there are many possible solutions, no grading scheme is provided. Use your own judgement.
+
+Page 6 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+6. Let S be a finite set and let P(S) denote the set of all subsets of S. Define a relation on P(S) by
+declaring that two subsets A and B are related if A and B have the same number of elements.
+(a) (2 marks) Prove that this is an equivalence relation.
+
+(b) (2 marks) Determine the equivalence classes.
+
+(c) (2 marks) Determine the number of elements in each equivalence class.
+
+Solution: Clearly |A| = |A| and if |A| = |B| then |B| = |A|. Moreover, if |A| = |B| and |B| = |C|,
+then |A| = |C|. Thus, we have an equivalence relation. The equivalence classes are
+[1], [2], ..., [n]
+where [k] denotes the set of subsets of S which have exactly k elements. The equivalence class
+[k] has nk elements.
+For each part, they get 2 if they answer correctly and 0 otherwise.
+
+Page 7 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+7. (6 marks) Consider the sequence {an }n≥1 defined by a1 = 3, a2 = 8, and
+an = 4(an−1 − an−2 ),
+
+∀ n ≥ 3.
+
+Prove that an = 2n−1 (n + 2) for all n ≥ 1.
+
+Solution: We prove this by strong induction. Note that
+a1 = 3 = 20 .3 = 21−1 (1 + 2),
+and
+a2 = 8 = 2.4 = 22−1 (2 + 2).
+Thus, our base cases are covered. Suppose the hypothesis is true for all k < n. Then,
+
+an = 4an−1 − 4an−2 = 4 2n−2 (n + 1) − 2n−3 n = 4.2n−3 (2n + 2 − n) = 2n−1 (n + 2).
+
+Induction base is worth 2 marks. Induction step is worth 4.
+
+Page 8 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+8. (8 marks) A group of 3 friends go to a concert with total attendance 30. At the end of the
+concert, the coat check system crashes, so they return people’s coats at random. Determine the
+probability that at least one of the 3 friends obtains their own coat. Write your answer in the
+fraction form ab where gcd(a, b) = 1.
+
+Solution: Let {a1 , a2 , a3 } denote the three friends. The total number of permutations is 30!.
+If we assume that a1 gets their own coat back, then the total number of permutations is 29!.
+Similarly, if we assume that a1 and a2 get their coats, then the number of permutations is 28!
+and if we assume all three get their coats, then it is 27!. Now the Inclusion/Exclusion principle
+gives:
+P = P (A1 ) + P (A2 ) + P (A3 ) − P (A1 ∩ A2 ) − P (A2 ∩ A3 ) − P (A3 ∩ A1 ) + P (A1 ∩ A2 ∩ A3 )
+27!(3.29.28 − 3.28 + 1)
+3.29.28 − 3.28 + 1
+1
+(3.29! − 3.28! + 27!) =
+=
+=
+30!
+30!
+30.29.28
+2436 − 84 + 1
+2353
+=
+=
+.
+24360
+24360
+
+4 marks for the correct fraction.
+4 marks for the correct explanation.
+
+Page 9 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+9. (10 marks) Define a binary operation on R2 − {(0, 0)} by
+(a, b) · (c, d) = (ac − bd, ad + bc).
+Prove that (R2 − {0}, ·) is an abelian group.
+(You do not need to prove that the operation is closed.)
+
+Solution: Associativity (4 marks): note that
+(a, b).((c, d).(x, y)) = (a, b).(cx − dy, cy + dx) = (acx − ady − bcy − bdx, acy + adx + bcx − bdy)
+equals
+((a, b).(c, d)).(x, y) = (ac − bd, ad + bc).(x, y) = (acx − bdx − ady − bcy, acy − bdy + adx + bcx).
+Identity (2 marks) We claim (1, 0) is the identity. This follows from
+(a, b).(1, 0) = (a, b) = (1, 0).(a, b).
+Inverse (2 marks): We have
+(a, b).(a, −b) = (a, −b).(a, b) = (a2 + b2 , 0).
+1
+Thus, every element (a, b) has an inverse; namely, a2 +b
+2 (a, −b).
+
+Abelian (2 marks) Finally, the group is abelian because
+(a, b).(c, d) = (ac − bd, ad + bc) = (ca − db, cb + da) = (c, d).(a, b).
+
+Sketch of an alternative solution: Identify R2 with C via the map (a, b) 7→ a + bi. Then T gets
+identified with C× and the above operation is the natural multiplication on C× .
+
+Page 10 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+10. (10 marks) Let x be an integer bigger than 4. Prove that x is prime if and only if x does not
+divide (x − 1)!.
+
+Solution: [ =⇒ worth 4 marks] First observe that n does not divide any k satisfying 1 ≤ k < n.
+Now suppose n is a prime. Then this means that n does not divide the product 1.2....(n − 1) =
+(n − 1)!. This proves one direction. For converse (worth 6 marks), we offer three solution:
+
+Ben’s quick solution: If n is composite then write n = ab with a, b < n. If a 6= b then both a and
+b appear as different factors of (n − 1)!. If a = b then (since n > 4) both a and 2a = 2b appear
+as different factors of (n − 1)!. Either way you get n = ab | (n − 1)!.
+
+Another solution: Write n = ab with a, b ≥ 2. Note that as n > 4, at least one of a or b is strictly
+bigger than 2. Thus,
+a + b = n/b + n/a < n/2 + n/2 = n =⇒ a + b ≤ n − 1 =⇒ (a + b)! | (n − 1)!.
+
+As a+b
+is an integer, we obtain
+a
+n = ab | a!b! | (a + b)! | (n − 1)!.
+
+My terrible solution: By the fundamental theorem of arithmetic, n = pa11 ...pakk . Suppose n > 4
+is composite. To show n | (n − 1)!, it suffices to prove pai i | (n − 1)! for every i. Henceforth, we
+fix i and write a for ai and p for pi . The statement is clear if a = 1 because p < n and therefore,
+(n − 1)! is divisible by p. For p = 2, the statement can be proved as follows. Note that we have
+[(n − 1)/2] even integers less than or equal to n − 1. Thus, it suffices to show that
+2[(n−1)/2] ≥ n − 1,
+
+∀n > 4.
+
+This can be proved by induction. Finally we prove the statement for all odd primes. First, we
+prove by induction that pa > ap for all p > 4. It follows that all numbers
+p, 2p, ..., ap
+are all less than (n − 1). Thus, (n − 1)! is divisible by pa as required.
+
+Page 11 of 12
+
+

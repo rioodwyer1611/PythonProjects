@@ -1,0 +1,39 @@
+SOLUTIONS - Exercise - Week 9: MATH1061/7861
+(1) (4 marks) Let A := {5k + 2 | kZ}. Does A have the same cardinality as Z?
+Justify your answer.
+The set A has the same cardinality as Z. To show this, we will prove that the
+function f : Z → A defined by f (n) = 5n + 2 is a bijection.
+To show that f is surjective, take any a ∈ A. Then by the definition of A,
+a = 5k + 2 for some k ∈ Z. Therefore f (k) = 5k + 2 = a, and so f is surjective.
+To show that f is injective, suppose that f (n) = f (m) for some n, m ∈ Z. This
+means that 5n + 2 = 5m + 2, which implies that 5n = 5m and hence n = m.
+Therefore f is injective.
+As f is both surjective and injective, it is a bijection, and hence A has the same
+cardinality as Z.
+MARKING:
+1 mark for identifying that they have the same cardinality
+1 mark for constructing a valid bijection
+1 mark for proving their construction is surjective
+1 mark for proving their construction is injective
+
+1
+
+2
+
+(2) (6 marks) Let ρ be a relation on Z defined by xρy if a + b is even. Determine
+whether ρ is reflexive, symmetric, or transitive.
+Reflexivity: Take any n ∈ Z. Then n + n = 2n is even, so nρn. Therefore ρ is
+reflexive.
+Symmetry: Take any n, m ∈ Z and suppose that nρm. This means that n + m
+is even. Because n + m = m + n, this implies that m + n is also even, so mρn and
+therefore ρ is symmetric.
+Transitivity: Take any n, m, k ∈ Z and suppose that nρm and mρk. This means
+that n + m and m + k are even, so n + m = 2a and m + k = 2b for some a, b ∈ Z.
+Notice that
+n + k = (n + m) + (k + m) − 2m = 2a + 2b − 2m = 2(a + b − m),
+which implies that n + k is even, and hence nρk. Therefore ρ is transitive.
+MARKING:
+For each part, 1 mark for correcting identifying that ρ has that property
+For each part, 1 mark for providing a valid proof
+
+

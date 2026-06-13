@@ -1,0 +1,1066 @@
+Semester Two Examinations, 2024
+
+MATH1061
+
+1. (a) For statement variables p, q and r, prove that
+(p → ↑ q) ↓ (q → r) ↔ (p → r)
+is a tautology.
+You may use either truth tables or logical equivalences. If you use logical equivalences, you
+should name the laws you use at each step.
+(4 marks)
+
+Truth table
+
+d
+
+I
+
+I
+T F
+
+T
+
+T T
+
+T
+
+T
+
+T
+
+T
+
+F T
+
+T
+
+T T
+
+T
+
+T
+
+T
+
+T
+
+F F
+
+T
+
+TT
+
+F
+
+F
+
+T
+
+F T T F F F
+F T F F F F
+T F T T
+F
+
+F
+
+T
+
+T
+T
+
+F
+
+T
+
+T
+
+F
+
+T
+
+T
+
+T
+
+T
+
+F F F
+
+F F
+
+T
+
+F
+
+T
+T
+T
+
+F
+
+F T T
+
+T
+
+All the
+i
+
+Page 3 of 19
+
+Tautology
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+(b) Find values of the statement variables a, b and c that show that the following argument is
+invalid. You do not need to show your working.
+1.
+2.
+3.
+
+a↔b
+↑a↔c
+↑b↔c
+
+↭
+
+b
+(2 marks)
+
+FALSE
+a
+
+FALSE
+
+1
+
+TRUE
+
+All premin
+
+Conclusi
+
+Page 4 of 19
+
+T
+F
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+2. (a) Prove the following statement:
+For all a, b ↗ N, if a is a perfect square and b is not a perfect square then a ↘ b is
+not a perfect square.
+Recall that N = {1, 2, 3, . . .} represents the natural numbers, and a perfect square is a number
+of the form x2 where x is an integer.
+(4 marks)
+
+Proof by
+
+contredit
+
+let a.be N a PS btPS ab PS
+c
+ab
+Then In prime decorp of
+
+all
+
+exponents
+
+b
+
+even
+
+has all exponents
+
+b
+
+I
+
+are
+
+is
+
+even
+
+P.S
+
+a
+
+CONTRADICTION
+
+(b) Find a counterexample that disproves the following statement:
+For all x ↗ R, ≃x2 ⇐ = ≃x⇐2 .
+
+You do not need to show your working.
+Recall that ≃·⇐ denotes the floor function.
+
+31
+
+2.9
+
+Lot
+
+(2 marks)
+
+Lf
+
+8
+i
+
+Page 5 of 19
+
+2
+
+LxJ 4
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+2. (c) Using the Euclidean algorithm, compute gcd(116, 88). Show your working.
+(3 marks)
+
+116
+
+1.88
+
+28
+
+88
+
+3 28
+
+4
+
+28
+
+7 4
+i
+
+to
+
+god 54
+
+(d) Using your answer to part (c), compute lcm(116, 88).
+(2 marks)
+
+lean
+
+116.881gal
+116
+
+8814
+Page 6 of 19
+
+2552
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+3. Let a0 , a1 , a2 , . . . be the sequence defined recursively by a0 = 0, a1 = 1, and
+an = an = 3an→1 ⇒ 2an→2 for all integers n ⇑ 2.
+(a) Compute the terms a2 , a3 and a4 .
+(3 marks)
+
+92
+
+3
+
+93
+
+7
+
+94
+
+15
+
+(b) Guess an explicit formula for this sequence, and prove that your formula is correct.
+(Hint: If you have trouble guessing, you may find that computing more terms can help.)
+(4 marks)
+
+2
+
+an
+
+1
+
+Proof
+
+on
+
+Base
+
+loves
+
+Recurrence
+
+9
+
+0
+
+20 1
+
+9
+
+1
+
+2
+
+Jan 1 Jan n
+
+an
+
+2 1.312
+I
+
+1
+
+2
+
+1
+
+3.2
+
+2
+
+1
+
+2.2
+
+2
+
+1
+
+2
+
+1
+
+262
+3
+
+1
+
+2
+I
+
+1
+
+Formula satisfies defi to
+Page 7 of 19
+
+correct
+
+2
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+4. (a) Write out the elements of {1, 2} ⇓ {1, 3}.
+
+(1 mark)
+
+B
+(b) Write out the elements of {1, 2} ⇔ {1, 3}.
+
+(1 mark)
+
+1,23
+(c) Write out the elements of {1, 2} ↘ {1, 3}.
+
+4.1
+
+1,3
+
+(2 marks)
+
+2,1 12,373
+
+(d) Write out the elements of P({1, 2}).
+
+d
+
+13
+
+73
+
+(2 marks)
+
+4233
+
+(e) What is the cardinality of P(P({1, 2}))? You should write your answer as a single integer.
+You do not need to show your working.
+(2 marks)
+
+24
+
+16
+Page 8 of 19
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+5. Consider the function f : R ↔ Z defined by f (x) = ≃x2 ⇐.
+Recall that ≃·⇐ denotes the floor function.
+
+(a) What is the image of the interval [⇒1, 1]? You do not need to show your working.
+(2 marks)
+
+0,13
+(b) What is the preimage of 1? You do not need to show your working.
+(2 marks)
+
+i
+
+E
+
+Er
+
+u
+
+I
+
+(c) Is f one-to-one? You should justify your answer with an explanation.
+(3 marks)
+
+No
+
+f
+
+flo
+
+o
+
+0
+
+(d) Is f onto? You should justify your answer with an explanation.
+(3 marks)
+
+2270
+
+No
+i
+
+no
+
+x
+
+x
+
+has
+
+Page 9 of 19
+
+f
+
+1
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+6. (a) Prove that the interval [0, 1] has the same cardinality as the set R+ of all positive real
+numbers.
+(Hint: You might wish to use the Schröder-Bernstein theorem.)
+(5 marks)
+
+1 1 fun
+
+f
+
+fail
+
+a
+
+Idt i
+
+i
+
+excl
+
+1 to
+
+t
+
+fee
+
+since
+
+for g let
+
+1 1
+
+g
+
+10,1
+
+Note
+
+i
+
+1 to 1
+
+sine
+
+gtl
+
+sty
+
+g D
+170
+
+oct
+
+4
+
+70 and gloc c
+
+ga
+i
+
+ga
+
+glory
+
+gyl
+
+913
+041 3
+1
+
+So
+
+By Schroder Bernstein
+a
+
+31
+
+RTI
+
+Page 10 of 19
+
+9
+
+it
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+6. (b) Does |Z| = |Q|? You do not need to show your working.
+
+(1 mark)
+
+Yes
+
+(c) Does |Z| = |Z ↘ Z|? You do not need to show your working.
+
+(1 mark)
+
+Yes
+
+(d) Does |R| = |Q ↘ Q|? You do not need to show your working.
+
+No
+Page 11 of 19
+
+(1 mark)
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+7. Define a relation ω on R by xωy if and only if x ↘ y > 0.
+
+Determine whether ω is reflexive, whether ω is symmetric, whether ω is transitive, and whether
+ω is antisymmetric. For each property, explain why or why not.
+(8 marks)
+
+Reflexive
+
+NI
+
+since
+
+0 0 70
+
+i
+
+Opo
+she xy70
+
+Symmte YES
+
+Transit
+
+YES
+
+siree
+
+yx70
+9770
+
+xy70
+3270
+
+xy
+
+22.570
+since
+
+2770
+
+1270
+
+land y f0
+
+since we
+
+know xZy
+
+NI
+
+Antisymmeter
+
+since
+1
+
+i
+
+70
+
+182
+
+270
+
+and
+
+Page 12 of 19
+
+2.170
+
+281 but 1 2
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+8. (a) What is the coe!cient of x2 in the expansion of (3 ⇒ x)6 ? You should give your answer as
+a single integer, and show your working.
+(2 marks)
+
+4 15 34
+
+81
+
+15
+
+1215
+(b) How many one-to-one functions are there from Z3 to Z5 ? You should give your answer as
+a single integer, and show your working.
+(3 marks)
+
+o
+
+5 chores
+
+f s
+
+4 choices
+
+left
+
+f
+
+3 chores
+
+left
+
+i
+
+2
+
+5 4
+
+3
+
+Page 13 of 19
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+8. (c) How many onto functions are there from Z5 to Z3 ? You should give your answer as a single
+integer, and show your working.
+(5 marks)
+
+forctions
+
+35
+
+243
+
+since 3
+choices of fan
+
+for each
+Functions
+
+Thge
+
+32
+32
+
+0
+
+25
+
+1
+
+i
+
+iwm
+Q2
+1
+i
+
+By
+
+Functors whose range
+
+i Onto
+
+243
+
+I
+
+2
+
+exclusion
+
+inclusion
+32
+
+I
+
+32
+
+32
+
+something
+1
+
+1
+
+1
+
+93
+
+93
+Page 14 of 19
+
+1501
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+9. Let G denote the group (Z2 ↘ Z2 , +). Here we have (a, b) + (c, d) = (a + c, b + d), where addition
+is done modulo 2.
+Let H denote the group (Z5 ⇒ {0}, ↘). Here multiplication is done modulo 5.
+Note that both G and H contain exactly four elements.
+(a) Write out the full Cayley tables for G and H.
+(4 marks)
+
+H
+r
+
+4
+
+E
+
+1
+
+3
+
+(b) Are the groups G and H isomorphic? Explain why or why not.
+(3 marks)
+
+It has
+
+elf of order 4
+
+an
+
+2
+
+G has all
+
+elts hang order
+
+2
+
+Page 15 of 19
+
+or
+
+1
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+10. (a) A graph has 10 edges and 6 vertices. Five of the vertices have degree 3. What is the degree
+of the remaining vertex?
+(3 marks)
+
+Handshake then
+
+i
+
+20
+
+2 e
+
+5.3
+
+Edges
+
+2 unknown
+
+agree
+
+i
+
+x
+
+(b) Consider the graph illustrated below. Does this graph have an Eulerian trail? You should
+justify your answer with an explanation.
+
+No
+There
+
+with
+
+we
+
+4
+
+vertees
+
+old degree
+
+Page 16 of 19
+
+(3 marks)
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+10. (c) Consider again the graph illustrated below. Prove that there is no walk of odd length that
+starts at vertex X and ends at vertex Y .
+
+Colour vetoes
+(4 marks)
+
+07
+
+00
+
+0
+
+d b d
+
+Evey step
+i
+
+is
+
+black
+
+whole
+
+must
+Odd walk from
+end
+on
+black
+
+But
+
+I
+
+white
+
+END OF EXAMINATION
+Page 17 of 19
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+MATH1061/MATH7861 Examination Formula Pages
+Logical Equivalences
+Given any statement variables p, q and r, the following logical equivalences hold, where t denotes a
+tautology and c denotes a contradiction:
+Commutative laws
+p↓q ↖q↓p
+p→q ↖q→p
+Associative laws
+(p ↓ q) ↓ r ↖ p ↓ (q ↓ r)
+(p → q) → r ↖ p → (q → r)
+Distributive laws
+p ↓ (q → r) ↖ (p ↓ q) → (p ↓ r) p → (q ↓ r) ↖ (p → q) ↓ (p → r)
+Identity laws
+p↓t↖p
+p→c↖p
+Negation laws
+p→↑p↖t
+p↓↑p↖c
+Double negative laws ↑ (↑ p) ↖ p
+Idempotent laws
+p↓p↖p
+p→p↖p
+Universal bound laws p → t ↖ t
+p↓c↖c
+De Morgan’s laws
+↑ (p ↓ q) ↖ ↑ p → ↑ q
+↑ (p → q) ↖ ↑ p ↓ ↑ q
+Absorption laws
+p → (p ↓ q) ↖ p
+p ↓ (p → q) ↖ p
+Negations of t and c ↑ t ↖ c
+↑c↖t
+Valid Argument Forms
+Modus Ponens
+
+Modus Tollens
+
+Generalization
+
+(a)
+
+Specialization
+
+(a)
+
+Conjunction
+
+p↔q
+p
+↭q
+p↔q
+↑q
+↭↑ p
+p
+↭p→q
+p↓q
+↭p
+p
+q
+↭p↓q
+
+Elimination
+
+Transitivity
+
+(b)
+(b)
+
+q
+↭p→q
+p↓q
+↭q
+
+Proof by
+division into cases
+
+Contradiction Rule
+
+(a)
+
+p→q
+↑q
+↭p
+p↔q
+q↔r
+↭p↔r
+p→q
+p↔r
+q↔r
+↭r
+↑p↔c
+↭p
+
+(b)
+
+Set Identities
+Given any sets A, B and C that are subsets of a universal set U , the following laws hold:
+1. Commutative Laws
+2. Associative Laws
+3. Distributive Laws
+4. Identity Laws
+5. Complement Laws
+6. Double Complement Law
+7. Idempotent Laws
+8. Universal Bound Laws
+9. De Morgan’s Laws
+10. Absorption Laws
+11. Complement of U and ↙
+12. Set Di”erence Law
+
+(a) A ⇔ B = B ⇔ A (b) A ⇓ B = B ⇓ A
+(a) (A ⇔ B) ⇔ C = A ⇔ (B ⇔ C)
+(b) (A ⇓ B) ⇓ C = A ⇓ (B ⇓ C)
+(a) A ⇔ (B ⇓ C) = (A ⇔ B) ⇓ (A ⇔ C)
+(b) A ⇓ (B ⇔ C) = (A ⇓ B) ⇔ (A ⇓ C)
+(a) A ⇔ ↙ = A (b) A ⇓ U = A
+(a) A ⇔ Ac = U (b) A ⇓ Ac = ↙
+(Ac )c = A
+(a) A ⇔ A = A (b) A ⇓ A = A
+(a) A ⇔ U = U (b) A ⇓ ↙ = ↙
+(a) (A ⇔ B)c = Ac ⇓ B c (b) (A ⇓ B)c = Ac ⇔ B c
+(a) A ⇔ (A ⇓ B) = A (b) A ⇓ (A ⇔ B) = A
+(a) U c = ↙ (b) ↙c = U
+A ⇒ B = A ⇓ Bc
+Page 18 of 19
+
+p→q
+↑p
+↭q
+
+Semester Two Examinations, 2024
+
+MATH1061
+
+The Quotient-Remainder Theorem Given any integer n and any positive integer d, there exist
+unique integers q and r such that n = dq + r and 0 ∝ r < d.
+Unique Factorisation Theorem Given any integer n > 1, there exists a positive integer k, distinct
+prime numbers p1 , p2 , . . . , pk , and positive integers e1 , e2 , . . . , ek such that n = pe11 pe22 · · · pekk , and any
+other expression for n as a product of prime numbers is identical to this except perhaps for the order
+in which the factors are written.
+Schröder-Bernstein Theorem For all sets A and B, if |A| ∝ |B| and |A| ⇑ |B| then |A| = |B|.
+Binomial Theorem Given any real numbers a and b, and any nonnegative integer n,
+n
+
+(a + b) =
+
+n " #
+!
+n
+k=0
+
+k
+
+an→k bk .
+
+Page 19 of 19
+
+

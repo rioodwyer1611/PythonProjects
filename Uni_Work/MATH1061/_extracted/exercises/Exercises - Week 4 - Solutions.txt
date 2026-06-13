@@ -1,0 +1,51 @@
+SOLUTIONS - Exercise - Week 4: MATH1061/7861
+Problems. Prove or disprove the following statements:
+(1) ∀ m ∈ Z, ∃ n ∈ Z, such that m + n is odd and mn is even.
+
+(3 marks)
+
+The statement is true and we use a direct proof to show this.
+Proof. If m is even, then m = 2k for some k ∈ Z. Choose n = m + 1 = 2k + 1
+which is an integer since k ∈ Z.
+Then m + n = 2k + 2k + 1 = 2(2k) + 1 and mn = 2k(2k + 1) = 2(2k 2 + k).
+Since k ∈ Z, we know that 2k ∈ Z and (2k + 1) ∈ Z. Therefore, m + n is odd and
+mn is even.
+If m is odd, then m = 2k + 1 for some k ∈ Z. Choose n = m − 1 = 2k. Then
+m + n = 2(2k) + 1 and mn = 2(2k + 1) as before, and so they are odd and even
+respectively.
+□
+MARKING:
+1 mark for mentioning that the statement is true.
+2 marks for the proof of the statement (1 mark if the proof is in the right direction,
+but some mistakes are made). No marks if only an example for a specific m is
+given.
+(2) For all x ∈ Z, there exists y ∈ Z such that x = 3y + 5.
+
+(3 marks)
+
+This statement is false. If x = 1 then to satisfy the predicate we need y = −4
+3
+but that is not an integer.
+MARKING:
+1 mark for mentioning that the statement is false.
+2 marks for a valid counter-example.
+(3) There is no smallest positive real number.
+
+(4 marks)
+
+This statement is true. It can be written as
+∀x ∈ R>0 , ∃y ∈ R>0 such that y < x
+or equivalently as
+∼ (∃x ∈ R>0 such that ∀y ∈ R>0 , x ≤ y) .
+To prove this statement, take any x ∈ R>0 . Let y = x2 . Then y is a positive
+real number and y < x.
+MARKING:
+1 mark for interpreting the statement correctly (either by writing out a formal
+statement involving quantifiers, or implicitly by proceeding in the correct way for
+the proof).
+1 mark for mentioning that the statement is false.
+2 marks for the proof of the statement (1 mark if the proof is in the right direction,
+but some mistakes are made).
+1
+
+

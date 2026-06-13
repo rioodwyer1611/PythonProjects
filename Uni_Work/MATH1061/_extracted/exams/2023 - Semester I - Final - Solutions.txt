@@ -1,0 +1,536 @@
+Semester One Examinations, 2023
+
+MATH7861
+
+This exam paper must not be removed from the venue
+
+Venue
+
+____________________
+
+Seat Number
+
+__________
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+____________________
+
+First Name
+
+____________________
+
+School of Mathematics & Physics
+Semester One Examinations, 2023
+MATH7861 Discrete Mathematics
+This paper is for St Lucia Campus students.
+For Examiner Use Only
+
+Examination Duration: 120 minutes
+Planning Time:
+
+Question
+
+10 minutes
+
+Exam Conditions:
+
+Mark
+
+1
+
+•This is a Closed Book examination - no written materials permitted
+•Casio FX82 series or UQ approved and labelled calculator only
+•During Planning Time - Students are encouraged to review and plan
+responses to the exam questions
+•This examination paper will be released to the Library
+Materials Permitted in the Exam Venue:
+(No electronic aids are permitted e.g. laptops, phones)
+None
+
+2
+3
+4
+5
+6
+
+Materials to be supplied to Students:
+Additional exam materials (e.g. answer booklets, rough paper) will
+be provided upon request.
+
+7
+8
+
+None
+Instructions to Students:
+If you believe there is missing or incorrect information impacting
+your ability to answer any question, please state this when writing
+your answer.
+Complete all examination questions in the space provided on this
+examination paper. If more space is required, use the backs of pages.
+The final page is a formula sheet, which you may detach. Nothing written
+on the formula sheet will be marked. Answers will be marked based on
+correctness, quality of expression, depth of understanding
+demonstrated, and clarity of explanation. If you have any queries about
+a particular examination question, or if you make any assumptions about
+the meaning of an examination question, please state this clearly at the
+start of your solution to the examination question.
+
+9
+10
+11
+12
+13
+14
+15
+
+Total _________
+Out of 70
+Page 1 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 1. Let p and q be statement variables.
+(a) Use a truth table to show that ∼ p ∨ (p ∧ q) ≡ p → q.
+
+(2 marks)
+
+(b) Define a new logical connective □ as p □ q ≡ p → ∼ q. Use the Laws of Logical Equivalence, the
+equivalence of → to a disjunction, and the definition of □ to show that
+(p □ q) □ p ≡ p → q.
+Show your working and name the laws that you use at each step.
+(3 marks)
+
+Page 2 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 2. Consider the following statement.
+∀x ∈ R, ∃y ∈ Z such that x ≤ y.
+(a) Write the negation of the statement.
+
+(1 mark)
+
+(b) Determine whether the original statement or its negation is true and briefly explain why.
+(2 marks)
+
+Page 3 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 3. Prove the following statement by contradiction. For all real numbers r, s, and n, if r is
+irrational and s is rational and n is a positive integer, then n(r − s) is irrational.
+(5 marks)
+
+Page 4 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 4. Consider the sequence {bn }n≥1 defined recursively as
+b1 = 2,
+
+b2 = 6
+
+and
+
+bk = bk−1 + bk−2 + gcd(bk−1 , bk−2 ) for each integer k ≥ 3.
+
+Use (strong) mathematical induction to prove that bn is even for each integer n ≥ 1.
+(5 marks)
+
+Page 5 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 5. Let A = {1, 2}, B = {2, 3} and C = {1, 2, 3}.
+(a) Indicate whether each of the following statements is true or false and provide a brief explanation.
+(3 marks)
+(i) A ∩ B ∈ C.
+
+(ii) {A, B} is a partition of C.
+
+(iii) | B − C |≤ | C − B |.
+
+(b) List the elements of each of the following sets.
+(2 marks)
+(i) A × B.
+
+(ii) P(B).
+
+Page 6 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 6. Let Z+ be the set of positive integers and Q+ be the set of positive rationals. Define a
+function f : Z+ × Z+ → Q+ by
+a
+f ((a, b)) = .
+b
+(a) Is f injective (one one)? Justify your answer.
+(2 marks)
+
+(b) Is f surjective (onto)? Justify your answer.
+(2 marks)
+
+(c) Suppose that g : Z+ × Z+ → Q+ is an onto function. What does this tell us about the cardinalities
+of Z+ × Z+ and Q+ ?
+(1 mark)
+
+Page 7 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 7. Recall that [a, b] = {x ∈ R | a ≤ x ≤ b} and (a, b) = {x ∈ R | a < x < b}.
+Prove that |[6, 12]| ≤ |(6, 12)|.
+(5 marks)
+
+Page 8 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 8. Consider the relation R on Z+ defined by
+a R b ↔ (a + b) is even.
+(a) Prove that R is an equivalence relation.
+(4 marks)
+
+(b) How many equivalence classes does R have? Justify your answer.
+(2 marks)
+
+Page 9 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 9. Consider a relation ρ defined on the set {1, 2, 3} such that ρ satisfies each of the following:
+ (2, 3) ∈ ρ
+ (3, 2) ∈ ρ
+ (1, 1) ∈
+/ρ
+ ρ is transitive
+ ρ is not symmetric
+ ρ is not antisymmetric.
+
+Draw an arrow diagram for a relation ρ that satisfies these properties.
+(2 marks)
+
+Page 10 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 10. Define a binary operation ◦ on Z by x ◦ y = 2xy + x + y. You may assume that
+multiplication and addition in the integers is associative and commutative.
+(a) Is ◦ commutative? Justify your answer.
+
+(2 marks)
+
+(b) Prove that the binary operation ◦ has an identity.
+
+(2 marks)
+
+(c) Is (Z, ◦) a group? Justify your answer.
+
+(2 marks)
+
+Page 11 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 11. Solve the equation 16x − 13 = 4 in the field (Z53 , +, ·). Hence determine the smallest
+positive integer y such that 16y − 13 ≡ 4 (mod 53). (Hint: 16 × 10 = 53 × 3 + 1.)
+(3 marks)
+
+Page 12 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+For each part (a), (b) and (c) of Question 12, you do not need to compute an integer answer; you may
+give a mathematical expression that answers the question.
+Question 12. Since mid-2020, new car number plates in Queensland consist of three digits from
+0, 1, 2, . . . , 9 followed by two letters from the alphabet of 26 letters, followed by a further digit. Number
+plates may have repeated digits and letters. For example, these are valid number plates under this
+system:
+929 XY9
+
+002 BB4
+
+339 ZA2
+
+124 IF0
+
+(a) What is the probability that a randomly chosen number plate made under this system has no
+repeated digits and no repeated letters?
+(3 marks)
+
+(b) Under this system, how many different number plates contain at least two occurrences of the digit
+2?
+(3 marks)
+
+Question 12 continues over...
+Page 13 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+(c) Under this system, how many different number plates use only prime numbers as digits or use
+only vowels (A, E, I, O, U) as letters? (Note that “or” is inclusive or.)
+(3 marks)
+
+Page 14 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 13. Let S = {n ∈ Z | 1 ≤ n ≤ 33}. Prove that if A is any subset of S containing 23
+elements, then there exist three distinct elements x, y, z ∈ A such that x ≡ y ≡ z (mod 11).
+(3 marks)
+
+Page 15 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 14. Let G be the graph with the following adjacency matrix.
+a
+a 0
+b
+ 1
+c
+ 0
+d 0
+e 3
+
+
+b
+1
+0
+2
+0
+0
+
+c
+0
+2
+0
+1
+1
+
+d
+0
+0
+1
+0
+1
+
+e
+
+3
+0 
+
+1 
+
+1 
+0
+
+(a) Draw the graph G.
+
+(2 marks)
+
+(b) Does G has an Euler circuit? Does G have an Euler trail? Justify your answers.
+(2 marks)
+
+Page 16 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+Question 15. Let T be a tree on 12 vertices. Suppose T has exactly three vertices of degree 3 and
+each of the remaining vertices has degree 1 or 5. Using theorems that were given in lectures, determine
+the number of vertices of degree 5. Explain your reasoning.
+(4 marks)
+
+END OF EXAMINATION
+Page 17 of 18
+
+Semester One Examinations, 2023
+
+MATH7861
+
+MATH1061/MATH7861 Examination Formula Page
+Logical Equivalences
+Given any statement variables p, q and r, a tautology t and a contradiction c, the following logical equivalences hold.
+Commutative laws
+p∧q ≡q∧p
+p∨q ≡q∨p
+Associative laws
+(p ∧ q) ∧ r ≡ p ∧ (q ∧ r)
+(p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
+Distributive laws
+p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)
+Identity laws
+p∧t≡p
+p∨c≡p
+Negation laws
+p∨ ∼ p ≡ t
+p∧ ∼ p ≡ c
+Double negative laws ∼ (∼ p) ≡ p
+Idempotent laws
+p∧p≡p
+p∨p≡p
+Universal bound laws p ∨ t ≡ t
+p∧c≡c
+De Morgan’s laws
+∼ (p ∧ q) ≡∼ p ∨ ∼ q
+∼ (p ∨ q) ≡∼ p ∧ ∼ q
+Absorption laws
+p ∨ (p ∧ q) ≡ p
+p ∧ (p ∨ q) ≡ p
+Negations of t and c ∼ t ≡ c
+∼c≡t
+Valid Argument Forms
+
+Modus Ponens
+
+Modus Tollens
+
+Generalization
+
+(a)
+
+Specialization
+
+(a)
+
+Conjunction
+
+p→q
+p
+∴q
+p→q
+∼q
+∴∼ p
+p
+∴p∨q
+p∧q
+∴p
+p
+q
+∴p∧q
+
+Elimination
+
+(a)
+
+Transitivity
+
+(b)
+(b)
+
+q
+∴p∨q
+p∧q
+∴q
+
+Proof by
+division into cases
+
+Contradiction Rule
+
+p∨q
+∼q
+∴p
+p→q
+q→r
+∴p→r
+p∨q
+p→r
+q→r
+∴r
+∼p→c
+∴p
+
+(b)
+
+p∨q
+∼p
+∴q
+
+Set Identities For all sets A, B and C that are subsets of a universal set U :
+1. Commutative Laws
+(a) A ∪ B = B ∪ A (b) A ∩ B = B ∩ A
+2. Associative Laws
+(a) (A ∪ B) ∪ C = A ∪ (B ∪ C)
+(b) (A ∩ B) ∩ C = A ∩ (B ∩ C)
+3. Distributive Laws
+(a) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+(b) A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+4. Identity Laws
+(a) A ∪ ∅ = A (b) A ∩ U = A
+5. Complement Laws
+(a) A ∪ Ac = U (b) A ∩ Ac = ∅
+6. Double Complement Law (Ac )c = A
+7. Idempotent Laws
+(a) A ∪ A = A (b) A ∩ A = A
+8. Universal Bound Laws
+(a) A ∪ U = U (b) A ∩ ∅ = ∅
+9. De Morgan’s Laws
+(a) (A ∪ B)c = Ac ∩ B c (b) (A ∩ B)c = Ac ∪ B c
+10. Absorption Laws
+(a) A ∪ (A ∩ B) = A (b) A ∩ (A ∪ B) = A
+11. Complement of U and ∅ (a) U c = ∅ (b) ∅c = U
+12. Set Difference Law
+A − B = A ∩ Bc
+The Quotient-Remainder Theorem Given any integer n and any positive integer d, there exist unique integers q
+and r such that n = dq + r and 0 ≤ r < d.
+Unique Factorisation Theorem Given any integer n > 1, there exists a positive integer k, distinct prime numbers
+e
+e e
+p1 , p2 , . . . , pk , and positive integers e1 , e2 , . . . , ek such that n = p11 p22 · · · p k , and any other expression for n as a
+k
+product of prime numbers is identical to this except perhaps for the order in which the factors are written.
+Schröder-Bernstein Theorem For all sets A and B, if |A| ≤ |B| and |A| ≥ |B| then |A| = |B|.
+Binomial Theorem Given any real numbers a and b, and any nonnegative integer n,
+(a + b)n =
+
+n  
+X
+n
+k=0
+
+k
+
+an−k bk .
+
+Page 18 of 18
+
+

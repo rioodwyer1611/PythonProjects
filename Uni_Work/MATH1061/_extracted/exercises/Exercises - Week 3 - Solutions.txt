@@ -1,0 +1,56 @@
+SOLUTIONS - Exercise - Week 3: MATH1061/7861
+
+1. (3 marks) Is the following statement true or false? Justify your answer.
+(p ∧ q) → r ≡ (∼ p) → (q → r).
+The statement is false.
+Consider the valuation with p false, q true and r false. Looking at the left-hand
+side, p ∧ q is false, so (p ∧ q) → r is true. However, looking at the right-hand side,
+we see that q → r is false, so (∼ p) → (q → r) is false. Thus the two sides of the
+statement are not the same, and hence it is false.
+MARKING:
+1 mark for mentioning that the statement is false.
+2 marks for justification (if they use laws of logical equivalence, they still must give
+a valuation to show the sides are not equivalent).
+Using a truth-table is also correct justification.
+2. (3 marks) Is the following argument valid? Justify your answer.
+p→q
+p∨r
+p∨∼r
+∴∼q
+The argument is invalid.
+Consider the valuation with p, q and r all true. Then the premises are true, as
+p → q is true, p ∨ r is true, and p ∨ ∼ r is true. However, the conclusion ∼ q is
+false. Thus the argument is invalid.
+MARKING:
+1 mark for mentioning that the argument is invalid.
+2 marks for justification (they could also use a truth table; or they could also show
+that the same premises imply q, and hence this argument is false).
+
+1
+
+3. (4 marks) For each of the following statements, write the negation. Determine
+whether the original statement or the negation is true. Justify your answer.
+
+(a) ∀x ∈ R, (x2 ≥ x) → (x ≥ 0).
+Negation: ∃x ∈ R such that (x2 ≥ x) ∧ (x < 0)
+The original statement is false.
+For example, consider x = −1. Then x2 = (−1)2 = 1 ≥ −1 and x < 0.
+MARKING:
+1 mark for stating the negation correctly.
+1 mark for justification that the original statement is false.
+Comment (with no deductions) if students do not use “such that” (or “s.t.”
+etc) after “∃x ∈ R”.
+(b) ∀x, y ∈ R, if x + y ∈ Z and x − y ∈ Z then x ∈ Z.
+Negation: ∃x, y ∈ R such that x + y ∈ Z and x − y ∈ Z and x ∈
+/ Z.
+The original statement is false.
+For example, consider x = 1/2 and y = 1/2. Then x + y = 1 is an integer and x − y = 0 is an integer, but x is not an integer.
+MARKING:
+1 mark for stating the negation correctly.
+1 mark for justification that the original statement is false.
+Comment (with no deductions) if students do not use “such that” (or “s.t.”
+etc) after “∃x ∈ R”.
+
+2
+
+

@@ -1,0 +1,99 @@
+SOLUTIONS - Exercise - Week 11: MATH1061/7861
+(1) (4 marks) Determine which of the following is a subgroup of (Z8 , +). Justify
+your answer.
+Recall we write 0 for the equivalence class [0] and similarly for other elements. In
+this notation, Z8 = {0, 1, 2, 3, 4, 5, 6, 7}.
+(a) {0}.
+This is a subgroup.
+Observe that 0 + 0 = 0, so it is closed, the identity is 0 and the inverse of 0
+is 0.
+
+(b) {0, 3}.
+This is not a subgroup.
+3 + 3 = 6, which is not in the set. Thus, it is not closed.
+
+(c) {0, 2, 4, 6}.
+This is a subgroup. There are two options: draw a Cayley table or prove the
+properties algebraically. A Cayley table is much easier.
++ 0 2 4 6
+0 0 2 4 6
+2 2 4 6 0
+4 4 6 0 2
+6 6 0 2 4
+From the Cayley table, it is clear that it is closed. The first row and column
+match the headers, so 0 is the identity. By looking at the locations of the 0s,
+we see that 0−1 = 0, 2−1 = 6, 4−1 = 4 and 6−1 = 2.
+Alternatively, for all x ∈ {0, 2, 4, 6} note that x = 2k for some k ∈ Z. Thus,
+for all x, y ∈ {0, 2, 4, 6}, take x = 2k and y = 2m for some k, m ∈ Z. Then
+x + y = 2k + 2m = 2(k + m). Considering this value modulo 8, we get that
+2(k + m) = 8q + r, and since 2(k + m) and 8q are both even, r must also
+be even. Thus, 2(k + m) ≡ r (mod 8) where r ∈ {0, 2, 4, 6}. Therefore, it is
+closed.
+For all x ∈ {0, 2, 4, 6}, 0 + x = x = x + 0. Thus, 0 is the identity. Observe
+that 0 + 0 = 0, 2 + 6 ≡ 0 (mod 8) ≡ 6 + 2 and 4 + 4 ≡ 0 (mod 8). Therefore,
+0−1 = 0, 2−1 = 6, 4−1 = 4 and 6−1 = 2.
+MARKING:
+1 mark for identifying that {0} is a subgroup and justifying that it is closed, contains the identity, and contains all inverses
+1 mark for identifying that {0, 3} is not a subgroup (either by providing a counterexample to closure or inverse)
+1 mark for noting that {0, 2, 4, 6} is closed
+1 mark for justifying why {0, 2, 4, 6} contains inverses and the identity
+
+1
+
+2
+
+(2) (3 marks) Solve the equation 10x + 9 = 6 in the field (Z17 , +, ×). Show your
+working clearly.
+Notice that 10×12 ≡ 120 ≡ 1 (mod 17). Using this we can calculate as follows:
+10x + 9 ≡ 6
+
+(mod 17)
+
+10x ≡ −3
+
+(mod 17)
+
+10x ≡ 14
+
+(mod 17)
+
+From the hint: 10 · 12 ≡ 1
+
+(mod 17), so we multiply by 12.
+
+12 · 10x ≡ 12 · 14
+1 · x ≡ 168
+
+(mod 17)
+
+(mod 17)
+
+x ≡ 9 · 17 + 15
+≡ 15
+
+(mod 17)
+
+(mod 17)
+
+Therefore, x = 15 in the field.
+MARKING:
+1 mark for obtaining 10x ≡ 14 (mod 17)
+2 marks for a correct reduced final answer (1 mark if the final answer is equivalent
+to 15 modulo 17, but is not reduced)
+
+(3) (3 marks) How many arrangements of the letters in “MATHEMATICS” begin
+and end with the same letter?
+There are 3 possible letters that can start the word: “A”, “M” or “T”. For any
+of these choices, there are 9 remaining letters to rearrange in the middle, with 2
+remaining duplicate pairs of letters, so there are 9!/4 ways to rearrange the middle
+9 letters. Thus in total, there are
+9!
+3 × = 272160
+4
+arrangements.
+MARKING:
+1 mark for observing the 3 choices of initial and final letter pairs
+1 mark for identifying that there are 9!/4 ways to rearrange the middle 9 letters
+1 mark for a correct final answer (either as a number, or as an equation)
+
+

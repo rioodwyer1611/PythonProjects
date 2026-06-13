@@ -1,0 +1,63 @@
+SOLUTIONS - Exercise - Week 6: MATH1061/7861
+(1) (4 marks)
+(a) (2 marks) Use the Euclidean Algorithm to compute gcd(252, 198).
+252 = 1 × 198 + 54
+198 = 3 × 54 + 36
+54 = 1 × 36 + 18
+36 = 2 × 18 = 0
+Therefore, we have gcd(252, 198) = 18.
+MARKING:
+1 mark for correct algorithmic steps.
+1 mark for identifying the GCD.
+(b) (2 marks) Find the prime factorisation of 252 and 198.
+252 = 2 × 126 = 2 × 2 × 63 = 2 × 2 × 3 × 21 = 2 × 2 × 3 × 3 × 7 = 22 × 32 × 7
+198 = 2 × 99 = 2 × 3 × 33 = 2 × 3 × 3 × 11 = 2 × 32 × 11
+Therefore, the prime factorisation of 252 is 22 × 32 × 7 and the prime factorisation of 198 is 2 × 32 × 11.
+MARKING:
+1 mark for correct prime factorisation of 252.
+1 mark for correct prime factorisation of 198.
+
+1
+
+2
+
+(2) (6 marks) The Fibonacci Sequence F1 , F2 , F3 , . . . is defined by
+F1 = 1,
+
+F2 = 1,
+
+Fn+1 = Fn + Fn−1
+
+∀n ≥ 2.
+
+n
+
+Use strong induction to prove that Fn < 2 for all positive integers n.
+(1 mark) Base cases:
+Notice that F1 = 1 < 2 = 21 and F2 = 1 < 4 = 22 , so the statement is true for
+n = 1 and n = 2.
+(2 marks) Inductive Assumption:
+Suppose that F1 < 21 , F2 < 22 , . . . , Fk < 2k for some k ≥ 2.
+(1 mark) What we need to prove:
+We want to show that Fk+1 < 2k+1 .
+(2 marks) Inductive Step:
+Since k ≥ 2, we have k + 1 ≥ 3 and so
+Fk+1 = Fk + Fk−1
+< 2k + 2k−1
+
+(As Fk < 2k and Fk−1 < 2k−1 by the inductive hypothesis)
+
+< 2k + 2 · 2k−1
+= 2k + 2n
+= 2 · 2k
+= 2k+1 .
+Therefore, by the principle of strong mathematical induction, Fn < 2n for all
+n ≥ 1.
+MARKING:
+1 mark for correct base cases.
+1 mark for the inductive statement.
+1 mark for including the bound k ≥ 2 in the inductive statement.
+1 mark for stating what is needed to be proven in the inductive step.
+2 marks for a valid proof of the inductive step.
+
+

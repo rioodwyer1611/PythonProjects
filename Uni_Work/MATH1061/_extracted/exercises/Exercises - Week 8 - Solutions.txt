@@ -1,0 +1,60 @@
+SOLUTIONS - Exercise - Week 8: MATH1061/7861
+Let f : Z → Z be defined by f (x) = 2x2 − 1.
+Let g : Z → Z be defined by g(y) = y + 2.
+(1) (1 mark) What is the image of Z≥2 under g?
+The image is Z≥4 .
+MARKING:
+1 mark for correct answer.
+
+(2) (1 mark) Determine f −1 (7).
+The pre-image will be solutions to 2x2 −1 = 7, which are equivalent to solutions
+to x2 = 4. Thus, the pre-image is f −1 (4) = {−2, 2}.
+MARKING:
+1 mark for correct answer, including set notation.
+
+(3) (2 marks) Is f one to one? Justify your answer.
+The function f is not one to one. For example, notice that f (2) = 7 = f (−2).
+MARKING:
+1 mark for correctly identifying the function is not one to one.
+1 mark for providing a valid counter-example.
+
+(4) (2 marks) Is f onto? Justify your answer.
+The function f is not onto. For example, there is no integer x such that f (x) =
+2
+2
+3. If there was such an integer
+√ x, then
+√ we would have 2x − 1 = 3 and so x = 2,
+which is only satisfied by 2 and − 2 but these are not integers.
+MARKING:
+1 mark for correctly identifying the function is not onto.
+1 mark for providing a valid counter-example.
+
+1
+
+2
+
+(5) (1 mark) Determine the composition f ◦ g.
+The composition f ◦ g is the function mapping integers x to 2(x + 2)2 − 1.
+Equivalently, it maps integers x to 2x2 + 8x + 7.
+MARKING:
+1 mark for correct answer.
+
+(6) (1 mark) Determine the composition g ◦ f .
+The composition g◦f is the function mapping integers x to (2x2 −1)+2 = 2x2 +1.
+MARKING:
+1 mark for correct answer.
+
+(7) (2 marks) Is g ◦ g is bijective? Justify your answer.
+The function g ◦ g is bijective. First, to simplify our working, notice that
+(g ◦ g)(x) = (x + 2) + 2 = x + 4.
+To show g ◦ g is injective, suppose that (g ◦ g)(x) = (g ◦ g)(y) for some integers
+x and y. Then x + 4 = y + 4, so x = y and thus g ◦ g is injective.
+To show g ◦ g is surjective, take any y ∈ Z. Then (g ◦ g)(y − 4) = (y − 4) + 4 = y,
+and hence g ◦ g is surjective.
+As g ◦ g is both injective and surjective, it is bijective.
+MARKING:
+1 mark for injectivity.
+1 mark for surjectivity.
+
+

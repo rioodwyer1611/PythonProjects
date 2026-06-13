@@ -1,0 +1,498 @@
+Semester 1 Examinations, 2025
+
+MATH1061
+
+This exam paper must not be removed from the venue
+
+Venue
+
+____________________
+
+Seat Number
+
+__________
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+____________________
+
+First Name
+
+____________________
+
+School of Mathematics & Physics
+Semester 1 Examinations, 2025
+MATH1061 Discrete Mathematics
+This paper is for St Lucia Campus students.
+Examination Duration: 120 minutes
+Planning Time:
+
+For Examiner Use Only
+Question
+
+10 minutes
+
+Exam Conditions:
+
+1
+
+•No written or printed material permitted
+•Casio FX82 series or UQ approved and labelled calculator only
+•During Planning Time - Students are encouraged to review and plan
+responses to the exam questions
+
+2
+
+Materials Permitted in the Exam Venue:
+(No electronic aids are permitted e.g. laptops, phones)
+None
+
+Mark
+
+3
+4
+5
+6
+
+Materials to be supplied to Students:
+Additional exam materials (e.g. answer booklets, rough paper) will
+be provided upon request.
+None
+
+7
+8
+9
+
+Instructions to Students:
+If you believe there is missing or incorrect information impacting
+your ability to answer any question, please state this when writing
+your answer.
+Complete all examination questions in the space provided on this
+examination paper. If more space is required, use the backs of pages.
+The final page is a formula sheet, which you may detach. Nothing written
+on the formula sheet will be marked. Answers will be marked based on
+correctness, quality of expression, depth of understanding
+demonstrated, and clarity of explanation.
+
+10
+11
+12
+13
+14
+
+Total _________
+out of 65
+
+Page 1 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+1. Let p, q and r be statements. Use the laws of logical equivalence to show that
+p → (q ∨ r) ≡ (p ∧ ∼ q) → r.
+(3 marks)
+
+Page 2 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+2. For each of the following statements, write down the negation of the statement, and state which of
+the original or the negation is true. Justify your answers.
+(a) ∃x ∈ Z+ such that ∀y ∈ Z+ , x ≥ y.
+(2 marks)
+
+(b) ∀r, s ∈ R, if rs ∈ Q, then r ∈ Q and s ∈ Q.
+(2 marks)
+
+Page 3 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+3. For each of the following statements, either prove the statement or give a counterexample to
+disprove the statement.
+(5 marks)
+(a) For all a, b, c ∈ Z+ , if a | b and b | c, then a | (b + c).
+
+(b) For all a, b, c ∈ Z+ , if a | (b + c), then a | b or a | c.
+
+Page 4 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+4. Use mathematical induction to prove that 3n + 5 < 4n for each integer n ≥ 2.
+(5 marks)
+
+Page 5 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+5. (a) Use the Euclidean algorithm to determine gcd(931, 301). Show your working.
+(2 marks)
+
+(b) Write down the unique prime factorisation of 931 in standard form.
+(1 mark)
+
+(c) How many positive divisors does 931 have? (Hint: use part (b)).
+(1 mark)
+
+Page 6 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+6. Recall that ∅ denotes the empty set. Let A = {1, 2}, B = {−1, 2}, and C = {∅, {−1}}.
+Write down the following sets, by listing their elements and using appropriate brackets.
+(5 marks)
+(a) A ∪ B
+
+(b) B ∩ C
+
+(c) P(C)
+
+(d) (A × B) − (B × B)
+
+(e) {X | (X ⊆ A) ∧ (X ∈ C)}
+
+Page 7 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+7. (a) Consider the function f : Z+ × Z+ → Z+ where for each element (m, n) ∈ Z+ × Z+ we define
+f ((m, n)) = 2m 3n .
+(i) Determine f ((3, 1)).
+(1 mark)
+
+(ii) Determine the pre-image of {36}.
+(2 marks)
+
+(iii) Prove that the function f is one-to-one.
+(4 marks)
+
+(b) Let A and B be sets. Which one of the following statements is implied by the existence of a
+one-to-one function g : A → B? (circle your answer)
+(1 mark)
+|A| ≥ |B|
+
+|A| ≤ |B|
+
+|A| = |B|
+
+Page 8 of 16
+
+|A| =
+6 |B|
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+8. Let ρ be the relation defined on Z+ as follows. For all a, b ∈ Z+ , aρb if and only if
+a2 − b 2 ≡ 0
+
+(mod 5).
+
+(a) Prove that ρ is an equivalence relation.
+(5 marks)
+
+(b) How many equivalence classes does the relation ρ have?
+(1 mark)
+
+(c) List the elements of the equivalence class [1] that are greater than 1 and less than 10.
+(1 mark)
+
+Page 9 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+9. The Cayley table for a group (G, ∗) is given below. (You do not need to prove that this is a group.)
+∗ a
+a a
+b b
+c c
+d d
+e e
+f f
+
+b
+b
+a
+e
+f
+c
+d
+
+c
+c
+f
+a
+e
+d
+b
+
+d
+d
+e
+f
+a
+b
+c
+
+e
+e
+d
+b
+c
+f
+a
+
+f
+f
+c
+d
+b
+a
+e
+
+(a) Is this group abelian? Justify your answer.
+(1 mark)
+
+(b) Which element is the identity of this group? Justify your answer.
+(1 mark)
+
+(c) Which element is the inverse of the element b? Justify your answer.
+(1 mark)
+
+(d) Write down the elements of the subgroup < e >.
+(1 mark)
+
+Page 10 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+10. Solve the equation 9x−7 = 4 in the field (Z23 , +, ·), and hence determine the smallest non-negative
+integer y such that 9y − 7 ≡ 4 (mod 23). Hint: 9 · 18 ≡ 1 (mod 23).
+(3 marks)
+
+Page 11 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+11. Seven friends, named Alice, Bob, Charlie, Delia, Edward, Fred and George, are meeting for dinner
+and each person is bringing one dish to share.
+(a) For the dinner, two people will bring desserts and the other five will bring savoury dishes. How
+many different choices are there for the two people who will bring desserts?
+(1 mark)
+
+(b) After dinner the seven friends stand in a line for a photograph. How many different arrangements
+are there of the seven friends standing in a line?
+(1 mark)
+
+(c) How many different arrangements are there of the seven friends standing in a line such that Alice
+is not next to Charlie and Bob is not next to Delia.
+(4 marks)
+
+Page 12 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+12. Let S = {x ∈ Z | 1 ≤ x ≤ 99}, so S is the set of integers from 1 to 99. How many integers must
+you pick from S in order to be sure that at least one of them is divisible by 3? Justify your answer.
+(3 marks)
+
+Page 13 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+13. Let G be the graph shown below.
+
+(a) Write down an adjacency matrix for G. Make sure you clearly label the rows and columns of
+your matrix.
+(2 marks)
+
+(b) Does G have an Euler circuit? If yes, write it out as a sequence of vertices. If not, determine
+the fewest number of edges that would need to be added to G to create a new graph that does
+have an Euler circuit.
+(2 marks)
+
+Page 14 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+14. A tree has 11 vertices, of which exactly four vertices have degree 1 and exactly one vertex has
+degree 4. Determine the degrees of the remaining six vertices. Show your working.
+(4 marks)
+
+END OF EXAMINATION
+Page 15 of 16
+
+Semester 1 Examinations, 2025
+
+MATH1061
+
+MATH1061/MATH7861 Final Examination Formula Page
+Logical Equivalences
+Given any statement variables p, q and r, a tautology t and a contradiction c, the following logical
+equivalences hold.
+Commutative laws
+p∧q ≡q∧p
+p∨q ≡q∨p
+Associative laws
+(p ∧ q) ∧ r ≡ p ∧ (q ∧ r)
+(p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
+Distributive laws
+p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)
+Identity laws
+p∧t≡p
+p∨c≡p
+Negation laws
+p∨ ∼ p ≡ t
+p∧ ∼ p ≡ c
+Double negative laws ∼ (∼ p) ≡ p
+Idempotent laws
+p∧p≡p
+p∨p≡p
+Universal bound laws p ∨ t ≡ t
+p∧c≡c
+De Morgan’s laws
+∼ (p ∧ q) ≡∼ p ∨ ∼ q
+∼ (p ∨ q) ≡∼ p ∧ ∼ q
+Absorption laws
+p ∨ (p ∧ q) ≡ p
+p ∧ (p ∨ q) ≡ p
+Negations of t and c ∼ t ≡ c
+∼c≡t
+Valid Argument Forms
+Modus Ponens
+
+Modus Tollens
+
+Generalization
+
+(a)
+
+Specialization
+
+(a)
+
+Conjunction
+
+p→q
+p
+∴q
+p→q
+∼q
+∴∼ p
+p
+∴p∨q
+p∧q
+∴p
+p
+q
+∴p∧q
+
+Elimination
+
+Transitivity
+
+(b)
+(b)
+
+q
+∴p∨q
+p∧q
+∴q
+
+Proof by
+division into cases
+
+Contradiction Rule
+
+(a)
+
+p∨q
+∼q
+∴p
+p→q
+q→r
+∴p→r
+p∨q
+p→r
+q→r
+∴r
+∼p→c
+∴p
+
+(b)
+
+p∨q
+∼p
+∴q
+
+Set Identities For all sets A, B and C that are subsets of a universal set U :
+1. Commutative Laws
+(a) A ∪ B = B ∪ A (b) A ∩ B = B ∩ A
+2. Associative Laws
+(a) (A ∪ B) ∪ C = A ∪ (B ∪ C)
+(b) (A ∩ B) ∩ C = A ∩ (B ∩ C)
+3. Distributive Laws
+(a) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+(b) A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+4. Identity Laws
+(a) A ∪ ∅ = A (b) A ∩ U = A
+5. Complement Laws
+(a) A ∪ Ac = U (b) A ∩ Ac = ∅
+6. Double Complement Law (Ac )c = A
+7. Idempotent Laws
+(a) A ∪ A = A (b) A ∩ A = A
+8. Universal Bound Laws
+(a) A ∪ U = U (b) A ∩ ∅ = ∅
+9. De Morgan’s Laws
+(a) (A ∪ B)c = Ac ∩ B c (b) (A ∩ B)c = Ac ∪ B c
+10. Absorption Laws
+(a) A ∪ (A ∩ B) = A (b) A ∩ (A ∪ B) = A
+11. Complement of U and ∅ (a) U c = ∅ (b) ∅c = U
+12. Set Difference Law
+A − B = A ∩ Bc
+The Quotient-Remainder Theorem Given any integer n and any positive integer d, there exist
+unique integers q and r such that n = dq + r and 0 ≤ r < d.
+Schröder-Bernstein Theorem For all sets A and B, if |A| ≤ |B| and |A| ≥ |B| then |A| = |B|.
+Binomial Theorem Given any real numbers a and b, and any nonnegative integer n,
+n  
+X
+n n−k k
+n
+(a + b) =
+a b .
+k
+k=0
+Page 16 of 16
+
+

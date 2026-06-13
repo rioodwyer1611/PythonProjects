@@ -1,0 +1,184 @@
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+_____________________
+
+First Name
+
+_____________________
+
+Do not distribute this document
+
+School of Mathematics & Physics
+EXAMINATION
+Semester One Final Examinations, 2020
+
+MATH1061 Discrete Mathematics
+This paper is for St Lucia Campus students.
+Examination Duration: 120 minutes (+ additional 30 mins encompassing reading time, and time
+to scan and upload solutions). You must commence your exam at the time listed in your
+personalised timetable. The exam will remain open only for the duration shown.
+Materials Permitted While Completing the Exam: You may use any online or physical material you
+wish. However, you have to write solutions in your own words (i.e. copying is considered cheating). You
+are NOT allowed to contact another human being directly or indirectly regarding this test. In particular,
+posting questions to chat forums is considered cheating.
+Instructions to Students: Answer all questions. Upload as a SINGLE PDF FILE. You can print
+the exam and write on the exam paper, or write your answers on blank paper, or write
+electronically on a suitable device. Scan or photograph your work if necessary and upload your
+answers to Blackboard as a single pdf file.
+Who to Contact Since students may not all undertake the online exam at the same time, or in
+the same time zone, and that some questions may be randomised, responding to student queries
+and/or relaying corrections to exam content during the exam will not be feasible. Course
+coordinators will not be able to respond to academic queries during the exam.
+If you have any concerns or queries about a particular question, or need to make any
+assumptions to answer the question, state these at the start of your solution to that question. You
+may also include queries you may have made with respect to a particular question, should you
+have been able to ‘raise your hand’ in an examination room.
+If you experience any technical difficulties during the exam, contact the Library AskUs service via
+the Live Chat or Phone for advice (https://web.library.uq.edu.au/contact-us - open 7:00am –
+10:00pm AEST every day during the final exam period). You should ask the library staff for an
+email documenting the advice provided so you can provide this to the course coordinator.
+Certification (must be signed before submission):
+I certify that my submitted answers are entirely my own work and that I have neither given nor
+received any unauthorised assistance on this assessment item.
+
+Signed:_______________________________Date:_____________________
+
+Page 1 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+1. Let the cyclic group {[0], [1], [2], ..., [n − 1]} be denoted by Z/nZ. Consider the following statement: for every positive integer n and every x in Z/nZ, there exists y ∈ Z/nZ such that xy = [1].
+(a) (2 marks) Write the negation of this statement.
+
+(b) (2 marks) Is the original statement true or false? Justify your answer.
+
+Page 2 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+2. (4 marks) Let x be a fixed positive integer. Is it possible to have a graph G with 4x + 1 vertices
+such that G has a vertex of degree d for all d = 1, 2, ..., 4x + 1? Justify your answer.
+(Note: The graph G does not need to be simple.)
+
+Page 3 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+3. (4 marks) Let q be an odd prime. Let x be an integer satisfying 1 < x < q. Prove that
+ 
+q
+q|
+.
+x
+
+Page 4 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+4. (4 marks) Consider the function f : R − {±1} → R defined by
+f (x) =
+
+1
+x2 − 1
+
+Determine the range of f . Justify your answer.
+
+Page 5 of 12
+
+.
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+5. (4 marks) Let x be a fixed but arbitrary integer. Do there exist infinitely many integers y such
+that
+y 3 ≡ x12 (mod 2019)?
+Justify your answer.
+
+Page 6 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+6. Let S be a finite set and let P(S) denote the set of all subsets of S. Define a relation on P(S) by
+declaring that two subsets A and B are related if A and B have the same number of elements.
+(a) (2 marks) Prove that this is an equivalence relation.
+
+(b) (2 marks) Determine the equivalence classes.
+
+(c) (2 marks) Determine the number of elements in each equivalence class.
+
+Page 7 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+7. (6 marks) Consider the sequence {an }n≥1 defined by a1 = 3, a2 = 8, and
+an = 4(an−1 − an−2 ),
+Prove that an = 2n−1 (n + 2) for all n ≥ 1.
+
+Page 8 of 12
+
+∀ n ≥ 3.
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+8. (8 marks) A group of 3 friends go to a concert with total attendance 30. At the end of the
+concert, the coat check system crashes, so they return people’s coats at random. Determine the
+probability that at least one of the 3 friends obtains their own coat. Write your answer in the
+fraction form ab where gcd(a, b) = 1.
+
+Page 9 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+9. (10 marks) Define a binary operation on R2 − {(0, 0)} by
+(a, b) · (c, d) = (ac − bd, ad + bc).
+Prove that (R2 − {0}, ·) is an abelian group.
+(You do not need to prove that the operation is closed.)
+
+Page 10 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+10. (10 marks) Let x be an integer bigger than 4. Prove that x is prime if and only if x does not
+divide (x − 1)!.
+
+Page 11 of 12
+
+Semester One Final Examination, 2020
+
+MATH1061 Discrete Mathematics
+
+11. (10 marks) The AFL (Australian Football League) has 18 teams. Each team plays one game per
+week. Assume a team never plays a given other team more than once. Prove that after 8 weeks,
+there exists at least 3 teams none of which have played each other.
+
+Page 12 of 12
+
+

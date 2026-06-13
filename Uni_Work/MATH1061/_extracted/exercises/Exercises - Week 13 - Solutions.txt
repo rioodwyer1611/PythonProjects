@@ -1,0 +1,58 @@
+SOLUTIONS - Exercise - Week 13: MATH1061/7861
+(1) (5 marks) A system generates user IDs from the integers 1 to 1000. Due to legacy
+constraints, certain IDs are flagged as follows:
+• IDs divisible by 2 are flagged as internal,
+• IDs divisible by 3 are flagged as test,
+• IDs divisible by 5 are flagged as archived.
+A developer defines a clean ID to be an ID that is not flagged in any way.
+How many clean IDs are there between 1 and 1000?
+Let A be the set of IDs that are flagged as internal, B be the set of IDs that are
+flagged as test and C be the set of IDs that are flagged as archived. We want to find
+1000 − |A ∪ B ∪ C|.
+By the inclusion-exclusion principle,
+|A ∪ B ∪ C| = |A| + |B| + |C| − |A ∩ B| − |B ∩ C| − |A ∩ C| + |A ∩ B ∩ C|.
+There are 1000/2 = 500 IDs divisible by 2, so |A| = 500. Likewise,
+|B| = 333
+|C| = 200
+|A ∩ B| = 166
+|B ∩ C| = 66
+|A ∩ C| = 100
+|A ∩ B ∩ C| = 33
+so
+|A ∪ B ∪ C| = 500 + 333 + 200 − 166 − 66 − 100 + 33 = 734.
+Therefore there are 1000 − 734 − 266 clean IDs.
+MARKING:
+1 mark for identifying the number of internal IDs, the number of test IDs and the number
+of archived IDs
+1 mark for identifying the number of IDs that are both internal and test, and similar sets
+2 marks for correctly stating/using the inclusion-exclusion principle
+1 mark for a correct final answer
+
+1
+
+2
+
+(2) (5 marks) A graph has 10 edges and 6 vertices. Five of the vertices have degree 3.
+(a) What is the degree of the remaining vertex? Explain your reasoning and draw a
+picture of such a graph.
+Using the Handshake theorem, the sum of the degrees is equal to two times the
+number of edges. If we let the degree of the remaining vertex be x, then
+2 · 10 = 20 = 3 · 5 + x.
+Thus, x = 5, so the last vertex has degree 5.
+There are many ways to draw such a graph, especially since the question does not
+specify that it must be simple or connected. Here are some examples:
+
+(b) Does the graph you drew have a circuit?
+Their graph will always have a circuit. Students should indicate one on their graph.
+(c) Does the graph you drew have a Eulerian trail?
+Their graph will never have an Eulerian trail, as there are more than 2 vertices of
+odd degree (recall that a graph has a Eulerian trail if and only if it is connected and
+there is either 0 or 2 vertices of odd degree). Students should explain why one does
+not exist.
+MARKING:
+2 marks for determining that the last vertex has degree 5
+1 mark for drawing a valid graph
+1 mark for identifying a circuit on their graph
+1 mark for correctly explaining why their graph does not have an Eulerian trail
+
+

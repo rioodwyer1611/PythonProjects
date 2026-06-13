@@ -1,0 +1,437 @@
+Semester Two Examination, 2025
+
+MATH1061
+
+1. Let p, q, and r be statement variables. Is the following argument valid? Justify your answer.
+p→q
+∼p→r
+∼q→r
+∴q
+Solution: We claim the argument is invalid. Here are a couple of solutions.
+
+Suppose that the argument is invalid: the conclusion is false and the premises are true. Then
+from the conclusion, q is false. Then ∼ q is true; from the third premise r must also be true.
+Since q is false, p must be false to satisfy the first premise. With p false and r true, ∼ p is true
+and there is no contradiction with the second premise. Thus, it is possible to have the conclusion
+false while the premises are true, so the argument is invalid.
+
+Alternatively, suppose p and q are false and r is true. Then all premises are true but the
+conclusion is false. Therefore, the argument is invalid.
+
+1 mark for saying the argument is invalid.
+2 marks for correct explanations.
+
+Page 1 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+2. Write the negation of the following statement. Determine whether the original statement or the
+negation is true. Justify your answer.
+∀x ∈ R, if 2x is irrational, then x is irrational.
+Solution:
+Negation: ∃x ∈ R such that 2x is irrational and x is rational.
+The original statement is true. We use a proof by contraposition.
+Contrapositive: ∀x ∈ R, if x is rational then 2x is rational.
+Suppose that x is rational. Then x = ab for some a, b ∈ Z with b ̸= 0.
+Then 2x = 2a
+. Since a ∈ Z, 2a ∈ Z, and so 2x is rational.
+b
+
+1 mark for saying the original statement is true.
+1 mark for correct negation.
+2 marks for correct explanation of why the original statement is true.
+
+Page 2 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+3. Use the Euclidean algorithm to compute gcd(662, 414).
+Solution:
+
+662 = 414 · 1 + 248
+414 = 248 · 1 + 166
+248 = 166 · 1 + 82
+166 = 82 · 2 + 2
+82 = 2 · 41 + 0
+Therefore, gcd(662, 414) = 2.
+
+1 mark for the correct final answer.
+2 marks for correct explanations.
+
+Page 3 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+4. Let {an }n≥0 be the sequence defined by a0 = 0 and
+an+1 = an + 2n + 1,
+
+n ≥ 0.
+
+(a) Write down the values of a1 , a2 , a3 , a4 .
+Solution:
+a1 = a0 + 2 · 0 + 1 = 1
+a2 = a1 + 2 + 1 = 4
+a3 = a2 + 2 · 2 + 1 = 9
+a4 = a3 + 2 · 3 + 1 = 16
+
+This is only worth 1 mark. They get 1 mark if they get all of it right. 1/2 marks if they
+get some of them right (even if they get only one of them right, they get 1/2 marks).
+
+(b) Based on your answers for Part (a), guess an explicit formula for this sequence.
+Solution:
+an = n2 for all n ≥ 0
+
+1 mark for giving a correct explicit formula.
+
+(c) Prove that your guess is correct.
+Solution:
+a0 = 0 = 02 , so the guess is correct for the base case.
+Assuming that an = n2 , an+1 = n2 + 2n + 1 = (n + 1)2 , so the recurrence relation holds
+with the guess.
+1 mark for remembering to check the base case.
+2 marks for the correct explanation of the general case. (Note they can also use induction
+for this step.)
+
+Page 4 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+5. Let A = {0, 1, 2} and B = {−1, 0}. Write down the following sets by listing their elements and
+using appropriate brackets.
+1 mark for each correct answer.
+(a) A ∪ B.
+Solution: {−1, 0, 1, 2}
+
+(b) A ∩ B.
+Solution: {0}
+
+(c) P(B).
+
+Solution: ∅, {−1}, {0}, {−1, 0}
+
+(d) A × B.
+
+Solution: (0, −1), (0, 0), (1, −1), (1, 0), (2, −1), (2, 0)
+
+Page 5 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+ 2
+x
+6. Consider the function f : R → Z defined by f (x) =
+.
+2
+(a) Determine f (−1), f (0), f (1), f (2).
+Solution:
+f (−1) = ⌊ 12 ⌋ = 0
+f (0) = ⌊0⌋ = 0
+f (1) = ⌊ 12 ⌋ = 0
+f (2) = ⌊2⌋ = 2
+
+1/2 mark for getting each of these correctly.
+
+(b) Is f one to one? Justify your answer.
+Solution: No, because f (0) = f (1).
+
+1 mark for saying no. 1 mark for correct explanation.
+
+(c) Is f onto? Justify your answer.
+√
+⌋ = ⌊n⌋ = n, since n
+Solution: Yes. For any n ∈ Z, take x = 2n ∈ R. Then f (x) = ⌊ 2n
+2
+is an integer. So for any n ∈ Z, there exists an x ∈ R such that f (x) = n.
+1 mark for saying yes.
+2 marks for the correct explanation. Note x is not unique.
+
+Page 6 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+7. Let N denote the set of positive integers. Define a relation on N × N by
+(a, b) ∼ (c, d) if and only if a + d = b + c.
+Prove that this is an equivalence relation.
+Solution:
+Reflexive: For any a, b ∈ N, a + b = b + a, so (a, b) ∼ (a, b).
+Symmetric: Suppose that (a, b) ∼ (c, d). Then a + d = b + c, and so c + b = d + a. Thus,
+(c, d) ∼ (a, b).
+Transitive: Suppose that (a, b) ∼ (c, d) and (c, d) ∼ (e, f ).
+So a + d = b + c and c + f = d + e. Thus, a = b + c − d and f = d + e − c, and so
+a + f = b + c − d + d + e − c = b + e. Therefore, (a, b) ∼ (e, f ).
+
+1 mark for reflexivity.
+1 mark for symmetric property.
+2 marks for transitivity.
+Note: The names of these properties are not important. So long as they write their meaning
+correctly and explain why they hold, they get the marks.
+
+Page 7 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+8. Solve the equation 3x − 5 = 8 in (Z11 , +, ×).
+(Hint: You may use the fact that 3 × 4 = 1 mod 11.)
+Solution: Work in the field Z11 . We have
+3x − 5 = 8 =⇒ 3x = 13 = 2 =⇒ 3 × 4 × x = 2 × 4 =⇒ 1 × x = 8 =⇒ x = 8.
+1 mark for correct final answer.
+2 marks for a correct explanation.
+
+Page 8 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+9. Let E be the set of all even integers.
+(a) Prove that |E| = |Z|.
+Solution: We prove this by defining a bijection between these two sets.
+Let f : Z → E be defined by f (n) = 2n.
+Since n ∈ Z, f (n) = 2n is even so f (n) ∈ E.
+Suppose that f (n) = f (m) for some n, m ∈ Z. Then 2n = 2m, so n = m. Thus, f is
+injective.
+For any m ∈ E, take
+n = m2 . Since m is even, m = 2k for some k ∈ Z, and so n = k ∈ Z.
+
+Then f (n) = 2 m2 = m. Thus, f is surjective.
+
+1 mark for recognising that equality of cardinality means a bijection.
+1 mark for a correct bijection.
+1 mark for a correct proof of injectivity.
+1 mark for a correct proof of surjectivity.
+Note: alternative solutions are possible, e.g. using the Schroder–Bernstein.
+
+Page 9 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+(b) Prove that E is a subgroup of (Z, +).
+Solution:
+Closure: We need to show that the sum of two even numbers is even. For any n, m ∈ E,
+n = 2a and m = 2b for some a, b ∈ Z. Then n + m = 2a + 2b = 2(a + b). Since a, b ∈ Z,
+a + b ∈ Z, and so n + m ∈ E.
+Identity: Observe that for any n ∈ E, 0 + n = n = n + 0. Thus, 0 is the identity, and
+since 0 = 2 · 0, 0 ∈ E.
+Inverses: If n ∈ E, then n = 2a for some a ∈ Z, so −2a is also even. Since 2a + (−2a) =
+0 = (−2a) + (2a), every n ∈ E has an additive inverse.
+
+1 mark for identity.
+1 mark for closure.
+2 marks for inverses.
+Note: slicker solutions are possible, e.g. it is enough to note that if x and y is even then so
+is x − y.
+
+Page 10 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+10. What is the coefficient of x3 in the expansion of (2x − 3)6 ? You should give your answer as a
+single integer, and show your working.
+Solution:
+The binomial theorem implies
+6
+
+(2x − 3) =
+
+6  
+X
+6
+k=0
+
+k
+
+k
+
+6−k
+
+(2x) (−3)
+
+=
+
+6  
+X
+6
+k=0
+
+k
+
+2k xk (−3)6−k .
+
+The coefficient of x3 in this expansion is
+ 
+6
+6!
+(8)(−27) = −4320.
+(2)3 (−3)3 =
+3! · 3!
+3
+
+
+1 mark for having the binomial coefficient 63 .
+1 mark for having the factor (2)3 (−3)3 .
+Note 63 (2)3 (−3)3 is OK as a final answer. I don’t care about −4320.
+
+Page 11 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+11. (a) How many distinct arrangements are there of the 10 letters of the word
+KOOKABURRA?
+(Note: You do not need to compute an integer answer. You may give a mathematical
+expression that answers the question.)
+Solution: There are two Ks, two Os, two As and two Rs. Thus, the number of arrangements
+is
+10!
+.
+2! · 2! · 2! · 2!
+
+1 mark for having 10!. 1 mark for dividing by the right thing.
+
+Page 12 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+(b) Suppose that an arrangement is chosen randomly from the set of all arrangements in Part
+(a). What is the probability that in the chosen arrangement the two A’s are not next to
+each other?
+Solution: We first find the number of arrangements where the two As are next to each
+other. Put the two As together as a single ’letter’. The number of arrangements is
+9!
+.
+2! · 2! · 2!
+Thus, the number of arrangements with the As not next to each other is
+9!
+10! 9!
+10!
+10! − 2 · 9!
+−
+= 4 − 3 =
+.
+2! · 2! · 2! · 2! 2! · 2! · 2!
+2
+2
+16
+The probability of choosing such an arrangement is
+10!−2·9!
+16
+10!
+16
+
+=
+
+10! − 2 · 9!
+8 · 9!
+8
+=
+= .
+10!
+10!
+10
+
+Therefore, the probability is 80%.
+
+1 mark for realising that we need to do a subtraction.
+1 mark for getting the number of arrangements where the two As are next to each other.
+1 mark for getting the probability right.
+
+Page 13 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+12. Let n be a positive integer. Let Kn be the graph with n vertices such that each vertex is connected to every other vertex by a unique edge (but no vertex is connected to itself, i.e. there are
+no loops).
+(a) Draw K1 , K2 , K3 , K4 , and K5 .
+Solution:
+K1 :
+K2 :
+
+K3 :
+
+K4 :
+
+K5 :
+
+1 mark for getting all of these right.
+1/2 mark for getting some of them right.
+(Even if they get only one right, they get 1/2 marks).
+
+(b) Write down the adjacency matrix of K4 .
+Solution:
+
+0
+1
+
+1
+1
+
+1
+0
+1
+1
+
+1
+1
+0
+1
+
+
+1
+1
+
+1
+0
+
+1 mark for correct answer. 1/2 mark is allowed for partially correct answer.
+
+Page 14 of 14
+
+Semester Two Examination, 2025
+
+MATH1061
+
+(c) How many edges does Kn have? Justify your answer.
+Solution: In the complete graph Kn , there is an edge between every pair of distinct vertices.
+Since there are n vertices, the number of edges (the number of ways to choose two vertices)
+is n2 .
+Alternatively, there are n vertices, each connected to n − 1 vertices, so there are n(n − 1)
+connections. But we counted each connection twice, so the answer is n(n − 1)/2.
+
+1 mark for correct final answer.
+3 marks for correct explanation.
+
+(d) For which n does Kn have an Eulerian circuit? Justify your answer.
+Solution: Each of the n vertices is adjacent to each of the other n − 1 vertices. Thus, the
+degree of each vertex is n − 1. A connected graph has an Eulerian circuit if and only if
+every vertex has even degree. So Kn has an Eulerian circuit if and only if n is odd (to make
+n − 1 even).
+
+1 mark for remembering the condition for having an Euler circuit.
+2 marks for correct explanation that this condition is satisfied.
+
+Page 15 of 14
+
+

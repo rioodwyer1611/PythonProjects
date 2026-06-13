@@ -1,0 +1,249 @@
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+Answer each question and upload your answers using the link in Blackboard. Each question is worth
+the number of marks indicated on the right.
+1. (a) Translate the following argument into symbolic form, using the specified statement variables.
+∗ Let p be “It is hot”
+∗ Let q be “It is cloudy”
+∗ Let r be “It is raining”
+∗ Let s be “It is sunny”.
+Argument: It is hot and not sunny. Being cloudy is necessary for it to be raining. It is
+either raining or sunny, but not both. Therefore, it is cloudy.
+(2 marks)
+
+(b) Determine whether the argument is valid or invalid. Show your working.
+
+Page 3 of 15
+
+(4 marks)
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+2. (a) Prove the following statement:
+∀m, x ∈ R, if m ∈ Z and x 6∈ Z, then dxe + d2m − xe = 2m + 1.
+(4 marks)
+
+(b) Disprove the following statement:
+∀a, b ∈ Z,
+
+gcd(a, b)lcm(a, b) = ab.
+(2 marks)
+
+Page 4 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+3. Define the sequence {an }n≥0 by
+a0 = 1,
+
+a1 = 3,
+
+and ak = 2ak−1 + 6ak−2 for each integer k ≥ 2.
+
+Use (strong) mathematical induction to prove that an ≥ 3n for each integer n ≥ 0.
+(5 marks)
+
+Page 5 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+4. (a) For each of the following statements, indicate whether the statement is true or false by
+circling the appropriate response.
+(2 marks)
+Z ∈ P(Q) True False
+Z ⊆ P(Q)
+
+True
+
+False
+
+∅ ∈ P(Q)
+
+True
+
+False
+
+∅ ⊆ P(Q)
+
+True
+
+False
+
+(b) Prove the following statement.
+For all sets A, B that are subsets of a universal set U , (A − B) ∪ (A ∩ B) = A.
+(4 marks)
+
+Page 6 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+5. Consider the function f : Z+ × Z+ × Z+ → Z+ where ∀(a, b, c) ∈ Z+ × Z+ × Z+ , f ((a, b, c)) = abc.
+(a) State the image of (4, 6, 1), that is, f ((4, 6, 1)).
+(1 mark)
+
+(b) State the pre-image of 3, that is f −1 ({3}).
+
+(1 mark)
+
+(c) Is f one-one? Explain your answer.
+
+(2 marks)
+
+(d) Is f onto? Explain your answer.
+(2 marks)
+
+Page 7 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+6. Create a function that demonstrates that |Q| ≤ |R+ |. You must prove that it is a function and
+explain why it shows that |Q| ≤ |R+ |.
+(5 marks)
+
+Page 8 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+7. Let S = {1, 2, 3}. Define a relation ρ on S × S by
+∀(a, b), (c, d) ∈ S × S, (a, b)ρ(c, d) if and only if a ≤ c and b ≤ d.
+Prove that ρ is a partial order but not a total order.
+
+Page 9 of 15
+
+(6 marks)
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+8. Let G = {[1], [5], [7], [11]}, where [a] = {x ∈ Z : x ≡ a (mod 12)}.
+(a) Draw the Cayley table for (G, ·) where · is the operation of multiplication modulo 12.
+(2 marks)
+
+(b) Use your Cayley table to prove that (G, ·) is a group.
+Note that you may assume that the operation · is associative.
+(3 marks)
+
+(c) From class we know that (Z4 , +) and (Z2 × Z2 , +) are two non-isomorphic groups that each
+have four elements. Which one of these groups is isomorphic to (G, ·)? Explain your answer
+briefly.
+(1 mark)
+
+Page 10 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+9. Solve the equation 11x + 10 = 5 in the field (Z19 , +, ·). Hence determine the smallest positive
+integer y such that 11y + 10 ≡ 5 (mod 19).
+(3 marks)
+
+Page 11 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+10. Let S = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}.
+(a) In how many ways can a set A of 5 integers be chosen from the set S such that A contains
+exactly two prime numbers?
+(2 marks)
+
+(b) In how many ways can a set B of 5 integers be chosen from the set S such that B contains
+at most two prime numbers?
+(2 marks)
+
+(c) In how many ways can a set C of 5 integers be chosen from the set S such that C contains
+exactly two prime numbers or exactly two even numbers? (Note that “or” is inclusive or.)
+(4 marks)
+
+Page 12 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+11. Let S be the set of positive integers from 1 to 100, S = {1, 2, . . . , 100}. Determine, with proof,
+the largest number of integers that can be chosen from S so that no three of the chosen integers
+are equivalent modulo 9.
+(5 marks)
+
+Page 13 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+12. (a) Draw a graph that has the following adjacency matrix.
+
+
+0
+ 1
+
+ 1
+
+ 0
+0
+
+1
+0
+1
+0
+0
+
+1
+1
+0
+1
+1
+
+0
+0
+1
+0
+1
+
+
+0
+0 
+
+1 
+
+1 
+0
+(2 marks)
+
+(b) State the incidence matrix for the following graph.
+
+(2 marks)
+
+Page 14 of 15
+
+Semester One Final Examination, 2021
+
+MATH1061 Discrete Mathematics
+
+13. Let T be a tree with exactly one vertex of degree 10, exactly two vertices of degree 7, exactly
+two vertices of degree 3, and in which all the remaining vertices are of degree 1. Determine the
+number of vertices in T .
+(4 marks)
+
+END OF EXAMINATION
+Page 15 of 15
+
+

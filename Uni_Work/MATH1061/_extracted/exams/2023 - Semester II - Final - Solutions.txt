@@ -1,0 +1,413 @@
+Semester Two Examinations, 2023
+
+MATH1061
+
+This exam paper must not be removed from the venue
+
+Venue
+
+____________________
+
+Seat Number
+
+__________
+
+Student Number
+
+|__|__|__|__|__|__|__|__|
+
+Family Name
+
+____________________
+
+First Name
+
+____________________
+
+School of Mathematics & Physics
+Semester Two Examinations, 2023
+MATH1061 Discrete Mathematics
+This paper is for St Lucia Campus students.
+For Examiner Use Only
+
+Examination Duration: 120 minutes
+Planning Time:
+
+Question
+
+10 minutes
+
+Mark
+
+Exam Conditions:
+•This is a Closed Book examination - no written materials permitted
+•No calculators permitted
+•During Planning Time - Students are encouraged to review and plan
+responses to the exam questions
+•This examination paper will be released to the Library
+Materials Permitted in the Exam Venue:
+(No electronic aids are permitted e.g. laptops, phones)
+None
+Materials to be supplied to Students:
+Additional exam materials (e.g. answer booklets, rough paper) will
+be provided upon request.
+None
+Instructions to Students:
+If you believe there is missing or incorrect information impacting
+your ability to answer any question, please state this when writing
+your answer.
+Answer all questions.
+Total 70 marks.
+The Formula Sheet is on the last page
+
+Total _________
+
+Page 1 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+1. (6 marks)
+(a) (2 marks) Write down the quotient and remainder when −27 is divided by 6, according to
+the quotient-remainder theorem.
+
+Solution: −27 = 6 × −5 + 3. Thus, the remainder is 3 and the quotient is −5.
+
+(b) (2 marks) Determine whether the following statement is true or false. Justify your reasoning.
+For all positive integers a and b, we have
+gcd(a + b, a − b) = gcd(a, b).
+
+Solution: The statement is false. For instance, gcd(3, 1) = 1 6= 2 = gcd(3 + 1, 3 − 1).
+
+(c) (2 marks) Compute gcd(112, 30). Show your work.
+
+Solution: Note that 112 = 24 × 7 and 30 = 2 × 3 × 5. Thus, the only common factor is 2;
+i.e. gcd(112, 30) = 2.
+
+Page 2 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+2. (3 marks) Let p and q be statement variables. Are the following statements logically equivalent?
+Justify your answer.
+
+Statement A: (p → q)∧ ∼ q
+
+Statement B: ∼ (p ∧ q)
+
+Solution: The two statements are not equivalent, because they differ when p is true and q is
+false. In this case, p → q is false, thus Statement A is false. On the other hand, p ∧ q is false,
+meaning that Statement B is true.
+
+Page 3 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+3. (8 marks)
+(a) (3 marks) Let n be a positive integer and let Kn be the complete graph with n vertices.
+How many edges does Kn have? Explain your reasoning.
+
+Solution: There are n vertices, and there is an edge connecting every pair of distinct vertices.
+Therefore,
+selecting an edge is the same as selecting an unordered pair of vertices. There
+
+n
+are 2 such choices.
+
+(b) (5 marks) Let G be a graph. Let y be the number of vertices of G that have odd degree.
+Prove that y is even.
+
+Solution: Suppose, for the sake of contradiction, that y is odd. We claim that
+Pin this case
+P
+deg(v)
+is
+odd.
+Indeed,
+vertices
+of
+even
+degree
+do
+not
+affect
+the
+parity
+of
+v∈G deg(v).
+v∈G
+P
+Therefore, the parity of v∈G deg(v) is determined by the vertices with odd degree. If
+there are an odd number of such vertices, then this sum is odd. But this contradicts the
+Handshake Theorem, which states that this sum is always even.
+
+Page 4 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+4. (6 marks) Let f : N → R be a function. Prove that the image of N under f is countable.
+
+Solution: For each y in the image of f , choose exactly one element in N which maps to y. Let
+A be the subset of N consisting of these chosen elements. Note that A is countable, because it
+is a subset of N. Now the restriction of f to A defines a bijection between A and the image of
+f . Thus, the image of f is also countable.
+Alternate solution: Let g : N → f (N) be defined by g(n) := f (n). i.e. g is the same as f
+but the codomain is restricted. By definition, g is surjective. Therefore |N| ≥ |f (N)|.
+
+Page 5 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+5. (8 marks) Let f : Z → {0, 1, 2, 3, 4} be defined by: f (n) = n2 mod 5.
+For example, f (7) = 4 because 72 = 49 is congruent to 4 modulo 5.
+
+(a) (2 marks) What is f (2023)? Justify your answer.
+
+Solution: We have f (2023) = f (3) = 9 mod 5 = 4.
+
+(b) (2 marks) What is the preimage of 1? Justify your answer
+
+Solution: The preimage is equal to the set integers of the form 5k ± 1. Indeed, every such
+integer is in the preimage because f (5k ± 1) = 1, and no other integer is in the preimage
+because f (5k) = 0 and f (5k ± 2) = 4.
+
+(c) (2 marks) Is f one to one? Justify your answer.
+
+Solution: f is not one to one because, for instance, f (1) = f (−1), but 1 6= −1.
+
+(d) (2 marks) Is f onto? Justify your answer.
+
+Solution: From (b), we know that f has image {0, 1, 4}. Therefore f is not onto because 3
+is in the codomain of f but not the image.
+
+Page 6 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+6. (8 marks) Let (G, ∗) be a group. Define a relation ∼ on G as follows: a ∼ b if there exists g ∈ G
+such that g ∗ a ∗ g −1 = b. Prove that ∼ is an equivalence relation on G.
+
+Solution: We show that the relation is reflexive, symmetric and transitive.
+Reflexivity: Let a ∈ G. We know that 1G a1−1
+G = a, where 1G is the group identity. Therefore
+a ∼ a.
+Symmetry: Suppose that a, b ∈ G and that a ∼ b. Therefore gag −1 = b for some g ∈ G.
+Therefore g −1 bg = a. This means that g −1 b(g −1 )−1 = a. Since g −1 ∈ G, this means that b ∼ a.
+Transitivity: Suppose that a, b, c ∈ G, a ∼ b and b ∼ c. Then gag −1 = b for some g ∈ G,
+and hbh−1 = c for some h ∈ G. Now observe that (hg)a(hg)−1 = h(gag −1 )h−1 = hbh−1 = c.
+Since hg ∈ G, this means that a ∼ c.
+
+Page 7 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+7. (8 marks) Recall that for a set A, its power set is denoted P(A).
+
+(a) (4 marks) Compute P({x}) and P(P({x})).
+
+Solution: We have
+P({x}) = {∅, {x}}
+and
+P(P({x})) = P({∅, {x}}) = {∅, {∅}, {{x}}, {∅, {x}}}.
+
+(b) (4 marks) Prove that
+P(A ∩ B) = P(A) ∩ P(B).
+
+Solution: Indeed,
+X ∈ P(A ∩ B) ⇐⇒ X ⊆ A ∩ B
+⇐⇒ X ⊆ A & X ⊆ B
+⇐⇒ X ∈ P(A) & X ∈ P(B)
+⇐⇒ X ∈ P(A) ∩ P(B).
+
+Page 8 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+8. (6 marks) Consider the sequence (an )∞
+n=1 defined recursively by a1 = 3, a2 = 8, and
+an = 4(an−1 − an−2 ),
+
+∀ n ≥ 3.
+
+Using strong induction, prove that an = 2n−1 (n + 2) for all integers n ≥ 1.
+
+Solution: Note that
+a1 = 3 = 20 · 3 = 21−1 (1 + 2),
+and
+a2 = 8 = 2 · 4 = 22−1 (2 + 2).
+Thus, our base cases are covered. Suppose the hypothesis is true for all k < n. Then,
+
+an = 4an−1 − 4an−2 = 4 2n−2 (n + 1) − 2n−3 n = 4 · 2n−3 (2n + 2 − n) = 2n−1 (n + 2).
+
+Page 9 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+9. (7 marks) A group of 10 friends are attending the movies together and insist on sitting in one
+row. There are exactly ten seats in each row.
+
+(a) (2 marks) Two of the friends (Bailey and Courtney) insist on sitting next to each other.
+In how many different ways can the 10 be seated while satisfying this wish? Justify your
+answer.
+
+Solution: We treat the two people sitting side-by-side as one person. This gives 9! ways
+for the 10 people to sit. But for each of these ways, the two people who insisted on sitting
+side-by-side can be swapped, still remaining side-by-side and yielding a new way to sit.
+Therefore there are 2 · 9! ways.
+
+(b) (2 marks) Now suppose Bailey and Courtney no longer insist on sitting next to each other.
+However, there are two other people, Tara and Adam, who do not like each other and do
+not want to sit next to each other. In how many different ways can the 10 be seated while
+satisfying this wish? Justify your answer.
+
+Solution: There are 10! ways for the group to sit. Out of these 10! ways, 2 · 9! ways will have
+them sitting side-by-side. Therefore there are 10! − 2 · 9! ways where they are not sitting
+side-by-side.
+
+(c) (3 marks) Finally, suppose Bailey and Courtney want to sit next to each other and, at the
+same time, Tara and Adam do not want to sit next to each other. In how many different
+ways can the 10 be seated while satisfying these wishes? Justify your answer.
+
+Solution: We treat Bailey and Courtney as one person. So then we have to sit 9 people 2 of
+whom don’t want to sit next to each other. By the previous part, the total is 9! − 2 · 8!. But
+we can also permute the location of Bailey and Courtney; thus, the total is 2(9! − 2 · 8!).
+
+Page 10 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+10. (10 marks) Define a binary operation ◦ on G = R2 − {(0, 0)} by
+(a, b) ◦ (c, d) = (ac − bd, ad + bc).
+(a) (6 marks) Prove that (G, ◦) is an abelian group. (You do not need to prove that the
+operation is closed or associative.)
+
+Solution: We show the existence of an identity, the existence of inverse, and commutativity.
+
+Identity: We claim (1, 0) is the identity. This follows from
+(a, b) ◦ (1, 0) = (a, b) = (1, 0).(a, b).
+Inverses: We have
+(a, b) ◦ (a, −b) = (a, −b) ◦ (a, b) = (a2 + b2 , 0).
+1
+Thus, every element (a, b) has an inverse; namely, a2 +b
+2 (a, −b).
+
+Commutativity: Finally, the group is commutative because
+(a, b) ◦ (c, d) = (ac − bd, ad + bc) = (ca − db, cb + da) = (c, d) ◦ (a, b).
+
+Alternate solution sketch: Identify R2 with C via the map (a, b) 7→ a + bi. Then our set
+gets identified with C× and the above operation is the natural multiplication on C× .
+
+(b) (4 marks) Determine all subgroups of (G, ◦) which have exactly two elements. Justify your
+answer.
+
+Solution: We are looking for elements (a, b) ∈ G that satisfy (a, b) ◦ (a, b) = (1, 0). This
+reduces to a2 − b2 = 1 and 2ab = 0. This second equality means that a = 0 or b = 0,
+excluding the case that a = b = 0 since (0, 0) ∈
+/ G. If a = 0 then −b2 = 1 has no solution
+2
+in R. On the other hand, if b = 0 then a = 1 has solutions a = ±1. Therefore, the desired
+elements are (±1, 0) and the only subgroup of order two is {(1, 0), (−1, 0)}.
+
+End of Examination
+Page 11 of 12
+
+Semester Two Examination, 2023
+
+MATH1061
+
+MATH1061/MATH7861 Examination Formula Page
+Logical Equivalences
+Given any statement variables p, q and r, a tautology t and a contradiction c, the following logical
+equivalences hold.
+Commutative laws
+p∧q ≡q∧p
+p∨q ≡q∨p
+Associative laws
+(p ∧ q) ∧ r ≡ p ∧ (q ∧ r)
+(p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
+Distributive laws
+p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r) p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)
+Identity laws
+p∧t≡p
+p∨c≡p
+Negation laws
+p∨ ∼ p ≡ t
+p∧ ∼ p ≡ c
+Double negative laws ∼ (∼ p) ≡ p
+Idempotent laws
+p∧p≡p
+p∨p≡p
+Universal bound laws p ∨ t ≡ t
+p∧c≡c
+De Morgan’s laws
+∼ (p ∧ q) ≡∼ p ∨ ∼ q
+∼ (p ∨ q) ≡∼ p ∧ ∼ q
+Absorption laws
+p ∨ (p ∧ q) ≡ p
+p ∧ (p ∨ q) ≡ p
+Negations of t and c ∼ t ≡ c
+∼c≡t
+Set Identities For all sets A, B and C that are subsets of a universal set U :
+1. Commutative Laws
+(a) A ∪ B = B ∪ A (b) A ∩ B = B ∩ A
+2. Associative Laws
+(a) (A ∪ B) ∪ C = A ∪ (B ∪ C)
+(b) (A ∩ B) ∩ C = A ∩ (B ∩ C)
+3. Distributive Laws
+(a) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)
+(b) A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+4. Identity Laws
+(a) A ∪ ∅ = A (b) A ∩ U = A
+5. Complement Laws
+(a) A ∪ Ac = U (b) A ∩ Ac = ∅
+6. Double Complement Law (Ac )c = A
+7. Idempotent Laws
+(a) A ∪ A = A (b) A ∩ A = A
+8. Universal Bound Laws
+(a) A ∪ U = U (b) A ∩ ∅ = ∅
+9. De Morgan’s Laws
+(a) (A ∪ B)c = Ac ∩ B c (b) (A ∩ B)c = Ac ∪ B c
+10. Absorption Laws
+(a) A ∪ (A ∩ B) = A (b) A ∩ (A ∪ B) = A
+11. Complement of U and ∅ (a) U c = ∅ (b) ∅c = U
+12. Set Difference Law
+A − B = A ∩ Bc
+The Quotient-Remainder Theorem Given any integer n and any positive integer d, there exist
+unique integers q and r such that n = dq + r and 0 ≤ r < d.
+Unique Factorisation Theorem Given any integer n > 1, there exists a positive integer k,
+distinct prime numbers p1 , p2 , . . . , pk , and positive integers e1 , e2 , . . . , ek such that n = pe11 pe22 · · · pekk ,
+and any other expression for n as a product of prime numbers is identical to this except perhaps for
+the order in which the factors are written.
+Schröder-Bernstein Theorem For all sets A and B, if |A| ≤ |B| and |A| ≥ |B| then |A| = |B|.
+Binomial Theorem Given any real numbers a and b, and any nonnegative integer n,
+n  
+X
+n n−k k
+(a + b) =
+a b .
+k
+k=0
+n
+
+Page 12 of 12
+
+

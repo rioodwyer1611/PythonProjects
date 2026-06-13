@@ -1,0 +1,55 @@
+SOLUTIONS - Exercise - Week 5: MATH1061/7861
+Problems. Prove or disprove the following statements.
+(1) (4 marks) For all integers m and n, if m2 + n2 + mn is even, then m and n are
+both even.
+The statement is true. We will prove this by contraposition (contradiction also
+works).
+Proof. The contrapositive is: For all integers m and n, if m is odd or n is odd,
+then m2 + n2 + mn is odd.
+Suppose that m is odd or n is odd. Without loss of generality, let m be odd.
+Then m = 2k + 1 for some k ∈ Z.
+If n is odd also, then n = 2ℓ + 1 for some ℓ ∈ Z. Thus,
+m2 + n2 + mn = (2k + 1)2 + (2ℓ + 1)2 + (2k + 1)(2ℓ + 1)
+= 4k 2 + 4k + 1 + 4ℓ2 + 4ℓ + 1 + 4kℓ + 2k + 2ℓ + 1
+= 2(2k 2 + 3k + 2ℓ2 + 3ℓ + 2kℓ + 1) + 1
+Since k, ℓ ∈ Z, (2k 2 + 3k + 2ℓ2 + 3ℓ + 2kℓ + 1) ∈ Z and so m2 + n2 + mn is odd.
+If n is even instead, then n = 2ℓ for some ℓ ∈ Z and
+m2 + n2 + mn = (2k + 1)2 + (2ℓ)2 + (2k + 1)(2ℓ)
+= 4k 2 + 4k + 1 + 4ℓ2 + 4kℓ + 2ℓ
+= 2(2k 2 + 2k + 2ℓ2 + ℓ + 2kℓ) + 1
+Since k, ℓ ∈ Z, (2k 2 + 2k + 2ℓ2 + ℓ + 2kℓ) ∈ Z and so m2 + n2 + mn is odd.
+
+□
+
+MARKING:
+1 mark for mentioning that the statement is true.
+1 mark for setting up the proof correctly (e.g. “The contrapositive is ...” or
+“Suppose, for the sake of contradiction, that ...” or “We will use proof by contraposition. Suppose that m is odd or n is odd...” or something similar).
+2 marks for a valid proof of the statement. No marks for the proof if only an
+example for specific m and n is given.
+(2) (3 marks) ∀m, a, b ∈ Z>0 , m | (ab) if and only if m | a and m | b.
+The statement is false. For a counterexample, consider m = 6, a = 2 and b = 3.
+Then ab = 6 so m | (ab). But 6 does not divide 2 (nor 3).
+Note that the backwards direction (if m | a and m | b then m | (ab)) is true,
+but students don’t need to mention or prove this.
+MARKING:
+1 mark for mentioning that the statement is false.
+2 marks for providing a valid counter-example.
+1
+
+2
+
+(3) (3 marks) There exists an integer x such that x2 ≡ 3 mod 5.
+Observe that x is congruent modulo 5 to a value in {0, 1, 2, 3, 4}.
+If x ≡ 0 (mod 5) then x2 ≡ 0 · 0 ≡ 0 (mod 5).
+If x ≡ 1 (mod 5) then x2 ≡ 1 · 1 ≡ 1 (mod 5).
+If x ≡ 2 (mod 5) then x2 ≡ 2 · 2 ≡ 4 (mod 5).
+If x ≡ 3 (mod 5) then x2 ≡ 3 · 3 ≡ 9 ≡ 4 (mod 5).
+If x ≡ 4 (mod 5) then x2 ≡ 4 · 4 ≡ 16 ≡ 1 (mod 5).
+Since in every case x2 ̸≡ 3, there is no integer x such that x2 ≡ 3 (mod 5).
+MARKING:
+1 mark for mentioning that the statement is false.
+2 marks for a valid justification. Remove 1 mark for minor mistakes in modular
+arithmetic.
+
+
