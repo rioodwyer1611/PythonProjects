@@ -1,6 +1,8 @@
+#ts does NOT work
+
 import sys
 import time
-
+from typing import Optional, List
 
 # Define the 4 possible actions in 8-puzzle
 LEFT = 0
@@ -82,11 +84,16 @@ class EightPuzzle:
     def num_inversions(self):
         """ Write code here to calculate the number of inversions of self.squares"""
         n_inversions = 0
+        tiles = [c for c in self.squares if c != '_']
+        for i in range(len(tiles)):
+            for j in range(i + 1, len(tiles)):
+                if tiles[i] > tiles[j]:
+                    n_inversions += 1
         return n_inversions
 
     def get_parity(self):
         """ Write code here to determine the parity of self.squares using your num_inversions method"""
-        return 0
+        return self.num_inversions() % 2
 
     def __str__(self):
         s = ""
@@ -103,9 +110,12 @@ class StateNode:
     """ Write code here to implement a node representation for entries in the frontier container
         You should have a constructor that sets the state (puzzle), parent, action (and optionally path_cost / num_steps)
     """
-    def __init__(self, puzzle):
+    def __init__(self, puzzle: EightPuzzle, parent: Optional["StateNode"] = None, action_from_parent=Optional[int], path_cost=0):
         #TO DO: add required arguments for the node
         self.puzzle = puzzle
+        self.parent = parent
+        self.action_from_parent = action_from_parent
+        self.path_cost = path_cost
 
     # We add get_successors to our Node to abstract away the dependence on the environment class (EightPuzzle)
     # and enable getting of a node's successors when running search
@@ -114,23 +124,61 @@ class StateNode:
         #TO DO: implement the get_successors function
         s = []
         suc = self.puzzle.get_successors()
-
+        if suc[0] is not None:
+            s.append(StateNode(suc[0], self, LEFT, 0))
+        if suc[1] is not None:
+            s.append(StateNode(suc[1], self, RIGHT, 0))
+        if suc[2] is not None:
+            s.append(StateNode(suc[2], self, UP, 0))
+        if suc[3] is not None:
+            s.append(StateNode(suc[3], self, DOWN, 0))
         return s
 
     def __eq__(self, obj):
         return self.puzzle == obj.puzzle
 
+def get_path(node: StateNode) -> list[int]:
+    action=[]
+    while node.parent is not None:
+        action.append(node.action_from_parent)
+        node = node.parent
+    return action[::-1]
 
 def bfs(initial, goal):
     """ Implement Breadth-First-Search Here"""
-
+    node = StateNode(initial, None, None, 0)
+    if initial == goal:
+        return get_path(node)
+    frontier = [node]
+    reached = []
+    while frontier:
+        current = frontier.pop(0)
+        for child in current.get_successors():
+            if child.puzzle == goal:
+                return get_path(child)
+            if child not in reached:
+                reached.append(child.puzzle)
+                frontier.append(child.puzzle)
     return None
 
 
 def dfs(initial, goal):
     """ Implement Depth-First-Search Here"""
-
+    node = StateNode(initial, None, None, 0)
+    if initial == goal:
+        return get_path(node)
+    frontier = [node]
+    visited = []
+    while frontier:
+        current = frontier.pop(-1)
+        for child in current.get_successors():
+            if child.puzzle == goal:
+                return get_path(child)
+            if child not in visited:
+                visited.append(child.puzzle)
+                frontier.append(child.puzzle)
     return None
+
 
 
 def main(arglist):
